@@ -8,6 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button x:Name="button" Content="Lasse stinker" HorizontalAlignment="Left" Margin="114,110,0,0" VerticalAlignment="Top" Width="200"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="112" Margin="104,177,0,0" VerticalAlignment="Top" Width="290"/>
 
     </Grid>
 </Window>
