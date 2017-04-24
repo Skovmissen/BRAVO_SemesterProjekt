@@ -9,6 +9,6 @@
       Title="ShowProducts">
 
     <Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="104,127,0,0" TextWrapping="Wrap" Text="Show tities" VerticalAlignment="Top" Height="53" Width="92"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="104,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="92"><Run Text="Show tities"/><Run Text=" + vagina"/></TextBlock>
     </Grid>
 </Page>
