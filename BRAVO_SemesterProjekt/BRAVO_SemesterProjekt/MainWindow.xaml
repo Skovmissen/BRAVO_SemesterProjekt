@@ -7,8 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="button" Content="Lasse stinker" HorizontalAlignment="Left" Margin="114,110,0,0" VerticalAlignment="Top" Width="200"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="112" Margin="104,177,0,0" VerticalAlignment="Top" Width="290"/>
+        <DockPanel Margin="0,0,0,277">
+            <Menu DockPanel.Dock="Top" Height="43" Margin="0,0,0,0">
+                <MenuItem Header="Aktører" Height="33" MinWidth="100" FontSize="14">
+                    <MenuItem Name="NewActor" IsCheckable="True" IsChecked="False" Header="Opret ny aktør" Click="NewActor_Click"  />
+                    <MenuItem Name="ShowActor" IsCheckable="True" IsChecked="False" Header="Hvis alle aktører" Click="ShowActors_Click"  />
+                </MenuItem>
+                <MenuItem Header="Produkter" Height="33" MinWidth="100" FontSize="14">
+                    <MenuItem Name="NewProduct" IsCheckable="True" IsChecked="False" Header="Opret nyt produkt" Click="NewProduct_Click"  />
+                    <MenuItem Name="ShowProduct" IsCheckable="True" IsChecked="False" Header="Hvis alle produkter" Click="ShowProduct_Click"  />
+                </MenuItem>
+            </Menu>
+
+        </DockPanel>
+        <Frame x:Name="frame" HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="517" Margin="0,32,0,0" NavigationUIVisibility="Hidden"/>
+
 
     </Grid>
 </Window>

@@ -24,5 +24,27 @@ namespace BRAVO_SemesterProjekt
         {
             InitializeComponent();
         }
+
+        
+
+        private void NewActor_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new CreateActors();
+        }
+
+        private void ShowActors_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new ShowActors();
+        }
+
+        private void NewProduct_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new CreateProduct();
+        }
+
+        private void ShowProduct_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new ShowProducts();
+        }
     }
 }
