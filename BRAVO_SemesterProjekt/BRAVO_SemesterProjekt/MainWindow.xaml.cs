@@ -46,5 +46,35 @@ namespace BRAVO_SemesterProjekt
         {
             frame.Content = new ShowProducts();
         }
+
+        private void NewCluster_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new CreateCluster();
+        }
+
+        private void NewKombi_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new CreateCombo();
+        }
+
+        private void ShowCombos_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new ShowCombos();
+        }
+
+        private void ShowClusters_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new ShowClusters();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new Upload();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new DeactivateActivate();
+        }
     }
 }

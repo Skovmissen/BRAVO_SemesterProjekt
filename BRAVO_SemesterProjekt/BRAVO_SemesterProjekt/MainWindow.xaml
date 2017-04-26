@@ -5,22 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="814" Width="1301">
     <Grid>
-        <DockPanel Margin="0,0,0,277">
-            <Menu DockPanel.Dock="Top" Height="43" Margin="0,0,0,0">
-                <MenuItem Header="Aktører" Height="33" MinWidth="100" FontSize="14">
+        <DockPanel Margin="0,0,0,737">
+            <Menu DockPanel.Dock="Top" Height="44" Margin="0,0,0,0">
+                <MenuItem Header="Opret" Height="33" MinWidth="100" FontSize="14">
                     <MenuItem Name="NewActor"  Header="Opret ny aktør" Click="NewActor_Click"  />
-                    <MenuItem Name="ShowActor"  Header="Hvis alle aktører" Click="ShowActors_Click"  />
-                </MenuItem>
-                <MenuItem Header="Produkter" Height="33" MinWidth="100" FontSize="14">
                     <MenuItem Name="NewProduct"  Header="Opret nyt produkt" Click="NewProduct_Click"  />
-                    <MenuItem Name="ShowProduct"  Header="Hvis alle produkter" Click="ShowProduct_Click"  />
+                    <MenuItem Name="NewKombi"  Header="Opret nyt kombi-produkt" Click="NewKombi_Click"  />
+                    <MenuItem Name="NewCluster"  Header="Opret ny klynge" Click="NewCluster_Click"  />
+                </MenuItem>
+                <MenuItem Header="Oversigt" Height="33" MinWidth="100" FontSize="14">
+                    <MenuItem Name="ShowActors"  Header="Hvis alle aktører" Click="ShowActors_Click"  />
+                    <MenuItem Name="ShowProducts"  Header="Hvis alle produkter" Click="ShowProduct_Click"  />
+                    <MenuItem Name="ShowCombos"  Header="Hvis alle kombi-produkter" Click="ShowCombos_Click"  />
+                    <MenuItem Name="ShowClusters"  Header="Hvis alle klynger" Click="ShowClusters_Click"  />
+                </MenuItem>
+                <MenuItem Header="Deaktivere/Aktivere" Height="33" MinWidth="100" FontSize="14" Click="MenuItem_Click">
+                
+                </MenuItem>
+                <MenuItem Header="Upload" Height="33" MinWidth="100" FontSize="14" Margin="30,0,0,0" Click="MenuItem_Click_1">
+                 
                 </MenuItem>
             </Menu>
 
         </DockPanel>
-        <Frame x:Name="frame" HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="517" Margin="0,32,0,0" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="frame" HorizontalAlignment="Left" Height="732" VerticalAlignment="Top" Width="1293" Margin="0,51,0,0" NavigationUIVisibility="Hidden"/>
 
 
     </Grid>
