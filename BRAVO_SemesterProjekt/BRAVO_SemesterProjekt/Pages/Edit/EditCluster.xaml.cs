@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BRAVO_SemesterProjekt.Edit
+namespace BRAVO_SemesterProjekt
 {
     /// <summary>
     /// Interaction logic for EditCluster.xaml
