@@ -55,50 +55,53 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CreateCluster.xaml.cs">
+    <Compile Include="Pages\Create\CreateCluster.xaml.cs">
       <DependentUpon>CreateCluster.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreateCombo.xaml.cs">
+    <Compile Include="Pages\Create\CreateCombo.xaml.cs">
       <DependentUpon>CreateCombo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreateProduct.xaml.cs">
+    <Compile Include="Pages\Create\CreateProduct.xaml.cs">
       <DependentUpon>CreateProduct.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DeactivateActivate.xaml.cs">
+    <Compile Include="Classes\DB.cs" />
+    <Compile Include="Pages\Extra\DeactivateActivate.xaml.cs">
       <DependentUpon>DeactivateActivate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShowActors.xaml.cs">
+    <Compile Include="Classes\Properties.cs" />
+    <Compile Include="Pages\Show\ShowActors.xaml.cs">
       <DependentUpon>ShowActors.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShowClusters.xaml.cs">
+    <Compile Include="Pages\Show\ShowClusters.xaml.cs">
       <DependentUpon>ShowClusters.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShowCombos.xaml.cs">
+    <Compile Include="Pages\Show\ShowCombos.xaml.cs">
       <DependentUpon>ShowCombos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShowProducts.xaml.cs">
+    <Compile Include="Pages\Show\ShowProducts.xaml.cs">
       <DependentUpon>ShowProducts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upload.xaml.cs">
+    <Compile Include="Pages\Upload\Upload.xaml.cs">
       <DependentUpon>Upload.xaml</DependentUpon>
     </Compile>
-    <Page Include="CreateActors.xaml">
+    <Compile Include="Classes\XMLUpload.cs" />
+    <Page Include="Pages\Create\CreateActors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateCluster.xaml">
+    <Page Include="Pages\Create\CreateCluster.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateCombo.xaml">
+    <Page Include="Pages\Create\CreateCombo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateProduct.xaml">
+    <Page Include="Pages\Create\CreateProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeactivateActivate.xaml">
+    <Page Include="Pages\Extra\DeactivateActivate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,30 +113,30 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CreateActors.xaml.cs">
+    <Compile Include="Pages\Create\CreateActors.xaml.cs">
       <DependentUpon>CreateActors.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ShowActors.xaml">
+    <Page Include="Pages\Show\ShowActors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShowClusters.xaml">
+    <Page Include="Pages\Show\ShowClusters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShowCombos.xaml">
+    <Page Include="Pages\Show\ShowCombos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShowProducts.xaml">
+    <Page Include="Pages\Show\ShowProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upload.xaml">
+    <Page Include="Pages\Upload\Upload.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
