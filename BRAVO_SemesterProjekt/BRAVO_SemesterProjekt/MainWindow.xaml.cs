@@ -76,5 +76,25 @@ namespace BRAVO_SemesterProjekt
         {
             frame.Content = new DeactivateActivate();
         }
+
+        private void EditActor_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new EditActors();
+        }
+
+        private void EditProduct_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new EditProducts();
+        }
+
+        private void EditCombo_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new EditCombo();
+        }
+
+        private void EditCluster_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new EditCluster();
+        }
     }
 }

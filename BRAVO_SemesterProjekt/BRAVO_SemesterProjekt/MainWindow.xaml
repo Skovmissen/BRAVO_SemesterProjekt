@@ -10,16 +10,22 @@
         <DockPanel Margin="0,0,0,737">
             <Menu DockPanel.Dock="Top" Height="44" Margin="0,0,0,0">
                 <MenuItem Header="Opret" Height="33" MinWidth="100" FontSize="14">
-                    <MenuItem Name="NewActor"  Header="Opret ny aktør" Click="NewActor_Click"  />
-                    <MenuItem Name="NewProduct"  Header="Opret nyt produkt" Click="NewProduct_Click"  />
-                    <MenuItem Name="NewKombi"  Header="Opret nyt kombi-produkt" Click="NewKombi_Click"  />
-                    <MenuItem Name="NewCluster"  Header="Opret ny klynge" Click="NewCluster_Click"  />
+                    <MenuItem Name="NewActor"  Header="Aktør" Click="NewActor_Click"  />
+                    <MenuItem Name="NewProduct"  Header="Produkt" Click="NewProduct_Click"  />
+                    <MenuItem Name="NewKombi"  Header="Kombi-produkt" Click="NewKombi_Click"  />
+                    <MenuItem Name="NewCluster"  Header="Klynge" Click="NewCluster_Click"  />
+                </MenuItem>
+                <MenuItem Header="Redigere" Height="33" MinWidth="100" FontSize="14">
+                    <MenuItem Name="EditActor"  Header="Aktør" Click="EditActor_Click"  />
+                    <MenuItem Name="EditProduct"  Header="Produkt" Click="EditProduct_Click"  />
+                    <MenuItem Name="EditCombo"  Header="Kombi-produkt" Click="EditCombo_Click"  />
+                    <MenuItem Name="EditCluster"  Header="Klynge" Click="EditCluster_Click"  />
                 </MenuItem>
                 <MenuItem Header="Oversigt" Height="33" MinWidth="100" FontSize="14">
-                    <MenuItem Name="ShowActors"  Header="Hvis alle aktører" Click="ShowActors_Click"  />
-                    <MenuItem Name="ShowProducts"  Header="Hvis alle produkter" Click="ShowProduct_Click"  />
-                    <MenuItem Name="ShowCombos"  Header="Hvis alle kombi-produkter" Click="ShowCombos_Click"  />
-                    <MenuItem Name="ShowClusters"  Header="Hvis alle klynger" Click="ShowClusters_Click"  />
+                    <MenuItem Name="ShowActors"  Header="Aktører" Click="ShowActors_Click"  />
+                    <MenuItem Name="ShowProducts"  Header="Produkter" Click="ShowProduct_Click"  />
+                    <MenuItem Name="ShowCombos"  Header="Kombi-produkter" Click="ShowCombos_Click"  />
+                    <MenuItem Name="ShowClusters"  Header="Klynger" Click="ShowClusters_Click"  />
                 </MenuItem>
                 <MenuItem Header="Deaktivere/Aktivere" Height="33" MinWidth="100" FontSize="14" Click="MenuItem_Click">
                 

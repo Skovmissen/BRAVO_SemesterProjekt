@@ -55,6 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\Edit\EditActors.xaml.cs">
+      <DependentUpon>EditActors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Edit\EditCluster.xaml.cs">
+      <DependentUpon>EditCluster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Edit\EditCombo.xaml.cs">
+      <DependentUpon>EditCombo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Edit\EditProducts.xaml.cs">
+      <DependentUpon>EditProducts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Create\CreateCluster.xaml.cs">
       <DependentUpon>CreateCluster.xaml</DependentUpon>
     </Compile>
@@ -68,7 +80,6 @@
     <Compile Include="Pages\Extra\DeactivateActivate.xaml.cs">
       <DependentUpon>DeactivateActivate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Properties.cs" />
     <Compile Include="Pages\Show\ShowActors.xaml.cs">
       <DependentUpon>ShowActors.xaml</DependentUpon>
     </Compile>
@@ -85,6 +96,22 @@
       <DependentUpon>Upload.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\XMLUpload.cs" />
+    <Page Include="Pages\Edit\EditActors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Edit\EditCluster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Edit\EditCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Edit\EditProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Create\CreateActors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
