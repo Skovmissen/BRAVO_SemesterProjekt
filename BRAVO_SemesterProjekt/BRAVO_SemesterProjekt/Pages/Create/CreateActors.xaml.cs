@@ -23,6 +23,8 @@ namespace BRAVO_SemesterProjekt
         public CreateActors()
         {
             InitializeComponent();
+            
         }
+        
     }
 }
