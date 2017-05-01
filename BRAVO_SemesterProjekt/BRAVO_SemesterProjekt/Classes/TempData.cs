@@ -10,7 +10,16 @@ namespace BRAVO_SemesterProjekt
 {
     class TempData : INotifyPropertyChanged
     {
-        
+        private bool activate;
+
+        public bool Activate
+        {
+            get { return activate; }
+            set { activate = value;
+                NotifyPropertyChanged()}
+        }
+
+
         private string category;
 
         public string Category

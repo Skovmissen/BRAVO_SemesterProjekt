@@ -40,6 +40,50 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InserActor(TempData temp)
         {
+            SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Activate) VALUES (@ActorName, @Activate)", connection);
+            command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Activate", 1 , SqlDbType.Bit));
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void InsertCluster(TempData temp)
+        {
+            SqlCommand command = new SqlCommand("INSERT INTO Cluster (ClusterName, Activate) VALUES (@ClusterName, @Activate)", connection);
+            command.Parameters.Add(CreateParam("@ClusterName", temp.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Bit));
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void InsertCombo(TempData temp)
+        {
+            SqlCommand command = new SqlCommand("INSERT INTO CombiProduct (CombiProductName, StartTime, EndTime, Activate) VALUES (@CombiProductName, @StartTime, @EndTime, @Activate)", connection);
+            command.Parameters.Add(CreateParam("@CombiProductName", temp.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@StartTime", temp.StartTime, SqlDbType.Date));
+            command.Parameters.Add(CreateParam("@EndTime", temp.EndTime, SqlDbType.Date));
+            command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Bit));
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void InsertProduct(TempData temp)
+        {
 
         }
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
