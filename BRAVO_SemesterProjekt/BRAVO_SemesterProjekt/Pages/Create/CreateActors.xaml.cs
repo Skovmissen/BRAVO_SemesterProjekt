@@ -20,11 +20,18 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class CreateActors : Page
     {
+        TempData temp = new TempData();
         public CreateActors()
         {
+            DataContext = temp;
             InitializeComponent();
             
+            
         }
-        
+
+        private void btn_Gem_Click(object sender, RoutedEventArgs e)
+        {
+            DB.InserActor(temp);
+        }
     }
 }

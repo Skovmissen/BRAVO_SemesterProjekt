@@ -9,7 +9,8 @@
       Title="CreateActors">
 
     <Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="104,127,0,0" TextWrapping="Wrap" Text="Create Actors" VerticalAlignment="Top" Height="53" Width="92"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="88,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="92" RenderTransformOrigin="-0.293,1.462"><Run Text="Create Actors"/></TextBlock>
+        <Button x:Name="btn_Gem" Content="Button" HorizontalAlignment="Left" Margin="72,202,0,0" VerticalAlignment="Top" Width="75" Click="btn_Gem_Click"/>
 
     </Grid>
 </Page>

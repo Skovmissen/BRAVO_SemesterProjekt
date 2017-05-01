@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BRAVO_SemesterProjekt.Classes
+namespace BRAVO_SemesterProjekt
 {
     class Print
     {
