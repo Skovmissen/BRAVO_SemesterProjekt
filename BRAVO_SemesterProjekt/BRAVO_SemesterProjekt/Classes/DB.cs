@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
@@ -40,6 +41,12 @@ namespace BRAVO_SemesterProjekt
         public static void InserActor(TempData temp)
         {
 
+        }
+        private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
+        {
+            SqlParameter param = new SqlParameter(name, type);
+            param.Value = value;
+            return param;
         }
     }
 }
