@@ -69,6 +69,16 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private double latitude;
 
         public double Latitude

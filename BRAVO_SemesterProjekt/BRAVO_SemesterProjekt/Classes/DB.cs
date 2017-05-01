@@ -95,7 +95,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@Email", temp.Email, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Tlf", temp.Tlf, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Describtion", temp.Describtion, SqlDbType.NVarChar));
-            command.Parameters.Add(CreateParam("@Activate", temp.Activate, SqlDbType.Int));
+            command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
             try
             {
                 command.ExecuteNonQuery();
@@ -104,6 +104,77 @@ namespace BRAVO_SemesterProjekt
             {
                 throw ex;
             }
+        }
+        private static void UpdateActor(TempData temp)
+        {
+            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName WHERE ActorId = @ActorId", connection);
+            command.Parameters.AddWithValue("@ActorName", temp.Name);
+            command.Parameters.AddWithValue("@ActorId", temp.Id);
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private static void UpdateCluster(TempData temp)
+        {
+            SqlCommand command = new SqlCommand("UPDATE Cluster SET ClusterName = @OldClusterName WHERE ClusterName = @NewClusterName", connection);
+            command.Parameters.AddWithValue("@OldClusterName", temp.Name);
+            command.Parameters.AddWithValue("@NewClusterName", temp.Describtion);
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private static void UpdateCombo(TempData temp)
+        {
+            SqlCommand command = new SqlCommand("UPDATE CombiProduct SET CombiProductName = @CombiProductName, StartTime = @StartTime, EndTime = @EndTime WHERE CombiId = @CombiId", connection);
+            command.Parameters.AddWithValue("@CombiProductName", temp.Name);
+            command.Parameters.AddWithValue("@StartTime", temp.StartTime);
+            command.Parameters.AddWithValue("@EndTime", temp.EndTime);
+            command.Parameters.AddWithValue("@CombiId", temp.Id);
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private static void UpdateProduct(TempData temp)
+        {
+            SqlCommand command = new SqlCommand("UPDATE Product SET City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Email = @Email, Tlf = @Tlf, Describtion = @Describtion WHERE ProductId = @ProductId", connection);
+            command.Parameters.AddWithValue("@City", temp.City);
+            command.Parameters.AddWithValue("@ZipCode", temp.City);
+            command.Parameters.AddWithValue("@Region", temp.City);
+            command.Parameters.AddWithValue("@Street", temp.City);
+            command.Parameters.AddWithValue("@Latitude", temp.City);
+            command.Parameters.AddWithValue("@Longtitude", temp.City);
+            command.Parameters.AddWithValue("@URL", temp.City);
+            command.Parameters.AddWithValue("@Email", temp.City);
+            command.Parameters.AddWithValue("@Tlf", temp.City);
+            command.Parameters.AddWithValue("@Describtion", temp.City);
+            command.Parameters.AddWithValue("@ProductId", temp.Id);
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
         {
