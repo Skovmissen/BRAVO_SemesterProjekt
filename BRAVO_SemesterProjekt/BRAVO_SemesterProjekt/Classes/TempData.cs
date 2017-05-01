@@ -15,10 +15,12 @@ namespace BRAVO_SemesterProjekt
         public bool Activate
         {
             get { return activate; }
-            set { activate = value;
-                NotifyPropertyChanged()}
+            set
+            {
+                activate = value;
+                NotifyPropertyChanged();
+            }
         }
-
 
         private string category;
 
@@ -29,6 +31,16 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private string city;
+
+        public string City
+        {
+            get { return city; }
+            set { city = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private string describtion;
 
         public string Describtion

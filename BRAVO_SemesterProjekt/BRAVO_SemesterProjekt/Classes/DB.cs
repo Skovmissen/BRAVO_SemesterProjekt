@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace BRAVO_SemesterProjekt
 {
-    
+
     static class DB
     {
         static private SqlConnection connection = null;
@@ -42,7 +42,7 @@ namespace BRAVO_SemesterProjekt
         {
             SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Activate) VALUES (@ActorName, @Activate)", connection);
             command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
-            command.Parameters.Add(CreateParam("@Activate", 1 , SqlDbType.Bit));
+            command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Bit));
             try
             {
                 command.ExecuteNonQuery();
@@ -84,7 +84,26 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InsertProduct(TempData temp)
         {
-
+            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Email, Tlf, Describtion, Activate) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Email, @Tlf, @Describtion, @Activate)", connection);
+            command.Parameters.Add(CreateParam("@City", temp.City, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ZipCode", temp.Zipcode, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Region", temp.Region, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Street", temp.Street, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Latitude", temp.Latitude, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@Longtitude", temp.Longtitude, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@URL", temp.Url, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Email", temp.Email, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Tlf", temp.Tlf, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Describtion", temp.Describtion, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Activate", temp.Activate, SqlDbType.Int));
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
         {
