@@ -56,6 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Dummy1.cs" />
+    <Compile Include="Classes\dummy2.cs" />
+    <Compile Include="Classes\dummy3.cs" />
+    <Compile Include="Classes\dummy4.cs" />
     <Compile Include="Classes\Print.cs" />
     <Compile Include="Classes\TempData.cs" />
     <Compile Include="Pages\Edit\EditActors.xaml.cs">

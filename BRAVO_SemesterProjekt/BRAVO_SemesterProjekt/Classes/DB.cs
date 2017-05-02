@@ -40,8 +40,10 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InserActor(TempData temp)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Activate) VALUES (@ActorName, @Activate)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Email, Tlf Activate) VALUES (@ActorName, @Email, @Tlf @Activate)", connection);
             command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Email", temp.Email, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Tlf", temp.Tlf, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Bit));
             try
             {
@@ -84,16 +86,14 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InsertProduct(TempData temp)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Email, Tlf, Describtion, Activate) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Email, @Tlf, @Describtion, @Activate)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate)", connection);
             command.Parameters.Add(CreateParam("@City", temp.City, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ZipCode", temp.Zipcode, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Region", temp.Region, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Street", temp.Street, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Latitude", temp.Latitude, SqlDbType.Float));
             command.Parameters.Add(CreateParam("@Longtitude", temp.Longtitude, SqlDbType.Float));
-            command.Parameters.Add(CreateParam("@URL", temp.Url, SqlDbType.NVarChar));
-            command.Parameters.Add(CreateParam("@Email", temp.Email, SqlDbType.NVarChar));
-            command.Parameters.Add(CreateParam("@Tlf", temp.Tlf, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@URL", temp.Url, SqlDbType.NVarChar));            
             command.Parameters.Add(CreateParam("@Describtion", temp.Describtion, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
             try
@@ -107,8 +107,10 @@ namespace BRAVO_SemesterProjekt
         }
         private static void UpdateActor(TempData temp)
         {
-            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName WHERE ActorId = @ActorId", connection);
+            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf WHERE ActorId = @ActorId", connection);
             command.Parameters.AddWithValue("@ActorName", temp.Name);
+            command.Parameters.AddWithValue("@Email", temp.City);
+            command.Parameters.AddWithValue("@Tlf", temp.City);
             command.Parameters.AddWithValue("@ActorId", temp.Id);
 
             try
@@ -154,16 +156,14 @@ namespace BRAVO_SemesterProjekt
         }
         private static void UpdateProduct(TempData temp)
         {
-            SqlCommand command = new SqlCommand("UPDATE Product SET City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Email = @Email, Tlf = @Tlf, Describtion = @Describtion WHERE ProductId = @ProductId", connection);
+            SqlCommand command = new SqlCommand("UPDATE Product SET City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion WHERE ProductId = @ProductId", connection);
             command.Parameters.AddWithValue("@City", temp.City);
             command.Parameters.AddWithValue("@ZipCode", temp.City);
             command.Parameters.AddWithValue("@Region", temp.City);
             command.Parameters.AddWithValue("@Street", temp.City);
             command.Parameters.AddWithValue("@Latitude", temp.City);
             command.Parameters.AddWithValue("@Longtitude", temp.City);
-            command.Parameters.AddWithValue("@URL", temp.City);
-            command.Parameters.AddWithValue("@Email", temp.City);
-            command.Parameters.AddWithValue("@Tlf", temp.City);
+            command.Parameters.AddWithValue("@URL", temp.City);           
             command.Parameters.AddWithValue("@Describtion", temp.City);
             command.Parameters.AddWithValue("@ProductId", temp.Id);
             try
