@@ -69,9 +69,9 @@ namespace BRAVO_SemesterProjekt
             frame.Content = new ShowClusters();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void Upload_Click(object sender, RoutedEventArgs e)
         {
-            frame.Content = new Upload();
+            XMLUpload.ParseByXDocument();
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
