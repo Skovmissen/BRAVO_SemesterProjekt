@@ -38,7 +38,8 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InserActor(TempData temp)
+        
+        public static void InsertActor(TempData temp)
         {
             SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Email, Tlf Activate) VALUES (@ActorName, @Email, @Tlf @Activate)", connection);
             command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
@@ -68,6 +69,20 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
+        public static void InsertCategory(TempData temp)
+        {
+            SqlCommand command = new SqlCommand("INSERT INTO Category (CategoryName) VALUES (@CategoryName)", connection);
+            command.Parameters.Add(CreateParam("@CategoryName", temp.Category, SqlDbType.NVarChar));
+           
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public static void InsertCombo(TempData temp)
         {
             SqlCommand command = new SqlCommand("INSERT INTO CombiProduct (CombiProductName, StartTime, EndTime, Activate) VALUES (@CombiProductName, @StartTime, @EndTime, @Activate)", connection);
@@ -86,7 +101,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InsertProduct(TempData temp)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, ActorId, CategoryName) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorId, @CategoryName)", connection);
             command.Parameters.Add(CreateParam("@City", temp.City, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ZipCode", temp.Zipcode, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Region", temp.Region, SqlDbType.NVarChar));
@@ -96,6 +111,8 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@URL", temp.Url, SqlDbType.NVarChar));            
             command.Parameters.Add(CreateParam("@Describtion", temp.Describtion, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
+            command.Parameters.Add(CreateParam("@ActorId", temp.Id, SqlDbType.Int));
+            command.Parameters.Add(CreateParam("@CategoryName", temp.Category, SqlDbType.NVarChar));
             try
             {
                 command.ExecuteNonQuery();
@@ -175,6 +192,22 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
 
+        }
+        public static int SelectActorId(TempData temp)
+        {
+            SqlCommand command = new SqlCommand("SELECT ActorId FROM Actor WHERE ActorName = @ActorName", connection);
+            command.Parameters.AddWithValue("@ActorName", temp.Name);
+            try
+            {
+                int id = command.ExecuteNonQuery();
+                return id;
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
         {

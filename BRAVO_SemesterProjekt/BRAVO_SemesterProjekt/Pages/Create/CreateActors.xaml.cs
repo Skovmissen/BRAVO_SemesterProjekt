@@ -31,7 +31,7 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_Gem_Click(object sender, RoutedEventArgs e)
         {
-            DB.InserActor(temp);
+            DB.InsertActor(temp);
         }
     }
 }

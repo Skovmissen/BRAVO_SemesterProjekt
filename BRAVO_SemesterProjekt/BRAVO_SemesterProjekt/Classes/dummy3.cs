@@ -16,12 +16,15 @@ namespace BRAVO_SemesterProjekt
         {
             XmlDocument document = new XmlDocument();
             TempData temp = new TempData();
-            XmlNodeList Product = document.GetElementsByTagName("Product");
+            XmlNodeList Product = document.GetElementsByTagName("Product"); //Parent Node
             XmlNodeList Address = document.GetElementsByTagName("Address"); //Child of product
-                XmlNodeList geoCoordinate = document.GetElementsByTagName("GeoCoordinate"); //Child of address
-                XmlNodeList municipality = document.GetElementsByTagName("Municipality"); //Child of address
+            XmlNodeList geoCoordinate = document.GetElementsByTagName("GeoCoordinate"); //Child of address
+            XmlNodeList municipality = document.GetElementsByTagName("Municipality"); //Child of address
             XmlNodeList category = document.GetElementsByTagName("Category"); //Child of product
-
+            XmlNodeList contact = document.GetElementsByTagName("ContactInformation"); //Child of product
+            XmlNodeList link = document.GetElementsByTagName("Link"); //Child of contact
+            XmlNodeList descriptions = document.GetElementsByTagName("Descriptions"); //Child of product
+            XmlNodeList description = document.GetElementsByTagName("Description"); //Child of descriptions
             document.Load(@"D:\OneDrive - IT Center Nord\GitHub Reposeitory\BRAVO_SemesterProjekt\BRAVO_SemesterProjekt\BRAVO_SemesterProjekt\skive_xml.xml");
             
             foreach (XmlNode node in Product)
@@ -55,6 +58,27 @@ namespace BRAVO_SemesterProjekt
                 {
                     temp.Category = categoryNode["Name"].InnerText;
                 }
+                foreach (XmlNode contactNode in contact)
+                {
+                    temp.Email = contactNode["Email"].InnerText;
+                    temp.Tlf = contactNode["Phone"].InnerText;
+                    foreach (XmlNode linkNode in link)
+                    {
+                        temp.Url = linkNode["Url"].InnerText;
+                    }
+                }
+                foreach (XmlNode descriptionsNode in descriptions)
+                {
+                    
+                    foreach (XmlNode descriptionNode in description)
+                    {
+                        temp.Describtion = descriptionNode["Text"].InnerText;
+                    }
+                }
+                DB.InsertActor(temp);
+                DB.InsertCategory(temp);
+                temp.Id = DB.SelectActorId(temp);
+                DB.InsertProduct(temp);
             }
             
         }
