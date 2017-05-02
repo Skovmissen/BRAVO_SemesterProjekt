@@ -41,7 +41,7 @@ namespace BRAVO_SemesterProjekt
         
         public static void InsertActor(TempData temp)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Email, Tlf Activate) VALUES (@ActorName, @Email, @Tlf @Activate)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Email, Tlf, Activate) VALUES (@ActorName, @Email, @Tlf, @Activate)", connection);
             command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Email", temp.Email, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Tlf", temp.Tlf, SqlDbType.NVarChar));
@@ -101,7 +101,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InsertProduct(TempData temp)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, ActorId, CategoryName) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorId, @CategoryName)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName)", connection);
             command.Parameters.Add(CreateParam("@City", temp.City, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ZipCode", temp.Zipcode, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Region", temp.Region, SqlDbType.NVarChar));
@@ -111,10 +111,11 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@URL", temp.Url, SqlDbType.NVarChar));            
             command.Parameters.Add(CreateParam("@Describtion", temp.Describtion, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
-            command.Parameters.Add(CreateParam("@ActorId", temp.Id, SqlDbType.Int));
+            command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@CategoryName", temp.Category, SqlDbType.NVarChar));
             try
             {
+                
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -124,11 +125,11 @@ namespace BRAVO_SemesterProjekt
         }
         private static void UpdateActor(TempData temp)
         {
-            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf WHERE ActorId = @ActorId", connection);
+            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf WHERE ActorName = @ActorName", connection);
             command.Parameters.AddWithValue("@ActorName", temp.Name);
             command.Parameters.AddWithValue("@Email", temp.City);
             command.Parameters.AddWithValue("@Tlf", temp.City);
-            command.Parameters.AddWithValue("@ActorId", temp.Id);
+            
 
             try
             {
@@ -208,6 +209,40 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
             
+        }
+        public static DataTable CheckForDoubleCategory(TempData temp)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter command = new SqlDataAdapter("SELECT CategoryName FROM Category WHERE CategoryName = @CategoryName", connection);
+            command.SelectCommand.Parameters.AddWithValue("@CategoryName", temp.Category);
+            try
+            {
+                command.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public static DataTable CheckForDoubleActor(TempData temp)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter command = new SqlDataAdapter("SELECT ActorName FROM Actor WHERE ActorName = @ActorName", connection);
+            command.SelectCommand.Parameters.AddWithValue("@ActorName", temp.Name);
+            try
+            {
+                command.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace BRAVO_SemesterProjekt
 {
     class dummy3
     {
-        
+
 
         public void Reader()
         {
@@ -26,62 +27,81 @@ namespace BRAVO_SemesterProjekt
             XmlNodeList descriptions = document.GetElementsByTagName("Descriptions"); //Child of product
             XmlNodeList description = document.GetElementsByTagName("Description"); //Child of descriptions
             document.Load(@"D:\OneDrive - IT Center Nord\GitHub Reposeitory\BRAVO_SemesterProjekt\BRAVO_SemesterProjekt\BRAVO_SemesterProjekt\skive_xml.xml");
-            
+            DB.OpenDb();
             foreach (XmlNode node in Product)
             {
                 temp.Name = node["Name"].InnerText;
 
-                
+
                 foreach (XmlNode addressNode in Address)
                 {
-                    temp.Street = addressNode["AddressLine1"].InnerText;
-                    temp.Zipcode = addressNode["PostalCode"].InnerText;
-                    temp.City = addressNode["City"].InnerText;
 
-                    
+                    temp.Street = addressNode["AddressLine1"].InnerText;
+
+
+                    temp.Zipcode = addressNode["PostalCode"].InnerText;
+
+                    temp.City = addressNode["City"].InnerText;
 
                     foreach (XmlNode geoNode in geoCoordinate)
                     {
-                        temp.Longtitude = Convert.ToDouble(geoNode["Longtitude"].InnerText);
                         temp.Latitude = Convert.ToDouble(geoNode["Latitude"].InnerText);
-                    }
+                        temp.Longtitude = Convert.ToDouble(geoNode["Longitude"].InnerText);
 
-                    
+                        foreach (XmlNode municipalityNode in municipality)
+                        {
+                            temp.Region = municipalityNode["Name"].InnerText;
 
-                    foreach (XmlNode municipalityNode in municipality)
-                    {
-                        temp.Region = municipalityNode["Name"].InnerText;                       
+                            foreach (XmlNode categoryNode in category)
+                            {
+                                temp.Category = categoryNode["Name"].InnerText;
+
+                                foreach (XmlNode contactNode in contact)
+                                {
+                                    temp.Email = contactNode["Email"].InnerText;
+                                    temp.Tlf = contactNode["Phone"].InnerText;
+
+                                    foreach (XmlNode linkNode in link)
+                                    {
+                                        temp.Url = linkNode["Url"].InnerText;
+
+                                        foreach (XmlNode descriptionNode in description)
+                                        {
+                                            temp.Describtion = descriptionNode["Text"].InnerText;
+                                            break;
+                                        }
+                                        break;
+                                    }
+                                    break;
+                                }
+                                break;
+                            }
+                            break;
+                        }
+                        break;
                     }
+                    break;
+
+                }
+                DataTable dtActor = DB.CheckForDoubleActor(temp);
+                if (dtActor.Rows.Count == 0)
+                {
+                    DB.InsertActor(temp);
                 }
 
-                foreach (XmlNode categoryNode in category)
+                DataTable dtCategory = DB.CheckForDoubleCategory(temp);
+
+                if (dtCategory.Rows.Count == 0)
                 {
-                    temp.Category = categoryNode["Name"].InnerText;
+                    DB.InsertCategory(temp);
                 }
-                foreach (XmlNode contactNode in contact)
-                {
-                    temp.Email = contactNode["Email"].InnerText;
-                    temp.Tlf = contactNode["Phone"].InnerText;
-                    foreach (XmlNode linkNode in link)
-                    {
-                        temp.Url = linkNode["Url"].InnerText;
-                    }
-                }
-                foreach (XmlNode descriptionsNode in descriptions)
-                {
-                    
-                    foreach (XmlNode descriptionNode in description)
-                    {
-                        temp.Describtion = descriptionNode["Text"].InnerText;
-                    }
-                }
-                DB.InsertActor(temp);
-                DB.InsertCategory(temp);
-                temp.Id = DB.SelectActorId(temp);
+
+                //temp.Id = DB.SelectActorId(temp);
                 DB.InsertProduct(temp);
             }
-            
+            DB.CloseDb();
         }
+
     }
 }
 
