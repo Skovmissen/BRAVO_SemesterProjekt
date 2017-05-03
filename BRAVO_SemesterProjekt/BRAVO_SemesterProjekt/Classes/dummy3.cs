@@ -30,7 +30,8 @@ namespace BRAVO_SemesterProjekt
             DB.OpenDb();
             foreach (XmlNode node in Product)
             {
-                temp.Name = node["Name"].InnerText;
+               temp.Name = node["Name"].InnerText;
+               
 
 
                 foreach (XmlNode addressNode in Address)
