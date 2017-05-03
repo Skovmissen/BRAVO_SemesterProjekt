@@ -15,13 +15,13 @@ namespace BRAVO_SemesterProjekt
 
 
 
-        public static void Uploadxml()
+        public static void Uploadxml(TempData temp)
         {
-            string url = @"C:\Users\Skovmose\OneDrive - IT Center Nord\Skole\2. semester eksamen\BRAVO_SemesterProjekt\BRAVO_SemesterProjekt\BRAVO_SemesterProjekt\skive_xml.xml";
-            TempData temp = new TempData();
+            
+            
             XmlDocument doc = new XmlDocument();
 
-            doc.Load(url);
+            doc.Load(temp.Url);
 
             XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
             ns.AddNamespace("BravoXML", "http://schemas.datacontract.org/2004/07/GuideDenmark.External.Data.Model");

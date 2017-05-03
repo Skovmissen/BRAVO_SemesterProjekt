@@ -245,6 +245,23 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
+        public static DataTable CheckForDoubleProduct(TempData temp)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter command = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductName = @ProductName", connection);
+            command.SelectCommand.Parameters.AddWithValue("@ProductName", temp.ProductName);
+            try
+            {
+                command.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
         {
             SqlParameter param = new SqlParameter(name, type);
