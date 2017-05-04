@@ -12,16 +12,47 @@ namespace BRAVO_SemesterProjekt
 {
     class XMLUpload
     {
-
-
-
-        public static void Uploadxml(TempData temp)
+        public static void WaitStart(Wait wait)
         {
             
-            
+            wait.Show();
+        }
+        public static void WaitEnd(Wait wait)
+        {
+
+            wait.Close();
+        }
+        public static XmlDocument LoadDoc(TempData temp)
+        {
             XmlDocument doc = new XmlDocument();
 
             doc.Load(temp.Url);
+
+            return doc;
+        }
+        public static void InsertInDb(TempData temp)
+        {
+            DataTable dtActor = DB.CheckForDoubleActor(temp);
+            if (dtActor.Rows.Count == 0)
+            {
+                DB.InsertActor(temp);
+            }
+
+            DataTable dtCategory = DB.CheckForDoubleCategory(temp);
+
+            if (dtCategory.Rows.Count == 0)
+            {
+                DB.InsertCategory(temp);
+            }
+
+            //temp.Id = DB.SelectActorId(temp);
+            DB.InsertProduct(temp);
+        }
+        public static void Uploadxml(TempData temp, Wait wait)
+        {
+
+            WaitStart(wait);
+            XmlDocument doc = LoadDoc(temp);
 
             XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
             ns.AddNamespace("BravoXML", "http://schemas.datacontract.org/2004/07/GuideDenmark.External.Data.Model");
@@ -131,25 +162,13 @@ namespace BRAVO_SemesterProjekt
                 temp.ProductName = temp.Name;
 
 
-
-                DataTable dtActor = DB.CheckForDoubleActor(temp);
-                if (dtActor.Rows.Count == 0)
-                {
-                    DB.InsertActor(temp);
-                }
-
-                DataTable dtCategory = DB.CheckForDoubleCategory(temp);
-
-                if (dtCategory.Rows.Count == 0)
-                {
-                    DB.InsertCategory(temp);
-                }
-
-                //temp.Id = DB.SelectActorId(temp);
-                DB.InsertProduct(temp);
+                InsertInDb(temp);
+              
             }
-            MessageBox.Show("Upload Complete");
+           
             DB.CloseDb();
+            WaitEnd(wait);
+            MessageBox.Show("Upload Complete");
         }
     }
 
