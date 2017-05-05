@@ -38,9 +38,10 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InserActor(TempData temp)
+        
+        public static void InsertActor(TempData temp)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Email, Tlf Activate) VALUES (@ActorName, @Email, @Tlf @Activate)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Email, Tlf, Activate) VALUES (@ActorName, @Email, @Tlf, @Activate)", connection);
             command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Email", temp.Email, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Tlf", temp.Tlf, SqlDbType.NVarChar));
@@ -68,6 +69,20 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
+        public static void InsertCategory(TempData temp)
+        {
+            SqlCommand command = new SqlCommand("INSERT INTO Category (CategoryName) VALUES (@CategoryName)", connection);
+            command.Parameters.Add(CreateParam("@CategoryName", temp.Category, SqlDbType.NVarChar));
+           
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public static void InsertCombo(TempData temp)
         {
             SqlCommand command = new SqlCommand("INSERT INTO CombiProduct (CombiProductName, StartTime, EndTime, Activate) VALUES (@CombiProductName, @StartTime, @EndTime, @Activate)", connection);
@@ -86,7 +101,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InsertProduct(TempData temp)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, XML_Id) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @XmlId)", connection);
             command.Parameters.Add(CreateParam("@City", temp.City, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ZipCode", temp.Zipcode, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Region", temp.Region, SqlDbType.NVarChar));
@@ -96,8 +111,13 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@URL", temp.Url, SqlDbType.NVarChar));            
             command.Parameters.Add(CreateParam("@Describtion", temp.Describtion, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
+            command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@CategoryName", temp.Category, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ProductName", temp.ProductName, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@XmlId", temp.XmlId, SqlDbType.Int));
             try
             {
+                
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -107,11 +127,11 @@ namespace BRAVO_SemesterProjekt
         }
         private static void UpdateActor(TempData temp)
         {
-            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf WHERE ActorId = @ActorId", connection);
+            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf WHERE ActorName = @ActorName", connection);
             command.Parameters.AddWithValue("@ActorName", temp.Name);
             command.Parameters.AddWithValue("@Email", temp.City);
             command.Parameters.AddWithValue("@Tlf", temp.City);
-            command.Parameters.AddWithValue("@ActorId", temp.Id);
+            
 
             try
             {
@@ -169,6 +189,73 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public static int SelectActorId(TempData temp)
+        {
+            SqlCommand command = new SqlCommand("SELECT ActorId FROM Actor WHERE ActorName = @ActorName", connection);
+            command.Parameters.AddWithValue("@ActorName", temp.Name);
+            try
+            {
+                int id = command.ExecuteNonQuery();
+                return id;
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+        public static DataTable CheckForDoubleCategory(TempData temp)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter command = new SqlDataAdapter("SELECT CategoryName FROM Category WHERE CategoryName = @CategoryName", connection);
+            command.SelectCommand.Parameters.AddWithValue("@CategoryName", temp.Category);
+            try
+            {
+                command.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public static DataTable CheckForDoubleActor(TempData temp)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter command = new SqlDataAdapter("SELECT ActorName FROM Actor WHERE ActorName = @ActorName", connection);
+            command.SelectCommand.Parameters.AddWithValue("@ActorName", temp.Name);
+            try
+            {
+                command.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public static DataTable CheckForDoubleProduct(TempData temp)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter command = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductName = @ProductName", connection);
+            command.SelectCommand.Parameters.AddWithValue("@ProductName", temp.ProductName);
+            try
+            {
+                command.Fill(dt);
+                return dt;
+
             }
             catch (Exception ex)
             {

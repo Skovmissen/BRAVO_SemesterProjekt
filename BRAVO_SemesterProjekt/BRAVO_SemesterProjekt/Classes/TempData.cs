@@ -106,6 +106,23 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private string productName;
+
+        public string ProductName
+        {
+            get { return productName; }
+            set { productName = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int xmlId;
+
+        public int XmlId
+        {
+            get { return xmlId; }
+            set { xmlId = value; }
+        }
+
         private string region;
 
         public string Region

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,37 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class Upload : Page
     {
+        TempData temp = new TempData();
+        
         public Upload()
         {
             InitializeComponent();
+        }
+
+        private void Upload_Click(object sender, RoutedEventArgs e)
+        {
+            Wait wait = new Wait();
+            XMLUpload.Uploadxml(temp, wait);
+        }
+
+        private void Choose_File_Click(object sender, RoutedEventArgs e)
+        {
+            FileUrl();
+          
+            
+        }
+        public void FileUrl()
+        {
+          
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                temp.Url = openFileDialog.FileName;
+                label.Content = openFileDialog.FileName;
+            }
+
+            
         }
     }
 }

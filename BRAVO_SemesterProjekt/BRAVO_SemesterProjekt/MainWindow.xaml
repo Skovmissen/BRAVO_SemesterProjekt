@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="814" Width="1301">
+        Title="MainWindow" Height="814" Width="1301" WindowStartupLocation="CenterScreen">
     <Grid>
         <DockPanel Margin="0,0,0,737">
             <Menu DockPanel.Dock="Top" Height="44" Margin="0,0,0,0">
@@ -30,8 +30,8 @@
                 <MenuItem Header="Deaktivere/Aktivere" Height="33" MinWidth="100" FontSize="14">
                 
                 </MenuItem>
-                <MenuItem Header="Upload" Height="33" MinWidth="100" FontSize="14" Margin="30,0,0,0" Click="Upload_Click">
-                 
+                <MenuItem Header="Upload" Height="33" MinWidth="100" FontSize="14" Margin="30,0,0,0" >
+                    <MenuItem Header="XML" Height="33" MinWidth="100" FontSize="14" Click="Upload_Click"/>
                 </MenuItem>
             </Menu>
 

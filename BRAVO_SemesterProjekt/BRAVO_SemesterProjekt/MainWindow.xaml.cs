@@ -71,8 +71,8 @@ namespace BRAVO_SemesterProjekt
 
         private void Upload_Click(object sender, RoutedEventArgs e)
         {
-            
-            dummy4.Reader();
+          
+            frame.Content = new Upload();
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)

@@ -10,28 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for CreateActors.xaml
+    /// Interaction logic for Wait.xaml
     /// </summary>
-    public partial class CreateActors : Page
+    public partial class Wait : Window
     {
-        TempData temp = new TempData();
-        public CreateActors()
+        public Wait()
         {
-            DataContext = temp;
             InitializeComponent();
-            
-            
-        }
-
-        private void btn_Gem_Click(object sender, RoutedEventArgs e)
-        {
-            DB.InsertActor(temp);
         }
     }
 }
