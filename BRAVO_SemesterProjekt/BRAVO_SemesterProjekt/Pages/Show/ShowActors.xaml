@@ -9,6 +9,6 @@
       Title="ShowActors">
 
     <Grid>
-        <DataGrid x:Name="h" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="280" Width="280"/>
+        <DataGrid x:Name="GridShowActor" HorizontalAlignment="Left" Margin="0,0,-400,-400" VerticalAlignment="Top" Height="700" Width="700"/>
     </Grid>
 </Page>

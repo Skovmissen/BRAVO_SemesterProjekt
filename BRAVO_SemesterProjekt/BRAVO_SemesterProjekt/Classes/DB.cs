@@ -289,16 +289,29 @@ namespace BRAVO_SemesterProjekt
             DataTable dt = new DataTable();
             ShowActor.Fill(dt);
             return dt;
-            
-
         }
-        public static void ShowComboDB(TempData temp)
+        public static DataTable SearchActor(TempData temp)
+        {
+            DataTable SearchActorDt = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM ACTOR WHERE ACTORNAME LIKE @search", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.Fill(SearchActorDt);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return SearchActorDt;
+        }
+        public static DataTable ShowComboDB()
         {
             SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct", connection);
             DataTable dt = new DataTable();
             ShowCombiProduct.Fill(dt);
-            ShowCombos.ShowCombo.GridShowCombo.ItemsSource = dt.DefaultView;
-
+            return dt;
         }
     }
 }
