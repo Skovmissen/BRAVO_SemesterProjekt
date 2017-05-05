@@ -192,8 +192,23 @@ namespace BRAVO_SemesterProjekt
         public string Search
         {
             get { return search; }
-            set { search = value; }
+            set { search = value;
+                NotifyPropertyChanged();
+
+            }
         }
+        private string chosenItem;
+
+        public string ChosenItem
+        {
+            get { return chosenItem; }
+            set {
+                chosenItem = value;
+                NotifyPropertyChanged();
+
+            }
+        }
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;
