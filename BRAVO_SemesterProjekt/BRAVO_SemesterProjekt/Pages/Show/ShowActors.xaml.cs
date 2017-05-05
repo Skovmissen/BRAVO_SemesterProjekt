@@ -22,20 +22,13 @@ namespace BRAVO_SemesterProjekt
     /// Interaction logic for ShowActors.xaml
     /// </summary>
     public partial class ShowActors : Page
-    {
-        
-        
-        
+    {  
         public ShowActors()
-        {
-            
+        {          
             InitializeComponent();
             DB.OpenDb();
-            h.ItemsSource = DB.ShowActorDB().DefaultView;
-            DB.CloseDb();
-            
-        }
-        
-        
+            GridShowActor.ItemsSource = DB.ShowActorDB().DefaultView;
+            DB.CloseDb();     
+        }    
     }
 }
