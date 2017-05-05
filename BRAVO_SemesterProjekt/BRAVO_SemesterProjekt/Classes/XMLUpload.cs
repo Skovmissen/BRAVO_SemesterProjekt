@@ -57,7 +57,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void Uploadxml(TempData temp, Wait wait)
         {
-           temp.Progress = 0;
+          
             WaitStart(wait);
             XmlDocument doc = LoadDoc(temp);
             XmlNamespaceManager ns = NameSpace(temp, doc);
@@ -84,7 +84,7 @@ namespace BRAVO_SemesterProjekt
                 temp.Street = addressLine1.InnerText;
 
                 InsertInDb(temp);
-                temp.Progress++;           
+                       
             }
 
             

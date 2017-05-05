@@ -19,11 +19,13 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class Wait : Window
     {
-        TempData temp = new TempData();
+      
+        
         public Wait()
         {
             InitializeComponent();
-            DataContext = temp;
+            
         }
+      
     }
 }
