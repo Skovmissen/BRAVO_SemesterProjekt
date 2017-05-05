@@ -17,8 +17,8 @@ namespace BRAVO_SemesterProjekt
 
         public static void Uploadxml(TempData temp)
         {
-            
-            
+
+
             XmlDocument doc = new XmlDocument();
 
             doc.Load(temp.Url);
@@ -41,9 +41,26 @@ namespace BRAVO_SemesterProjekt
                 XmlNode Email = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Email", ns);
                 XmlNode City = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:City", ns);
                 XmlNode Zip = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:PostalCode", ns);
+                //XmlNode XMLid = item.SelectSingleNode(@".//BravoXML:Id", ns);
 
-                temp.Name = item["Name"].InnerText;
+                if (item["Name"].InnerText == null)
+                {
+                    temp.Name = "Intet Navn";
+                }
+                else
+                {
+                    temp.Name = item["Name"].InnerText;
+                }
                 temp.Street = AddressLine1.InnerText;
+                if (item["Id"].InnerText == null)
+                {
+                    temp.XmlId = 0;
+                }
+                else
+                {
+                    temp.XmlId = Convert.ToInt32(item["Id"].InnerText);
+                }
+
 
                 if (URL == null)
                 {
@@ -125,6 +142,7 @@ namespace BRAVO_SemesterProjekt
                 {
                     temp.Tlf = Tlf.InnerText;
                 }
+
 
 
 

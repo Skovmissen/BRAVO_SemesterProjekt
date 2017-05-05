@@ -115,6 +115,13 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private int xmlId;
+
+        public int XmlId
+        {
+            get { return xmlId; }
+            set { xmlId = value; }
+        }
 
         private string region;
 
