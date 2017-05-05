@@ -25,11 +25,19 @@ namespace BRAVO_SemesterProjekt
     {
         TempData temp = new TempData();
         public ShowActors()
-        {          
+        {
+            DataContext = temp;
             InitializeComponent();
             DB.OpenDb();
             GridShowActor.ItemsSource = DB.ShowActorDB().DefaultView;
             DB.CloseDb();     
-        }    
+        }
+
+        private void Btn_Search_Actor_Click(object sender, RoutedEventArgs e)
+        {
+            DB.OpenDb();
+            GridShowActor.ItemsSource = DB.SearchActor(temp).DefaultView;
+            DB.CloseDb();
+        }
     }
 }
