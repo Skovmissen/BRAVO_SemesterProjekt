@@ -263,20 +263,38 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
-        public static void ShowCluster()
+        public static DataTable ShowCluster()
         {
+            DataTable ds = new DataTable();
             try
             { 
-            SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE @SearchString", connection);
-            DataSet ds = new DataSet();
-           //argument fra input felt her//
+            SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster", connection);
+            reader.Fill(ds);
+                 
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            return ds; 
         }
-        
+        public static DataTable SearchCluster(TempData temp)
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE ClusterName LIKE @search", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.Fill(ds);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
+        }
+
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
         {
             SqlParameter param = new SqlParameter(name, type);
