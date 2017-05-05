@@ -174,18 +174,22 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        private static void UpdateProduct(TempData temp)
+        public static void UpdateProduct(TempData temp)
         {
-            SqlCommand command = new SqlCommand("UPDATE Product SET City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion WHERE ProductId = @ProductId", connection);
-            command.Parameters.AddWithValue("@City", temp.City);
-            command.Parameters.AddWithValue("@ZipCode", temp.City);
-            command.Parameters.AddWithValue("@Region", temp.City);
-            command.Parameters.AddWithValue("@Street", temp.City);
-            command.Parameters.AddWithValue("@Latitude", temp.City);
-            command.Parameters.AddWithValue("@Longtitude", temp.City);
-            command.Parameters.AddWithValue("@URL", temp.City);           
-            command.Parameters.AddWithValue("@Describtion", temp.City);
-            command.Parameters.AddWithValue("@ProductId", temp.Id);
+            SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, CategoryName = @CategoryName, ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion WHERE Xml_Id = @XmlId", connection);
+            command.Parameters.Add(CreateParam("@City", temp.City, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ZipCode", temp.Zipcode, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Region", temp.Region, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Street", temp.Street, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Latitude", temp.Latitude, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@Longtitude", temp.Longtitude, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@URL", temp.Url, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Describtion", temp.Describtion, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
+            command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@CategoryName", temp.Category, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ProductName", temp.ProductName, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@XmlId", temp.XmlId, SqlDbType.Int));
             try
             {
                 command.ExecuteNonQuery();
@@ -249,8 +253,8 @@ namespace BRAVO_SemesterProjekt
         public static DataTable CheckForDoubleProduct(TempData temp)
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter command = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductName = @ProductName", connection);
-            command.SelectCommand.Parameters.AddWithValue("@ProductName", temp.ProductName);
+            SqlDataAdapter command = new SqlDataAdapter("SELECT ProductName FROM Product WHERE Xml_Id = @xmlId", connection);
+            command.SelectCommand.Parameters.AddWithValue("@xmlId", temp.XmlId);
             try
             {
                 command.Fill(dt);
@@ -263,20 +267,54 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
-        public static void ShowCluster()
+        public static DataTable ShowCluster()
         {
+            DataTable ds = new DataTable();
             try
             { 
-            SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE @SearchString", connection);
-            DataSet ds = new DataSet();
-           //argument fra input felt her//
+            SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster", connection);
+            reader.Fill(ds);
+                 
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            return ds; 
         }
-        
+        public static DataTable SearchCluster(TempData temp)
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE ClusterName LIKE @search", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.Fill(ds);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
+        }
+        public static DataTable GetClusterActors(TempData temp)
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ActorName FROM ActorCluster WHERE FK_ClusterName LIKE @ChosenItem", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ChosenItem", "%" + temp.ChosenItem + "%");
+                reader.Fill(ds);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
+        }
+
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
         {
             SqlParameter param = new SqlParameter(name, type);
@@ -289,16 +327,45 @@ namespace BRAVO_SemesterProjekt
             DataTable dt = new DataTable();
             ShowActor.Fill(dt);
             return dt;
-            
-
         }
-        public static void ShowComboDB(TempData temp)
+        public static DataTable SearchActor(TempData temp)
+        {
+            DataTable SearchActorDt = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM ACTOR WHERE ACTORNAME LIKE @search", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.Fill(SearchActorDt);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return SearchActorDt;
+        }
+        public static DataTable ShowComboDB()
         {
             SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct", connection);
             DataTable dt = new DataTable();
             ShowCombiProduct.Fill(dt);
-            ShowCombos.ShowCombo.GridShowCombo.ItemsSource = dt.DefaultView;
+            return dt;
+        }
+        public static DataTable SearchCombo(TempData temp)
+        {
+            DataTable SearchComboDt = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM COMBIPRODUCT WHERE COMBIPRODUCTNAME LIKE @search", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.Fill(SearchComboDt);
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return SearchComboDt;
         }
     }
 }

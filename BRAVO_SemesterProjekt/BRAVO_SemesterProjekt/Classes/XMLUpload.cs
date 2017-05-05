@@ -13,7 +13,7 @@ namespace BRAVO_SemesterProjekt
     class XMLUpload
     {
         public static void WaitStart(Wait wait)
-        {            
+        {
             wait.Show();
         }
         public static void WaitEnd(Wait wait)
@@ -49,12 +49,22 @@ namespace BRAVO_SemesterProjekt
             {
                 DB.InsertCategory(temp);
             }
-          
-            DB.InsertProduct(temp);
+
+            DataTable dtProduct = DB.CheckForDoubleProduct(temp);
+
+            if (dtProduct.Rows.Count == 0)
+            {
+                DB.InsertProduct(temp);
+            }
+            else
+            {
+                DB.UpdateProduct(temp);
+            }
+
         }
         public static void Uploadxml(TempData temp, Wait wait)
         {
-          
+
             WaitStart(wait);
             XmlDocument doc = LoadDoc(temp);
             XmlNamespaceManager ns = NameSpace(temp, doc);
@@ -67,7 +77,7 @@ namespace BRAVO_SemesterProjekt
                 XmlNode xmlId = item["Id"];
                 XmlNode addressLine1 = item.SelectSingleNode(@".//BravoXML:AddressLine1", ns);
                 XmlNode url = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Link/BravoXML:Url", ns);
-                XmlNode tlf = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Phone", ns);                               
+                XmlNode tlf = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Phone", ns);
                 XmlNode latitude = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:GeoCoordinate/BravoXML:Latitude", ns);
                 XmlNode longitude = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:GeoCoordinate/BravoXML:Longitude", ns);
                 XmlNode region = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:Municipality/BravoXML:Name", ns);
@@ -76,16 +86,16 @@ namespace BRAVO_SemesterProjekt
                 XmlNode email = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Email", ns);
                 XmlNode city = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:City", ns);
                 XmlNode zip = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:PostalCode", ns);
-                CheckForNull(name, xmlId, addressLine1, url, tlf, latitude, longitude, region, description, category, email, city, zip, temp);          
+                CheckForNull(name, xmlId, addressLine1, url, tlf, latitude, longitude, region, description, category, email, city, zip, temp);
                 temp.ProductName = temp.Name;
                 temp.Street = addressLine1.InnerText;
 
                 InsertInDb(temp);
-                       
+
             }
 
-            
-           
+
+
             DB.CloseDb();
             WaitEnd(wait);
             MessageBox.Show("Upload Complete");

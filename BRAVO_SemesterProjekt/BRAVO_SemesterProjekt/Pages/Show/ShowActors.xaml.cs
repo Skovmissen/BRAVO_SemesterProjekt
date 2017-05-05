@@ -23,19 +23,13 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class ShowActors : Page
     {
-        
-        
-        
+        TempData temp = new TempData();
         public ShowActors()
-        {
-            
+        {          
             InitializeComponent();
             DB.OpenDb();
-            h.ItemsSource = DB.ShowActorDB().DefaultView;
-            DB.CloseDb();
-            
-        }
-        
-        
+            GridShowActor.ItemsSource = DB.ShowActorDB().DefaultView;
+            DB.CloseDb();     
+        }    
     }
 }
