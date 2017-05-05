@@ -9,8 +9,9 @@
       Title="ShowActors">
 
     <Grid>
-        <DataGrid x:Name="GridShowActor" HorizontalAlignment="Left" Margin="0,30,-400,-430" VerticalAlignment="Top" Height="700" Width="700"/>
-        <Button x:Name="Btn_Search_Actor" Content="Button" HorizontalAlignment="Left"  Margin="171,-1,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="Search_Actor" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="GridShowActor" HorizontalAlignment="Left" Margin="0,30,-400,-430" VerticalAlignment="Top" Height="250" Width="250"/>
+        <Button x:Name="Btn_Search_Actor" Content="Button" HorizontalAlignment="Left"  Margin="120,0,0,274" Width="75" Click="Btn_Search_Actor_Click"/>
+        <TextBox x:Name="SearchActor" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="350,30,-300,0" VerticalAlignment="Top" Width="250" Height="250"/>
     </Grid>
 </Page>
