@@ -294,6 +294,22 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
+        public static DataTable GetClusterActors(TempData temp)
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ActorName FROM ActorCluster WHERE FK_ClusterName LIKE @ChosenItem", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ChosenItem", "%" + temp.ChosenItem + "%");
+                reader.Fill(ds);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
+        }
 
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
         {
