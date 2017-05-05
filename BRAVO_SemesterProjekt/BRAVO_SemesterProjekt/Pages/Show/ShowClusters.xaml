@@ -9,6 +9,15 @@
       Title="ShowClusters">
 
     <Grid>
-        
+        <Button x:Name="btn_search_cluster" Content="Søg" HorizontalAlignment="Left" Margin="137,28,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="search_cluster" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Indtast søgning" VerticalAlignment="Top" Width="120" Margin="0,28,0,0"/>
+        <ListView x:Name="listView_cluster" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="300" Margin="0,117,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Page>

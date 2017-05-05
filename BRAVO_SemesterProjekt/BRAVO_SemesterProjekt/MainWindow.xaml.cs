@@ -71,7 +71,8 @@ namespace BRAVO_SemesterProjekt
 
         private void Upload_Click(object sender, RoutedEventArgs e)
         {
-            XMLUpload.ParseByXDocument();
+            
+            dummy4.Reader();
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)

@@ -176,6 +176,20 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
+        public static void ShowCluster()
+        {
+            try
+            { 
+            SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE @SearchString", connection);
+            DataSet ds = new DataSet();
+           //argument fra input felt her//
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
         {
             SqlParameter param = new SqlParameter(name, type);

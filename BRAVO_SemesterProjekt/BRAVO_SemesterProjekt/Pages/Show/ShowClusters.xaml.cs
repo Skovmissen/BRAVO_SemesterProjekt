@@ -20,8 +20,10 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class ShowClusters : Page
     {
+        TempData temp = new TempData();
         public ShowClusters()
         {
+            DataContext = temp;
             InitializeComponent();
         }
     }
