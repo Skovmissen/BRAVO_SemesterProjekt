@@ -351,5 +351,21 @@ namespace BRAVO_SemesterProjekt
             ShowCombiProduct.Fill(dt);
             return dt;
         }
+        public static DataTable SearchCombo(TempData temp)
+        {
+            DataTable SearchComboDt = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM COMBIPRODUCT WHERE COMBIPRODUCTNAME LIKE @search", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.Fill(SearchComboDt);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return SearchComboDt;
+        }
     }
 }
