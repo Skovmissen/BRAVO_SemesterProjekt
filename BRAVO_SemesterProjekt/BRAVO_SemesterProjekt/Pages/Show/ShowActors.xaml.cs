@@ -32,6 +32,7 @@ namespace BRAVO_SemesterProjekt
             DataContext = Temp;
             InitializeComponent();
             ShowActor = this;
+           
         }
         
         private void button_Click(object sender, RoutedEventArgs e)
