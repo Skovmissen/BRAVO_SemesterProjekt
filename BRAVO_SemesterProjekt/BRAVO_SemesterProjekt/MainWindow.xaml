@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="814" Width="1301">
+        Title="MainWindow" Height="814" Width="1301" WindowStartupLocation="CenterScreen">
     <Grid>
         <DockPanel Margin="0,0,0,737">
             <Menu DockPanel.Dock="Top" Height="44" Margin="0,0,0,0">
