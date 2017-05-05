@@ -283,12 +283,12 @@ namespace BRAVO_SemesterProjekt
             param.Value = value;
             return param;
         }
-        public static void ShowActorDB(TempData temp)
+        public static DataTable ShowActorDB()
         {
             SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor", connection);
             DataTable dt = new DataTable();
             ShowActor.Fill(dt);
-            ShowActors.ShowActor.GridShowActor.ItemsSource = dt.DefaultView;
+            return dt;
             
 
         }
