@@ -24,20 +24,18 @@ namespace BRAVO_SemesterProjekt
     public partial class ShowActors : Page
     {
         
-        public static ShowActors ShowActor;
-        TempData Temp = new TempData();
+        
+        
         public ShowActors()
         {
-            DB.OpenDb();
-            DataContext = Temp;
+            
             InitializeComponent();
-            ShowActor = this;
-           
+            DB.OpenDb();
+            h.ItemsSource = DB.ShowActorDB().DefaultView;
+            DB.CloseDb();
+            
         }
         
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            DB.ShowActorDB(Temp);
-        }
+        
     }
 }

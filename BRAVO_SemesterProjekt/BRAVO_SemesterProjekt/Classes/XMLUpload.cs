@@ -13,13 +13,11 @@ namespace BRAVO_SemesterProjekt
     class XMLUpload
     {
         public static void WaitStart(Wait wait)
-        {
-            
+        {            
             wait.Show();
         }
         public static void WaitEnd(Wait wait)
         {
-
             wait.Close();
         }
         public static XmlDocument LoadDoc(TempData temp)
@@ -51,8 +49,7 @@ namespace BRAVO_SemesterProjekt
             {
                 DB.InsertCategory(temp);
             }
-
-            //temp.Id = DB.SelectActorId(temp);
+          
             DB.InsertProduct(temp);
         }
         public static void Uploadxml(TempData temp, Wait wait)
@@ -93,7 +90,6 @@ namespace BRAVO_SemesterProjekt
             WaitEnd(wait);
             MessageBox.Show("Upload Complete");
         }
-
         private static void CheckForNull(XmlNode name, XmlNode xmlId, XmlNode addressLine1, XmlNode url, XmlNode tlf, XmlNode latitude, XmlNode longitude, XmlNode region, XmlNode description, XmlNode category, XmlNode email, XmlNode city, XmlNode zip, TempData temp)
         {
             if (name == null)
