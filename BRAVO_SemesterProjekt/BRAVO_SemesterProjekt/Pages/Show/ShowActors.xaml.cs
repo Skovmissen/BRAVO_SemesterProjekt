@@ -22,7 +22,8 @@ namespace BRAVO_SemesterProjekt
     /// Interaction logic for ShowActors.xaml
     /// </summary>
     public partial class ShowActors : Page
-    {  
+    {
+        TempData temp = new TempData();
         public ShowActors()
         {          
             InitializeComponent();
