@@ -115,6 +115,16 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private int progress;
+
+        public int Progress
+        {
+            get { return progress; }
+            set { progress = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private int xmlId;
 
         public int XmlId

@@ -19,9 +19,13 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class Wait : Window
     {
+      
+        
         public Wait()
         {
             InitializeComponent();
+            
         }
+      
     }
 }
