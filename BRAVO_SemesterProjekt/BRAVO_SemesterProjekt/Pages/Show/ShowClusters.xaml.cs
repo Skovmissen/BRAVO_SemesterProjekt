@@ -25,16 +25,6 @@ namespace BRAVO_SemesterProjekt
         {
             DataContext = temp;
             InitializeComponent();
-            DB.OpenDb();
-            dataGrid_cluster.ItemsSource = DB.ShowCluster().DefaultView;
-            DB.CloseDb();
-        }
-
-        private void btn_search_cluster_Click(object sender, RoutedEventArgs e)
-        {
-            DB.OpenDb();
-            dataGrid_cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
-            DB.CloseDb();
         }
     }
 }
