@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -20,9 +21,28 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class CreateCombo : Page
     {
+        TempData temp = new TempData();
         public CreateCombo()
         {
             InitializeComponent();
+            DataContext = temp;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DB.OpenDb();
+                DB.InsertCombo(temp);
+                DB.CloseDb();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            MessageBox.Show("Kombiprodukt er oprettet");
+            
         }
     }
 }

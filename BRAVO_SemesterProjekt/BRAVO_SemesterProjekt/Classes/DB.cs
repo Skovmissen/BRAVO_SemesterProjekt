@@ -333,9 +333,9 @@ namespace BRAVO_SemesterProjekt
             DataTable SearchActorDt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM ACTOR WHERE ACTORNAME LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
-                reader.Fill(SearchActorDt);
+                SqlDataAdapter SearchActor = new SqlDataAdapter("SELECT * FROM ACTOR WHERE ACTORNAME LIKE @search", connection);
+                SearchActor.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                SearchActor.Fill(SearchActorDt);
 
             }
             catch (Exception ex)
