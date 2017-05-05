@@ -268,5 +268,22 @@ namespace BRAVO_SemesterProjekt
             param.Value = value;
             return param;
         }
+        public static void ShowActorDB(TempData temp)
+        {
+            SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor", connection);
+            DataTable dt = new DataTable();
+            ShowActor.Fill(dt);
+            ShowActors.ShowActor.GridShowActor.ItemsSource = dt.DefaultView;
+            
+
+        }
+        public static void ShowComboDB(TempData temp)
+        {
+            SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct", connection);
+            DataTable dt = new DataTable();
+            ShowCombiProduct.Fill(dt);
+            ShowCombos.ShowCombo.GridShowCombo.ItemsSource = dt.DefaultView;
+
+        }
     }
 }
