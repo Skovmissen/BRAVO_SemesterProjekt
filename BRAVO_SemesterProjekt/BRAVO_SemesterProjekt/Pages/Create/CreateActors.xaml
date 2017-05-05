@@ -5,12 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="800" d:DesignWidth="1300"
       Title="CreateActors">
 
     <Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="88,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="92" RenderTransformOrigin="-0.293,1.462"><Run Text="Create Actors"/></TextBlock>
-        <Button x:Name="btn_Gem" Content="Button" HorizontalAlignment="Left" Margin="72,202,0,0" VerticalAlignment="Top" Width="75" Click="btn_Gem_Click"/>
-
+        <TextBox x:Name="txt_Navn" HorizontalAlignment="Left" Height="23" Margin="10,56,0,0" TextWrapping="Wrap" Text="{Binding Path= Name}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_Email" HorizontalAlignment="Left" Height="23" Margin="10,138,0,0" TextWrapping="Wrap" Text="{Binding Path= Email }" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_tlf" HorizontalAlignment="Left" Height="23" Margin="10,215,0,0" TextWrapping="Wrap" Text="{Binding Path= Tlf}" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button" Content="Gem Aktør" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Width="120" Height="34" Click="btn_gem"/>
+        <Label x:Name="label" Content="Indtast navn:" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label x:Name="label_Copy" Content="Indtast email:" HorizontalAlignment="Left" Margin="10,107,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label x:Name="label_Copy1" Content="Indtast tlf:" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="130"/>
     </Grid>
 </Page>

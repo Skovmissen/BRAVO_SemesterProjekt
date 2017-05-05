@@ -20,9 +20,29 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class CreateCluster : Page
     {
+        TempData temp = new TempData();
         public CreateCluster()
         {
+            
             InitializeComponent();
+            DataContext = temp;
         }
+
+        private void btn_gem(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DB.OpenDb();
+                DB.InsertCluster(temp);
+                DB.CloseDb();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            MessageBox.Show("Klynge er oprettet");
+        }   
     }
 }

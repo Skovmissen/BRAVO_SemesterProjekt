@@ -29,9 +29,11 @@ namespace BRAVO_SemesterProjekt
             
         }
 
-        private void btn_Gem_Click(object sender, RoutedEventArgs e)
+        private void btn_gem(object sender, RoutedEventArgs e)
         {
+            DB.OpenDb();
             DB.InsertActor(temp);
+            DB.CloseDb();
         }
     }
 }
