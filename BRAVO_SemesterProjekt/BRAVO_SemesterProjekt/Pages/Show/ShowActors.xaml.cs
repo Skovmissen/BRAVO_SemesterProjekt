@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -20,9 +23,20 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class ShowActors : Page
     {
+        
+        public static ShowActors ShowActor;
+        TempData Temp = new TempData();
         public ShowActors()
         {
+            DB.OpenDb();
+            DataContext = Temp;
             InitializeComponent();
+            ShowActor = this;
+        }
+        
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            DB.ShowActorDB(Temp);
         }
     }
 }

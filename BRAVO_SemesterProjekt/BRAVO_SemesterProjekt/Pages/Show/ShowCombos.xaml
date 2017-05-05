@@ -9,6 +9,7 @@
       Title="ShowCombos">
 
     <Grid>
-        
+        <DataGrid x:Name="GridShowCombo" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" Height="241" Width="290"/>
+
     </Grid>
 </Page>
