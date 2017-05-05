@@ -25,7 +25,6 @@ namespace BRAVO_SemesterProjekt
         {
             DataContext = temp;
             InitializeComponent();
-            
         }
     }
 }

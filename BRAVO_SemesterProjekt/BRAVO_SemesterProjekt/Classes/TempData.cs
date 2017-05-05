@@ -187,6 +187,15 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private string search;
+
+        public string Search
+        {
+            get { return search; }
+            set { search = value; }
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
