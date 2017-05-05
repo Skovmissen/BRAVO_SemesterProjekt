@@ -34,18 +34,24 @@ namespace BRAVO_SemesterProjekt
         private void btn_search_cluster_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
+       
             dataGrid_cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
+            
             DB.CloseDb();
         }
 
         private void dataGrid_cluster_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataRowView drv = (DataRowView)dataGrid_cluster.SelectedItem;
-            String result = (drv["ClusterName"]).ToString();
-            label.Content = result;
-            temp.ChosenItem = result;
+
+            foreach (DataRowView row in dataGrid_cluster.SelectedItems)
+            {
+                temp.ChosenItem = row.Row.ItemArray[0].ToString();
+            }
             DB.OpenDb();
             ClusterData.ItemsSource = DB.GetClusterActors(temp).DefaultView;
+            DB.CloseDb();
+           
+           
         }
     }
 }
