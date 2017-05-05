@@ -101,7 +101,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InsertProduct(TempData temp)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, XML_Id) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @XmlId)", connection);
             command.Parameters.Add(CreateParam("@City", temp.City, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ZipCode", temp.Zipcode, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Region", temp.Region, SqlDbType.NVarChar));
@@ -114,6 +114,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@CategoryName", temp.Category, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ProductName", temp.ProductName, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@XmlId", temp.XmlId, SqlDbType.Int));
             try
             {
                 
@@ -262,6 +263,20 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
+        public static void ShowCluster()
+        {
+            try
+            { 
+            SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE @SearchString", connection);
+            DataSet ds = new DataSet();
+           //argument fra input felt her//
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
         {
             SqlParameter param = new SqlParameter(name, type);

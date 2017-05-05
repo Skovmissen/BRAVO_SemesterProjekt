@@ -10,20 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for ShowClusters.xaml
+    /// Interaction logic for Wait.xaml
     /// </summary>
-    public partial class ShowClusters : Page
+    public partial class Wait : Window
     {
-        TempData temp = new TempData();
-        public ShowClusters()
+        public Wait()
         {
-            DataContext = temp;
             InitializeComponent();
         }
     }

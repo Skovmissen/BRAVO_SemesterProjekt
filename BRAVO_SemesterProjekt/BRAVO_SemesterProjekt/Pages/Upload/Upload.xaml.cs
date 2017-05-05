@@ -22,6 +22,7 @@ namespace BRAVO_SemesterProjekt
     public partial class Upload : Page
     {
         TempData temp = new TempData();
+        
         public Upload()
         {
             InitializeComponent();
@@ -29,7 +30,8 @@ namespace BRAVO_SemesterProjekt
 
         private void Upload_Click(object sender, RoutedEventArgs e)
         {
-            XMLUpload.Uploadxml(temp);
+            Wait wait = new Wait();
+            XMLUpload.Uploadxml(temp, wait);
         }
 
         private void Choose_File_Click(object sender, RoutedEventArgs e)
