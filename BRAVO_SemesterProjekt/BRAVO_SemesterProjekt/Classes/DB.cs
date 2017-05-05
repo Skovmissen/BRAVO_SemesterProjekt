@@ -176,7 +176,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void UpdateProduct(TempData temp)
         {
-            SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, CategoryName = @CategoryName, ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion WHERE Xml_Id = @XmlId", connection);
+            SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, FK_CategoryName = @CategoryName, FK_ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion WHERE Xml_Id = @XmlId", connection);
             command.Parameters.Add(CreateParam("@City", temp.City, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ZipCode", temp.Zipcode, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Region", temp.Region, SqlDbType.NVarChar));
@@ -281,6 +281,22 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
             return ds; 
+        }
+
+        public static DataTable ShowCategory()
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category", connection);
+                reader.Fill(ds);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
         }
         public static DataTable SearchCluster(TempData temp)
         {

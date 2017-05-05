@@ -52,13 +52,13 @@ namespace BRAVO_SemesterProjekt
 
             DataTable dtProduct = DB.CheckForDoubleProduct(temp);
 
-            if (dtProduct.Rows.Count == 0)
-            {
-                DB.InsertProduct(temp);
-            }
-            else
+            if (dtProduct.Rows.Count > 0)
             {
                 DB.UpdateProduct(temp);
+            }
+            else
+            {                
+                DB.InsertProduct(temp);
             }
 
         }
