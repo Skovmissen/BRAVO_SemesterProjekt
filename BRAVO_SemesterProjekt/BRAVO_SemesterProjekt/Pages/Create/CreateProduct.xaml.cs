@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,29 @@ namespace BRAVO_SemesterProjekt
         private void cmb_actor_DropDownClosed(object sender, EventArgs e)
         {
             temp.Name = cmb_actor.Text;
+        }      
+
+        private void btn_opretprodukt(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DB.OpenDb();
+                DB.InsertProduct(temp);
+                DB.CloseDb();
+                MessageBox.Show("Produktet er oprettet");
+
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

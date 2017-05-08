@@ -58,7 +58,7 @@ namespace BRAVO_SemesterProjekt
             }
             else
             {                
-                DB.InsertProduct(temp);
+                DB.InsertXMLProduct(temp);
             }
 
         }
