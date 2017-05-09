@@ -41,5 +41,13 @@ namespace BRAVO_SemesterProjekt
            
 
         }
+        public void WaitStart()
+        {
+            this.Show();
+        }
+        public void WaitEnd()
+        {
+            this.Close();
+        }
     }
 }

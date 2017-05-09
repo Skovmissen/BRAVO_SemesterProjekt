@@ -15,80 +15,10 @@ namespace BRAVO_SemesterProjekt
     class XMLUpload
     {
 
-        public static void WaitStart(Wait wait)
-        {
-            wait.Show();
-        }
-        public static void WaitEnd(Wait wait)
-        {
-            wait.Close();
-        }
-        public static XmlDocument LoadDoc(TempData temp, Wait wait)
-        {
-            XmlDocument doc = new XmlDocument();
-            try
-            {
-                doc.Load(temp.Path);
-            }
-            catch (ArgumentNullException)
-            {
-
-                MessageBox.Show("Du har ikke valgt nogen fil");
-                WaitEnd(wait);
-            }
-            catch (FileNotFoundException)
-            {
-
-                MessageBox.Show("Du har ikke valgt nogen fil");
-                WaitEnd(wait);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-
-            return doc;
-        }
-        public static XmlNamespaceManager NameSpace(TempData temp, XmlDocument doc)
-        {
-            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
-            ns.AddNamespace("BravoXML", "http://schemas.datacontract.org/2004/07/GuideDenmark.External.Data.Model");
-
-            return ns;
-        }
-        public static void InsertInDb(Actors actor, Products product)
-        {
-            DataTable dtActor = DB.CheckForDoubleActor(actor);
-            if (dtActor.Rows.Count == 0)
-            {
-                DB.InsertActor(actor);
-            }
-
-            DataTable dtCategory = DB.CheckForDoubleCategory(product);
-
-            if (dtCategory.Rows.Count == 0)
-            {
-                DB.InsertCategory(product);
-            }
-
-            DataTable dtProduct = DB.CheckForDoubleProduct(product);
-
-            if (dtProduct.Rows.Count > 0)
-            {
-                DB.UpdateProduct(product, actor);
-            }
-            else
-            {
-                DB.InsertXMLProduct(product, actor);
-            }
-
-        }
-        public static async void Uploadxml(TempData temp, Wait wait, Actors actor, Products product)
+        public static async void Uploadxml(TempData temp, Wait wait, Actors actor, Products product) //Finder alle de valgte elementer i XML dokumentet ved hjælp af XMLNodes, hvori vi bruger SelectSingleNode hvilket gør at vi kan definere den præcise placering i xml-dokumentet.
         {
             Stopwatch sw = new Stopwatch();
-                sw.Start();
+            sw.Start();
             if (temp.Path == null)
             {
                 MessageBox.Show("Ingen fil valgt");
@@ -99,16 +29,16 @@ namespace BRAVO_SemesterProjekt
 
                 double count = 0;
                 temp.Counter = 0;
-                WaitStart(wait);
+                wait.WaitStart(); //Åbner loading vinduet.
                 XmlDocument doc = LoadDoc(temp, wait);
                 XmlNamespaceManager ns = NameSpace(temp, doc);
 
-                XmlNodeList productNode = doc.DocumentElement.SelectNodes("/BravoXML:ArrayOfProduct/BravoXML:Product", ns);
+                XmlNodeList productNode = doc.DocumentElement.SelectNodes("/BravoXML:ArrayOfProduct/BravoXML:Product", ns); //Laver en liste af alle produkter i xml-dokumentet.
                 temp.NodeCount = productNode.Count;
 
                 DB.OpenDb();
                 foreach (XmlNode item in productNode)
-                { 
+                {
                     XmlNode name = item["Name"];
                     XmlNode xmlId = item["Id"];
                     XmlNode addressLine1 = item.SelectSingleNode(@".//BravoXML:AddressLine1", ns);
@@ -145,7 +75,7 @@ namespace BRAVO_SemesterProjekt
 
 
                 DB.CloseDb();
-                WaitEnd(wait);
+                wait.WaitEnd(); //Lukker loadings vinduet.
                 sw.Stop();
                 if (wait.Cancel == true)
                 {
@@ -153,17 +83,79 @@ namespace BRAVO_SemesterProjekt
                 }
                 else
                 {
-                    MessageBox.Show("Upload Complete " + "After: " + sw.Elapsed.ToString("ss") + " Seconds");
+                    MessageBox.Show("Upload Færdig " + "Efter: " + sw.Elapsed.ToString("mm//:ss") + " Seconds");
                 }
 
             }
 
         }
-        private static async Task PutTaskDelay()
+        public static XmlDocument LoadDoc(TempData temp, Wait wait) //LoadDoc bruges til at loade XML-Dokument stien ind i doc, så man kan arbejde med den.
+        {
+            XmlDocument doc = new XmlDocument();
+            try
+            {
+                doc.Load(temp.Path);
+            }
+            catch (ArgumentNullException)
+            {
+
+                MessageBox.Show("Du har ikke valgt nogen fil");
+                wait.WaitEnd();
+            }
+            catch (FileNotFoundException)
+            {
+
+                MessageBox.Show("Du har ikke valgt nogen fil");
+                wait.WaitEnd();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            return doc;
+        }
+        public static XmlNamespaceManager NameSpace(TempData temp, XmlDocument doc) // Namespace bliver brugt til at definere det namespace der står i toppen af XML dokumentet xnsm:
+        {
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            ns.AddNamespace("BravoXML", "http://schemas.datacontract.org/2004/07/GuideDenmark.External.Data.Model");
+
+            return ns;
+        }
+        public static void InsertInDb(Actors actor, Products product) //indsætter de funde data fra xml dokumentet i databasen.
+        {
+            DataTable dtActor = DB.CheckForDoubleActor(actor);
+            if (dtActor.Rows.Count == 0)
+            {
+                DB.InsertActor(actor);
+            }
+
+            DataTable dtCategory = DB.CheckForDoubleCategory(product);
+
+            if (dtCategory.Rows.Count == 0)
+            {
+                DB.InsertCategory(product);
+            }
+
+            DataTable dtProduct = DB.CheckForDoubleProduct(product);
+
+            if (dtProduct.Rows.Count > 0)
+            {
+                DB.UpdateProduct(product, actor);
+            }
+            else
+            {
+                DB.InsertXMLProduct(product, actor);
+            }
+
+        }
+        private static async Task PutTaskDelay() // Async bruges til at forsinke metoden så den har tid til at opdatere gui, hvori vores progress bar er.
         {
             await Task.Delay(10);
         }
-        private static void CheckForNull(XmlNode name, XmlNode xmlId, XmlNode addressLine1, XmlNode url, XmlNode tlf, XmlNode latitude, XmlNode longitude, XmlNode region, XmlNode description, XmlNode category, XmlNode email, XmlNode city, XmlNode zip, TempData temp, Actors actor, Products products)
+        private static void CheckForNull(XmlNode name, XmlNode xmlId, XmlNode addressLine1, XmlNode url, XmlNode tlf, XmlNode latitude, XmlNode longitude, XmlNode region, XmlNode description, XmlNode category, XmlNode email, XmlNode city, XmlNode zip, TempData temp, Actors actor, Products products) //Metoden tjekker om den fundne data er Null, og hvis den er indsætter den en string så det kan ses i databasen.
         {
             if (name == null)
             {
