@@ -6,9 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BRAVO_SemesterProjekt.Classes
+namespace BRAVO_SemesterProjekt
 {
-    class Products : INotifyPropertyChanged
+    public class Products : INotifyPropertyChanged
     {
         private bool activate;
 
@@ -56,7 +56,7 @@ namespace BRAVO_SemesterProjekt.Classes
                 NotifyPropertyChanged();
             }
         }
-
+        
         private int id;
 
         public int Id

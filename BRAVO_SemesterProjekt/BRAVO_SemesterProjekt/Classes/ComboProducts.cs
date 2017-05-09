@@ -6,9 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BRAVO_SemesterProjekt.Classes
+namespace BRAVO_SemesterProjekt
 {
-    class ComboProducts : INotifyPropertyChanged
+    public class ComboProducts : INotifyPropertyChanged
     {
         private bool activate;
 
@@ -41,6 +41,26 @@ namespace BRAVO_SemesterProjekt.Classes
                 NotifyPropertyChanged();
             }
         }
+        private DateTime endTime;
+
+        public DateTime EndTime
+        {
+            get { return endTime; }
+            set { endTime = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private DateTime startTime;
+
+        public DateTime StartTime
+        {
+            get { return startTime; }
+            set { startTime = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")

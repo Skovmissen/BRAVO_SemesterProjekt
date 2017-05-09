@@ -21,10 +21,10 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class CreateActors : Page
     {
-        TempData temp = new TempData();
+        Actors actor = new Actors();
         public CreateActors()
         {
-            DataContext = temp;
+            DataContext = actor;
             InitializeComponent();
             
             
@@ -35,7 +35,7 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 DB.OpenDb();
-                DB.InsertActor(temp);
+                DB.InsertActor(actor);
                 DB.CloseDb();
                 MessageBox.Show("Aktør er oprettet");
             }

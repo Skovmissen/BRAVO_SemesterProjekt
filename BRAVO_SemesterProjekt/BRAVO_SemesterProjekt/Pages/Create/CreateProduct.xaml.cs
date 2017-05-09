@@ -22,11 +22,12 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class CreateProduct : Page
     {
-        TempData temp = new TempData();
+        Actors actor = new Actors();
+        Products product = new Products();
         public CreateProduct()
         {
             InitializeComponent();
-            DataContext = temp;
+            DataContext = product;
             DB.OpenDb();
             Fillcombo();
             DB.CloseDb();
@@ -47,11 +48,11 @@ namespace BRAVO_SemesterProjekt
 
         private void cmb_category_DropDownClosed(object sender, EventArgs e)
         {
-            temp.Category = cmb_category.Text;
+            product.Category = cmb_category.Text;
         }
         private void cmb_actor_DropDownClosed(object sender, EventArgs e)
         {
-            temp.Name = cmb_actor.Text;
+            actor.Name = cmb_actor.Text;
         }      
 
         private void btn_opretprodukt(object sender, RoutedEventArgs e)
@@ -59,7 +60,7 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 DB.OpenDb();
-                DB.InsertProduct(temp);
+                DB.InsertProduct(product, actor);
                 DB.CloseDb();
                 MessageBox.Show("Produktet er oprettet");
 

@@ -46,7 +46,7 @@ namespace BRAVO_SemesterProjekt
 
                 throw;
             }
-            
+
 
             return doc;
         }
@@ -57,206 +57,206 @@ namespace BRAVO_SemesterProjekt
 
             return ns;
         }
-        public static void InsertInDb(TempData temp)
+        public static void InsertInDb(Actors actor, Products product)
         {
-            DataTable dtActor = DB.CheckForDoubleActor(temp);
+            DataTable dtActor = DB.CheckForDoubleActor(actor);
             if (dtActor.Rows.Count == 0)
             {
-                DB.InsertActor(temp);
+                DB.InsertActor(actor);
             }
 
-            DataTable dtCategory = DB.CheckForDoubleCategory(temp);
+            DataTable dtCategory = DB.CheckForDoubleCategory(product);
 
             if (dtCategory.Rows.Count == 0)
             {
-                DB.InsertCategory(temp);
+                DB.InsertCategory(product);
             }
 
-            DataTable dtProduct = DB.CheckForDoubleProduct(temp);
+            DataTable dtProduct = DB.CheckForDoubleProduct(product);
 
             if (dtProduct.Rows.Count > 0)
             {
-                DB.UpdateProduct(temp);
+                DB.UpdateProduct(product, actor);
             }
             else
             {
-                DB.InsertXMLProduct(temp);
+                DB.InsertXMLProduct(product, actor);
             }
 
         }
-        public static async void Uploadxml(TempData temp, Wait wait)
+        public static async void Uploadxml(TempData temp, Wait wait, Actors actor, Products product)
         {
             if (temp.Path == null)
             {
                 MessageBox.Show("Ingen fil valgt");
             }
-            else 
-            {
-
-          
-            double count = 0;
-            temp.Counter = 0;
-            WaitStart(wait);
-            XmlDocument doc = LoadDoc(temp, wait);
-            XmlNamespaceManager ns = NameSpace(temp, doc);
-            
-            XmlNodeList productNode = doc.DocumentElement.SelectNodes("/BravoXML:ArrayOfProduct/BravoXML:Product", ns);
-            temp.NodeCount = productNode.Count;
-
-            DB.OpenDb();
-            foreach (XmlNode item in productNode)
-            {
-                XmlNode name = item["Name"];
-                XmlNode xmlId = item["Id"];
-                XmlNode addressLine1 = item.SelectSingleNode(@".//BravoXML:AddressLine1", ns);
-                XmlNode url = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Link/BravoXML:Url", ns);
-                XmlNode tlf = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Phone", ns);
-                XmlNode latitude = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:GeoCoordinate/BravoXML:Latitude", ns);
-                XmlNode longitude = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:GeoCoordinate/BravoXML:Longitude", ns);
-                XmlNode region = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:Municipality/BravoXML:Name", ns);
-                XmlNode description = item.SelectSingleNode(@".//BravoXML:Descriptions/BravoXML:Description/BravoXML:Text", ns);
-                XmlNode category = item.SelectSingleNode(@".//BravoXML:Category/BravoXML:Name", ns);
-                XmlNode email = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Email", ns);
-                XmlNode city = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:City", ns);
-                XmlNode zip = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:PostalCode", ns);
-                CheckForNull(name, xmlId, addressLine1, url, tlf, latitude, longitude, region, description, category, email, city, zip, temp);
-                temp.ProductName = temp.Name;
-                temp.Street = addressLine1.InnerText;
-
-                InsertInDb(temp);
-                count++;
-                double result = ((count / temp.NodeCount) * 100);
-                temp.Counter = result;
-                if (wait.Cancel == true)
-                {
-                        temp.Path = null;
-                    break;
-                    
-                    
-                    
-                }
-                await PutTaskDelay();
-
-            }
-
-
-
-            DB.CloseDb();
-            WaitEnd(wait);
-            if (wait.Cancel == true)
-            {
-                MessageBox.Show("Upload afbrudt");
-            }
             else
             {
-                MessageBox.Show("Upload Complete");
-            }
+
+
+                double count = 0;
+                temp.Counter = 0;
+                WaitStart(wait);
+                XmlDocument doc = LoadDoc(temp, wait);
+                XmlNamespaceManager ns = NameSpace(temp, doc);
+
+                XmlNodeList productNode = doc.DocumentElement.SelectNodes("/BravoXML:ArrayOfProduct/BravoXML:Product", ns);
+                temp.NodeCount = productNode.Count;
+
+                DB.OpenDb();
+                foreach (XmlNode item in productNode)
+                {
+                    XmlNode name = item["Name"];
+                    XmlNode xmlId = item["Id"];
+                    XmlNode addressLine1 = item.SelectSingleNode(@".//BravoXML:AddressLine1", ns);
+                    XmlNode url = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Link/BravoXML:Url", ns);
+                    XmlNode tlf = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Phone", ns);
+                    XmlNode latitude = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:GeoCoordinate/BravoXML:Latitude", ns);
+                    XmlNode longitude = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:GeoCoordinate/BravoXML:Longitude", ns);
+                    XmlNode region = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:Municipality/BravoXML:Name", ns);
+                    XmlNode description = item.SelectSingleNode(@".//BravoXML:Descriptions/BravoXML:Description/BravoXML:Text", ns);
+                    XmlNode category = item.SelectSingleNode(@".//BravoXML:Category/BravoXML:Name", ns);
+                    XmlNode email = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Email", ns);
+                    XmlNode city = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:City", ns);
+                    XmlNode zip = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:PostalCode", ns);
+                    CheckForNull(name, xmlId, addressLine1, url, tlf, latitude, longitude, region, description, category, email, city, zip, temp, actor, product);
+                    product.Name = actor.Name;
+                    product.Street = addressLine1.InnerText;
+
+                    InsertInDb(actor, product);
+                    count++;
+                    double result = ((count / temp.NodeCount) * 100);
+                    temp.Counter = result;
+                    if (wait.Cancel == true)
+                    {
+                        temp.Path = null;
+                        break;
+
+
+
+                    }
+                    await PutTaskDelay();
+
+                }
+
+
+
+                DB.CloseDb();
+                WaitEnd(wait);
+                if (wait.Cancel == true)
+                {
+                    MessageBox.Show("Upload afbrudt");
+                }
+                else
+                {
+                    MessageBox.Show("Upload Complete");
+                }
 
             }
-           
+
         }
         private static async Task PutTaskDelay()
         {
             await Task.Delay(10);
         }
-        private static void CheckForNull(XmlNode name, XmlNode xmlId, XmlNode addressLine1, XmlNode url, XmlNode tlf, XmlNode latitude, XmlNode longitude, XmlNode region, XmlNode description, XmlNode category, XmlNode email, XmlNode city, XmlNode zip, TempData temp)
+        private static void CheckForNull(XmlNode name, XmlNode xmlId, XmlNode addressLine1, XmlNode url, XmlNode tlf, XmlNode latitude, XmlNode longitude, XmlNode region, XmlNode description, XmlNode category, XmlNode email, XmlNode city, XmlNode zip, TempData temp, Actors actor, Products products)
         {
             if (name == null)
             {
-                temp.Name = "Intet Navn";
+                actor.Name = "Intet Navn";
             }
             else
             {
-                temp.Name = name.InnerText;
+                actor.Name = name.InnerText;
             }
 
             if (xmlId == null)
             {
-                temp.XmlId = 0;
+                products.XmlId = 0;
             }
             else
             {
-                temp.XmlId = Convert.ToInt32(xmlId.InnerText);
+                products.XmlId = Convert.ToInt32(xmlId.InnerText);
             }
             if (url == null)
             {
-                temp.Url = "Ingen URL";
+                products.Url = "Ingen URL";
             }
             else
             {
-                temp.Url = url.InnerText;
+                products.Url = url.InnerText;
             }
             if (latitude == null)
             {
-                temp.Latitude = 00.00;
+                products.Latitude = 00.00;
             }
             else
             {
-                temp.Latitude = Convert.ToDouble(latitude.InnerText);
+                products.Latitude = Convert.ToDouble(latitude.InnerText);
             }
             if (longitude == null)
             {
-                temp.Longtitude = 00.00;
+                products.Longtitude = 00.00;
             }
             else
             {
-                temp.Longtitude = Convert.ToDouble(longitude.InnerText);
+                products.Longtitude = Convert.ToDouble(longitude.InnerText);
             }
             if (region == null)
             {
-                temp.Region = "Ingen Kommune";
+                products.Region = "Ingen Kommune";
             }
             else
             {
-                temp.Region = region.InnerText;
+                products.Region = region.InnerText;
             }
             if (description == null)
             {
-                temp.Describtion = "Ingen beskrivelse";
+                products.Description = "Ingen beskrivelse";
             }
             else
             {
-                temp.Describtion = description.InnerText;
+                products.Description = description.InnerText;
             }
             if (category == null)
             {
-                temp.Category = "Ingen Category";
+                products.Category = "Ingen Category";
             }
             else
             {
-                temp.Category = category.InnerText;
+                products.Category = category.InnerText;
             }
             if (email == null)
             {
-                temp.Email = "Ingen Email";
+                actor.Email = "Ingen Email";
             }
             else
             {
-                temp.Email = email.InnerText;
+                actor.Email = email.InnerText;
             }
             if (city == null)
             {
-                temp.City = "Ingen By";
+                products.City = "Ingen By";
             }
             else
             {
-                temp.City = city.InnerText;
+                products.City = city.InnerText;
             }
             if (zip == null)
             {
-                temp.Zipcode = "Ingen postnummer";
+                products.Zipcode = "Ingen postnummer";
             }
             else
             {
-                temp.Zipcode = zip.InnerText;
+                products.Zipcode = zip.InnerText;
             }
             if (tlf == null)
             {
-                temp.Tlf = "ingen tlf nummer";
+                actor.Tlf = "ingen tlf nummer";
             }
             else
             {
-                temp.Tlf = tlf.InnerText;
+                actor.Tlf = tlf.InnerText;
             }
         }
     }

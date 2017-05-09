@@ -22,17 +22,21 @@ namespace BRAVO_SemesterProjekt
     public partial class Upload : Page
     {
         TempData temp = new TempData();
+        Actors actor = new Actors();
+        Products product = new Products();
+
         
         public Upload()
         {
             InitializeComponent();
             DataContext = temp;
+        
         }
 
         private void Upload_Click(object sender, RoutedEventArgs e)
         {
             Wait wait = new Wait(temp);
-            XMLUpload.Uploadxml(temp, wait);
+            XMLUpload.Uploadxml(temp, wait, actor, product);
         }
 
         private void Choose_File_Click(object sender, RoutedEventArgs e)

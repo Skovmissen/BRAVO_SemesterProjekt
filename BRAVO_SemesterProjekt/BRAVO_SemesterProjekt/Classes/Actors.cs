@@ -6,9 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BRAVO_SemesterProjekt.Classes
+namespace BRAVO_SemesterProjekt
 {
-    class Actors : INotifyPropertyChanged
+    public class Actors : INotifyPropertyChanged
     {
         private bool activate;
 

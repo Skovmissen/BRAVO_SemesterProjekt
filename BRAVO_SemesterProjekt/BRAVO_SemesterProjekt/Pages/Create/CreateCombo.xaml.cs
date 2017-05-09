@@ -22,11 +22,12 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class CreateCombo : Page
     {
-        TempData temp = new TempData();
+       
+        ComboProducts combo = new ComboProducts();
         public CreateCombo()
         {
             InitializeComponent();
-            DataContext = temp;
+            DataContext = combo;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -34,7 +35,7 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 DB.OpenDb();
-                DB.InsertCombo(temp);
+                DB.InsertCombo(combo);
                 DB.CloseDb();
             }
             catch (SqlException)

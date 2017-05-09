@@ -21,12 +21,12 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class CreateCluster : Page
     {
-        TempData temp = new TempData();
+        Clusters cluster = new Clusters();
         public CreateCluster()
         {
             
             InitializeComponent();
-            DataContext = temp;
+            DataContext = cluster;
         }
 
         private void btn_gem(object sender, RoutedEventArgs e)
@@ -34,7 +34,7 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 DB.OpenDb();
-                DB.InsertCluster(temp);
+                DB.InsertCluster(cluster);
                 DB.CloseDb();
 
             }
