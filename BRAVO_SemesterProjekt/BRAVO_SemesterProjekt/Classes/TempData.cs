@@ -10,219 +10,9 @@ namespace BRAVO_SemesterProjekt
 {
     public class TempData : INotifyPropertyChanged
     {
-        private bool activate;
+        
 
-        public bool Activate
-        {
-            get { return activate; }
-            set
-            {
-                activate = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private string category;
-
-        public string Category
-        {
-            get { return category; }
-            set
-            {
-                category = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private string city;
-
-        public string City
-        {
-            get { return city; }
-            set
-            {
-                city = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private string describtion;
-
-        public string Describtion
-        {
-            get { return describtion; }
-            set
-            {
-                describtion = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private string email;
-
-        public string Email
-        {
-            get { return email; }
-            set
-            {
-                email = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private DateTime? endTime;
-
-        public DateTime? EndTime
-        {
-            get { return endTime; }
-            set
-            {
-                endTime = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private int id;
-
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private double latitude;
-
-        public double Latitude
-        {
-            get { return latitude; }
-            set
-            {
-                latitude = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private double longtitude;
-
-        public double Longtitude
-        {
-            get { return longtitude; }
-            set
-            {
-                longtitude = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private string name;
-
-        public string Name
-        {
-            get { return name; }
-            set
-            {
-                name = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private string productName;
-
-        public string ProductName
-        {
-            get { return productName; }
-            set
-            {
-                productName = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private int progress;
-
-        public int Progress
-        {
-            get { return progress; }
-            set
-            {
-                progress = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private bool cancel;
-
-        public bool Cancel
-        {
-            get { return cancel; }
-            set
-            {
-                cancel = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-
-        private int xmlId;
-
-        public int XmlId
-        {
-            get { return xmlId; }
-            set { xmlId = value; }
-        }
-
-        private string region;
-
-        public string Region
-        {
-            get { return region; }
-            set
-            {
-                region = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private DateTime? startTime;
-
-        public DateTime? StartTime
-        {
-            get { return startTime; }
-            set
-            {
-                startTime = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private string street;
-
-        public string Street
-        {
-            get { return street; }
-            set
-            {
-                street = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private string tlf;
-
-        public string Tlf
-        {
-            get { return tlf; }
-            set
-            {
-                tlf = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private string url;
-
-        public string Url
-        {
-            get { return url; }
-            set
-            {
-                url = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private string path;
+        private string path; //Fil stien af xml dokumentet, der brugs til upload.
 
         public string Path
         {
@@ -234,18 +24,8 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
-        private string zipcode;
 
-        public string Zipcode
-        {
-            get { return zipcode; }
-            set
-            {
-                zipcode = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private string search;
+        private string search; // Søgnings property hvori man gemmer den midlertidige søge stræng.
 
         public string Search
         {
@@ -257,7 +37,7 @@ namespace BRAVO_SemesterProjekt
 
             }
         }
-        private string chosenItem;
+        private string chosenItem; //GridView item der er valgt, så vi kan se under emner, f.eks, man vælger en klynge og så kan man se alle aktører under den.
 
         public string ChosenItem
         {
@@ -269,7 +49,7 @@ namespace BRAVO_SemesterProjekt
 
             }
         }
-        private double counter;
+        private double counter; // Counteren bliver brugt til at lave progressbaren, den tæller én op for hver element der bliver uploadet.
 
         public double Counter
         {
@@ -280,7 +60,7 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
-        private double nodeCount;
+        private double nodeCount; // Nodecount er antallet af elementer i xml dokumentet der skal uploades så man kan lave en udregning sammen med counter for at få det i procent.
 
         public double NodeCount
         {
@@ -291,9 +71,6 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
-
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

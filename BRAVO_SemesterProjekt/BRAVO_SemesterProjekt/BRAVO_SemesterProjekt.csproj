@@ -80,7 +80,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Actors.cs" />
+    <Compile Include="Classes\Clusters.cs" />
+    <Compile Include="Classes\ComboProducts.cs" />
     <Compile Include="Classes\Print.cs" />
+    <Compile Include="Classes\Products.cs" />
     <Compile Include="Classes\TempData.cs" />
     <Compile Include="Pages\Edit\EditActors.xaml.cs">
       <DependentUpon>EditActors.xaml</DependentUpon>
