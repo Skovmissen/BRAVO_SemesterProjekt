@@ -38,7 +38,8 @@ namespace BRAVO_SemesterProjekt
         private void btn_Cancel(object sender, RoutedEventArgs e)
         {
             Cancel = true;
-            
+           
+
         }
     }
 }

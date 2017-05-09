@@ -222,6 +222,18 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private string path;
+
+        public string Path
+        {
+            get { return path; }
+            set
+            {
+                path = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private string zipcode;
 
         public string Zipcode
