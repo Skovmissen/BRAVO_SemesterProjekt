@@ -20,11 +20,20 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class ShowCombos : Page
     {
+        TempData Temp = new TempData();
         public ShowCombos()
         {
+            DataContext = Temp;
             InitializeComponent();
             DB.OpenDb();
             GridShowCombo.ItemsSource = DB.ShowActorDB().DefaultView;
+            DB.CloseDb();
+        }
+
+        private void btn_Search_Combo_Click(object sender, RoutedEventArgs e)
+        {
+            DB.OpenDb();
+            GridShowCombo.ItemsSource = DB.SearchCombo(Temp).DefaultView;
             DB.CloseDb();
         }
     }
