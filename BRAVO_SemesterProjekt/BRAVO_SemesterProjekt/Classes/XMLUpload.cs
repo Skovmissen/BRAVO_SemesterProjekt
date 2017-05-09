@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -86,6 +87,8 @@ namespace BRAVO_SemesterProjekt
         }
         public static async void Uploadxml(TempData temp, Wait wait, Actors actor, Products product)
         {
+            Stopwatch sw = new Stopwatch();
+                sw.Start();
             if (temp.Path == null)
             {
                 MessageBox.Show("Ingen fil valgt");
@@ -105,7 +108,7 @@ namespace BRAVO_SemesterProjekt
 
                 DB.OpenDb();
                 foreach (XmlNode item in productNode)
-                {
+                { 
                     XmlNode name = item["Name"];
                     XmlNode xmlId = item["Id"];
                     XmlNode addressLine1 = item.SelectSingleNode(@".//BravoXML:AddressLine1", ns);
@@ -143,13 +146,14 @@ namespace BRAVO_SemesterProjekt
 
                 DB.CloseDb();
                 WaitEnd(wait);
+                sw.Stop();
                 if (wait.Cancel == true)
                 {
                     MessageBox.Show("Upload afbrudt");
                 }
                 else
                 {
-                    MessageBox.Show("Upload Complete");
+                    MessageBox.Show("Upload Complete " + "After: " + sw.Elapsed.ToString("ss") + " Seconds");
                 }
 
             }
