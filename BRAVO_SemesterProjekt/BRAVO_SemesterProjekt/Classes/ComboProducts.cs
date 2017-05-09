@@ -41,18 +41,18 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
-        private DateTime endTime;
+        private DateTime? endTime;
 
-        public DateTime EndTime
+        public DateTime? EndTime
         {
             get { return endTime; }
             set { endTime = value;
                 NotifyPropertyChanged();
             }
         }
-        private DateTime startTime;
+        private DateTime? startTime;
 
-        public DateTime StartTime
+        public DateTime? StartTime
         {
             get { return startTime; }
             set { startTime = value;
