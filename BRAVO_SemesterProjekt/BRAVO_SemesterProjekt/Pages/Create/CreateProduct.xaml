@@ -9,22 +9,26 @@
       Title="CreateProduct">
 
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,66,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="10,136,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="23" Margin="10,219,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Height="23" Margin="10,302,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy3" HorizontalAlignment="Left" Height="23" Margin="10,366,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label" Content="Navn:" HorizontalAlignment="Left" Margin="698,118,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy" Content="By:" HorizontalAlignment="Left" Margin="698,171,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy1" Content="Post nr:" HorizontalAlignment="Left" Margin="698,298,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy2" Content="Kommune:" HorizontalAlignment="Left" Margin="698,362,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy3" Content="Vej og nr:" HorizontalAlignment="Left" Margin="698,224,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy4" HorizontalAlignment="Left" Height="23" Margin="10,421,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy5" HorizontalAlignment="Left" Height="23" Margin="10,482,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy4" Content="Længdegrad" HorizontalAlignment="Left" Margin="586,403,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy5" Content="Bredegrad" HorizontalAlignment="Left" Margin="546,487,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy6" HorizontalAlignment="Left" Height="23" Margin="10,536,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy6" Content="Url" HorizontalAlignment="Left" Margin="468,593,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy7" HorizontalAlignment="Left" Height="148" Margin="10,596,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="435"/>
+        <TextBox x:Name="txt_productname" HorizontalAlignment="Left" Height="23" Margin="10,140,0,0" TextWrapping="Wrap" Text="{Binding Path=ProductName}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_street" HorizontalAlignment="Left" Height="23" Margin="10,193,0,0" TextWrapping="Wrap" Text="{Binding Path=Street}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_city" HorizontalAlignment="Left" Height="23" Margin="10,247,0,0" TextWrapping="Wrap" Text="{Binding Path=City}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_zipcode" HorizontalAlignment="Left" Height="23" Margin="10,300,0,0" TextWrapping="Wrap" Text="{Binding Path=Zipcode}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_region" HorizontalAlignment="Left" Height="23" Margin="157,140,0,0" TextWrapping="Wrap" Text="{Binding Path=Region}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label" Content="Navn:" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy" Content="By:" HorizontalAlignment="Left" Margin="10,216,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy1" Content="Post nr:" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy2" Content="Kommune:" HorizontalAlignment="Left" Margin="157,110,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy3" Content="Vej og nr:" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_longitude" HorizontalAlignment="Left" Height="23" Margin="157,193,0,0" TextWrapping="Wrap" Text="{Binding Path=Longtitude}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_latitude" HorizontalAlignment="Left" Height="23" Margin="157,247,0,0" TextWrapping="Wrap" Text="{Binding Path=Latitude}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy4" Content="Længdegrad" HorizontalAlignment="Left" Margin="157,168,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy5" Content="Bredegrad" HorizontalAlignment="Left" Margin="157,216,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_url" HorizontalAlignment="Left" Height="23" Margin="157,298,0,0" TextWrapping="Wrap" Text="{Binding Path=Url}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy6" Content="Url" HorizontalAlignment="Left" Margin="157,270,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_desciption" HorizontalAlignment="Left" Height="148" Margin="10,351,0,0" TextWrapping="Wrap" Text="{Binding Path=Describtion}" VerticalAlignment="Top" Width="435"/>
+        <ComboBox x:Name="cmb_actor" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed"/>
+        <ComboBox x:Name="cmb_category" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_category_DropDownClosed"/>
+        <Label x:Name="label_Copy7" Content="Beskrivelse:" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button" Content="Opret produkt" HorizontalAlignment="Left" Margin="10,504,0,0" VerticalAlignment="Top" Width="120" Height="44" Click="btn_opretprodukt"/>
     </Grid>
 </Page>

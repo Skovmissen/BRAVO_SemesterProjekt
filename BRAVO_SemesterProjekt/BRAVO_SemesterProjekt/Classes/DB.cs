@@ -38,7 +38,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        
+
         public static void InsertActor(TempData temp)
         {
             SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Email, Tlf, Activate) VALUES (@ActorName, @Email, @Tlf, @Activate)", connection);
@@ -73,7 +73,7 @@ namespace BRAVO_SemesterProjekt
         {
             SqlCommand command = new SqlCommand("INSERT INTO Category (CategoryName) VALUES (@CategoryName)", connection);
             command.Parameters.Add(CreateParam("@CategoryName", temp.Category, SqlDbType.NVarChar));
-           
+
             try
             {
                 command.ExecuteNonQuery();
@@ -99,7 +99,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InsertProduct(TempData temp)
+        public static void InsertXMLProduct(TempData temp)
         {
             SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, XML_Id) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @XmlId)", connection);
             command.Parameters.Add(CreateParam("@City", temp.City, SqlDbType.NVarChar));
@@ -108,16 +108,44 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@Street", temp.Street, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Latitude", temp.Latitude, SqlDbType.Float));
             command.Parameters.Add(CreateParam("@Longtitude", temp.Longtitude, SqlDbType.Float));
-            command.Parameters.Add(CreateParam("@URL", temp.Url, SqlDbType.NVarChar));            
+            command.Parameters.Add(CreateParam("@URL", temp.Url, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Describtion", temp.Describtion, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
             command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@CategoryName", temp.Category, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ProductName", temp.ProductName, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@XmlId", temp.XmlId, SqlDbType.Int));
+
             try
             {
-                
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void InsertProduct(TempData temp)
+        {
+            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName)", connection);
+            command.Parameters.Add(CreateParam("@City", temp.City, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ZipCode", temp.Zipcode, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Region", temp.Region, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Street", temp.Street, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Latitude", temp.Latitude, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@Longtitude", temp.Longtitude, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@URL", temp.Url, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Describtion", temp.Describtion, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
+            command.Parameters.Add(CreateParam("@ActorName", temp.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@CategoryName", temp.Category, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ProductName", temp.ProductName, SqlDbType.NVarChar));
+            
+
+            try
+            {
+
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -131,7 +159,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.AddWithValue("@ActorName", temp.Name);
             command.Parameters.AddWithValue("@Email", temp.City);
             command.Parameters.AddWithValue("@Tlf", temp.City);
-            
+
 
             try
             {
@@ -176,7 +204,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void UpdateProduct(TempData temp)
         {
-            SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, CategoryName = @CategoryName, ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion WHERE Xml_Id = @XmlId", connection);
+            SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, FK_CategoryName = @CategoryName, FK_ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion WHERE Xml_Id = @XmlId", connection);
             command.Parameters.Add(CreateParam("@City", temp.City, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ZipCode", temp.Zipcode, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Region", temp.Region, SqlDbType.NVarChar));
@@ -208,13 +236,13 @@ namespace BRAVO_SemesterProjekt
             {
                 int id = command.ExecuteNonQuery();
                 return id;
-                
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            
+
         }
         public static DataTable CheckForDoubleCategory(TempData temp)
         {
@@ -271,16 +299,32 @@ namespace BRAVO_SemesterProjekt
         {
             DataTable ds = new DataTable();
             try
-            { 
-            SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster", connection);
-            reader.Fill(ds);
-                 
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster", connection);
+                reader.Fill(ds);
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return ds; 
+            return ds;
+        }
+
+        public static DataTable ShowCategory()
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category", connection);
+                reader.Fill(ds);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
         }
         public static DataTable SearchCluster(TempData temp)
         {

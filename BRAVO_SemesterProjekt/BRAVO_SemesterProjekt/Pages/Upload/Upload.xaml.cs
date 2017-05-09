@@ -30,7 +30,7 @@ namespace BRAVO_SemesterProjekt
 
         private void Upload_Click(object sender, RoutedEventArgs e)
         {
-            Wait wait = new Wait();
+            Wait wait = new Wait(temp);
             XMLUpload.Uploadxml(temp, wait);
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,9 +32,24 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_gem(object sender, RoutedEventArgs e)
         {
-            DB.OpenDb();
-            DB.InsertActor(temp);
-            DB.CloseDb();
+            try
+            {
+                DB.OpenDb();
+                DB.InsertActor(temp);
+                DB.CloseDb();
+                MessageBox.Show("Aktør er oprettet");
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

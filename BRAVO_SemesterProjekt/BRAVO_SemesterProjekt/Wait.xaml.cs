@@ -19,13 +19,18 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class Wait : Window
     {
-      
+
         
-        public Wait()
+        public Wait(TempData temp)
         {
-            InitializeComponent();
             
+            InitializeComponent();
+            DataContext = temp;
         }
-      
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

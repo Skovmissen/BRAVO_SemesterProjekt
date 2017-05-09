@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -35,6 +36,11 @@ namespace BRAVO_SemesterProjekt
                 DB.OpenDb();
                 DB.InsertCombo(temp);
                 DB.CloseDb();
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
             }
             catch (Exception)
             {

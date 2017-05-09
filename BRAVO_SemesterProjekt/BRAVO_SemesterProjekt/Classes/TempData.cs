@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BRAVO_SemesterProjekt
 {
-    class TempData : INotifyPropertyChanged
+    public class TempData : INotifyPropertyChanged
     {
         private bool activate;
 
@@ -208,6 +208,25 @@ namespace BRAVO_SemesterProjekt
 
             }
         }
+        private double counter;
+
+        public double Counter
+        {
+            get { return counter; }
+            set { counter = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private double nodeCount;
+
+        public double NodeCount
+        {
+            get { return nodeCount; }
+            set { nodeCount = value;
+                NotifyPropertyChanged();
+            }
+        }
+
 
 
 

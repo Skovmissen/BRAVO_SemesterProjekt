@@ -17,7 +17,9 @@
     </Window.Background>
     <Grid Margin="0,0,0.2,39.6">
 
-        <Label Content="Upload igang, vent venligst" Background="{x:Null}" Foreground="White" Margin="36,53,-36,-53"></Label>
+        <Label Content="Upload igang, vent venligst" Background="{x:Null}" Foreground="White" Margin="36,53,46,74"></Label>
+        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="67,85,0,0" VerticalAlignment="Top" Width="100" Minimum="0" Maximum="100" Value="{Binding Path=Counter}"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="72,118,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
 
     </Grid>
 </Window>

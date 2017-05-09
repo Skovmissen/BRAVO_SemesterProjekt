@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,11 @@ namespace BRAVO_SemesterProjekt
                 DB.InsertCluster(temp);
                 DB.CloseDb();
 
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
             }
             catch (Exception)
             {

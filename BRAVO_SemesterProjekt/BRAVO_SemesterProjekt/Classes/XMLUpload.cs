@@ -12,6 +12,7 @@ namespace BRAVO_SemesterProjekt
 {
     class XMLUpload
     {
+       
         public static void WaitStart(Wait wait)
         {
             wait.Show();
@@ -52,24 +53,27 @@ namespace BRAVO_SemesterProjekt
 
             DataTable dtProduct = DB.CheckForDoubleProduct(temp);
 
-            if (dtProduct.Rows.Count == 0)
-            {
-                DB.InsertProduct(temp);
-            }
-            else
+            if (dtProduct.Rows.Count > 0)
             {
                 DB.UpdateProduct(temp);
             }
+            else
+            {                
+                DB.InsertXMLProduct(temp);
+            }
 
         }
-        public static void Uploadxml(TempData temp, Wait wait)
+        public static async void Uploadxml(TempData temp, Wait wait)
         {
-
+            double count = 0;
+            temp.Counter = 0;          
             WaitStart(wait);
             XmlDocument doc = LoadDoc(temp);
             XmlNamespaceManager ns = NameSpace(temp, doc);
 
             XmlNodeList productNode = doc.DocumentElement.SelectNodes("/BravoXML:ArrayOfProduct/BravoXML:Product", ns);
+            temp.NodeCount = productNode.Count;
+                
             DB.OpenDb();
             foreach (XmlNode item in productNode)
             {
@@ -91,7 +95,11 @@ namespace BRAVO_SemesterProjekt
                 temp.Street = addressLine1.InnerText;
 
                 InsertInDb(temp);
-
+                count++;
+                double result = ((count / temp.NodeCount) * 100);
+                temp.Counter = result;
+                await PutTaskDelay();
+                
             }
 
 
@@ -99,6 +107,11 @@ namespace BRAVO_SemesterProjekt
             DB.CloseDb();
             WaitEnd(wait);
             MessageBox.Show("Upload Complete");
+            
+        }
+        private static async Task PutTaskDelay()
+        {
+            await Task.Delay(10);
         }
         private static void CheckForNull(XmlNode name, XmlNode xmlId, XmlNode addressLine1, XmlNode url, XmlNode tlf, XmlNode latitude, XmlNode longitude, XmlNode region, XmlNode description, XmlNode category, XmlNode email, XmlNode city, XmlNode zip, TempData temp)
         {
