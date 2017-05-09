@@ -27,7 +27,9 @@ namespace BRAVO_SemesterProjekt
         public string Category
         {
             get { return category; }
-            set { category = value;
+            set
+            {
+                category = value;
                 NotifyPropertyChanged();
             }
         }
@@ -36,7 +38,9 @@ namespace BRAVO_SemesterProjekt
         public string City
         {
             get { return city; }
-            set { city = value;
+            set
+            {
+                city = value;
                 NotifyPropertyChanged();
             }
         }
@@ -46,17 +50,21 @@ namespace BRAVO_SemesterProjekt
         public string Describtion
         {
             get { return describtion; }
-            set { describtion = value;
+            set
+            {
+                describtion = value;
                 NotifyPropertyChanged();
             }
         }
-       
+
         private string email;
 
         public string Email
         {
             get { return email; }
-            set { email = value;
+            set
+            {
+                email = value;
                 NotifyPropertyChanged();
             }
         }
@@ -65,7 +73,9 @@ namespace BRAVO_SemesterProjekt
         public DateTime? EndTime
         {
             get { return endTime; }
-            set { endTime = value;
+            set
+            {
+                endTime = value;
                 NotifyPropertyChanged();
             }
         }
@@ -74,7 +84,9 @@ namespace BRAVO_SemesterProjekt
         public int Id
         {
             get { return id; }
-            set { id = value;
+            set
+            {
+                id = value;
                 NotifyPropertyChanged();
             }
         }
@@ -84,7 +96,9 @@ namespace BRAVO_SemesterProjekt
         public double Latitude
         {
             get { return latitude; }
-            set { latitude = value;
+            set
+            {
+                latitude = value;
                 NotifyPropertyChanged();
             }
         }
@@ -93,7 +107,9 @@ namespace BRAVO_SemesterProjekt
         public double Longtitude
         {
             get { return longtitude; }
-            set { longtitude = value;
+            set
+            {
+                longtitude = value;
                 NotifyPropertyChanged();
             }
         }
@@ -102,7 +118,9 @@ namespace BRAVO_SemesterProjekt
         public string Name
         {
             get { return name; }
-            set { name = value;
+            set
+            {
+                name = value;
                 NotifyPropertyChanged();
             }
         }
@@ -111,7 +129,9 @@ namespace BRAVO_SemesterProjekt
         public string ProductName
         {
             get { return productName; }
-            set { productName = value;
+            set
+            {
+                productName = value;
                 NotifyPropertyChanged();
             }
         }
@@ -120,10 +140,24 @@ namespace BRAVO_SemesterProjekt
         public int Progress
         {
             get { return progress; }
-            set { progress = value;
+            set
+            {
+                progress = value;
                 NotifyPropertyChanged();
             }
         }
+        private bool cancel;
+
+        public bool Cancel
+        {
+            get { return cancel; }
+            set
+            {
+                cancel = value;
+                NotifyPropertyChanged();
+            }
+        }
+
 
         private int xmlId;
 
@@ -138,7 +172,9 @@ namespace BRAVO_SemesterProjekt
         public string Region
         {
             get { return region; }
-            set { region = value;
+            set
+            {
+                region = value;
                 NotifyPropertyChanged();
             }
         }
@@ -147,7 +183,9 @@ namespace BRAVO_SemesterProjekt
         public DateTime? StartTime
         {
             get { return startTime; }
-            set { startTime = value;
+            set
+            {
+                startTime = value;
                 NotifyPropertyChanged();
             }
         }
@@ -156,7 +194,9 @@ namespace BRAVO_SemesterProjekt
         public string Street
         {
             get { return street; }
-            set { street = value;
+            set
+            {
+                street = value;
                 NotifyPropertyChanged();
             }
         }
@@ -165,7 +205,9 @@ namespace BRAVO_SemesterProjekt
         public string Tlf
         {
             get { return tlf; }
-            set { tlf = value;
+            set
+            {
+                tlf = value;
                 NotifyPropertyChanged();
             }
         }
@@ -174,7 +216,9 @@ namespace BRAVO_SemesterProjekt
         public string Url
         {
             get { return url; }
-            set { url = value;
+            set
+            {
+                url = value;
                 NotifyPropertyChanged();
             }
         }
@@ -183,7 +227,9 @@ namespace BRAVO_SemesterProjekt
         public string Zipcode
         {
             get { return zipcode; }
-            set { zipcode = value;
+            set
+            {
+                zipcode = value;
                 NotifyPropertyChanged();
             }
         }
@@ -192,7 +238,9 @@ namespace BRAVO_SemesterProjekt
         public string Search
         {
             get { return search; }
-            set { search = value;
+            set
+            {
+                search = value;
                 NotifyPropertyChanged();
 
             }
@@ -202,7 +250,8 @@ namespace BRAVO_SemesterProjekt
         public string ChosenItem
         {
             get { return chosenItem; }
-            set {
+            set
+            {
                 chosenItem = value;
                 NotifyPropertyChanged();
 
@@ -213,7 +262,9 @@ namespace BRAVO_SemesterProjekt
         public double Counter
         {
             get { return counter; }
-            set { counter = value;
+            set
+            {
+                counter = value;
                 NotifyPropertyChanged();
             }
         }
@@ -222,7 +273,9 @@ namespace BRAVO_SemesterProjekt
         public double NodeCount
         {
             get { return nodeCount; }
-            set { nodeCount = value;
+            set
+            {
+                nodeCount = value;
                 NotifyPropertyChanged();
             }
         }

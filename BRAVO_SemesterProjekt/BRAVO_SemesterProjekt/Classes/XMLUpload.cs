@@ -12,7 +12,7 @@ namespace BRAVO_SemesterProjekt
 {
     class XMLUpload
     {
-       
+
         public static void WaitStart(Wait wait)
         {
             wait.Show();
@@ -58,7 +58,7 @@ namespace BRAVO_SemesterProjekt
                 DB.UpdateProduct(temp);
             }
             else
-            {                
+            {
                 DB.InsertXMLProduct(temp);
             }
 
@@ -66,14 +66,14 @@ namespace BRAVO_SemesterProjekt
         public static async void Uploadxml(TempData temp, Wait wait)
         {
             double count = 0;
-            temp.Counter = 0;          
+            temp.Counter = 0;
             WaitStart(wait);
             XmlDocument doc = LoadDoc(temp);
             XmlNamespaceManager ns = NameSpace(temp, doc);
 
             XmlNodeList productNode = doc.DocumentElement.SelectNodes("/BravoXML:ArrayOfProduct/BravoXML:Product", ns);
             temp.NodeCount = productNode.Count;
-                
+
             DB.OpenDb();
             foreach (XmlNode item in productNode)
             {
@@ -98,16 +98,29 @@ namespace BRAVO_SemesterProjekt
                 count++;
                 double result = ((count / temp.NodeCount) * 100);
                 temp.Counter = result;
+                if (wait.Cancel == true)
+                {
+                    break;
+                    WaitEnd(wait);
+                }
                 await PutTaskDelay();
-                
+
             }
 
 
 
             DB.CloseDb();
             WaitEnd(wait);
-            MessageBox.Show("Upload Complete");
-            
+            if (wait.Cancel == true)
+            {
+                MessageBox.Show("Upload afbrudt");
+            }
+            else
+            {
+                MessageBox.Show("Upload Complete");
+            }
+
+
         }
         private static async Task PutTaskDelay()
         {
