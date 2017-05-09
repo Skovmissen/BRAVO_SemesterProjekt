@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,31 @@ namespace BRAVO_SemesterProjekt
         {
             wait.Close();
         }
-        public static XmlDocument LoadDoc(TempData temp)
+        public static XmlDocument LoadDoc(TempData temp, Wait wait)
         {
             XmlDocument doc = new XmlDocument();
+            try
+            {
+                doc.Load(temp.Path);
+            }
+            catch (ArgumentNullException)
+            {
 
-            doc.Load(temp.Url);
+                MessageBox.Show("Du har ikke valgt nogen fil");
+                WaitEnd(wait);
+            }
+            catch (FileNotFoundException)
+            {
+
+                MessageBox.Show("Du har ikke valgt nogen fil");
+                WaitEnd(wait);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
 
             return doc;
         }
@@ -65,12 +86,20 @@ namespace BRAVO_SemesterProjekt
         }
         public static async void Uploadxml(TempData temp, Wait wait)
         {
+            if (temp.Path == null)
+            {
+                MessageBox.Show("Ingen fil valgt");
+            }
+            else 
+            {
+
+          
             double count = 0;
             temp.Counter = 0;
             WaitStart(wait);
-            XmlDocument doc = LoadDoc(temp);
+            XmlDocument doc = LoadDoc(temp, wait);
             XmlNamespaceManager ns = NameSpace(temp, doc);
-
+            
             XmlNodeList productNode = doc.DocumentElement.SelectNodes("/BravoXML:ArrayOfProduct/BravoXML:Product", ns);
             temp.NodeCount = productNode.Count;
 
@@ -100,8 +129,11 @@ namespace BRAVO_SemesterProjekt
                 temp.Counter = result;
                 if (wait.Cancel == true)
                 {
+                        temp.Path = null;
                     break;
-                    WaitEnd(wait);
+                    
+                    
+                    
                 }
                 await PutTaskDelay();
 
@@ -120,7 +152,8 @@ namespace BRAVO_SemesterProjekt
                 MessageBox.Show("Upload Complete");
             }
 
-
+            }
+           
         }
         private static async Task PutTaskDelay()
         {

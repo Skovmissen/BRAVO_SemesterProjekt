@@ -26,6 +26,7 @@ namespace BRAVO_SemesterProjekt
         public Upload()
         {
             InitializeComponent();
+            DataContext = temp;
         }
 
         private void Upload_Click(object sender, RoutedEventArgs e)
@@ -47,8 +48,8 @@ namespace BRAVO_SemesterProjekt
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
-                temp.Url = openFileDialog.FileName;
-                label.Content = openFileDialog.FileName;
+                temp.Path = openFileDialog.FileName;
+                
             }
 
             

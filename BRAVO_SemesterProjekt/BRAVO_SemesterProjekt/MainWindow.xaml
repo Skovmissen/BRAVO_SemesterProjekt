@@ -27,9 +27,6 @@
                     <MenuItem Name="ShowCombos"  Header="Kombi-produkter" Click="ShowCombos_Click"  />
                     <MenuItem Name="ShowClusters"  Header="Klynger" Click="ShowClusters_Click"  />
                 </MenuItem>
-                <MenuItem Header="Deaktivere/Aktivere" Height="33" MinWidth="100" FontSize="14">
-                
-                </MenuItem>
                 <MenuItem Header="Upload" Height="33" MinWidth="100" FontSize="14" Margin="30,0,0,0" >
                     <MenuItem Header="XML" Height="33" MinWidth="100" FontSize="14" Click="Upload_Click"/>
                 </MenuItem>
