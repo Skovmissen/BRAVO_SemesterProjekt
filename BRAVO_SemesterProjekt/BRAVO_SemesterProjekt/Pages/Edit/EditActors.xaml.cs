@@ -54,6 +54,7 @@ namespace BRAVO_SemesterProjekt
                 actor.Email = row.Row.ItemArray[1].ToString();
                 actor.Tlf = row.Row.ItemArray[2].ToString();
                 actor.Activate = Convert.ToBoolean(row.Row.ItemArray[3].ToString());
+                
             }
            
         }
