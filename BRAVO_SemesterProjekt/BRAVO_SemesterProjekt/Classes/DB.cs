@@ -373,7 +373,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable GetClusterActors(TempData temp)
+        public static DataTable GetClusterActors(Clusters cluster)
         {
             DataTable ds = new DataTable();
             try
