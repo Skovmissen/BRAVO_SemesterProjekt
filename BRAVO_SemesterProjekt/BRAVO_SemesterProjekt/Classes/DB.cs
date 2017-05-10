@@ -113,7 +113,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InsertXMLProduct( Products product, Actors actor)
+        public static void InsertXMLProduct(Products product, Actors actor)
         {
             SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, XML_Id) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @XmlId)", connection);
             command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
@@ -155,7 +155,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@ActorName", actor.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ProductName", product.Name, SqlDbType.NVarChar));
-            
+
 
             try
             {
@@ -472,10 +472,30 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_CombiId FROM CombiView WHERE FK_CombiId LIKE @CombiId", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ProductId FROM CombiView WHERE FK_CombiId LIKE @CombiId", connection);
                 reader.SelectCommand.Parameters.AddWithValue("@CombiId", "%" + combo.Id + "%");
                 reader.Fill(ds);
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
+        }
+        public static DataTable GetProductsInCombo(DataTable products)
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                foreach (DataRow item in products.Rows)
+                {
+
+
+                    SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductId LIKE @ProductId", connection);
+                    reader.SelectCommand.Parameters.AddWithValue("@ProductId", "%" + item.ItemArray[0].ToString() + "%");
+                    reader.Fill(ds);
+                }
             }
             catch (Exception ex)
             {
