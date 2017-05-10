@@ -19,6 +19,8 @@ namespace BRAVO_SemesterProjekt
 {
     /// <summary>
     /// Lavet af Lasse
+    /// 
+    /// Den klasse bruges til at oprette produkter
     /// </summary>
     public partial class CreateProduct : Page
     {

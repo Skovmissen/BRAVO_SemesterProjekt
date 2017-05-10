@@ -18,6 +18,8 @@ namespace BRAVO_SemesterProjekt
 {
     /// <summary>
     /// Lavet af Lasse
+    /// 
+    /// Denne klasse bruges til at oprette aktører
     /// </summary>
     public partial class CreateActors : Page
     {

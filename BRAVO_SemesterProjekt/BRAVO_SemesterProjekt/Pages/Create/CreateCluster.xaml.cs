@@ -19,6 +19,8 @@ namespace BRAVO_SemesterProjekt
 {
     /// <summary>
     /// Lavet af Lasse
+    /// 
+    /// Denne klasse kan oprette klynger og tilføje aktører til klyngerne
     /// </summary>
     public partial class CreateCluster : Page
     {

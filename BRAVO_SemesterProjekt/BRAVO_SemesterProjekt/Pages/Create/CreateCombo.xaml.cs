@@ -19,6 +19,8 @@ namespace BRAVO_SemesterProjekt
 {
     /// <summary>
     /// Lavet af Lasse og Nikolaj
+    /// 
+    /// Denne klasse bruges til at oprette komboprodukter og tilføje produkter til dem
     /// </summary>
     public partial class CreateCombo : Page
     {
