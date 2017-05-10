@@ -17,6 +17,7 @@
         <DataGrid x:Name="dg_ShowspecificCluster" HorizontalAlignment="Left" Margin="10,439,0,0" VerticalAlignment="Top" Height="164" Width="388" IsReadOnly="True"/>
         <Button x:Name="button1" Content="Tilføj til klynge" HorizontalAlignment="Left" Margin="146,382,0,0" VerticalAlignment="Top" Width="95" Click="button1_Click"/>
         <Label x:Name="label1" Content="{Binding Path=OldName}" HorizontalAlignment="Left" Margin="10,410,0,0" VerticalAlignment="Top" Width="120" Height="24" FontWeight="Bold" />
+        <Label x:Name="label2" Content="Tryk på en klynge for yderlig information" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Width="388" FontSize="8"/>
 
     </Grid>
 </Page>
