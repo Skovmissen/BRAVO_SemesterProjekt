@@ -39,7 +39,7 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
-        public static void InsertActor(Actors actor)
+        public static void InsertActor(Actors actor) 
         {
             SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Email, Tlf, Activate) VALUES (@ActorName, @Email, @Tlf, @Activate)", connection);
             command.Parameters.Add(CreateParam("@ActorName", actor.Name, SqlDbType.NVarChar));
