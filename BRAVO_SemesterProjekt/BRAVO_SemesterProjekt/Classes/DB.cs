@@ -59,7 +59,7 @@ namespace BRAVO_SemesterProjekt
         {
             SqlCommand command = new SqlCommand("INSERT INTO ActorCluster (FK_ClusterName, FK_ActorName) VALUES (@ClusterName, @ActorName)", connection);
             command.Parameters.Add(CreateParam("@ActorName", actor.OldName, SqlDbType.NVarChar));
-            command.Parameters.Add(CreateParam("@ClusterName", cluster.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ClusterName", cluster.OldName, SqlDbType.NVarChar));
             try
             {
                 command.ExecuteNonQuery();
@@ -355,7 +355,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category WHERE Activate = 1", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category", connection);
                 reader.Fill(ds);
 
             }
@@ -371,7 +371,7 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE ClusterName LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + cluster.Name + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + cluster.Search + "%");
                 reader.Fill(ds);
 
             }
@@ -397,7 +397,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable GetClusterActors(TempData temp)
+        public static DataTable GetClusterActors(Clusters cluster)
         {
             DataTable ds = new DataTable();
             try
