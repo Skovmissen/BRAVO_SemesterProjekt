@@ -35,6 +35,7 @@ namespace BRAVO_SemesterProjekt
         {
             DB.OpenDb();
             DB.UpdateActor(actor);
+            edit_Actor.ItemsSource = DB.ShowActorDB().DefaultView;
             DB.CloseDb();
         }
 

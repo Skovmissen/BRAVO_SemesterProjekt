@@ -301,7 +301,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE Activate = 1", connection);
                 reader.Fill(ds);
 
             }
