@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for CreateProduct.xaml
+    /// Lavet af Lasse
     /// </summary>
     public partial class CreateProduct : Page
     {

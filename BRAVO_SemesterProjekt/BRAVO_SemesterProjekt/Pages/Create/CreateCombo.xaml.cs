@@ -18,7 +18,7 @@ using System.Data.SqlClient;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for CreateCombo.xaml
+    /// Lavet af Lasse og Nikolaj
     /// </summary>
     public partial class CreateCombo : Page
     {

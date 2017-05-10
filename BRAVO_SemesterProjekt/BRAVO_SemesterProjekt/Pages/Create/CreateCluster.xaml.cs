@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for CreateCluster.xaml
+    /// Lavet af Lasse
     /// </summary>
     public partial class CreateCluster : Page
     {
