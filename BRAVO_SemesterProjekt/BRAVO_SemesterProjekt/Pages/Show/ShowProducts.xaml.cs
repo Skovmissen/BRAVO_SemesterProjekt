@@ -27,7 +27,7 @@ namespace BRAVO_SemesterProjekt
             InitializeComponent();
             DataContext = product;
             DB.OpenDb();
-            datagrid_ShowProducts.ItemsSource = DB.
+            datagrid_ShowProducts.ItemsSource = DB.ShowProducts(product).DefaultView;
 
         }
 

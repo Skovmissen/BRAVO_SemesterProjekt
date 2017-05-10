@@ -381,13 +381,13 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable SearchProduct(TempData temp)
+        public static DataTable SearchProduct(Products product)
         {
             DataTable ds = new DataTable();
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + product.Search + "%");
                 reader.Fill(ds);
             }
             catch (Exception)
