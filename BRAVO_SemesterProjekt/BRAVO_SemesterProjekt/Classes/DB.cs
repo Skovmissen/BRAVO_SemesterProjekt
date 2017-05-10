@@ -456,7 +456,7 @@ namespace BRAVO_SemesterProjekt
             DataTable SearchComboDt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM COMBIPRODUCT WHERE COMBIPRODUCTNAME LIKE @search", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE CombiProductName LIKE @search", connection);
                 reader.SelectCommand.Parameters.AddWithValue("@search", "%" + combo.Name + "%");
                 reader.Fill(SearchComboDt);
 
