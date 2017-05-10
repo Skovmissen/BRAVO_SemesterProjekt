@@ -21,6 +21,16 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private string oldName;
+
+        public string OldName
+        {
+            get { return oldName; }
+            set { oldName = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private int id;
 
         public int Id

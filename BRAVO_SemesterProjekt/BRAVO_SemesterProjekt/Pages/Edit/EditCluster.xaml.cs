@@ -24,5 +24,10 @@ namespace BRAVO_SemesterProjekt
         {
             InitializeComponent();
         }
+
+        private void edit_Cluster_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
