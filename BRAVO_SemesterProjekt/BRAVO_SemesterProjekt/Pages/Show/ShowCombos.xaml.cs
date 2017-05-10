@@ -29,7 +29,7 @@ namespace BRAVO_SemesterProjekt
             DataContext = combo;
             InitializeComponent();
             DB.OpenDb();
-            GridShowCombo.ItemsSource = DB.ShowComboDB().DefaultView;
+            GridShowCombo.ItemsSource = DB.ShowCombo().DefaultView;
             DB.CloseDb();
         }
 

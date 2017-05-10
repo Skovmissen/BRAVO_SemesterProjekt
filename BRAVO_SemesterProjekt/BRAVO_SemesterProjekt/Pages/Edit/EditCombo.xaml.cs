@@ -16,13 +16,21 @@ using System.Windows.Shapes;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
+    /// Af Claus
     /// Interaction logic for EditCombo.xaml
+    /// 
+    /// deaktivering produkt??
+    /// start,slu,aktiver
+    /// 
     /// </summary>
     public partial class EditCombo : Page
     {
         public EditCombo()
         {
             InitializeComponent();
+            DB.OpenDb();
+            dataGrid_ShowCombo.ItemsSource = DB.ShowComboDB().DefaultView;
+            DB.CloseDb();
         }
     }
 }

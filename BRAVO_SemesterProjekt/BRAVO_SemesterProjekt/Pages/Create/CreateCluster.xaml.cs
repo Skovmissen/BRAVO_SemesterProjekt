@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for CreateCluster.xaml
+    /// Lavet af Lasse
     /// </summary>
     public partial class CreateCluster : Page
     {
@@ -62,7 +62,7 @@ namespace BRAVO_SemesterProjekt
         }
         private void Fillcombo()
         {
-            DataTable actor = DB.ShowActorDB();
+            DataTable actor = DB.ShowActor();
             for (int i = 0; i < actor.Rows.Count; i++)
             {
                 cmb_actor.Items.Add(actor.Rows[i]["ActorName"]);

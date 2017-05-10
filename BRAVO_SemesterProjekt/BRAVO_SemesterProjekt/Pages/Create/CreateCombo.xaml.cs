@@ -18,27 +18,31 @@ using System.Data.SqlClient;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for CreateCombo.xaml
+    /// Lavet af Lasse og Nikolaj
     /// </summary>
     public partial class CreateCombo : Page
     {
        
         ComboProducts combo = new ComboProducts();
+        Products product = new Products();
         
         public CreateCombo()
         {
             InitializeComponent();
             DataContext = combo;
             ShowAllCombiproducts();
+            Fillcombo();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void btn_CreateCombo(object sender, RoutedEventArgs e)
         {
             try
             {
                 DB.OpenDb();
                 DB.InsertCombo(combo);
                 DB.CloseDb();
+                MessageBox.Show("Kombiprodukt er oprettet");
+                ShowAllCombiproducts();
             }
             catch (SqlException)
             {
@@ -50,14 +54,13 @@ namespace BRAVO_SemesterProjekt
 
                 throw;
             }
-            MessageBox.Show("Kombiprodukt er oprettet");
+            
             
         }
         private void ShowAllCombiproducts()
         {
-            DB.OpenDb();
-            DataTable allCombiProducts = DB.ShowComboDB();
-            dg_showcombiproducts.ItemsSource = allCombiProducts.DefaultView;
+            DB.OpenDb();             
+            dg_showcombiproducts.ItemsSource = DB.ShowCombo().DefaultView;
             DB.CloseDb();
         }
 
@@ -65,17 +68,49 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dg_showcombiproducts.SelectedItems)
             {
-                combo.Search = row.Row.ItemArray[0].ToString();
+                combo.Id = Convert.ToInt32(row.Row.ItemArray[0]);
             }
-            ProductsInCombi();
+            ShowProductsInCombi();
         }
-        private void ProductsInCombi()
+        private void ShowProductsInCombi()
         {
             DB.OpenDb();
-            DataTable allProductsInCombi = DB.SearchCombo(combo);
-            dg_showproduts.ItemsSource = allProductsInCombi.DefaultView;
-            DB.CloseDb();
-            
+            DataTable comboProducts = DB.GetComboProduts(combo);
+            dg_showproduts.ItemsSource = DB.GetProductsInCombo(comboProducts).DefaultView;
+            DB.CloseDb();            
         }
+        private void Fillcombo()
+        {
+            DataTable products = DB.ShowProducts();
+            for (int i = 0; i < products.Rows.Count; i++)
+            {
+                cmb_products.Items.Add(products.Rows[i]["ProductName"]);
+            }
+        }
+
+        private void btn_addproductInCombi(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DB.OpenDb();
+                DB.InsertProductInCombi(combo, product);
+                ShowProductsInCombi();
+                DB.CloseDb();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void cmb_products_DropDownClosed(object sender, EventArgs e)
+        {            
+            combo.ChosenItem = cmb_products.Text;
+            DB.OpenDb();
+            product.Id = Convert.ToInt32(DB.SelectProductId(combo));
+            DB.CloseDb();
+        }
+        
     }
 }
