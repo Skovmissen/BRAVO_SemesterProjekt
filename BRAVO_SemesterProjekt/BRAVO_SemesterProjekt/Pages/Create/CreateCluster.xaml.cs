@@ -62,7 +62,7 @@ namespace BRAVO_SemesterProjekt
         }
         private void Fillcombo()
         {
-            DataTable actor = DB.ShowActorDB();
+            DataTable actor = DB.ShowActor();
             for (int i = 0; i < actor.Rows.Count; i++)
             {
                 cmb_actor.Items.Add(actor.Rows[i]["ActorName"]);

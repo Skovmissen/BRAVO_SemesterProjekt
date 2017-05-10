@@ -60,7 +60,7 @@ namespace BRAVO_SemesterProjekt
         private void ShowAllCombiproducts()
         {
             DB.OpenDb();             
-            dg_showcombiproducts.ItemsSource = DB.ShowComboDB().DefaultView;
+            dg_showcombiproducts.ItemsSource = DB.ShowCombo().DefaultView;
             DB.CloseDb();
         }
 
