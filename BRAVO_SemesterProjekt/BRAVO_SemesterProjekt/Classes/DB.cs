@@ -310,6 +310,10 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
+
+        /// <summary>
+        /// Af Claus
+        /// </summary>
         public static DataTable ShowCluster()
         {
             DataTable ds = new DataTable();
@@ -325,13 +329,33 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
+        /// <summary>
+        /// Af Claus
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable ShowProducts()
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE Activate = 1", connection);
+                reader.Fill(ds);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return ds;
+        }
+
 
         public static DataTable ShowCategory()
         {
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category WHERE Activate = 1", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category", connection);
                 reader.Fill(ds);
 
             }
@@ -347,7 +371,7 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE ClusterName LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + cluster.Name + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + cluster.Search + "%");
                 reader.Fill(ds);
 
             }
@@ -357,13 +381,13 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable SearchProduct(TempData temp)
+        public static DataTable SearchProduct(Products product)
         {
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search OR ZipCode LIKE @search OR FK_CategoryName LIKE @search OR Region LIKE @search OR Describtion LIKE @search", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + product.Search + "%");
                 reader.Fill(ds);
             }
             catch (Exception)
@@ -408,7 +432,7 @@ namespace BRAVO_SemesterProjekt
             DataTable SearchActorDt = new DataTable();
             try
             {
-                SqlDataAdapter SearchActor = new SqlDataAdapter("SELECT * FROM ACTOR WHERE ACTORNAME LIKE @search", connection);
+                SqlDataAdapter SearchActor = new SqlDataAdapter("SELECT * FROM ACTOR WHERE ActorName LIKE @search OR Email LIKE @search OR Tlf LIKE @search ", connection);
                 SearchActor.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
                 SearchActor.Fill(SearchActorDt);
 

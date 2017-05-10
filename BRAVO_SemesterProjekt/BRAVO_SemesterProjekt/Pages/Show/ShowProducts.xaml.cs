@@ -26,13 +26,20 @@ namespace BRAVO_SemesterProjekt
         {
             InitializeComponent();
             DataContext = product;
+            DB.OpenDb();
+            datagrid_ShowProducts.ItemsSource = DB.ShowProducts().DefaultView;
 
         }
 
+        /// <summary>
+        /// klik på knap søger produkt tabel for det indtastede
+        /// </summary>
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
             datagrid_ShowProducts.ItemsSource = DB.SearchProduct(product).DefaultView;
+            DB.CloseDb();
+            
         }
     }
 }

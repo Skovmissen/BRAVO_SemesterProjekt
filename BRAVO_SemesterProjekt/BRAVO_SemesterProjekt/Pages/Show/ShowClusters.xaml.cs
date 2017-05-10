@@ -20,7 +20,7 @@ namespace BRAVO_SemesterProjekt
     /// Af Claus
     /// Interaction logic for ShowClusters.xaml
     /// 
-    /// Vi laver 3 DB kald her. Showcluster viser alle klynger. SearchCluster
+    /// Vi laver 3 DB kald her. Showcluster viser alle klynger. SearchCluster søger klynge tabellen. GetClusterActor viser aktører der er medlem af den valgte klynge
     /// </summary>
     public partial class ShowClusters : Page
     {
