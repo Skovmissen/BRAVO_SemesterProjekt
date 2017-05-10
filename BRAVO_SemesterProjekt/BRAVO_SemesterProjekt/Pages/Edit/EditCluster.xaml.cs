@@ -46,7 +46,10 @@ namespace BRAVO_SemesterProjekt
         {
             DB.OpenDb();
             DB.UpdateCluster(cluster);
+            edit_Cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;
             DB.CloseDb();
+            MessageBox.Show("Redigering fuldført");
+           
         }
 
         private void btn_Edit_Search_Click(object sender, RoutedEventArgs e)

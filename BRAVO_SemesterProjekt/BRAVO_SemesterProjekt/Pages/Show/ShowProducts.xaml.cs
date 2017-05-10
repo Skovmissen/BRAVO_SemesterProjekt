@@ -16,13 +16,23 @@ using System.Windows.Shapes;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
+    /// Af Claus
     /// Interaction logic for ShowProducts.xaml
     /// </summary>
     public partial class ShowProducts : Page
     {
+        Products product = new Products();
         public ShowProducts()
         {
             InitializeComponent();
+            DataContext = product;
+
+        }
+
+        private void btn_search_Click(object sender, RoutedEventArgs e)
+        {
+            DB.OpenDb();
+            datagrid_ShowProducts.ItemsSource = DB.SearchProduct(temp).DefaultView;
         }
     }
 }

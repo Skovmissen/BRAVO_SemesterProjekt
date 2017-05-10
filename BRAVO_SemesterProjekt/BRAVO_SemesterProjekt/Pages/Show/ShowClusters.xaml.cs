@@ -17,7 +17,10 @@ using System.Windows.Shapes;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
+    /// Af Claus
     /// Interaction logic for ShowClusters.xaml
+    /// 
+    /// Vi laver 3 DB kald her. Showcluster viser alle klynger. SearchCluster
     /// </summary>
     public partial class ShowClusters : Page
     {
