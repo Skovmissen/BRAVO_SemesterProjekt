@@ -343,6 +343,22 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
+        public static DataTable SearchProduct(TempData temp)
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.Fill(ds);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return ds;
+        }
         public static DataTable GetClusterActors(TempData temp)
         {
             DataTable ds = new DataTable();
