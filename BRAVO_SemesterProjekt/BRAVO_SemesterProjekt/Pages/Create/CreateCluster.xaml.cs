@@ -75,5 +75,14 @@ namespace BRAVO_SemesterProjekt
         {
             actor.Name = cmb_actor.Text;
         }
+
+        private void dg_showcluster_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (DataRowView row in dg_showcluster.SelectedItems)
+            {
+                cluster.Name = row.Row.ItemArray[0].ToString();               
+            }
+        }
+
     }
 }
