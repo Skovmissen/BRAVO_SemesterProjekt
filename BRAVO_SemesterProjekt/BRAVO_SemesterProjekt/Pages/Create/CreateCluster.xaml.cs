@@ -79,16 +79,19 @@ namespace BRAVO_SemesterProjekt
         private void dg_showcluster_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             foreach (DataRowView row in dg_showcluster.SelectedItems)
-            {
-                actor.Name = row.Row.ItemArray[0].ToString();             
+            {                
+                cluster.Name = row.Row.ItemArray[0].ToString();
             }
             DataGridShowSpecificCluster();
         }
         private void DataGridShowSpecificCluster()
         {
             DataTable ShowSpecificCluster = DB.GetClusterActors(cluster);
-            dg_ShowspecificCluster.ItemsSource = ShowSpecificCluster.DefaultView;
-            
+            dg_ShowspecificCluster.ItemsSource = ShowSpecificCluster.DefaultView;          
+        }
+        private void AddActorToCluster()
+        {
+            DB.OpenDb();
         }
 
     }
