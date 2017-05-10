@@ -386,7 +386,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search OR ZipCode LIKE @search OR FK_CategoryName LIKE @search OR Region LIKE @search OR Describtion LIKE @search", connection);
                 reader.SelectCommand.Parameters.AddWithValue("@search", "%" + product.Search + "%");
                 reader.Fill(ds);
             }
@@ -432,7 +432,7 @@ namespace BRAVO_SemesterProjekt
             DataTable SearchActorDt = new DataTable();
             try
             {
-                SqlDataAdapter SearchActor = new SqlDataAdapter("SELECT * FROM ACTOR WHERE ACTORNAME LIKE @search", connection);
+                SqlDataAdapter SearchActor = new SqlDataAdapter("SELECT * FROM ACTOR WHERE ActorName LIKE @search OR Email LIKE @search OR Tlf LIKE @search ", connection);
                 SearchActor.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
                 SearchActor.Fill(SearchActorDt);
 
