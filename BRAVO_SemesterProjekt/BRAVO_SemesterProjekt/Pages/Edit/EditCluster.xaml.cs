@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for EditCluster.xaml
+    /// Lavet af Nikolaj
     /// </summary>
     public partial class EditCluster : Page
     {

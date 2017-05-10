@@ -12,6 +12,9 @@ using System.Xml.Linq;
 
 namespace BRAVO_SemesterProjekt
 {
+    /// <summary>
+    /// Lavet af alle
+    /// </summary>
     class XMLUpload
     {
 

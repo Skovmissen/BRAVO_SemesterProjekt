@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace BRAVO_SemesterProjekt
 {
-
+ 
     static class DB
     {
         static private SqlConnection connection = null;
