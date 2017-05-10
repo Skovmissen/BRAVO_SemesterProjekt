@@ -23,10 +23,10 @@ namespace BRAVO_SemesterProjekt
     {
        
         Products product = new Products();
-        ComboProducts Combo = new ComboProducts();
+        ComboProducts combo = new ComboProducts();
         public ShowCombos()
         {
-            DataContext = Combo;
+            DataContext = combo;
             InitializeComponent();
             DB.OpenDb();
             GridShowCombo.ItemsSource = DB.ShowComboDB().DefaultView;
@@ -36,7 +36,7 @@ namespace BRAVO_SemesterProjekt
         private void btn_Search_Combo_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            GridShowCombo.ItemsSource = DB.SearchCombo(Combo).DefaultView;
+            GridShowCombo.ItemsSource = DB.SearchCombo(combo).DefaultView;
             DB.CloseDb();
         }
 
@@ -44,10 +44,10 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in GridShowCombo.SelectedItems)
             {
-                Combo.Name = row.Row.ItemArray[0].ToString();
+                combo.Id = Convert.ToInt32(row.Row.ItemArray[0].ToString());
             }
             DB.OpenDb();
-            dataGridCombo.ItemsSource = DB.GetComboProduts(Combo).DefaultView;
+            dataGridCombo.ItemsSource = DB.GetComboProduts(combo).DefaultView;
             DB.CloseDb();
         }
     }
