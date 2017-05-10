@@ -24,6 +24,7 @@ namespace BRAVO_SemesterProjekt
     {
        
         ComboProducts combo = new ComboProducts();
+        Products product = new Products();
         
         public CreateCombo()
         {
@@ -33,13 +34,15 @@ namespace BRAVO_SemesterProjekt
             Fillcombo();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void btn_CreateCombo(object sender, RoutedEventArgs e)
         {
             try
             {
                 DB.OpenDb();
                 DB.InsertCombo(combo);
                 DB.CloseDb();
+                MessageBox.Show("Kombiprodukt er oprettet");
+                ShowAllCombiproducts();
             }
             catch (SqlException)
             {
@@ -51,14 +54,13 @@ namespace BRAVO_SemesterProjekt
 
                 throw;
             }
-            MessageBox.Show("Kombiprodukt er oprettet");
+            
             
         }
         private void ShowAllCombiproducts()
         {
-            DB.OpenDb();
-            DataTable allCombiProducts = DB.ShowComboDB();
-            dg_showcombiproducts.ItemsSource = allCombiProducts.DefaultView;
+            DB.OpenDb();             
+            dg_showcombiproducts.ItemsSource = DB.ShowComboDB().DefaultView;
             DB.CloseDb();
         }
 
@@ -66,15 +68,15 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dg_showcombiproducts.SelectedItems)
             {
-                combo.Search = row.Row.ItemArray[0].ToString();
+                combo.Id = Convert.ToInt32(row.Row.ItemArray[0]);
             }
             ShowProductsInCombi();
         }
         private void ShowProductsInCombi()
         {
             DB.OpenDb();
-            DataTable allProductsInCombi = DB.SearchCombo(combo);
-            dg_showproduts.ItemsSource = allProductsInCombi.DefaultView;
+            DataTable comboProducts = DB.GetComboProduts(combo);
+            dg_showproduts.ItemsSource = DB.GetProductsInCombo(comboProducts).DefaultView;
             DB.CloseDb();            
         }
         private void Fillcombo()
@@ -91,7 +93,7 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 DB.OpenDb();
-                //DB.InsertProductInCombi(combo);
+                DB.InsertProductInCombi(combo, product);
                 ShowProductsInCombi();
                 DB.CloseDb();
             }
@@ -103,8 +105,11 @@ namespace BRAVO_SemesterProjekt
         }
 
         private void cmb_products_DropDownClosed(object sender, EventArgs e)
-        {
+        {            
             combo.ChosenItem = cmb_products.Text;
+            DB.OpenDb();
+            product.Id = Convert.ToInt32(DB.SelectProductId(combo));
+            DB.CloseDb();
         }
         
     }

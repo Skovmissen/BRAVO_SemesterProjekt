@@ -503,6 +503,36 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
+        public static void InsertProductInCombi(ComboProducts combo, Products product)
+        {
+            SqlCommand command = new SqlCommand("INSERT INTO CombiView (FK_CombiId, FK_ProductId) VALUES (@FK_CombiId, @FK_ProductId)", connection);
+            command.Parameters.Add(CreateParam("@FK_CombiId", combo.Id, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@FK_ProductId", product.Id, SqlDbType.NVarChar));
+            
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static int SelectProductId(ComboProducts combo)
+        {
+            SqlCommand command = new SqlCommand("SELECT ProductId FROM Product WHERE ProductName = @ProductName", connection);
+            command.Parameters.AddWithValue("@ProductName", combo.ChosenItem);
+            try
+            {
+                int id = Convert.ToInt32( command.ExecuteScalar());
+                return id;
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }
