@@ -30,6 +30,7 @@ namespace BRAVO_SemesterProjekt
             InitializeComponent();
             DataContext = combo;
             ShowAllCombiproducts();
+            Fillcombo();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -67,15 +68,44 @@ namespace BRAVO_SemesterProjekt
             {
                 combo.Search = row.Row.ItemArray[0].ToString();
             }
-            ProductsInCombi();
+            ShowProductsInCombi();
         }
-        private void ProductsInCombi()
+        private void ShowProductsInCombi()
         {
             DB.OpenDb();
             DataTable allProductsInCombi = DB.SearchCombo(combo);
             dg_showproduts.ItemsSource = allProductsInCombi.DefaultView;
-            DB.CloseDb();
-            
+            DB.CloseDb();            
         }
+        private void Fillcombo()
+        {
+            DataTable products = DB.ShowProducts();
+            for (int i = 0; i < products.Rows.Count; i++)
+            {
+                cmb_products.Items.Add(products.Rows[i]["ProductName"]);
+            }
+        }
+
+        private void btn_addproductInCombi(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DB.OpenDb();
+                //DB.InsertProductInCombi(combo);
+                ShowProductsInCombi();
+                DB.CloseDb();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void cmb_products_DropDownClosed(object sender, EventArgs e)
+        {
+            combo.ChosenItem = cmb_products.Text;
+        }
+        
     }
 }
