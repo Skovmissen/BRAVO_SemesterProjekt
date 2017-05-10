@@ -80,7 +80,7 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dg_showcluster.SelectedItems)
             {                
-                cluster.Name = row.Row.ItemArray[0].ToString();
+                cluster.OldName = row.Row.ItemArray[0].ToString();
             }
             DataGridShowSpecificCluster();
         }
@@ -89,10 +89,12 @@ namespace BRAVO_SemesterProjekt
             DataTable ShowSpecificCluster = DB.GetClusterActors(cluster);
             dg_ShowspecificCluster.ItemsSource = ShowSpecificCluster.DefaultView;          
         }
-        private void AddActorToCluster()
+        private void button1_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
+            DB.InsertActorInCluster(actor, cluster);
+            DataGridShowSpecificCluster();
+            DB.CloseDb();
         }
-
     }
 }

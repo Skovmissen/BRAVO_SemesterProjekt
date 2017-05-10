@@ -59,7 +59,7 @@ namespace BRAVO_SemesterProjekt
         {
             SqlCommand command = new SqlCommand("INSERT INTO ActorCluster (FK_ClusterName, FK_ActorName) VALUES (@ClusterName, @ActorName)", connection);
             command.Parameters.Add(CreateParam("@ActorName", actor.OldName, SqlDbType.NVarChar));
-            command.Parameters.Add(CreateParam("@ClusterName", cluster.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ClusterName", cluster.OldName, SqlDbType.NVarChar));
             try
             {
                 command.ExecuteNonQuery();
