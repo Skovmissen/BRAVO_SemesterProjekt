@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BRAVO_SemesterProjekt
 {
-    public class Actors : INotifyPropertyChanged
+    public class Actors : TempData, INotifyPropertyChanged
     {
         private bool activate;
 
@@ -21,6 +21,16 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private string oldName;
+
+        public string OldName
+        {
+            get { return oldName; }
+            set { oldName = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private int id;
 
         public int Id

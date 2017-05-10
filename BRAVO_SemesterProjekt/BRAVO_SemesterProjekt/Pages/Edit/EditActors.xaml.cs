@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,40 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class EditActors : Page
     {
+        Actors actor = new Actors();
         public EditActors()
         {
             InitializeComponent();
+            DataContext = actor;
+            DB.OpenDb();
+            edit_Actor.ItemsSource = DB.ShowActorDB().DefaultView;
+            DB.CloseDb();
+        }
+
+        private void btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            DB.OpenDb();
+            DB.UpdateActor(actor);
+            DB.CloseDb();
+        }
+
+        private void btn_Edit_Search_Click(object sender, RoutedEventArgs e)
+        {
+            DB.OpenDb();
+            edit_Actor.ItemsSource = DB.SearchActor(actor).DefaultView;
+            DB.CloseDb();
+        }
+
+        private void edit_Actor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (DataRowView row in edit_Actor.SelectedItems)
+            {
+                actor.OldName = row.Row.ItemArray[0].ToString();
+                actor.Name = row.Row.ItemArray[0].ToString();
+                actor.Email = row.Row.ItemArray[1].ToString();
+                actor.Tlf = row.Row.ItemArray[2].ToString();
+            }
+           
         }
     }
 }

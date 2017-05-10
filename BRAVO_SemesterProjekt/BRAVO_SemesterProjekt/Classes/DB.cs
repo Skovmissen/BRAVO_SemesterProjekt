@@ -153,10 +153,11 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        private static void UpdateActor(Actors actor)
+        public static void UpdateActor(Actors actor)
         {
-            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf WHERE ActorName = @ActorName", connection);
+            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf WHERE ActorName = @OldActorName", connection);
             command.Parameters.AddWithValue("@ActorName", actor.Name);
+            command.Parameters.AddWithValue("@OldActorName", actor.OldName);
             command.Parameters.AddWithValue("@Email", actor.Email);
             command.Parameters.AddWithValue("@Tlf", actor.Tlf);
 
@@ -170,7 +171,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        private static void UpdateCluster(Clusters cluster)
+        public static void UpdateCluster(Clusters cluster)
         {
             SqlCommand command = new SqlCommand("UPDATE Cluster SET ClusterName = @OldClusterName WHERE ClusterName = @NewClusterName", connection);
             command.Parameters.AddWithValue("@OldClusterName", cluster.Name);
@@ -185,7 +186,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        private static void UpdateCombo(ComboProducts combo)
+        public static void UpdateCombo(ComboProducts combo)
         {
             SqlCommand command = new SqlCommand("UPDATE CombiProduct SET CombiProductName = @CombiProductName, StartTime = @StartTime, EndTime = @EndTime WHERE CombiId = @CombiId", connection);
             command.Parameters.AddWithValue("@CombiProductName", combo.Name);
