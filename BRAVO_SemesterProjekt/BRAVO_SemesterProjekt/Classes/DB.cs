@@ -331,7 +331,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category WHERE Activate = 1", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category", connection);
                 reader.Fill(ds);
 
             }
