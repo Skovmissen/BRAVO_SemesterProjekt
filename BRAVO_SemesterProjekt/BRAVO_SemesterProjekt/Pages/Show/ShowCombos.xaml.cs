@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -20,20 +21,33 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class ShowCombos : Page
     {
-        TempData Temp = new TempData();
+       
+        Products product = new Products();
+        ComboProducts Combo = new ComboProducts();
         public ShowCombos()
         {
-            DataContext = Temp;
+            DataContext = Combo;
             InitializeComponent();
             DB.OpenDb();
-            GridShowCombo.ItemsSource = DB.ShowActorDB().DefaultView;
+            GridShowCombo.ItemsSource = DB.ShowComboDB().DefaultView;
             DB.CloseDb();
         }
 
         private void btn_Search_Combo_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            GridShowCombo.ItemsSource = DB.SearchCombo(Temp).DefaultView;
+            GridShowCombo.ItemsSource = DB.SearchCombo(Combo).DefaultView;
+            DB.CloseDb();
+        }
+
+        private void GridShowCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (DataRowView row in GridShowCombo.SelectedItems)
+            {
+                Combo.Name = row.Row.ItemArray[0].ToString();
+            }
+            DB.OpenDb();
+            dataGridCombo.ItemsSource = DB.GetComboProduts(Combo).DefaultView;
             DB.CloseDb();
         }
     }
