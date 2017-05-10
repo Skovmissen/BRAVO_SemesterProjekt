@@ -347,7 +347,7 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE ClusterName LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + cluster.Name + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + cluster.Search + "%");
                 reader.Fill(ds);
 
             }
