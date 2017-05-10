@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -22,11 +23,16 @@ namespace BRAVO_SemesterProjekt
     public partial class CreateCluster : Page
     {
         Clusters cluster = new Clusters();
+        Actors actor = new Actors();
         public CreateCluster()
         {
             
             InitializeComponent();
             DataContext = cluster;
+            DB.OpenDb();
+            Fillcombo();
+            DataGridShowCluster();
+            DB.CloseDb();
         }
 
         private void btn_gem(object sender, RoutedEventArgs e)
@@ -35,6 +41,7 @@ namespace BRAVO_SemesterProjekt
             {
                 DB.OpenDb();
                 DB.InsertCluster(cluster);
+                DataGridShowCluster();
                 DB.CloseDb();
 
             }
@@ -49,6 +56,24 @@ namespace BRAVO_SemesterProjekt
                 throw;
             }
             MessageBox.Show("Klynge er oprettet");
-        }   
+        }
+        private void Fillcombo()
+        {
+            DataTable actor = DB.ShowActorDB();
+            for (int i = 0; i < actor.Rows.Count; i++)
+            {
+                cmb_actor.Items.Add(actor.Rows[i]["ActorName"]);
+            }           
+        }
+        private void DataGridShowCluster()
+        {
+            DataTable ShowCluster = DB.ShowCluster();
+            dg_showcluster.ItemsSource = ShowCluster.DefaultView;
+        }
+
+        private void cmb_actor_DropDownClosed(object sender, EventArgs e)
+        {
+            actor.Name = cmb_actor.Text;
+        }
     }
 }
