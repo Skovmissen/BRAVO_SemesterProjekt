@@ -21,10 +21,13 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class ShowClusters : Page
     {
-        TempData temp = new TempData();
+        
+        Clusters cluster = new Clusters();
+        Actors actor = new Actors();
+        
         public ShowClusters()
         {
-            DataContext = temp;
+            DataContext = cluster;
             InitializeComponent();
             DB.OpenDb();
             dataGrid_cluster.ItemsSource = DB.ShowCluster().DefaultView;
@@ -35,7 +38,7 @@ namespace BRAVO_SemesterProjekt
         {
             DB.OpenDb();
        
-            dataGrid_cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
+            dataGrid_cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;
             
             DB.CloseDb();
         }
@@ -45,10 +48,10 @@ namespace BRAVO_SemesterProjekt
 
             foreach (DataRowView row in dataGrid_cluster.SelectedItems)
             {
-                temp.ChosenItem = row.Row.ItemArray[0].ToString();
+                actor.Name = row.Row.ItemArray[0].ToString();
             }
             DB.OpenDb();
-            ClusterData.ItemsSource = DB.GetClusterActors(temp).DefaultView;
+            ClusterData.ItemsSource = DB.GetClusterActors(actor).DefaultView;
             DB.CloseDb();
            
            

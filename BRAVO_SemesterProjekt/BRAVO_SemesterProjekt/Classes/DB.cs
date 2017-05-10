@@ -327,13 +327,13 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable SearchCluster(TempData temp)
+        public static DataTable SearchCluster(Clusters cluster)
         {
             DataTable ds = new DataTable();
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE ClusterName LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + cluster.Name + "%");
                 reader.Fill(ds);
 
             }
@@ -343,13 +343,13 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable GetClusterActors(TempData temp)
+        public static DataTable GetClusterActors(Actors actor)
         {
             DataTable ds = new DataTable();
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ActorName FROM ActorCluster WHERE FK_ClusterName LIKE @ChosenItem", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@ChosenItem", "%" + temp.ChosenItem + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@ChosenItem", "%" + actor.Name + "%");
                 reader.Fill(ds);
 
             }

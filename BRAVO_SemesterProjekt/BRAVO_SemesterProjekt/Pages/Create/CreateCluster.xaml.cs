@@ -80,8 +80,13 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dg_showcluster.SelectedItems)
             {
-                cluster.Name = row.Row.ItemArray[0].ToString();               
+                cluster.OldName = row.Row.ItemArray[0].ToString();               
             }
+        }
+        private void DataGridShowSpecificCluster()
+        {
+            DataTable ShowSpecificCluster = DB.ShowCluster();
+            dg_showcluster.ItemsSource = ShowCluster.DefaultView;
         }
 
     }
