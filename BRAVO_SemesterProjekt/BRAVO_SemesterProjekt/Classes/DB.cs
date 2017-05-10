@@ -310,6 +310,10 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
+
+        /// <summary>
+        /// Af Claus
+        /// </summary>
         public static DataTable ShowCluster()
         {
             DataTable ds = new DataTable();
@@ -325,6 +329,26 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
+        /// <summary>
+        /// Af Claus
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable ShowProducts()
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE Activate = 1", connection);
+                reader.Fill(ds);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return ds;
+        }
+
 
         public static DataTable ShowCategory()
         {
