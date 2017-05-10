@@ -426,7 +426,7 @@ namespace BRAVO_SemesterProjekt
             ShowCombiProduct.Fill(dt);
             return dt;
         }
-        public static DataTable SearchCombo(ComboProducts combo) //Anders
+        public static DataTable SearchCombo(ComboProducts combo) //Lavet af Anders
         {
             DataTable SearchComboDt = new DataTable();
             try
