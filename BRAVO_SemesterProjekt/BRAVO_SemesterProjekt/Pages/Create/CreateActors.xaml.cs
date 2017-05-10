@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for CreateActors.xaml
+    /// Lavet af Lasse
     /// </summary>
     public partial class CreateActors : Page
     {

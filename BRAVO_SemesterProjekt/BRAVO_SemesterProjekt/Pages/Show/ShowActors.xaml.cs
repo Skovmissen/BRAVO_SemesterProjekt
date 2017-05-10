@@ -29,7 +29,7 @@ namespace BRAVO_SemesterProjekt
             DataContext = actor;
             InitializeComponent();
             DB.OpenDb();
-            GridShowActor.ItemsSource = DB.ShowActorDB().DefaultView;
+            GridShowActor.ItemsSource = DB.ShowActor().DefaultView;
             DB.CloseDb();     
         }
 
