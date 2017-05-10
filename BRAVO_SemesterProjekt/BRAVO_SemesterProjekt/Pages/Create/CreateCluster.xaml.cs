@@ -86,7 +86,7 @@ namespace BRAVO_SemesterProjekt
         }
         private void DataGridShowSpecificCluster()
         {
-            DataTable ShowSpecificCluster = DB.GetClusterActors(actor);
+            DataTable ShowSpecificCluster = DB.GetClusterActors(cluster);
             dg_ShowspecificCluster.ItemsSource = ShowSpecificCluster.DefaultView;
             
         }

@@ -331,7 +331,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category WHERE Activate = 1", connection);
                 reader.Fill(ds);
 
             }
@@ -382,7 +382,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static DataTable ShowActorDB()
         {
-            SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor", connection);
+            SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE Activate = 1", connection);
             DataTable dt = new DataTable();
             ShowActor.Fill(dt);
             return dt;

@@ -48,10 +48,10 @@ namespace BRAVO_SemesterProjekt
 
             foreach (DataRowView row in dataGrid_cluster.SelectedItems)
             {
-                actor.Name = row.Row.ItemArray[0].ToString();
+                cluster.Name = row.Row.ItemArray[0].ToString();
             }
             DB.OpenDb();
-            ClusterData.ItemsSource = DB.GetClusterActors(actor).DefaultView;
+            ClusterData.ItemsSource = DB.GetClusterActors(cluster).DefaultView;
             DB.CloseDb();
            
            
