@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace BRAVO_SemesterProjekt
             DataContext = product;
             DB.OpenDb();
             datagrid_ShowProducts.ItemsSource = DB.ShowProducts().DefaultView;
+            DB.CloseDb();
 
         }
 
