@@ -155,12 +155,12 @@ namespace BRAVO_SemesterProjekt
         }
         public static void UpdateActor(Actors actor)
         {
-            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf WHERE ActorName = @OldActorName", connection);
+            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf, Activate = @Activate WHERE ActorName = @OldActorName", connection);
             command.Parameters.AddWithValue("@ActorName", actor.Name);
             command.Parameters.AddWithValue("@OldActorName", actor.OldName);
             command.Parameters.AddWithValue("@Email", actor.Email);
             command.Parameters.AddWithValue("@Tlf", actor.Tlf);
-
+            command.Parameters.AddWithValue("@Activate", actor.Activate);
 
             try
             {
@@ -173,10 +173,10 @@ namespace BRAVO_SemesterProjekt
         }
         public static void UpdateCluster(Clusters cluster)
         {
-            SqlCommand command = new SqlCommand("UPDATE Cluster SET ClusterName = @NewClusterName WHERE ClusterName = @OldClusterName", connection);
+            SqlCommand command = new SqlCommand("UPDATE Cluster SET ClusterName = @NewClusterName, Activate = @Activate WHERE ClusterName = @OldClusterName", connection);
             command.Parameters.AddWithValue("@OldClusterName", cluster.OldName);
             command.Parameters.AddWithValue("@NewClusterName", cluster.Name);
-
+            command.Parameters.AddWithValue("@Activate", cluster.Activate);
             try
             {
                 command.ExecuteNonQuery();
