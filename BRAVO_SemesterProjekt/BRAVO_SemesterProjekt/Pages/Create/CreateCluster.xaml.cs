@@ -80,7 +80,7 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dg_showcluster.SelectedItems)
             {
-                actor.Name = row.Row.ItemArray[0].ToString();               
+                actor.Name = row.Row.ItemArray[0].ToString();             
             }
             DataGridShowSpecificCluster();
         }
