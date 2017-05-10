@@ -446,7 +446,8 @@ namespace BRAVO_SemesterProjekt
 
         public static DataTable ShowComboDB()
         {
-            SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct", connection);
+            SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE EndTime > @Date", connection);
+            ShowCombiProduct.SelectCommand.Parameters.AddWithValue("@Date", DateTime.Now);
             DataTable dt = new DataTable();
             ShowCombiProduct.Fill(dt);
             return dt;
