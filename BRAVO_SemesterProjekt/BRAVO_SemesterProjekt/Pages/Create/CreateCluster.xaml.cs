@@ -73,7 +73,26 @@ namespace BRAVO_SemesterProjekt
 
         private void cmb_actor_DropDownClosed(object sender, EventArgs e)
         {
-            actor.Name = cmb_actor.Text;
+            actor.OldName = cmb_actor.Text;
         }
+
+        private void dg_showcluster_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (DataRowView row in dg_showcluster.SelectedItems)
+            {                
+                cluster.Name = row.Row.ItemArray[0].ToString();
+            }
+            DataGridShowSpecificCluster();
+        }
+        private void DataGridShowSpecificCluster()
+        {
+            DataTable ShowSpecificCluster = DB.GetClusterActors(cluster);
+            dg_ShowspecificCluster.ItemsSource = ShowSpecificCluster.DefaultView;          
+        }
+        private void AddActorToCluster()
+        {
+            DB.OpenDb();
+        }
+
     }
 }

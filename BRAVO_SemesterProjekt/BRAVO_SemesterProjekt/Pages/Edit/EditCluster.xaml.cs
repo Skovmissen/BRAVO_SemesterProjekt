@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,39 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class EditCluster : Page
     {
+        Clusters cluster = new Clusters();
         public EditCluster()
         {
             InitializeComponent();
+            DataContext = cluster;
+            DB.OpenDb();
+            edit_Cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;
+            DB.CloseDb();
+        }
+
+        private void edit_Cluster_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (DataRowView row in edit_Cluster.SelectedItems)
+            {
+                cluster.OldName = row.Row.ItemArray[0].ToString();
+                cluster.Name = row.Row.ItemArray[0].ToString();
+                cluster.Activate = Convert.ToBoolean(row.Row.ItemArray[1].ToString());
+               
+            }
+        }
+
+        private void btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            DB.OpenDb();
+            DB.UpdateCluster(cluster);
+            DB.CloseDb();
+        }
+
+        private void btn_Edit_Search_Click(object sender, RoutedEventArgs e)
+        {
+            DB.OpenDb();
+            edit_Cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;
+            DB.CloseDb();
         }
     }
 }

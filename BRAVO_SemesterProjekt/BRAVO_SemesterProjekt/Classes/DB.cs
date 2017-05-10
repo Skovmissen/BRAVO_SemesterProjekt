@@ -55,6 +55,20 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
+        public static void InsertActorInCluster(Actors actor, Clusters cluster)
+        {
+            SqlCommand command = new SqlCommand("INSERT INTO ActorCluster (FK_ClusterName, FK_ActorName) VALUES (@ClusterName, @ActorName)", connection);
+            command.Parameters.Add(CreateParam("@ActorName", actor.OldName, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ClusterName", cluster.Name, SqlDbType.NVarChar));
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public static void InsertCluster(Clusters cluster)
         {
             SqlCommand command = new SqlCommand("INSERT INTO Cluster (ClusterName, Activate) VALUES (@ClusterName, @Activate)", connection);
@@ -155,12 +169,12 @@ namespace BRAVO_SemesterProjekt
         }
         public static void UpdateActor(Actors actor)
         {
-            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf WHERE ActorName = @OldActorName", connection);
+            SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf, Activate = @Activate WHERE ActorName = @OldActorName", connection);
             command.Parameters.AddWithValue("@ActorName", actor.Name);
             command.Parameters.AddWithValue("@OldActorName", actor.OldName);
             command.Parameters.AddWithValue("@Email", actor.Email);
             command.Parameters.AddWithValue("@Tlf", actor.Tlf);
-
+            command.Parameters.AddWithValue("@Activate", actor.Activate);
 
             try
             {
@@ -173,10 +187,10 @@ namespace BRAVO_SemesterProjekt
         }
         public static void UpdateCluster(Clusters cluster)
         {
-            SqlCommand command = new SqlCommand("UPDATE Cluster SET ClusterName = @OldClusterName WHERE ClusterName = @NewClusterName", connection);
-            command.Parameters.AddWithValue("@OldClusterName", cluster.Name);
+            SqlCommand command = new SqlCommand("UPDATE Cluster SET ClusterName = @NewClusterName, Activate = @Activate WHERE ClusterName = @OldClusterName", connection);
+            command.Parameters.AddWithValue("@OldClusterName", cluster.OldName);
             command.Parameters.AddWithValue("@NewClusterName", cluster.Name);
-
+            command.Parameters.AddWithValue("@Activate", cluster.Activate);
             try
             {
                 command.ExecuteNonQuery();
@@ -301,7 +315,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE Activate = 1", connection);
                 reader.Fill(ds);
 
             }
@@ -317,7 +331,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Category WHERE Activate = 1", connection);
                 reader.Fill(ds);
 
             }
@@ -327,13 +341,13 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable SearchCluster(TempData temp)
+        public static DataTable SearchCluster(Clusters cluster)
         {
             DataTable ds = new DataTable();
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE ClusterName LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + cluster.Name + "%");
                 reader.Fill(ds);
 
             }
@@ -364,8 +378,8 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ActorName FROM ActorCluster WHERE FK_ClusterName LIKE @ChosenItem", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@ChosenItem", "%" + temp.ChosenItem + "%");
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ActorName FROM ActorCluster WHERE FK_ClusterName LIKE @ClusterName", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ClusterName", "%" + cluster.Name + "%");
                 reader.Fill(ds);
 
             }
@@ -384,7 +398,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static DataTable ShowActorDB()
         {
-            SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor", connection);
+            SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE Activate = 1", connection);
             DataTable dt = new DataTable();
             ShowActor.Fill(dt);
             return dt;

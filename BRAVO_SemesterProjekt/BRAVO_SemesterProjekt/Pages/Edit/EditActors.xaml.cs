@@ -35,7 +35,9 @@ namespace BRAVO_SemesterProjekt
         {
             DB.OpenDb();
             DB.UpdateActor(actor);
+            edit_Actor.ItemsSource = DB.ShowActorDB().DefaultView;
             DB.CloseDb();
+            MessageBox.Show("Redigering fuldført");
         }
 
         private void btn_Edit_Search_Click(object sender, RoutedEventArgs e)
@@ -53,6 +55,8 @@ namespace BRAVO_SemesterProjekt
                 actor.Name = row.Row.ItemArray[0].ToString();
                 actor.Email = row.Row.ItemArray[1].ToString();
                 actor.Tlf = row.Row.ItemArray[2].ToString();
+                actor.Activate = Convert.ToBoolean(row.Row.ItemArray[3].ToString());
+                
             }
            
         }
