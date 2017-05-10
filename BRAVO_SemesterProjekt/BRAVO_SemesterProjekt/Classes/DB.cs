@@ -14,8 +14,8 @@ namespace BRAVO_SemesterProjekt
  
     static class DB
     {
-        static private SqlConnection connection = null;
-        public static void OpenDb()
+        static private SqlConnection connection = null;       
+        public static void OpenDb() // Lavet af Lasse
         {
             try
             {
@@ -27,7 +27,8 @@ namespace BRAVO_SemesterProjekt
                 MessageBox.Show("Der er ingen forbindelse til databasen");
             }
         }
-        public static void CloseDb()
+        
+        public static void CloseDb() // Lavet af Lasse
         {
             try
             {
@@ -38,8 +39,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-
-        public static void InsertActor(Actors actor) 
+        public static void InsertActor(Actors actor) // Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("INSERT INTO Actor (ActorName, Email, Tlf, Activate) VALUES (@ActorName, @Email, @Tlf, @Activate)", connection);
             command.Parameters.Add(CreateParam("@ActorName", actor.Name, SqlDbType.NVarChar));
@@ -55,7 +55,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InsertActorInCluster(Actors actor, Clusters cluster)
+        public static void InsertActorInCluster(Actors actor, Clusters cluster) //Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("INSERT INTO ActorCluster (FK_ClusterName, FK_ActorName) VALUES (@ClusterName, @ActorName)", connection);
             command.Parameters.Add(CreateParam("@ActorName", actor.OldName, SqlDbType.NVarChar));
@@ -69,7 +69,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InsertCluster(Clusters cluster)
+        public static void InsertCluster(Clusters cluster) // Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("INSERT INTO Cluster (ClusterName, Activate) VALUES (@ClusterName, @Activate)", connection);
             command.Parameters.Add(CreateParam("@ClusterName", cluster.Name, SqlDbType.NVarChar));
@@ -83,7 +83,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InsertCategory(Products product)
+        public static void InsertCategory(Products product) //Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("INSERT INTO Category (CategoryName) VALUES (@CategoryName)", connection);
             command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
@@ -97,7 +97,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InsertCombo(ComboProducts combo)
+        public static void InsertCombo(ComboProducts combo) //Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("INSERT INTO CombiProduct (CombiProductName, StartTime, EndTime, Activate) VALUES (@CombiProductName, @StartTime, @EndTime, @Activate)", connection);
             command.Parameters.Add(CreateParam("@CombiProductName", combo.Name, SqlDbType.NVarChar));
@@ -113,7 +113,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InsertXMLProduct(Products product, Actors actor)
+        public static void InsertXMLProduct(Products product, Actors actor) //Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, XML_Id) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @XmlId)", connection);
             command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
@@ -140,7 +140,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InsertProduct(Products product, Actors actor)
+        public static void InsertProduct(Products product, Actors actor) // Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName)", connection);
             command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
@@ -167,7 +167,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void UpdateActor(Actors actor)
+        public static void UpdateActor(Actors actor) // Lavet af Lasse og Nikolaj
         {
             SqlCommand command = new SqlCommand("UPDATE Actor SET ActorName = @ActorName , Email = @Email, Tlf = @Tlf, Activate = @Activate WHERE ActorName = @OldActorName", connection);
             command.Parameters.AddWithValue("@ActorName", actor.Name);
@@ -185,7 +185,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void UpdateCluster(Clusters cluster)
+        public static void UpdateCluster(Clusters cluster) // Lavet af Lasse og Nikolaj
         {
             SqlCommand command = new SqlCommand("UPDATE Cluster SET ClusterName = @NewClusterName, Activate = @Activate WHERE ClusterName = @OldClusterName", connection);
             command.Parameters.AddWithValue("@OldClusterName", cluster.OldName);
@@ -200,7 +200,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void UpdateCombo(ComboProducts combo)
+        public static void UpdateCombo(ComboProducts combo) //Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("UPDATE CombiProduct SET CombiProductName = @CombiProductName, StartTime = @StartTime, EndTime = @EndTime WHERE CombiId = @CombiId", connection);
             command.Parameters.AddWithValue("@CombiProductName", combo.Name);
@@ -217,7 +217,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void UpdateProduct(Products product, Actors actor)
+        public static void UpdateProduct(Products product, Actors actor) // Lavet af Lasse og Nikolaj
         {
             SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, FK_CategoryName = @CategoryName, FK_ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion WHERE Xml_Id = @XmlId", connection);
             command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
@@ -242,24 +242,8 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
 
-        }
-        public static int SelectActorId(Actors actor)
-        {
-            SqlCommand command = new SqlCommand("SELECT ActorId FROM Actor WHERE ActorName = @ActorName", connection);
-            command.Parameters.AddWithValue("@ActorName", actor.Name);
-            try
-            {
-                int id = command.ExecuteNonQuery();
-                return id;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-        public static DataTable CheckForDoubleCategory(Products product)
+        }      
+        public static DataTable CheckForDoubleCategory(Products product) // Lavet af Nikolaj
         {
             DataTable dt = new DataTable();
             SqlDataAdapter command = new SqlDataAdapter("SELECT CategoryName FROM Category WHERE CategoryName = @CategoryName", connection);
@@ -276,7 +260,7 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
-        public static DataTable CheckForDoubleActor(Actors actor)
+        public static DataTable CheckForDoubleActor(Actors actor) // Lavet af Nikolaj
         {
             DataTable dt = new DataTable();
             SqlDataAdapter command = new SqlDataAdapter("SELECT ActorName FROM Actor WHERE ActorName = @ActorName", connection);
@@ -293,7 +277,7 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
-        public static DataTable CheckForDoubleProduct(Products product)
+        public static DataTable CheckForDoubleProduct(Products product) // Lavet af Nikolaj
         {
             DataTable dt = new DataTable();
             SqlDataAdapter command = new SqlDataAdapter("SELECT ProductName FROM Product WHERE Xml_Id = @xmlId", connection);
@@ -311,10 +295,8 @@ namespace BRAVO_SemesterProjekt
 
         }
 
-        /// <summary>
-        /// Af Claus
-        /// </summary>
-        public static DataTable ShowCluster()
+        
+        public static DataTable ShowCluster() // Lavet af Claus
         {
             DataTable ds = new DataTable();
             try
@@ -329,11 +311,8 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        /// <summary>
-        /// Af Claus
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable ShowProducts()
+        
+        public static DataTable ShowProducts() // Lavet af Claus
         {
             DataTable ds = new DataTable();
             try
@@ -350,7 +329,7 @@ namespace BRAVO_SemesterProjekt
         }
 
 
-        public static DataTable ShowCategory()
+        public static DataTable ShowCategory() //Lavet af Anders
         {
             DataTable ds = new DataTable();
             try
@@ -365,7 +344,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable SearchCluster(Clusters cluster)
+        public static DataTable SearchCluster(Clusters cluster) //Lavet af Claus og Nikolaj
         {
             DataTable ds = new DataTable();
             try
@@ -381,7 +360,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable SearchProduct(Products product)
+        public static DataTable SearchProduct(Products product) // Lavet af Nikolaj
         {
             DataTable ds = new DataTable();
             try
@@ -397,7 +376,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable GetClusterActors(Clusters cluster)
+        public static DataTable GetClusterActors(Clusters cluster) // Lavet af Claus og Nikolaj
         {
             DataTable ds = new DataTable();
             try
@@ -414,20 +393,15 @@ namespace BRAVO_SemesterProjekt
             return ds;
         }
 
-        private static SqlParameter CreateParam(string name, object value, SqlDbType type)  //Parameter omdanner en value læsbart til databasen
-        {
-            SqlParameter param = new SqlParameter(name, type);
-            param.Value = value;
-            return param;
-        }
-        public static DataTable ShowActorDB()
+        
+        public static DataTable ShowActor() // Lavet af Anders
         {
             SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE Activate = 1", connection);
             DataTable dt = new DataTable();
             ShowActor.Fill(dt);
             return dt;
         }
-        public static DataTable SearchActor(TempData temp)
+        public static DataTable SearchActor(TempData temp) // Lavet af Nikolaj og Anders
         {
             DataTable SearchActorDt = new DataTable();
             try
@@ -444,7 +418,7 @@ namespace BRAVO_SemesterProjekt
             return SearchActorDt;
         }
 
-        public static DataTable ShowComboDB()
+        public static DataTable ShowCombo() //Lavet af Anders og Nikolaj
         {
             SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE EndTime > @Date", connection);
             ShowCombiProduct.SelectCommand.Parameters.AddWithValue("@Date", DateTime.Now);
@@ -452,7 +426,7 @@ namespace BRAVO_SemesterProjekt
             ShowCombiProduct.Fill(dt);
             return dt;
         }
-        public static DataTable SearchCombo(ComboProducts combo)
+        public static DataTable SearchCombo(ComboProducts combo) //Anders
         {
             DataTable SearchComboDt = new DataTable();
             try
@@ -468,7 +442,7 @@ namespace BRAVO_SemesterProjekt
             }
             return SearchComboDt;
         }
-        public static DataTable GetComboProduts(ComboProducts combo)
+        public static DataTable GetComboProduts(ComboProducts combo) //Lavet af Nikolaj
         {
             DataTable ds = new DataTable();
             try
@@ -484,7 +458,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable GetProductsInCombo(DataTable products)
+        public static DataTable GetProductsInCombo(DataTable products) //Lavet af NIkolaj
         {
             DataTable ds = new DataTable();
             try
@@ -504,7 +478,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static void InsertProductInCombi(ComboProducts combo, Products product)
+        public static void InsertProductInCombi(ComboProducts combo, Products product) //Lavet af Lasse og Nikolaj
         {
             SqlCommand command = new SqlCommand("INSERT INTO CombiView (FK_CombiId, FK_ProductId) VALUES (@FK_CombiId, @FK_ProductId)", connection);
             command.Parameters.Add(CreateParam("@FK_CombiId", combo.Id, SqlDbType.NVarChar));
@@ -519,7 +493,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static int SelectProductId(ComboProducts combo)
+        public static int SelectProductId(ComboProducts combo) //Lavet af Lasse og Nikolaj
         {
             SqlCommand command = new SqlCommand("SELECT ProductId FROM Product WHERE ProductName = @ProductName", connection);
             command.Parameters.AddWithValue("@ProductName", combo.ChosenItem);
@@ -534,6 +508,12 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
 
+        }
+        private static SqlParameter CreateParam(string name, object value, SqlDbType type)
+        {
+            SqlParameter param = new SqlParameter(name, type);
+            param.Value = value;
+            return param;
         }
     }
 }

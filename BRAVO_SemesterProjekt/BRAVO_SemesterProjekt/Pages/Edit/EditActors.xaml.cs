@@ -27,7 +27,7 @@ namespace BRAVO_SemesterProjekt
             InitializeComponent();
             DataContext = actor;
             DB.OpenDb();
-            edit_Actor.ItemsSource = DB.ShowActorDB().DefaultView;
+            edit_Actor.ItemsSource = DB.ShowActor().DefaultView;
             DB.CloseDb();
         }
 
@@ -35,7 +35,7 @@ namespace BRAVO_SemesterProjekt
         {
             DB.OpenDb();
             DB.UpdateActor(actor);
-            edit_Actor.ItemsSource = DB.ShowActorDB().DefaultView;
+            edit_Actor.ItemsSource = DB.ShowActor().DefaultView;
             DB.CloseDb();
             MessageBox.Show("Redigering fuldført");
         }

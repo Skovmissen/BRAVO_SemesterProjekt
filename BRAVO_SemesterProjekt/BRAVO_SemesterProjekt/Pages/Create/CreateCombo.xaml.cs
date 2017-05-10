@@ -18,7 +18,7 @@ using System.Data.SqlClient;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for CreateCombo.xaml
+    /// Lavet af Lasse og Nikolaj
     /// </summary>
     public partial class CreateCombo : Page
     {
@@ -60,7 +60,7 @@ namespace BRAVO_SemesterProjekt
         private void ShowAllCombiproducts()
         {
             DB.OpenDb();             
-            dg_showcombiproducts.ItemsSource = DB.ShowComboDB().DefaultView;
+            dg_showcombiproducts.ItemsSource = DB.ShowCombo().DefaultView;
             DB.CloseDb();
         }
 
