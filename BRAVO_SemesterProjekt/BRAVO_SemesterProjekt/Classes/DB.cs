@@ -419,6 +419,7 @@ namespace BRAVO_SemesterProjekt
             }
             return SearchActorDt;
         }
+
         public static DataTable ShowComboDB()
         {
             SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct", connection);
@@ -426,13 +427,13 @@ namespace BRAVO_SemesterProjekt
             ShowCombiProduct.Fill(dt);
             return dt;
         }
-        public static DataTable SearchCombo(TempData temp)
+        public static DataTable SearchCombo(ComboProducts combo)
         {
             DataTable SearchComboDt = new DataTable();
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM COMBIPRODUCT WHERE COMBIPRODUCTNAME LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + combo.Name + "%");
                 reader.Fill(SearchComboDt);
 
             }
@@ -441,6 +442,22 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
             return SearchComboDt;
+        }
+        public static DataTable GetComboProduts(ComboProducts combo)
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_CombiId FROM CombiView WHERE CombiID LIKE @CombiProductName", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@CombiProductName", "%" + combo.Name + "%");
+                reader.Fill(ds);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
         }
 
     }

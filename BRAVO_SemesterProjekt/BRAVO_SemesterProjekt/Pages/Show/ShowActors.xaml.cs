@@ -23,10 +23,10 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class ShowActors : Page
     {
-        TempData temp = new TempData();
+        Actors actor = new Actors();
         public ShowActors()
         {
-            DataContext = temp;
+            DataContext = actor;
             InitializeComponent();
             DB.OpenDb();
             GridShowActor.ItemsSource = DB.ShowActorDB().DefaultView;
@@ -36,8 +36,10 @@ namespace BRAVO_SemesterProjekt
         private void Btn_Search_Actor_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            GridShowActor.ItemsSource = DB.SearchActor(temp).DefaultView;
+            GridShowActor.ItemsSource = DB.SearchActor(actor).DefaultView;
             DB.CloseDb();
         }
+
+        
     }
 }

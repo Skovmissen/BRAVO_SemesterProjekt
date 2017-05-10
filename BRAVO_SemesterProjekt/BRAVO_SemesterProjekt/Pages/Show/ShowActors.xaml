@@ -12,7 +12,7 @@
         <DataGrid x:Name="GridShowActor" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Height="219" Width="250"/>
        
         <TextBox x:Name="SearchActor" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="350,61,0,0" VerticalAlignment="Top" Width="250" Height="219"/>
+        <DataGrid x:Name="ActorData" HorizontalAlignment="Left" Margin="350,61,0,0" VerticalAlignment="Top" Width="250" Height="219"/>
         <Button x:Name="Btn_Search_Actor" Click="Btn_Search_Actor_Click" Content="Søg" HorizontalAlignment="Left" Margin="150,13,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Page>
