@@ -35,7 +35,9 @@ namespace BRAVO_SemesterProjekt
         {
             DB.OpenDb();
             DB.UpdateActor(actor);
+            edit_Actor.ItemsSource = DB.ShowActorDB().DefaultView;
             DB.CloseDb();
+            MessageBox.Show("Redigering fuldført");
         }
 
         private void btn_Edit_Search_Click(object sender, RoutedEventArgs e)

@@ -55,6 +55,20 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
+        public static void InsertActorInCluster(Actors actor, Clusters cluster)
+        {
+            SqlCommand command = new SqlCommand("INSERT INTO ActorCluster (FK_ClusterName, FK_ActorName) VALUES (@ClusterName, @ActorName)", connection);
+            command.Parameters.Add(CreateParam("@ActorName", actor.OldName, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ClusterName", cluster.Name, SqlDbType.NVarChar));
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public static void InsertCluster(Clusters cluster)
         {
             SqlCommand command = new SqlCommand("INSERT INTO Cluster (ClusterName, Activate) VALUES (@ClusterName, @Activate)", connection);
@@ -301,7 +315,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE Activate = 1", connection);
                 reader.Fill(ds);
 
             }
@@ -343,13 +357,13 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable GetClusterActors(Actors actor)
+        public static DataTable GetClusterActors(Clusters cluster)
         {
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ActorName FROM ActorCluster WHERE FK_ClusterName LIKE @ChosenItem", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@ChosenItem", "%" + actor.Name + "%");
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ActorName FROM ActorCluster WHERE FK_ClusterName LIKE @ClusterName", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ClusterName", "%" + cluster.Name + "%");
                 reader.Fill(ds);
 
             }
