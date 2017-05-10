@@ -24,6 +24,7 @@ namespace BRAVO_SemesterProjekt
     {
        
         ComboProducts combo = new ComboProducts();
+        
         public CreateCombo()
         {
             InitializeComponent();
@@ -50,6 +51,25 @@ namespace BRAVO_SemesterProjekt
             }
             MessageBox.Show("Kombiprodukt er oprettet");
             
+        }
+        private void ShowAllCombiproducts()
+        {
+            DB.OpenDb();
+            DataTable allCombiProducts = DB.ShowComboDB();
+            dg_showcombiproducts.ItemsSource = allCombiProducts.DefaultView;
+            DB.CloseDb();
+        }
+
+        private void dg_showcombiproducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (DataRowView row in dg_showcombiproducts.SelectedItems)
+            {
+                combo.Name = row.Row.ItemArray[0].ToString();
+            }
+        }
+        private void ProductsInCombi()
+        {
+            //DataTable allProductsInCombi = 
         }
     }
 }
