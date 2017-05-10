@@ -457,7 +457,7 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM COMBIPRODUCT WHERE COMBIPRODUCTNAME LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + combo.Name + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + combo.Search + "%");
                 reader.Fill(SearchComboDt);
 
             }
