@@ -32,7 +32,7 @@ namespace BRAVO_SemesterProjekt
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            datagrid_ShowProducts.ItemsSource = DB.SearchProduct(temp).DefaultView;
+            datagrid_ShowProducts.ItemsSource = DB.SearchProduct(product).DefaultView;
         }
     }
 }
