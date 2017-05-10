@@ -456,7 +456,7 @@ namespace BRAVO_SemesterProjekt
             DataTable SearchComboDt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM COMBIPRODUCT WHERE COMBIPRODUCTNAME LIKE @search", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE CombiProductName LIKE @search", connection);
                 reader.SelectCommand.Parameters.AddWithValue("@search", "%" + combo.Search + "%");
                 reader.Fill(SearchComboDt);
 
@@ -472,8 +472,8 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_CombiId FROM CombiView WHERE CombiID LIKE @CombiProductName", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@CombiProductName", "%" + combo.Name + "%");
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_CombiId FROM CombiView WHERE FK_CombiId LIKE @CombiId", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@CombiId", "%" + combo.Id + "%");
                 reader.Fill(ds);
 
             }
