@@ -21,7 +21,7 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class ShowCombos : Page
     {
-       
+
         Products product = new Products();
         ComboProducts combo = new ComboProducts();
         public ShowCombos()
@@ -46,8 +46,11 @@ namespace BRAVO_SemesterProjekt
             {
                 combo.Id = Convert.ToInt32(row.Row.ItemArray[0].ToString());
             }
+          
             DB.OpenDb();
-            dataGridCombo.ItemsSource = DB.GetComboProduts(combo).DefaultView;
+
+            DataTable comboProducts = DB.GetComboProduts(combo);
+            dataGridCombo.ItemsSource = DB.GetProductsInCombo(comboProducts).DefaultView;
             DB.CloseDb();
         }
     }
