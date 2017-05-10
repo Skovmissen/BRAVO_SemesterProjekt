@@ -173,8 +173,8 @@ namespace BRAVO_SemesterProjekt
         }
         public static void UpdateCluster(Clusters cluster)
         {
-            SqlCommand command = new SqlCommand("UPDATE Cluster SET ClusterName = @OldClusterName WHERE ClusterName = @NewClusterName", connection);
-            command.Parameters.AddWithValue("@OldClusterName", cluster.Name);
+            SqlCommand command = new SqlCommand("UPDATE Cluster SET ClusterName = @NewClusterName WHERE ClusterName = @OldClusterName", connection);
+            command.Parameters.AddWithValue("@OldClusterName", cluster.OldName);
             command.Parameters.AddWithValue("@NewClusterName", cluster.Name);
 
             try

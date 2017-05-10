@@ -5,10 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="800" d:DesignWidth="1300"
       Title="EditCluster">
 
     <Grid>
+        <DataGrid x:Name="edit_Cluster" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" Height="173" Width="187" SelectionChanged="edit_Cluster_SelectionChanged"/>
+        <TextBox x:Name="txt_Edit_ClusterName" HorizontalAlignment="Left" Height="23" Margin="213,86,-33,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="120"/>
         
+
+        <Label x:Name="lbl_Name" Content="Navn" HorizontalAlignment="Left" Margin="213,56,0,0" VerticalAlignment="Top" Height="30"/>
+        <Button x:Name="btn_Edit" Content="Opdatere" HorizontalAlignment="Left" Margin="258,126,0,0" VerticalAlignment="Top" Width="75" Click="btn_Edit_Click"/>
+        <Label x:Name="label_Copy3" Content="Vælg hvilken aktør du vil redigere" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Height="30"/>
+        <TextBox x:Name="txt_Edit_Search" HorizontalAlignment="Left" Height="23" Margin="10,240,0,0" TextWrapping="Wrap" Text="{Binding Search}" VerticalAlignment="Top" Width="127"/>
+        <Button x:Name="btn_Edit_Search" Content="Søg" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="75" Click="btn_Edit_Search_Click" />
+
     </Grid>
 </Page>
