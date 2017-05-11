@@ -75,10 +75,7 @@ namespace BRAVO_SemesterProjekt
             frame.Content = new Upload();
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            frame.Content = new DeactivateActivate();
-        }
+      
 
         private void EditActor_Click(object sender, RoutedEventArgs e)
         {
@@ -98,6 +95,69 @@ namespace BRAVO_SemesterProjekt
         private void EditCluster_Click(object sender, RoutedEventArgs e)
         {
             frame.Content = new EditCluster();
+        }
+
+        private void btn_Create_Click(object sender, RoutedEventArgs e)
+        {
+            btn_Create.IsEnabled = false;
+            btn_Create.Visibility = Visibility.Hidden;
+            btn_Edit.IsEnabled = false;
+            btn_Edit.Visibility = Visibility.Hidden;
+            btn_Show.IsEnabled = false;
+            btn_Show.Visibility = Visibility.Hidden;
+            btn_Upload.IsEnabled = false;
+            btn_Upload.Visibility = Visibility.Hidden;
+
+            frame.Content = new CreateMenu();
+        }
+
+        private void btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            btn_Create.IsEnabled = false;
+            btn_Create.Visibility = Visibility.Hidden;
+            btn_Edit.IsEnabled = false;
+            btn_Edit.Visibility = Visibility.Hidden;
+            btn_Show.IsEnabled = false;
+            btn_Show.Visibility = Visibility.Hidden;
+            btn_Upload.IsEnabled = false;
+            btn_Upload.Visibility = Visibility.Hidden;
+
+            frame.Content = new EditMenu();
+        }
+
+        private void btn_Show_Click(object sender, RoutedEventArgs e)
+        {
+            btn_Create.IsEnabled = false;
+            btn_Create.Visibility = Visibility.Hidden;
+            btn_Edit.IsEnabled = false;
+            btn_Edit.Visibility = Visibility.Hidden;
+            btn_Show.IsEnabled = false;
+            btn_Show.Visibility = Visibility.Hidden;
+            btn_Upload.IsEnabled = false;
+            btn_Upload.Visibility = Visibility.Hidden;
+
+            frame.Content = new ShowMenu();
+        }
+
+        private void btn_Upload_Click(object sender, RoutedEventArgs e)
+        {
+            btn_Create.IsEnabled = false;
+            btn_Create.Visibility = Visibility.Hidden;
+            btn_Edit.IsEnabled = false;
+            btn_Edit.Visibility = Visibility.Hidden;
+            btn_Show.IsEnabled = false;
+            btn_Show.Visibility = Visibility.Hidden;
+            btn_Upload.IsEnabled = false;
+            btn_Upload.Visibility = Visibility.Hidden;
+
+            frame.Content = new Upload();
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            Close();
         }
     }
 }
