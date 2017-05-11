@@ -40,11 +40,12 @@ namespace BRAVO_SemesterProjekt
                 DB.InsertActor(actor);
                 DB.CloseDb();
                 MessageBox.Show("Aktør er oprettet");
+                ClearBoxes();
             }
             catch (SqlException)
             {
 
-                MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                MessageBox.Show("Et fel er ikke udfyldt korrekt eller aktøren eksisterer i forvejen");
             }
             catch (Exception)
             {
@@ -52,6 +53,12 @@ namespace BRAVO_SemesterProjekt
                 throw;
             }
             
+        }
+        private void ClearBoxes()
+        {
+            actor.Name = null;
+            actor.Tlf = null;
+            actor.Email = null;
         }
     }
 }

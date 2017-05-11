@@ -29,7 +29,7 @@ namespace BRAVO_SemesterProjekt
         {
             InitializeComponent();
             DB.OpenDb();
-            dataGrid_ShowCombo.ItemsSource = DB.ShowComboDB().DefaultView;
+            //dataGrid_ShowCombo.ItemsSource = DB.ShowComboDB().DefaultView;
             DB.CloseDb();
         }
     }

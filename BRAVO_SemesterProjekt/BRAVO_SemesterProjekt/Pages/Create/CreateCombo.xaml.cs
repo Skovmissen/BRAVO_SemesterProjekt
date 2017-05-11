@@ -32,10 +32,67 @@ namespace BRAVO_SemesterProjekt
         {
             InitializeComponent();
             DataContext = combo;
-            ShowAllCombiproducts();
-            Fillcombo();
+            ShowAllCombies();
+            FillcomboWithProducts();
+        }
+               
+        private void ShowAllCombies()
+        {
+            DB.OpenDb();             
+            dg_showcombiproducts.ItemsSource = DB.ShowCombo().DefaultView;
+            DB.CloseDb();
+        }
+        
+        private void dg_showcombiproducts_SelectionChanged(object sender, SelectionChangedEventArgs e) // Her finder jeg det ID kombo'en har ved den række der er markeret + navnet på kombo'en.
+        {                                                                                               
+            foreach (DataRowView row in dg_showcombiproducts.SelectedItems) 
+            {
+                combo.Id = Convert.ToInt32(row.Row.ItemArray[0]);           //Finder objektet i kolonne 0 i datagridet og convertere det til en int
+                combo.Name = row.Row.ItemArray[1].ToString();               //Finder objektet, i kollone 1 i datagridet og convertere det til en string
+            }
+            ShowProductsInCombi();
+        }
+        private void ShowProductsInCombi()  //Denne metode finder alle de produktid'er der er tilhørende det valgte komboId, hvorefter den henter produktnavnene ud og læser dem ind i datagridet.
+        {
+            DB.OpenDb();
+            DataTable comboProducts = DB.GetComboProduts(combo);            //Denne DB metode burde kaldes GetProductIdFromCombo
+            dg_showproduts.ItemsSource = DB.GetProductsInCombo(comboProducts).DefaultView;
+            DB.CloseDb();            
+        }
+        private void FillcomboWithProducts()   //Denne metoder fylder comboboxen med alle produkter i databasen
+        {
+            DataTable products = DB.ShowProducts();
+            for (int i = 0; i < products.Rows.Count; i++)
+            {
+                cmb_products.Items.Add(products.Rows[i]["ProductName"]);
+            }
         }
 
+        private void cmb_products_DropDownClosed(object sender, EventArgs e)    //Den metode finder produktetsId da det er det der skal sættes ind i databasen
+        {
+            combo.ChosenItem = cmb_products.Text;
+            DB.OpenDb();
+            product.Id = DB.SelectProductId(combo);
+            DB.CloseDb();
+        }
+
+        private void btn_addproductInCombi(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DB.OpenDb();
+                DB.InsertProductInCombi(combo, product);
+                ShowProductsInCombi();
+                DB.CloseDb();
+                MessageBox.Show("Produktet er oprettet i den valgte Kombo");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+      
         private void btn_CreateCombo(object sender, RoutedEventArgs e)
         {
             try
@@ -44,7 +101,7 @@ namespace BRAVO_SemesterProjekt
                 DB.InsertCombo(combo);
                 DB.CloseDb();
                 MessageBox.Show("Kombiprodukt er oprettet");
-                ShowAllCombiproducts();
+                ShowAllCombies();
             }
             catch (SqlException)
             {
@@ -56,63 +113,7 @@ namespace BRAVO_SemesterProjekt
 
                 throw;
             }
-            
-            
-        }
-        private void ShowAllCombiproducts()
-        {
-            DB.OpenDb();             
-            dg_showcombiproducts.ItemsSource = DB.ShowCombo().DefaultView;
-            DB.CloseDb();
         }
 
-        private void dg_showcombiproducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            foreach (DataRowView row in dg_showcombiproducts.SelectedItems)
-            {
-                combo.Id = Convert.ToInt32(row.Row.ItemArray[0]);
-            }
-            ShowProductsInCombi();
-        }
-        private void ShowProductsInCombi()
-        {
-            DB.OpenDb();
-            DataTable comboProducts = DB.GetComboProduts(combo);
-            dg_showproduts.ItemsSource = DB.GetProductsInCombo(comboProducts).DefaultView;
-            DB.CloseDb();            
-        }
-        private void Fillcombo()
-        {
-            DataTable products = DB.ShowProducts();
-            for (int i = 0; i < products.Rows.Count; i++)
-            {
-                cmb_products.Items.Add(products.Rows[i]["ProductName"]);
-            }
-        }
-
-        private void btn_addproductInCombi(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                DB.OpenDb();
-                DB.InsertProductInCombi(combo, product);
-                ShowProductsInCombi();
-                DB.CloseDb();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        private void cmb_products_DropDownClosed(object sender, EventArgs e)
-        {            
-            combo.ChosenItem = cmb_products.Text;
-            DB.OpenDb();
-            product.Id = Convert.ToInt32(DB.SelectProductId(combo));
-            DB.CloseDb();
-        }
-        
     }
 }
