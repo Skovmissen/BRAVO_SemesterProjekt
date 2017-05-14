@@ -10,7 +10,7 @@
 
     <Grid>
         <Label x:Name="lbl_Edit_Product" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="168"/>
-        <DataGrid x:Name="dataGrid_Edit_Product" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="201" Width="168"/>
+        <DataGrid x:Name="dataGrid_Edit_Product" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="201" Width="168" SelectionChanged="dataGrid_Edit_Product_SelectionChanged"/>
         <TextBox x:Name="textBox_Search_Edit_Product" HorizontalAlignment="Left" Height="23" Margin="10,247,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="button_Edit_Product" Content="Opdatere" HorizontalAlignment="Left" Margin="547,279,0,0" VerticalAlignment="Top" Width="75" Click="button_Edit_Product_Click"/>
         <Label x:Name="lbl_ProductName" Content="Produkt navn" HorizontalAlignment="Left" Margin="213,10,0,0" VerticalAlignment="Top" Width="100"/>
