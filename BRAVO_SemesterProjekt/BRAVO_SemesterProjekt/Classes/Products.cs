@@ -103,6 +103,13 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
+        private double price;
+
+        public double Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
 
 
         private int xmlId; // XML_Id bliver brugt til at tjekke på dublikanter i xml dokumentet, så hvis der er en dublikant, bliver data overskrevet.
