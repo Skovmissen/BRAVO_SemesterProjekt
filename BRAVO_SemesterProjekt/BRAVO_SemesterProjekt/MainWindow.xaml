@@ -34,7 +34,7 @@
             </Menu>
 
         </DockPanel>
-        <Frame x:Name="frame" HorizontalAlignment="Stretch" Height="737" VerticalAlignment="Stretch" Width="1293" Margin="0,46,0,0" NavigationUIVisibility="Hidden">
+        <Frame x:Name="frame" Panel.ZIndex="999" HorizontalAlignment="Center" Height="948" VerticalAlignment="Center" Width="1923" Margin="0,112,-9,-9" NavigationUIVisibility="Hidden">
 
         </Frame>
 
