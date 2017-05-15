@@ -101,8 +101,9 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InsertCombo(ComboProducts combo) //Lavet af Lasse
         {
-            SqlCommand command = new SqlCommand("INSERT INTO CombiProduct (CombiProductName, StartTime, EndTime, Activate) VALUES (@CombiProductName, @StartTime, @EndTime, @Activate)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO CombiProduct (CombiProductName, StartTime, EndTime, Activate, Description) VALUES (@CombiProductName, @StartTime, @EndTime, @Activate, @Description)", connection);
             command.Parameters.Add(CreateParam("@CombiProductName", combo.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Description", combo.Description, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@StartTime", combo.StartTime, SqlDbType.Date));
             command.Parameters.Add(CreateParam("@EndTime", combo.EndTime, SqlDbType.Date));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Bit));
@@ -144,7 +145,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InsertProduct(Products product, Actors actor) // Lavet af Lasse
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, Price) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @Price)", connection);
             command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ZipCode", product.Zipcode, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Region", product.Region, SqlDbType.NVarChar));
@@ -157,6 +158,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@ActorName", actor.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ProductName", product.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Price", product.Price, SqlDbType.Float));
 
 
             try

@@ -94,6 +94,7 @@ namespace BRAVO_SemesterProjekt
             product.Url = null;
             product.Zipcode = null;
             cmb_category.SelectedItem = null;
+            product.Price = 0;
         }
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
