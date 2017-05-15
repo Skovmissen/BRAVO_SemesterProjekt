@@ -100,7 +100,7 @@ namespace BRAVO_SemesterProjekt
             catch (SqlException)
             {
 
-                MessageBox.Show("Valgte klynge navn er ikke gyldigt");
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
             }
             catch (Exception)
             {

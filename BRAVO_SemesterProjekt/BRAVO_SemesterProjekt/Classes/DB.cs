@@ -72,8 +72,9 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InsertCluster(Clusters cluster) // Lavet af Lasse
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Cluster (ClusterName, Activate) VALUES (@ClusterName, @Activate)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Cluster (ClusterName, Description, Activate) VALUES (@ClusterName, @Description, @Activate)", connection);
             command.Parameters.Add(CreateParam("@ClusterName", cluster.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Description", cluster.Description, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Bit));
             try
             {
