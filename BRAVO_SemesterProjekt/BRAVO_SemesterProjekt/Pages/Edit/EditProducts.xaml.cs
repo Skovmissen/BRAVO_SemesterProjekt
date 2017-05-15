@@ -61,8 +61,8 @@ namespace BRAVO_SemesterProjekt
                 product.Longtitude = Convert.ToDouble(row.Row.ItemArray[7].ToString());
                 product.Url = row.Row.ItemArray[8].ToString();
                 product.Description = row.Row.ItemArray[9].ToString();
-
                 product.Activate = Convert.ToBoolean(row.Row.ItemArray[10].ToString());
+                product.Category = row.Row.ItemArray[12].ToString();
             }
         }
     }
