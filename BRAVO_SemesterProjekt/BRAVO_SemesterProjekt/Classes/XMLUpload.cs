@@ -167,7 +167,7 @@ namespace BRAVO_SemesterProjekt
             }
             else
             {
-                products.Price = double.Parse(price.InnerText, CultureInfo.InvariantCulture);
+                products.Price = double.Parse(price.InnerText, CultureInfo.InvariantCulture); // Vi bruger CultureInfo, til at sikre at kommaet ikke ses som en tusinde seperator. Da den decimal seperator der er brugt i XML dokumentet er et punktum og ikke et komma som vi bruger i Danmark.
             }
             if (name == null)
             {
