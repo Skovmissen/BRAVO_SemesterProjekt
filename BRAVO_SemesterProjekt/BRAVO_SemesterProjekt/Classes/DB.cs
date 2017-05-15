@@ -118,7 +118,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InsertXMLProduct(Products product, Actors actor) //Lavet af Lasse
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, XML_Id) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @XmlId)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, XML_Id, Price) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @XmlId, @Price)", connection);
             command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ZipCode", product.Zipcode, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Region", product.Region, SqlDbType.NVarChar));
@@ -132,6 +132,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ProductName", product.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@XmlId", product.XmlId, SqlDbType.Int));
+            command.Parameters.Add(CreateParam("@Price", 0, SqlDbType.Float));
 
             try
             {
