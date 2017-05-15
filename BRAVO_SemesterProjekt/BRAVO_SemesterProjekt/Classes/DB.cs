@@ -230,7 +230,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@URL", product.Url, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Describtion", product.Description, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
-            command.Parameters.Add(CreateParam("@ActorName", actor.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ActorName", product.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ProductName", product.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@XmlId", product.XmlId, SqlDbType.Int));
@@ -319,6 +319,23 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE Activate = 1", connection);
+
+                reader.Fill(ds);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return ds;
+        }
+        public static DataTable ShowActorsProducts(Actors actor) // Lavet af Claus
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE Activate = 1 AND FK_ActorName = @ActorName", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ActorName", actor.Name);
                 reader.Fill(ds);
             }
             catch (Exception)

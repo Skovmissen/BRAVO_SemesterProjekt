@@ -27,13 +27,14 @@ namespace BRAVO_SemesterProjekt
        
         ComboProducts combo = new ComboProducts();
         Products product = new Products();
+        Actors actor = new Actors();
         
         public CreateCombo()
         {
             InitializeComponent();
             DataContext = combo;
             ShowAllCombies();
-            FillcomboWithProducts();
+            FillcomboWithActors();
         }
                
         private void ShowAllCombies()
@@ -59,12 +60,20 @@ namespace BRAVO_SemesterProjekt
             dg_showproduts.ItemsSource = DB.GetProductsInCombo(comboProducts).DefaultView;
             DB.CloseDb();            
         }
-        private void FillcomboWithProducts()   //Denne metoder fylder comboboxen med alle produkter i databasen
+        private void FillcomboWithActorsProducts()   //Denne metoder fylder comboboxen med alle produkter i databasen
         {
-            DataTable products = DB.ShowProducts();
+            DataTable products = DB.ShowActorsProducts(actor);
             for (int i = 0; i < products.Rows.Count; i++)
             {
                 cmb_products.Items.Add(products.Rows[i]["ProductName"]);
+            }
+        }
+        private void FillcomboWithActors()   //Denne metoder fylder comboboxen med alle produkter i databasen
+        {
+            DataTable actor = DB.ShowActor();
+            for (int i = 0; i < actor.Rows.Count; i++)
+            {
+                cmb_actor.Items.Add(actor.Rows[i]["ActorName"]);
             }
         }
 
@@ -115,5 +124,11 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
+        private void cmb_actor_DropDownClosed(object sender, EventArgs e)
+        {
+            actor.Name = cmb_actor.Text;
+            cmb_products.Items.Clear();
+            FillcomboWithActorsProducts();
+        }
     }
 }
