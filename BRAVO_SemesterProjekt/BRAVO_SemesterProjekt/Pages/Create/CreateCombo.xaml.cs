@@ -95,6 +95,11 @@ namespace BRAVO_SemesterProjekt
                 DB.CloseDb();
                 MessageBox.Show("Produktet er oprettet i den valgte Kombo");
             }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Et felt er ikke blevet valgt");
+            }
             catch (Exception)
             {
 
