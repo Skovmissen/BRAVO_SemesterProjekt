@@ -20,8 +20,7 @@ namespace BRAVO_SemesterProjekt
 
         public static async void Uploadxml(TempData temp, Wait wait, Actors actor, Products product) //Finder alle de valgte elementer i XML dokumentet ved hjælp af XMLNodes, hvori vi bruger SelectSingleNode hvilket gør at vi kan definere den præcise placering i xml-dokumentet.
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
+                      
             if (temp.Path == null)
             {
                 MessageBox.Show("Ingen fil valgt");
@@ -56,7 +55,7 @@ namespace BRAVO_SemesterProjekt
                     XmlNode city = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:City", ns);
                     XmlNode zip = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:PostalCode", ns);
                     XmlNode price = item.SelectSingleNode(@".//BravoXML:PriceGroups/BravoXML:PriceGroup/BravoXML:PriceFrom", ns);
-                    CheckForNull(name, xmlId, addressLine1, url, tlf, latitude, longitude, region, description, category, email, city, zip, temp, actor, product);
+                    CheckForNull(name, xmlId, addressLine1, url, tlf, latitude, longitude, region, description, category, email, city, zip, temp, actor, product, price);
                     product.Name = actor.Name;
                     product.Street = addressLine1.InnerText;
 
@@ -80,14 +79,14 @@ namespace BRAVO_SemesterProjekt
 
                 DB.CloseDb();
                 wait.WaitEnd(); //Lukker loadings vinduet.
-                sw.Stop();
+                
                 if (wait.Cancel == true)
                 {
                     MessageBox.Show("Upload afbrudt");
                 }
                 else
                 {
-                    MessageBox.Show("Upload Færdig " + "Efter: " + sw.Elapsed.ToString("mm//:ss") + " Seconds");
+                    MessageBox.Show("Upload Færdig");
                 }
 
             }
