@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1309" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Background="#FFFCA159" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized"  WindowStartupLocation="CenterScreen">
     <Grid>
-        <DockPanel Margin="0,0,0,711">
-            <Menu DockPanel.Dock="Top" Height="60" Padding="6" Margin="0,0,0,0">
+        <DockPanel Margin="0,-6,0,944" Panel.ZIndex="999">
+            <Menu DockPanel.Dock="Top" Height="112" Padding="40" Margin="0,0,0,0">
                 <MenuItem Header="Opret" Height="33" MinWidth="100" FontSize="14">
                     <MenuItem Name="NewActor"  Header="Aktør" Click="NewActor_Click"  />
                     <MenuItem Name="NewProduct"  Header="Produkt" Click="NewProduct_Click"  />
@@ -34,13 +34,14 @@
             </Menu>
 
         </DockPanel>
-        <Frame x:Name="frame" HorizontalAlignment="Left" Height="737" VerticalAlignment="Top" Width="1293" Margin="0,46,0,0" NavigationUIVisibility="Hidden">
+        <Frame x:Name="frame" Panel.ZIndex="999" HorizontalAlignment="Center" Height="948" VerticalAlignment="Center" Width="1923" Margin="0,112,-9,-9" NavigationUIVisibility="Hidden">
 
         </Frame>
-        <Button x:Name="btn_Create" HorizontalContentAlignment="Right" Padding="20" VerticalContentAlignment="Bottom" Content="OPRET" HorizontalAlignment="Left" Margin="0,46,0,0" VerticalAlignment="Top" Width="637" Height="382" FontSize="36" Background="#FFFCA159" Click="btn_Create_Click" Foreground="White" FontFamily="Proxima Nova Rg" FontWeight="Bold" />
-        <Button x:Name="btn_Edit" HorizontalContentAlignment="Left" Padding="20" VerticalContentAlignment="Bottom" Content="REDIGERE" HorizontalAlignment="Left" Margin="637,46,0,0" VerticalAlignment="Top" Width="656" Height="382"  FontSize="36" Background="#FF0069B7" Click="btn_Edit_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg"/>
-        <Button x:Name="btn_Show" HorizontalContentAlignment="Right" Padding="20" VerticalContentAlignment="top" Content="OVERSIGT" HorizontalAlignment="Left" Margin="0,428,0,0" VerticalAlignment="Top" Width="637" Height="355" FontSize="36" Background="#FFE6D431" Click="btn_Show_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg"/>
-        <Button x:Name="btn_Upload" HorizontalContentAlignment="Left" Padding="20" VerticalContentAlignment="top" Content="UPLOAD" HorizontalAlignment="Left" Margin="637,428,0,0" VerticalAlignment="Top" Width="656" Height="355" FontSize="36" Background="#FF00B155" Click="btn_Upload_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg"/>
+
+        <Button x:Name="btn_Create"  HorizontalContentAlignment="Right" Padding="20" VerticalContentAlignment="Bottom" Content="OPRET" HorizontalAlignment="Left" Margin="0,107,0,0" VerticalAlignment="Top" Width="965" Height="485" FontSize="36" Background="#FFFCA159" Click="btn_Create_Click" Foreground="White" FontFamily="Proxima Nova Rg" FontWeight="Bold" />
+        <Button x:Name="btn_Edit" HorizontalContentAlignment="Left" Padding="20" VerticalContentAlignment="Bottom" Content="REDIGERE" HorizontalAlignment="Left" Margin="965,107,-9,0" VerticalAlignment="Top" Width="958" Height="485"  FontSize="36" Background="#FF0069B7" Click="btn_Edit_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg"/>
+        <Button x:Name="btn_Show" HorizontalContentAlignment="Right" Padding="20" VerticalContentAlignment="top" Content="OVERSIGT" HorizontalAlignment="Left" Margin="0,592,0,-9" VerticalAlignment="Top" Width="965" Height="468" FontSize="36" Background="#FFE6D431" Click="btn_Show_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg"/>
+        <Button x:Name="btn_Upload" HorizontalContentAlignment="Left" Padding="20" VerticalContentAlignment="top" Content="UPLOAD" HorizontalAlignment="Left" Margin="965,592,-9,-9" VerticalAlignment="Top" Width="958" Height="468" FontSize="36" Background="#FF00B155" Click="btn_Upload_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg"/>
 
 
     </Grid>

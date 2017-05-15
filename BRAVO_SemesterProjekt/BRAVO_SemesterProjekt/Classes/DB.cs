@@ -319,6 +319,23 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE Activate = 1", connection);
+
+                reader.Fill(ds);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return ds;
+        }
+        public static DataTable ShowActorsProducts(Actors actor) // Lavet af Claus
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE Activate = 1 AND FK_ActorName = @ActorName", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ActorName", actor.Name);
                 reader.Fill(ds);
             }
             catch (Exception)
