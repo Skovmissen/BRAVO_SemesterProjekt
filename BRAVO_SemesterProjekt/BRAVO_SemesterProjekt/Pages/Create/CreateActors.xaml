@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d"
       Background="#FFFCA159"
-      Title="CreateActors" Height="800" Width="1300">
+      Title="CreateActors" Height="980" Width="1920">
 
     <Grid>
         <TextBox x:Name="txt_Navn" HorizontalAlignment="Left" Height="23" Margin="102,28,0,0" TextWrapping="Wrap" Text="{Binding Path= Name}" VerticalAlignment="Top" Width="120"/>

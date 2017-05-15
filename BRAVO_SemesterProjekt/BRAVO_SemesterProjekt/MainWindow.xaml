@@ -54,7 +54,7 @@
 
         <Button x:Name="btn_Show" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="OVERSIGT" Width="960" Height="476" FontSize="36" Background="#FFE6D431" Click="btn_Show_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="0" Grid.Row="2" />
         <Button x:Name="btn_Upload" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="UPLOAD" Width="960" Height="476" FontSize="36" Background="#FF00B155" Click="btn_Upload_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="1" Grid.Row="2" />
-        <Frame x:Name="frame" Panel.ZIndex="999" HorizontalAlignment="Center" Height="941" VerticalAlignment="Center" Width="1916" Margin="0,3,4,0" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" />
+        <Frame x:Name="frame" Panel.ZIndex="999" HorizontalAlignment="Center" Height="980" VerticalAlignment="Center" Width="1920" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" />
 
     </Grid>
 </Window>
