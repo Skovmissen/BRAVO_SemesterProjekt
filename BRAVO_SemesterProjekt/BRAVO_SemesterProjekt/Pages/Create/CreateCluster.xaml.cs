@@ -37,7 +37,7 @@ namespace BRAVO_SemesterProjekt
                 DB.OpenDb();                    //Denne indeholder en catch med messagebox, det skal den ikke gøre, der skal try catch om alle db.open i stedet for. ellers kommer der dobbelt messageboxe
                 FillcomboActor();
                 DataGridShowAllCluster();
-                DB.CloseDb();
+                DB.CloseDb(); 
             }
             catch (Exception)
             {
