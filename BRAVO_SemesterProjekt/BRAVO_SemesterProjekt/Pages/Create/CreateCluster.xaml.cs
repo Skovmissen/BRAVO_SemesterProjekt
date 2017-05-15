@@ -41,8 +41,9 @@ namespace BRAVO_SemesterProjekt
             }
             catch (Exception)
             {
-
-                MessageBox.Show("Der er ingen forbindelse til databasen");
+               
+                
+                //MessageBox.Show("Der er ingen forbindelse til databasen");
             }
             
 
