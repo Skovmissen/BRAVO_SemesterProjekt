@@ -19,6 +19,8 @@ namespace BRAVO_SemesterProjekt
 {
     /// <summary>
     /// Lavet af Lasse
+    /// 
+    /// Den klasse bruges til at oprette produkter
     /// </summary>
     public partial class CreateProduct : Page
     {
@@ -29,10 +31,10 @@ namespace BRAVO_SemesterProjekt
             InitializeComponent();
             DataContext = product;
             DB.OpenDb();
-            Fillcombo();
+            Fillcombos();
             DB.CloseDb();
         }     
-        private void Fillcombo()
+        private void Fillcombos() //Denne metode finder aktør- og produktnavne og fylder dem i comboboxe
         {
             DataTable actor = DB.ShowActor();
             for (int i = 0; i < actor.Rows.Count; i++)
@@ -63,6 +65,7 @@ namespace BRAVO_SemesterProjekt
                 DB.InsertProduct(product, actor);
                 DB.CloseDb();
                 MessageBox.Show("Produktet er oprettet");
+                ClearBoxes();
 
             }
             catch (SqlException)
@@ -76,6 +79,21 @@ namespace BRAVO_SemesterProjekt
                 throw;
             }
             
+        }
+        private void ClearBoxes()
+        {
+            product.City = null;
+            product.Description = null;
+            product.Email = null;
+            product.Latitude = 0;
+            product.Longtitude = 0;
+            product.Name = null;
+            product.Region = null;
+            product.Street = null;
+            product.Tlf = null;
+            product.Url = null;
+            product.Zipcode = null;
+            cmb_category.SelectedItem = null;
         }
     }
 }

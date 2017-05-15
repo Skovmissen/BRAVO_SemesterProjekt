@@ -30,10 +30,17 @@
                 <MenuItem Header="Upload" Height="33" MinWidth="100" FontSize="14" Margin="30,0,0,0" >
                     <MenuItem Header="XML" Height="33" MinWidth="100" FontSize="14" Click="Upload_Click"/>
                 </MenuItem>
+                <Hyperlink NavigateUri="MainWindow.xaml" RequestNavigate="Hyperlink_RequestNavigate">Forside</Hyperlink>
             </Menu>
 
         </DockPanel>
-        <Frame x:Name="frame" HorizontalAlignment="Left" Height="732" VerticalAlignment="Top" Width="1293" Margin="0,51,0,0" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="frame" HorizontalAlignment="Left" Height="737" VerticalAlignment="Top" Width="1293" Margin="0,46,0,0" NavigationUIVisibility="Hidden">
+
+        </Frame>
+        <Button x:Name="btn_Create" Content="OPRET" HorizontalAlignment="Left" Margin="0,46,0,0" VerticalAlignment="Top" Width="637" Height="382" FontSize="36" Background="#FFFF5E03" Click="btn_Create_Click" />
+        <Button x:Name="btn_Edit" Content="REDIGERE" HorizontalAlignment="Left" Margin="637,46,0,0" VerticalAlignment="Top" Width="656" Height="382"  FontSize="36" Background="#FF019715" Click="btn_Edit_Click"/>
+        <Button x:Name="btn_Show" Content="OVERSIGT" HorizontalAlignment="Left" Margin="0,428,0,0" VerticalAlignment="Top" Width="637" Height="355" FontSize="36" Background="#FF0404FF" Click="btn_Show_Click"/>
+        <Button x:Name="btn_Upload" Content="UPLOAD" HorizontalAlignment="Left" Margin="637,428,0,0" VerticalAlignment="Top" Width="656" Height="355" FontSize="36" Background="Yellow" Click="btn_Upload_Click"/>
 
 
     </Grid>
