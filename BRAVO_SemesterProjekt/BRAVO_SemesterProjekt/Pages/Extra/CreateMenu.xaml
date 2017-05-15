@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
-      d:DesignHeight="980" d:DesignWidth="1920"
+      d:DesignHeight="950" d:DesignWidth="1920"
       Title="CreateMenu"
       Background="#FFFCA159"
     >
@@ -17,16 +17,16 @@
             <ColumnDefinition Width="325*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="245*"/>
+            <RowDefinition Height="50*"/>
             <RowDefinition Height="245*"/>
             <RowDefinition Height="245*"/>
             <RowDefinition Height="245*"/>
             <RowDefinition Height="268*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="btn_Actor" Content="Aktør" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1270" Height="140" FontSize="36" Background="White" Click="btn_Actor_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Column="1" Margin="0,52,0,0"  />
-        <Button x:Name="btn_Cluster" Content="Klynge" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1270" Height="140"  FontSize="36" Background="White" Click="btn_Cluster_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Row="3" Grid.Column="1" Margin="0,53,0,0" />
-        <Button x:Name="btn_Product" Content="Produkt" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1270" Height="140" FontSize="36" Background="White" Click="btn_Product_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Row="1" Grid.Column="1" Margin="0,53,0,0"/>
-        <Button x:Name="btn_Combo" Content="Kombi-Produkt" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1270" Height="140" FontSize="36" Background="White" Click="btn_Combo_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Row="2" Grid.Column="1" Margin="0,52,0,0"/>
+        <Button x:Name="btn_Actor" Content="Aktør" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1270" Height="140" FontSize="36" Background="White" Click="btn_Actor_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Column="1" Margin="0,0,0,53" Grid.Row="1" />
+        <Button x:Name="btn_Cluster" Content="Klynge" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1270" Height="140"  FontSize="36" Background="White" Click="btn_Cluster_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Row="4" Grid.Column="1" Margin="0,0,0,70" />
+        <Button x:Name="btn_Product" Content="Produkt" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1270" Height="140" FontSize="36" Background="White" Click="btn_Product_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Row="2" Grid.Column="1" Margin="0,0,0,52" />
+        <Button x:Name="btn_Combo" Content="Kombi-Produkt" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1270" Height="140" FontSize="36" Background="White" Click="btn_Combo_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Row="3" Grid.Column="1" Margin="0,0,0,53"/>
 
     </Grid>
 </Page>
