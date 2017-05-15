@@ -52,17 +52,17 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dataGrid_Edit_Product.SelectedItems)
             {
-                product.Name = row.Row.ItemArray[0].ToString();
-                product.City = row.Row.ItemArray[1].ToString();
-                product.Zipcode = row.Row.ItemArray[2].ToString();
-                product.Region = row.Row.ItemArray[3].ToString();
-                product.Street = row.Row.ItemArray[4].ToString();
-                product.Latitude = Convert.ToDouble(row.Row.ItemArray[5].ToString());
-                product.Longtitude = Convert.ToDouble(row.Row.ItemArray[6].ToString());
-                product.Url = row.Row.ItemArray[7].ToString();
-                product.Description = row.Row.ItemArray[8].ToString();
-                
-                product.Activate = Convert.ToBoolean(row.Row.ItemArray[9].ToString());
+                product.Name = row.Row.ItemArray[1].ToString();
+                product.City = row.Row.ItemArray[2].ToString();
+                product.Zipcode = row.Row.ItemArray[3].ToString();
+                product.Region = row.Row.ItemArray[4].ToString();
+                product.Street = row.Row.ItemArray[5].ToString();
+                product.Latitude = Convert.ToDouble(row.Row.ItemArray[6].ToString());
+                product.Longtitude = Convert.ToDouble(row.Row.ItemArray[7].ToString());
+                product.Url = row.Row.ItemArray[8].ToString();
+                product.Description = row.Row.ItemArray[9].ToString();
+
+                product.Activate = Convert.ToBoolean(row.Row.ItemArray[10].ToString());
             }
         }
     }
