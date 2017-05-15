@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,8 +32,28 @@ namespace BRAVO_SemesterProjekt
             InitializeComponent();
             DataContext = comboProduct;
             DB.OpenDb();
-            
-            //dataGrid_ShowCombo.ItemsSource = DB.ShowComboDB().DefaultView;
+            dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
+            DB.CloseDb();
+        }
+
+        private void dataGrid_edit_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (DataRowView row in dataGrid_edit_Combo.SelectedItems)
+            {
+                comboProduct.Name = row.Row.ItemArray[1].ToString();
+                comboProduct.StartTime = Convert.ToDateTime(row.Row.ItemArray[2]);
+                comboProduct.EndTime = Convert.ToDateTime(row.Row.ItemArray[3]);
+                comboProduct.Activate = Convert.ToBoolean(row.Row.ItemArray[4]);
+              //  comboProduct.Description = row.Row.ItemArray[5].ToString();
+
+            }
+
+        }
+
+        private void button_search_Click(object sender, RoutedEventArgs e)
+        {
+            DB.OpenDb();
+            dataGrid_edit_Combo.ItemsSource = DB.SearchCombo(comboProduct).DefaultView;
             DB.CloseDb();
         }
     }

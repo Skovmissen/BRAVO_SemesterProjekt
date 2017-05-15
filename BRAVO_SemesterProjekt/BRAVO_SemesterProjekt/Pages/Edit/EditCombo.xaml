@@ -5,19 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Background="#FFFCA159"
       Title="EditCombo">
 
     <Grid>
-        <DataGrid x:Name="dataGrid_edit_Combo" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Height="115" Width="187"/>
+        <DataGrid x:Name="dataGrid_edit_Combo" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Height="115" Width="187" SelectionChanged="dataGrid_edit_Combo_SelectionChanged"/>
         <Label x:Name="header_gridview" Content="Redigér kombinationsprodukt" HorizontalAlignment="Left" Margin="3,53,0,0" VerticalAlignment="Top" Width="194"/>
-        <Label x:Name="label_combiproduct" Content="Kombiprodukt" HorizontalAlignment="Left" Margin="203,76,0,0" VerticalAlignment="Top" Width="97"/>
-        <TextBox x:Name="textBox_ComboName" HorizontalAlignment="Left" Height="23" Margin="206,103,-26,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_startTime" Content="Starttid" HorizontalAlignment="Left" Margin="205,137,0,0" VerticalAlignment="Top" Height="24" Width="50"/>
-        <TextBox x:Name="textBox_startTime" HorizontalAlignment="Left" Height="23" Margin="209,162,-29,0" TextWrapping="Wrap" Text="{Binding Path=StartTime}" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_endTime" Content="Sluttid" HorizontalAlignment="Left" Margin="209,198,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_endTime" HorizontalAlignment="Left" Height="23" Margin="211,223,-31,0" TextWrapping="Wrap" Text="{Binding Path=EndTime}" VerticalAlignment="Top" Width="120"/>
-        <CheckBox x:Name="checkBox" Content="Aktiv" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="214,264,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_combiproduct" Content="Kombiprodukt" HorizontalAlignment="Left" Margin="233,53,0,0" VerticalAlignment="Top" Width="97"/>
+        <TextBox x:Name="textBox_ComboName" HorizontalAlignment="Left" Height="23" Margin="236,80,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_startTime" Content="Starttid" HorizontalAlignment="Left" Margin="235,114,0,0" VerticalAlignment="Top" Height="24" Width="50"/>
+        <TextBox x:Name="textBox_startTime" HorizontalAlignment="Left" Height="23" Margin="239,139,0,0" TextWrapping="Wrap" Text="{Binding Path=StartTime}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_endTime" Content="Sluttid" HorizontalAlignment="Left" Margin="239,175,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox_endTime" HorizontalAlignment="Left" Height="23" Margin="241,200,0,0" TextWrapping="Wrap" Text="{Binding Path=EndTime}" VerticalAlignment="Top" Width="120"/>
+        <CheckBox x:Name="checkBox" Content="Aktiv" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="244,241,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_search" Content="Søg kombinationsprodukt" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="15,232,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button_search" Content="Søg" HorizontalAlignment="Left" Margin="122,269,0,0" VerticalAlignment="Top" Width="75" Click="button_search_Click"/>
 
     </Grid>
 </Page>
