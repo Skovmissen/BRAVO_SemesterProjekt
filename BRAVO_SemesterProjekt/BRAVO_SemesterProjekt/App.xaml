@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
     </Application.Resources>
 </Application>
