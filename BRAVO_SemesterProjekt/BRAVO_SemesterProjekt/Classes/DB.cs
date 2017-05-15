@@ -230,7 +230,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@URL", product.Url, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Describtion", product.Description, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
-            command.Parameters.Add(CreateParam("@ActorName", actor.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ActorName", product.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ProductName", product.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@XmlId", product.XmlId, SqlDbType.Int));
