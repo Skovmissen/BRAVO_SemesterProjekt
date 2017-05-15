@@ -55,6 +55,7 @@ namespace BRAVO_SemesterProjekt
                     XmlNode email = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Email", ns);
                     XmlNode city = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:City", ns);
                     XmlNode zip = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:PostalCode", ns);
+                    XmlNode price = item.SelectSingleNode(@".//BravoXML:PriceGroups/BravoXML:PriceGroup/BravoXML:PriceFrom", ns);
                     CheckForNull(name, xmlId, addressLine1, url, tlf, latitude, longitude, region, description, category, email, city, zip, temp, actor, product);
                     product.Name = actor.Name;
                     product.Street = addressLine1.InnerText;
@@ -158,8 +159,16 @@ namespace BRAVO_SemesterProjekt
         {
             await Task.Delay(10);
         }
-        private static void CheckForNull(XmlNode name, XmlNode xmlId, XmlNode addressLine1, XmlNode url, XmlNode tlf, XmlNode latitude, XmlNode longitude, XmlNode region, XmlNode description, XmlNode category, XmlNode email, XmlNode city, XmlNode zip, TempData temp, Actors actor, Products products) //Metoden tjekker om den fundne data er Null, og hvis den er indsætter den en string så det kan ses i databasen.
+        private static void CheckForNull(XmlNode name, XmlNode xmlId, XmlNode addressLine1, XmlNode url, XmlNode tlf, XmlNode latitude, XmlNode longitude, XmlNode region, XmlNode description, XmlNode category, XmlNode email, XmlNode city, XmlNode zip, TempData temp, Actors actor, Products products, XmlNode price) //Metoden tjekker om den fundne data er Null, og hvis den er indsætter den en string så det kan ses i databasen.
         {
+            if (price == null)
+            {
+                products.Price = 0;
+            }
+            else
+            {
+                products.Price = Convert.ToDouble(price.InnerText);
+            }
             if (name == null)
             {
                 actor.Name = "Intet Navn";
