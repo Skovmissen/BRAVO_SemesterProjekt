@@ -108,9 +108,6 @@
       <DependentUpon>CreateProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\DB.cs" />
-    <Compile Include="Pages\Extra\DeactivateActivate.xaml.cs">
-      <DependentUpon>DeactivateActivate.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Show\ShowActors.xaml.cs">
       <DependentUpon>ShowActors.xaml</DependentUpon>
     </Compile>
@@ -159,10 +156,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Create\CreateProduct.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Extra\DeactivateActivate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
