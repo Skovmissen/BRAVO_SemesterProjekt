@@ -102,6 +102,16 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private double price;
+
+        public double Price
+        {
+            get { return price; }
+            set { price = value;
+                NotifyPropertyChanged();
+            }
+        }
+
 
         private double price;
 

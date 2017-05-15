@@ -100,7 +100,7 @@ namespace BRAVO_SemesterProjekt
             catch (SqlException)
             {
 
-                MessageBox.Show("Valgte klynge navn er ikke gyldigt");
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
             }
             catch (Exception)
             {
@@ -128,6 +128,11 @@ namespace BRAVO_SemesterProjekt
         private void cmb_actor_DropDownClosed(object sender, EventArgs e)
         {
             actor.OldName = cmb_actor.Text;
+        }
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMenu menu = new CreateMenu();
+            NavigationService.Navigate(menu);
         }
     }
 }

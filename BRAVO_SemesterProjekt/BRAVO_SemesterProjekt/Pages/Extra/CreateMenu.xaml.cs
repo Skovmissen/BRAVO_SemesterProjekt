@@ -36,7 +36,7 @@ namespace BRAVO_SemesterProjekt
             btn_Product.IsEnabled = false;
             btn_Product.Visibility = Visibility.Hidden;
             CreateActors actor = new CreateActors();
-            this.NavigationService.Navigate(actor);
+            NavigationService.Navigate(actor);
         }
 
         private void btn_Cluster_Click(object sender, RoutedEventArgs e)
@@ -50,7 +50,7 @@ namespace BRAVO_SemesterProjekt
             btn_Product.IsEnabled = false;
             btn_Product.Visibility = Visibility.Hidden;
             CreateCluster cluster = new CreateCluster();
-            this.NavigationService.Navigate(cluster);
+            NavigationService.Navigate(cluster);
         }
 
         private void btn_Product_Click(object sender, RoutedEventArgs e)
@@ -64,7 +64,7 @@ namespace BRAVO_SemesterProjekt
             btn_Product.IsEnabled = false;
             btn_Product.Visibility = Visibility.Hidden;
             CreateProduct product = new CreateProduct();
-            this.NavigationService.Navigate(product);
+            NavigationService.Navigate(product);
         }
 
         private void btn_Combo_Click(object sender, RoutedEventArgs e)
@@ -78,7 +78,7 @@ namespace BRAVO_SemesterProjekt
             btn_Product.IsEnabled = false;
             btn_Product.Visibility = Visibility.Hidden;
             CreateCombo combo = new CreateCombo();
-            this.NavigationService.Navigate(combo);
+            NavigationService.Navigate(combo);
         }
     }
 }

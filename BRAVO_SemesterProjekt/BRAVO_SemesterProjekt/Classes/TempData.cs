@@ -71,6 +71,7 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 

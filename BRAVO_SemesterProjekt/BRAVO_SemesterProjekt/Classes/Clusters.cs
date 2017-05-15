@@ -51,6 +51,16 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private string desciption;
+
+        public string Description
+        {
+            get { return desciption; }
+            set { desciption = value;
+                NotifyPropertyChanged();
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
