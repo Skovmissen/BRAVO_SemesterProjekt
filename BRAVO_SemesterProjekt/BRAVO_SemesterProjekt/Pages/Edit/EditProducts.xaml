@@ -5,34 +5,35 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
+      Background="#FFFCA159"
       d:DesignHeight="800" d:DesignWidth="1300"
       Title="EditProducts">
 
     <Grid>
-        <Label x:Name="lbl_Edit_Product" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="266" Height="26"/>
-        <DataGrid x:Name="dataGrid_Edit_Product" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Height="206" Width="266" SelectionChanged="dataGrid_Edit_Product_SelectionChanged"/>
-        <TextBox x:Name="textBox_Search_Edit_Product" HorizontalAlignment="Left" Height="23" Margin="10,247,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button_Edit_Product" Content="Opdatere" HorizontalAlignment="Left" Margin="861,286,0,0" VerticalAlignment="Top" Width="119" Click="button_Edit_Product_Click" Height="20"/>
-        <Label x:Name="lbl_ProductName" Content="Produkt navn" HorizontalAlignment="Left" Margin="332,10,0,0" VerticalAlignment="Top" Width="158" Height="26"/>
-        <TextBox x:Name="textBox_ProductName" HorizontalAlignment="Left" Height="23" Margin="332,42,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="190"/>
-        <Label x:Name="lbl_City" Content="By" HorizontalAlignment="Left" Margin="332,71,0,0" VerticalAlignment="Top" Width="158" Height="26"/>
-        <TextBox x:Name="textBox_City" HorizontalAlignment="Left" Height="24" Margin="332,101,0,0" TextWrapping="Wrap" Text="{Binding Path=City}" VerticalAlignment="Top" Width="190"/>
-        <Label x:Name="lbl_Zipcode" Content="Postnr" HorizontalAlignment="Left" Margin="332,130,0,0" VerticalAlignment="Top" Width="158" Height="26"/>
-        <TextBox x:Name="textBox_Zipcode" HorizontalAlignment="Left" Height="24" Margin="332,161,0,0" TextWrapping="Wrap" Text="{Binding Path=Zipcode}" VerticalAlignment="Top" Width="190"/>
-        <Label x:Name="lbl_Region" Content="Kommune" HorizontalAlignment="Left" Margin="332,190,0,0" VerticalAlignment="Top" Width="158" Height="26"/>
-        <TextBox x:Name="textBox_Region" HorizontalAlignment="Left" Height="23" Margin="332,222,0,0" TextWrapping="Wrap" Text="{Binding Path=Region}" VerticalAlignment="Top" Width="190"/>
-        <Label x:Name="lbl_street" Content="Vejnavn" HorizontalAlignment="Left" Margin="332,253,0,0" VerticalAlignment="Top" Width="158" Height="27"/>
-        <TextBox x:Name="textBox_Street" HorizontalAlignment="Left" Height="24" Margin="332,285,0,0" TextWrapping="Wrap" Text="{Binding Path=Street}" VerticalAlignment="Top" Width="190"/>
-        <Label x:Name="lbl_Latitude" Content="Breddegrad" HorizontalAlignment="Left" Margin="611,10,0,0" VerticalAlignment="Top" Width="158" Height="26"/>
-        <TextBox x:Name="textBox_Latitude" HorizontalAlignment="Left" Height="23" Margin="611,42,0,0" TextWrapping="Wrap" Text="{Binding Path=Latitude}" VerticalAlignment="Top" Width="190"/>
-        <Label x:Name="lbl_Longtitude" Content="Længdegrad" HorizontalAlignment="Left" Margin="611,71,0,0" VerticalAlignment="Top" Width="158" Height="26"/>
-        <TextBox x:Name="textBox_Longtitude" HorizontalAlignment="Left" Height="24" Margin="611,101,0,0" TextWrapping="Wrap" Text="{Binding Path=Longtitude}" VerticalAlignment="Top" Width="190"/>
-        <Label x:Name="lbl_URL" Content="Url" HorizontalAlignment="Left" Margin="611,130,0,0" VerticalAlignment="Top" Width="158" Height="26"/>
-        <TextBox x:Name="textBox_URL" HorizontalAlignment="Left" Height="24" Margin="611,161,0,0" TextWrapping="Wrap" Text="{Binding Path=Url}" VerticalAlignment="Top" Width="190"/>
-        <Label x:Name="lbl_Description" Content="Beskrivelse" HorizontalAlignment="Left" Margin="611,190,0,0" VerticalAlignment="Top" Width="158" Height="26"/>
-        <TextBox x:Name="textBox_Description" HorizontalAlignment="Left" Height="84" Margin="611,222,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="190"/>
-        <CheckBox x:Name="checkBox" Content="Aktiver" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="861,233,0,0" VerticalAlignment="Top" Height="15" Width="90"/>
-        <Button x:Name="button" Content="Søg"  HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Label x:Name="lbl_Edit_Product" Content="Vælg det produkt du vil redigere" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="266" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <DataGrid x:Name="dataGrid_Edit_Product" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Height="206" Width="1267" SelectionChanged="dataGrid_Edit_Product_SelectionChanged"/>
+        <TextBox x:Name="textBox_Search_Edit_Product" HorizontalAlignment="Left" Height="23" Margin="10,294,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button_Edit_Product" Content="Opdatere" HorizontalAlignment="Left" Margin="831,537,0,0" VerticalAlignment="Top" Width="138" Click="button_Edit_Product_Click" Height="35" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
+        <Label x:Name="lbl_ProductName" Content="Produkt navn" HorizontalAlignment="Left" Margin="302,274,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <TextBox x:Name="textBox_ProductName" HorizontalAlignment="Left" Height="23" Margin="302,307,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="190"/>
+        <Label x:Name="lbl_City" Content="By" HorizontalAlignment="Left" Margin="302,335,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <TextBox x:Name="textBox_City" HorizontalAlignment="Left" Height="24" Margin="302,365,0,0" TextWrapping="Wrap" Text="{Binding Path=City}" VerticalAlignment="Top" Width="190"/>
+        <Label x:Name="lbl_Zipcode" Content="Postnr" HorizontalAlignment="Left" Margin="302,394,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <TextBox x:Name="textBox_Zipcode" HorizontalAlignment="Left" Height="24" Margin="302,425,0,0" TextWrapping="Wrap" Text="{Binding Path=Zipcode}" VerticalAlignment="Top" Width="190"/>
+        <Label x:Name="lbl_Region" Content="Kommune" HorizontalAlignment="Left" Margin="302,454,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <TextBox x:Name="textBox_Region" HorizontalAlignment="Left" Height="23" Margin="302,488,0,0" TextWrapping="Wrap" Text="{Binding Path=Region}" VerticalAlignment="Top" Width="190"/>
+        <Label x:Name="lbl_street" Content="Vejnavn" HorizontalAlignment="Left" Margin="302,517,0,0" VerticalAlignment="Top" Width="158" Height="27" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <TextBox x:Name="textBox_Street" HorizontalAlignment="Left" Height="24" Margin="302,549,0,0" TextWrapping="Wrap" Text="{Binding Path=Street}" VerticalAlignment="Top" Width="190"/>
+        <Label x:Name="lbl_Latitude" Content="Breddegrad" HorizontalAlignment="Left" Margin="581,274,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <TextBox x:Name="textBox_Latitude" HorizontalAlignment="Left" Height="23" Margin="582,307,0,0" TextWrapping="Wrap" Text="{Binding Path=Latitude}" VerticalAlignment="Top" Width="190"/>
+        <Label x:Name="lbl_Longtitude" Content="Længdegrad" HorizontalAlignment="Left" Margin="581,335,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <TextBox x:Name="textBox_Longtitude" HorizontalAlignment="Left" Height="24" Margin="582,365,0,0" TextWrapping="Wrap" Text="{Binding Path=Longtitude}" VerticalAlignment="Top" Width="190"/>
+        <Label x:Name="lbl_URL" Content="Url" HorizontalAlignment="Left" Margin="581,394,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <TextBox x:Name="textBox_URL" HorizontalAlignment="Left" Height="24" Margin="582,425,0,0" TextWrapping="Wrap" Text="{Binding Path=Url}" VerticalAlignment="Top" Width="190"/>
+        <Label x:Name="lbl_Description" Content="Beskrivelse" HorizontalAlignment="Left" Margin="581,454,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <TextBox x:Name="textBox_Description" HorizontalAlignment="Left" Height="84" Margin="582,488,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="190"/>
+        <CheckBox x:Name="checkBox" Content="Aktiver" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="831,497,0,0" VerticalAlignment="Top" Height="15" Width="90" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <Button x:Name="button" Content="Søg"  HorizontalAlignment="Left" Margin="23,353,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
 
     </Grid>
 </Page>
