@@ -9,18 +9,19 @@
       Title="CreateCluster">
 
     <Grid>
+        <Button x:Name="btn_back" Content="Tilbage" Margin="1111,10,10,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <Button x:Name="button" Content="Opret klynge" HorizontalAlignment="Left" Margin="10,241,0,0" VerticalAlignment="Top" Width="75" Click="btn_saveClusterName"/>
         <TextBox x:Name="txt_navn" HorizontalAlignment="Left" Height="23" Margin="10,65,0,0" TextWrapping="Wrap" Text="{Binding Path = Name}" VerticalAlignment="Top" Width="132"/>
         <Label x:Name="label" Content="Indtast navn på klynge:" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="165"/>
-        <ComboBox x:Name="cmb_actor" HorizontalAlignment="Left" Margin="10,577,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed" IsReadOnly="True"/>
-        <DataGrid x:Name="dg_showcluster" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" Height="170" Width="388" ColumnWidth="*" IsReadOnly="True" SelectionChanged="dg_showcluster_SelectionChanged"/>
-        <DataGrid x:Name="dg_ShowspecificCluster" HorizontalAlignment="Left" Margin="10,604,0,0" VerticalAlignment="Top" Height="164" Width="388" ColumnWidth="*" IsReadOnly="True"/>
-        <Button x:Name="button1" Content="Tilføj til klynge" HorizontalAlignment="Left" Margin="151,577,0,0" VerticalAlignment="Top" Width="95" Click="btn_addActorToCluster"/>
-        <Label x:Name="label1" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="15,538,0,0" VerticalAlignment="Top" Width="120" Height="24" FontWeight="Bold" />
-        <Label x:Name="label2" Content="Tryk på en klynge for yderlig information samt at tilføje aktører til en klynge" HorizontalAlignment="Left" Margin="10,440,0,0" VerticalAlignment="Top" Width="388" FontSize="8"/>
+        <ComboBox x:Name="cmb_actor" HorizontalAlignment="Left" Margin="628,205,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed" IsReadOnly="True"/>
+        <DataGrid x:Name="dg_showcluster" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" Height="285" Width="597" ColumnWidth="*" IsReadOnly="True" SelectionChanged="dg_showcluster_SelectionChanged"/>
+        <DataGrid x:Name="dg_ShowspecificCluster" HorizontalAlignment="Left" Margin="628,265,0,0" VerticalAlignment="Top" Height="285" Width="662" ColumnWidth="*" IsReadOnly="True"/>
+        <Button x:Name="button1" Content="Tilføj til klynge" HorizontalAlignment="Left" Margin="769,205,0,0" VerticalAlignment="Top" Width="95" Click="btn_addActorToCluster"/>
+        <Label x:Name="label1" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="633,166,0,0" VerticalAlignment="Top" Width="120" Height="24" FontWeight="Bold" />
+        <Label x:Name="label2" Content="Tryk på en klynge for yderlig information samt at tilføje aktører til en klynge" HorizontalAlignment="Left" Margin="10,555,0,0" VerticalAlignment="Top" Width="388" FontSize="11"/>
         <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="97" Margin="10,116,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="388"/>
         <Label x:Name="label3" Content="Tilføj beskrivelse" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label4" Content="Tilføj aktør til klynge:" HorizontalAlignment="Left" Margin="10,488,0,0" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="label4" Content="Tilføj aktør til klynge:" HorizontalAlignment="Left" Margin="628,168,0,0" VerticalAlignment="Top" Width="220"/>
 
     </Grid>
 </Page>

@@ -95,5 +95,10 @@ namespace BRAVO_SemesterProjekt
             product.Zipcode = null;
             cmb_category.SelectedItem = null;
         }
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMenu menu = new CreateMenu();
+            NavigationService.Navigate(menu);
+        }
     }
 }

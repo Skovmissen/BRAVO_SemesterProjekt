@@ -9,6 +9,7 @@
       Title="CreateCombo">
 
     <Grid>
+        <Button x:Name="btn_back" Content="Tilbage" Margin="750,50,371,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353" RenderTransformOrigin="2.19,0.4"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="22" Margin="10,50,0,0" TextWrapping="Wrap" Text="{Binding Path= Name}" VerticalAlignment="Top" Width="120"/>
         <DatePicker HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartTime}"/>
         <DatePicker HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" SelectedDate="{Binding EndTime}"/>

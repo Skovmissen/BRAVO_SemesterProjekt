@@ -130,5 +130,10 @@ namespace BRAVO_SemesterProjekt
             cmb_products.Items.Clear();
             FillcomboWithActorsProducts();
         }
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMenu menu = new CreateMenu();
+            NavigationService.Navigate(menu);
+        }
     }
 }

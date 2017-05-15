@@ -129,5 +129,10 @@ namespace BRAVO_SemesterProjekt
         {
             actor.OldName = cmb_actor.Text;
         }
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMenu menu = new CreateMenu();
+            NavigationService.Navigate(menu);
+        }
     }
 }
