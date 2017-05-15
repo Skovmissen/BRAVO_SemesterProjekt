@@ -21,31 +21,9 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class EditProducts : Page
     {
-        Actors actor = new Actors();
-        Products product = new Products();
         public EditProducts()
         {
             InitializeComponent();
-            DataContext = product;
-            DB.OpenDb();
-            dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;
-            DB.CloseDb();
-        }
-
-        private void button_Edit_Product_Click(object sender, RoutedEventArgs e)
-        {
-            DB.OpenDb();
-            DB.UpdateProduct(product, actor);
-            dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;
-            DB.CloseDb();
-            MessageBox.Show("Redigering fuldført");
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            DB.OpenDb();
-            dataGrid_Edit_Product.ItemsSource = DB.SearchProduct(product).DefaultView;
-            DB.CloseDb();
         }
 
         private void dataGrid_Edit_Product_SelectionChanged(object sender, SelectionChangedEventArgs e)
