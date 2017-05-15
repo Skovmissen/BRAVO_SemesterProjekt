@@ -99,13 +99,14 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InsertCombo(ComboProducts combo) //Lavet af Lasse
+        public static void InsertCombo(ComboProducts combo) //Lavet af Lasse, Redigeret af Claus
         {
-            SqlCommand command = new SqlCommand("INSERT INTO CombiProduct (CombiProductName, StartTime, EndTime, Activate, Description) VALUES (@CombiProductName, @StartTime, @EndTime, @Activate, @Description)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO CombiProduct (CombiProductName, Description, StartTime, EndTime, Price, Activate) VALUES (@CombiProductName, @Description, @StartTime, @EndTime, @Price, @Activate)", connection);
             command.Parameters.Add(CreateParam("@CombiProductName", combo.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Description", combo.Description, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@StartTime", combo.StartTime, SqlDbType.Date));
             command.Parameters.Add(CreateParam("@EndTime", combo.EndTime, SqlDbType.Date));
+            command.Parameters.Add(CreateParam("@Price", combo.Price, SqlDbType.Float));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Bit));
             try
             {
