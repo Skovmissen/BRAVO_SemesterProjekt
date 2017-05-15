@@ -28,6 +28,7 @@ namespace BRAVO_SemesterProjekt
             InitializeComponent();
             DataContext = product;
             DB.OpenDb();
+            Fillcombo();
             dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;
             DB.CloseDb();
         }
@@ -47,6 +48,18 @@ namespace BRAVO_SemesterProjekt
             dataGrid_Edit_Product.ItemsSource = DB.SearchProduct(product).DefaultView;
             DB.CloseDb();
         }
+        private void Fillcombo() //Denne metode finder produktnavne og fylder dem i comboboxe
+        {
+            DataTable category = DB.ShowCategory();
+            for (int i = 0; i < category.Rows.Count; i++)
+            {
+                cmb_category.Items.Add(category.Rows[i]["CategoryName"]);
+            }
+        }
+        private void cmb_category_DropDownClosed(object sender, EventArgs e)
+        {
+            product.Category = cmb_category.Text;
+        }
 
         private void dataGrid_Edit_Product_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -61,8 +74,8 @@ namespace BRAVO_SemesterProjekt
                 product.Longtitude = Convert.ToDouble(row.Row.ItemArray[7].ToString());
                 product.Url = row.Row.ItemArray[8].ToString();
                 product.Description = row.Row.ItemArray[9].ToString();
-                product.Activate = Convert.ToBoolean(row.Row.ItemArray[10].ToString());
-                product.Category = row.Row.ItemArray[12].ToString();
+                product.Activate = Convert.ToBoolean(row.Row.ItemArray[11].ToString());
+                product.Category = row.Row.ItemArray[13].ToString();
             }
         }
     }

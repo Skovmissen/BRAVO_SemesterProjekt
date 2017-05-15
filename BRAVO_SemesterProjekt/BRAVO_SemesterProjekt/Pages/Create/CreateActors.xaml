@@ -10,13 +10,13 @@
 
     <Grid>
 
-        <TextBox x:Name="txt_Navn" Height="50" Margin="10,39,976,711" Text="{Binding Path= Name}"/>
-        <TextBox x:Name="txt_Email" Height="50" Margin="10,121,976,629" Text="{Binding Path= Email }"/>
-        <TextBox x:Name="txt_tlf" Height="50" Margin="10,201,976,549" Text="{Binding Path= Tlf}"/>
-        <Button x:Name="button" Content="Opret aktør" Margin="10,275,890,0" VerticalAlignment="Top" Height="60" Click="btn_gem" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Button x:Name="btn_back" Content="Tilbage" Margin="1111,10,10,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Label x:Name="label" Content="NAVN" Margin="10,11,1111,761" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="label_Copy" Content="EMAIL" Margin="10,93,1111,679" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="label_Copy1" Content="TELEFON" Margin="10,177,1121,599" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <TextBox x:Name="txt_Navn" Height="50" Margin="10,127,976,623" Text="{Binding Path= Name}"/>
+        <TextBox x:Name="txt_Email" Height="50" Margin="10,208,976,542" Text="{Binding Path= Email }"/>
+        <TextBox x:Name="txt_tlf" Height="50" Margin="10,288,976,462" Text="{Binding Path= Tlf}"/>
+        <Button x:Name="button" Content="Opret aktør" Margin="10,362,890,0" VerticalAlignment="Top" Height="60" Click="btn_gem" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
+        <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
+        <Label x:Name="label" Content="NAVN" Margin="10,98,1111,674" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <Label x:Name="label_Copy" Content="EMAIL" Margin="10,180,1111,592" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <Label x:Name="label_Copy1" Content="TELEFON" Margin="10,264,1121,512" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
     </Grid>
 </Page>
