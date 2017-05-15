@@ -25,10 +25,13 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class EditCombo : Page
     {
+        ComboProducts comboProduct = new ComboProducts();
         public EditCombo()
         {
             InitializeComponent();
+            DataContext = comboProduct;
             DB.OpenDb();
+            
             //dataGrid_ShowCombo.ItemsSource = DB.ShowComboDB().DefaultView;
             DB.CloseDb();
         }
