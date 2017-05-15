@@ -37,10 +37,10 @@
         <Frame x:Name="frame" HorizontalAlignment="Left" Height="737" VerticalAlignment="Top" Width="1293" Margin="0,46,0,0" NavigationUIVisibility="Hidden">
 
         </Frame>
-        <Button x:Name="btn_Create" Content="OPRET" HorizontalAlignment="Left" Margin="0,46,0,0" VerticalAlignment="Top" Width="637" Height="382" FontSize="36" Background="#FFFF5E03" Click="btn_Create_Click" />
-        <Button x:Name="btn_Edit" Content="REDIGERE" HorizontalAlignment="Left" Margin="637,46,0,0" VerticalAlignment="Top" Width="656" Height="382"  FontSize="36" Background="#FF019715" Click="btn_Edit_Click"/>
-        <Button x:Name="btn_Show" Content="OVERSIGT" HorizontalAlignment="Left" Margin="0,428,0,0" VerticalAlignment="Top" Width="637" Height="355" FontSize="36" Background="#FF0404FF" Click="btn_Show_Click"/>
-        <Button x:Name="btn_Upload" Content="UPLOAD" HorizontalAlignment="Left" Margin="637,428,0,0" VerticalAlignment="Top" Width="656" Height="355" FontSize="36" Background="Yellow" Click="btn_Upload_Click"/>
+        <Button x:Name="btn_Create" Content="OPRET" HorizontalAlignment="Left" Margin="0,46,0,0" VerticalAlignment="Top" Width="637" Height="382" FontSize="36" Background="#FFFCA159" Click="btn_Create_Click" />
+        <Button x:Name="btn_Edit" Content="REDIGERE" HorizontalAlignment="Left" Margin="637,46,0,0" VerticalAlignment="Top" Width="656" Height="382"  FontSize="36" Background="#FF0069B7" Click="btn_Edit_Click"/>
+        <Button x:Name="btn_Show" Content="OVERSIGT" HorizontalAlignment="Left" Margin="0,428,0,0" VerticalAlignment="Top" Width="637" Height="355" FontSize="36" Background="#FFE6D431" Click="btn_Show_Click"/>
+        <Button x:Name="btn_Upload" Content="UPLOAD" HorizontalAlignment="Left" Margin="637,428,0,0" VerticalAlignment="Top" Width="656" Height="355" FontSize="36" Background="#FF00B155" Click="btn_Upload_Click"/>
 
 
     </Grid>
