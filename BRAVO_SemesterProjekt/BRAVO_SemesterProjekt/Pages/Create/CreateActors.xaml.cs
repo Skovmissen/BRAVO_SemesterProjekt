@@ -60,5 +60,11 @@ namespace BRAVO_SemesterProjekt
             actor.Tlf = null;
             actor.Email = null;
         }
+
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMenu menu = new CreateMenu();
+            NavigationService.Navigate(menu);
+        }
     }
 }
