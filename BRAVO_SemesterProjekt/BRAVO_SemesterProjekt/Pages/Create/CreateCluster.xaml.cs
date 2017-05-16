@@ -25,7 +25,7 @@ namespace BRAVO_SemesterProjekt
     public partial class CreateCluster : Page
     {
         Clusters cluster = new Clusters();
-        Actors actor = new Actors();
+        
         public CreateCluster()
         {
 
@@ -75,8 +75,8 @@ namespace BRAVO_SemesterProjekt
         }
         private void DataGridShowSpecificCluster()
         {
-            DataTable ShowSpecificCluster = DB.GetClusterActors(cluster);
-            dg_ShowspecificCluster.ItemsSource = ShowSpecificCluster.DefaultView;
+            DataTable ShowSpecificClusterTable = DB.GetClusterActors(cluster);
+            dg_ShowspecificCluster.ItemsSource = ShowSpecificClusterTable.DefaultView;
         }
         private void btn_saveClusterName(object sender, RoutedEventArgs e)
         {
@@ -114,7 +114,7 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 DB.OpenDb();
-                DB.InsertActorInCluster(actor, cluster);
+                DB.InsertActorInCluster(cluster);
                 DataGridShowSpecificCluster();
                 DB.CloseDb();
             }
@@ -127,7 +127,7 @@ namespace BRAVO_SemesterProjekt
         }
         private void cmb_actor_DropDownClosed(object sender, EventArgs e)
         {
-            actor.OldName = cmb_actor.Text;
+            cluster.ActorName = cmb_actor.Text;
         }
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {

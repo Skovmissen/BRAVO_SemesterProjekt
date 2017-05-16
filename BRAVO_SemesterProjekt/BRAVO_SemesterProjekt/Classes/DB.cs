@@ -56,10 +56,10 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InsertActorInCluster(Actors actor, Clusters cluster) //Lavet af Lasse
+        public static void InsertActorInCluster(Clusters cluster) //Lavet af Lasse
         {
-            SqlCommand command = new SqlCommand("INSERT INTO ActorCluster (FK_ClusterName, FK_ActorName) VALUES (@ClusterName, @ActorName)", connection);
-            command.Parameters.Add(CreateParam("@ActorName", actor.OldName, SqlDbType.NVarChar));
+            SqlCommand command = new SqlCommand("INSERT INTO ActorCluster (FK_ClusterName, FK_ActorName) SELECT @ClusterName, @ActorName WHERE NOT EXISTS (SELECT FK_ActorName FROM ActorCluster WHERE FK_ActorName = @ActorName AND FK_ClusterName = @ClusterName)", connection);
+            command.Parameters.Add(CreateParam("@ActorName", cluster.ActorName, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ClusterName", cluster.Name, SqlDbType.NVarChar));
             try
             {
