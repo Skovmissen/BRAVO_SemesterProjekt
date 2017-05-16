@@ -9,7 +9,7 @@
       Title="ShowActors">
 
     <Grid>
-        <DataGrid x:Name="GridShowActor" HorizontalAlignment="Left" Margin="6,178,0,0" VerticalAlignment="Top" Height="423" Width="513"/>
+        <DataGrid x:Name="GridShowActor" HorizontalAlignment="Left" Margin="6,178,0,0" VerticalAlignment="Top" Height="423" Width="513" SelectionChanged="GridShowActor_SelectionChanged_1"/>
 
         <TextBox x:Name="SearchActor" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="198" Margin="6,104,0,0"/>
         <DataGrid x:Name="ActorData" HorizontalAlignment="Left" Margin="596,178,0,0" VerticalAlignment="Top" Width="655" Height="423"/>
