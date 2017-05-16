@@ -543,6 +543,22 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
+        public static DataTable GetComboProdutsInCombi(ComboProducts combo) //Lavet af Nikolaj
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ProductId FROM CombiView WHERE FK_CombiId = @CombiId", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@CombiId",combo.Id);
+                reader.Fill(ds);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
+        }
         public static DataTable GetProductsInCombo(DataTable products) //Lavet af NIkolaj
         {
             DataTable ds = new DataTable();
@@ -554,6 +570,26 @@ namespace BRAVO_SemesterProjekt
 
                     SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductId LIKE @ProductId", connection);
                     reader.SelectCommand.Parameters.AddWithValue("@ProductId", "%" + item.ItemArray[0].ToString() + "%");
+                    reader.Fill(ds);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
+        }
+        public static DataTable GetProductsInComboView(DataTable products) //Lavet af NIkolaj
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                foreach (DataRow item in products.Rows)
+                {
+
+
+                    SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductId = @ProductId", connection);
+                    reader.SelectCommand.Parameters.AddWithValue("@ProductId", item.ItemArray[0].ToString());
                     reader.Fill(ds);
                 }
             }
