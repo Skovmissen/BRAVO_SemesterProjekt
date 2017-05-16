@@ -5,15 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
-      Background="#FFFCA159"
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="EditProducts">
 
     <Grid>
         <DataGrid x:Name="dataGrid_Edit_Product" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Height="206" Width="1052" SelectionChanged="dataGrid_Edit_Product_SelectionChanged"/>
         <ComboBox x:Name="cmb_category" HorizontalAlignment="Left" Margin="831,308,0,0" VerticalAlignment="Top" Width="138" DropDownClosed="cmb_category_DropDownClosed" Height="24"/>
-        
-        <Button x:Name="button" Content="Søg"  HorizontalAlignment="Left" Margin="23,353,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
+
+        <Button x:Name="button" Content="Søg"  HorizontalAlignment="Left" Margin="23,333,0,0" VerticalAlignment="Top" Width="90" Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353" RenderTransformOrigin="0.453,-0.517" Height="31"/>
         <Button x:Name="button_Edit_Product" Content="Opdatere" HorizontalAlignment="Left" Margin="831,537,0,0" VerticalAlignment="Top" Width="138" Click="button_Edit_Product_Click" Height="35" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <Label x:Name="lbl_Edit_Product" Content="Vælg det produkt du vil redigere" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="266" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
         <Label x:Name="lbl_ProductName" Content="Produkt navn" HorizontalAlignment="Left" Margin="302,274,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
@@ -26,10 +25,11 @@
         <Label x:Name="lbl_URL" Content="Url" HorizontalAlignment="Left" Margin="581,394,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
         <Label x:Name="lbl_Description" Content="Beskrivelse" HorizontalAlignment="Left" Margin="581,454,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
         <Label x:Name="label_Category" Content="Kategori" HorizontalAlignment="Left" Margin="831,276,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.222,1.043" Width="190" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="label" Content="Pris" HorizontalAlignment="Left" Margin="831,337,0,0" VerticalAlignment="Top" Width="157" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="label1" Content="Aktør navn" HorizontalAlignment="Left" Margin="831,394,0,0" VerticalAlignment="Top" Width="120" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <Label x:Name="lbl_Price" Content="Pris" HorizontalAlignment="Left" Margin="831,337,0,0" VerticalAlignment="Top" Width="157" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <Label x:Name="lbl_ActorName" Content="Aktør navn" HorizontalAlignment="Left" Margin="831,394,0,0" VerticalAlignment="Top" Width="120" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <Label x:Name="lbl_Search" Content="Søg efter produkt" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" Width="153" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
 
-        
+
         <TextBox x:Name="textBox_Search_Edit_Product" HorizontalAlignment="Left" Height="23" Margin="10,294,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox_ProductName" HorizontalAlignment="Left" Height="23" Margin="302,307,0,0" TextWrapping="Wrap" Text="{Binding Path=ProductName}" VerticalAlignment="Top" Width="190"/>
         <TextBox x:Name="textBox_City" HorizontalAlignment="Left" Height="24" Margin="302,365,0,0" TextWrapping="Wrap" Text="{Binding Path=City}" VerticalAlignment="Top" Width="190"/>
@@ -44,8 +44,9 @@
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="831,425,0,0" TextWrapping="Wrap" Text="{Binding Path=ActorName}" VerticalAlignment="Top" Width="191"/>
         <TextBox x:Name="textBox_Category" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="831,309,0,0" TextWrapping="Wrap" Text="{Binding Path=Category}" Background="#FFE6E6E6" VerticalAlignment="Top" Width="120"/>
 
-        <CheckBox x:Name="checkBox" Content="Aktiver" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="831,497,0,0" VerticalAlignment="Top" Height="15" Width="90" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        
+        <CheckBox x:Name="checkBox" Content="Aktiver" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="514,576,0,0" VerticalAlignment="Top" Height="14" Width="90" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <Button x:Name="btn_back" Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Height="49" Background="White" Click="button_back_Click"/>
+
 
     </Grid>
 </Page>

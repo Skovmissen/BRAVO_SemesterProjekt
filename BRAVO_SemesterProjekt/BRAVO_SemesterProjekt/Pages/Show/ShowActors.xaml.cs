@@ -45,15 +45,20 @@ namespace BRAVO_SemesterProjekt
         private void GridShowActor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
-            foreach (DataRowView row in ShowProduct.SelectedItems)
+            foreach (DataRowView row in GridShowActor.SelectedItems)
             {
-                product.Id = Convert.ToInt32(row.Row.ItemArray[0].ToString());
-                product.ProductName = row.Row.ItemArray[1].ToString();
+                cluster.Name = row.Row.ItemArray[0].ToString();
+                product.ProductName = row.Row.ItemArray[0].ToString();
             }
-            DB.OpenDb();
-            ShowCluster.ItemsSource = DB.GetActorCluster(cluster).DefaultView;
-            ShowProduct.ItemsSource = DB.GetActorProducts(product).DefaultView;
-            DB.CloseDb();
+            //DB.OpenDb();
+            //ShowCluster.ItemsSource = DB.GetActorCluster(cluster).DefaultView;
+            //ShowProduct.ItemsSource = DB.GetActorProducts(product).DefaultView;
+            //DB.CloseDb();
+        }
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            ShowMenu menu = new ShowMenu();
+            NavigationService.Navigate(menu);
         }
     }
 }

@@ -98,5 +98,10 @@ namespace BRAVO_SemesterProjekt
             int counter = ComboIdTable.Rows.Count;
             MessageBox.Show(counter + " Produkt kombinationer er blevet deaktiveret");
         }
+        private void button_back_Click(object sender, RoutedEventArgs e)
+        {
+            EditMenu menu = new EditMenu();
+            NavigationService.Navigate(menu);
+        }
     }
 }
