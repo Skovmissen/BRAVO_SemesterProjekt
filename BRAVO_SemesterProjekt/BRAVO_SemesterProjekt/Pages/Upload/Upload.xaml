@@ -9,9 +9,9 @@
       Title="Upload">
 
     <Grid>
-        <Button x:Name="button" Content="Upload" HorizontalAlignment="Left" Margin="10,241,0,0" VerticalAlignment="Top" Width="280" Click="Upload_Click" Height="77"/>
-        <Button x:Name="button1" Content="Vælg Fil" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="75" Click="Choose_File_Click"/>
-        <Label x:Name="label" Content="{Binding Path=Path}" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Height="175" Width="1273"/>
+        <Button x:Name="button" Content="Upload" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Width="280" Click="Upload_Click" Height="77" Background="White" FontWeight="Bold"/>
+        <Button x:Name="button1" Content="Vælg Fil" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Width="123" Click="Choose_File_Click" Height="37" Background="White" FontWeight="Bold"/>
+        <Label x:Name="label" Content="{Binding Path=Path}" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Height="175" Width="1273"/>
 
     </Grid>
 </Page>

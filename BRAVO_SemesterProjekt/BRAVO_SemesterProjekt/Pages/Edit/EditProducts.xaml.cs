@@ -78,5 +78,10 @@ namespace BRAVO_SemesterProjekt
                 product.Category = row.Row.ItemArray[13].ToString();
             }
         }
+        private void button_back_Click(object sender, RoutedEventArgs e)
+        {
+            EditMenu menu = new EditMenu();
+            NavigationService.Navigate(menu);
+        }
     }
 }

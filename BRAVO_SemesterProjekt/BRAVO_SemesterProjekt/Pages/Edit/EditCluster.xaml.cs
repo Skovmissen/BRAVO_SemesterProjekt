@@ -58,5 +58,10 @@ namespace BRAVO_SemesterProjekt
             edit_Cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;
             DB.CloseDb();
         }
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            EditMenu menu = new EditMenu();
+            NavigationService.Navigate(menu);
+        }
     }
 }

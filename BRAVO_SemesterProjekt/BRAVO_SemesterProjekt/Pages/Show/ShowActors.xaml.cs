@@ -40,6 +40,10 @@ namespace BRAVO_SemesterProjekt
             DB.CloseDb();
         }
 
-        
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            ShowMenu menu = new ShowMenu();
+            NavigationService.Navigate(menu);
+        }
     }
 }

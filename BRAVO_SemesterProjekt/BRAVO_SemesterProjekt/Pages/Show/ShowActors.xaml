@@ -9,10 +9,13 @@
       Title="ShowActors">
 
     <Grid>
-        <DataGrid x:Name="GridShowActor" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Height="219" Width="250"/>
-       
-        <TextBox x:Name="SearchActor" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
-        <DataGrid x:Name="ActorData" HorizontalAlignment="Left" Margin="350,61,0,0" VerticalAlignment="Top" Width="250" Height="219"/>
-        <Button x:Name="Btn_Search_Actor" Click="Btn_Search_Actor_Click" Content="Søg" HorizontalAlignment="Left" Margin="150,13,0,0" VerticalAlignment="Top" Width="75"/>
+        <DataGrid x:Name="GridShowActor" HorizontalAlignment="Left" Margin="6,178,0,0" VerticalAlignment="Top" Height="423" Width="513"/>
+
+        <TextBox x:Name="SearchActor" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="198" Margin="6,104,0,0"/>
+        <DataGrid x:Name="ActorData" HorizontalAlignment="Left" Margin="596,178,0,0" VerticalAlignment="Top" Width="655" Height="423"/>
+        <Button x:Name="Btn_Search_Actor" Click="Btn_Search_Actor_Click" Content="Søg" HorizontalAlignment="Left" Margin="222,104,0,0" VerticalAlignment="Top" Width="75" Height="35" Background="White"/>
+        <Label x:Name="label" Content="Liste af alle aktive aktører" HorizontalAlignment="Left" Margin="6,149,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
+        <Label x:Name="label_Copy" Content="Information omkring den valgte aktør" HorizontalAlignment="Left" Margin="596,149,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
+        <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
     </Grid>
 </Page>

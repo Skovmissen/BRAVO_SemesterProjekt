@@ -9,10 +9,24 @@
       Title="EditMenu">
 
     <Grid>
-        <Button x:Name="btn_Actor" Content="Aktør" HorizontalAlignment="Left" VerticalAlignment="Top" Width="650" Height="378" FontSize="36" Background="#FFFF5E03" Click="btn_Actor_Click"  />
-        <Button x:Name="btn_Cluster" Content="Klynge" HorizontalAlignment="Left" Margin="644,0,0,0" VerticalAlignment="Top" Width="650" Height="378"  FontSize="36" Background="#FF019715" Click="btn_Cluster_Click" />
-        <Button x:Name="btn_Product" Content="Produkt" HorizontalAlignment="Left" Margin="0,378,0,0" VerticalAlignment="Top" Width="650" Height="422" FontSize="36" Background="#FF0404FF" Click="btn_Product_Click"/>
-        <Button x:Name="btn_Combo" Content="Kombi-Produkt" HorizontalAlignment="Left" Margin="644,378,0,0" VerticalAlignment="Top" Width="650" Height="422" FontSize="36" Background="Yellow" Click="btn_Combo_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="325*"/>
+            <ColumnDefinition Width="1269*"/>
+            <ColumnDefinition Width="325*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="218*"/>
+            <RowDefinition Height="217*"/>
+            <RowDefinition Height="218*"/>
+            <RowDefinition Height="195*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btn_Actor" Content="Aktør" FontSize="36" Background="White" Click="btn_Actor_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Column="1"  Grid.Row="1" Margin="0,60,0,0"/>
+        <Button x:Name="btn_Cluster" Content="Klynge"  FontSize="36" Background="White" Click="btn_Cluster_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Row="4" Grid.Column="1" Margin="0,40,0,0"/>
+        <Button x:Name="btn_Product" Content="Produkt" FontSize="36" Background="White" Click="btn_Product_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Row="2" Grid.Column="1" Margin="0,50,0,10"/>
+        <Button x:Name="btn_Combo" Content="Kombi-Produkt" FontSize="36" Background="White" Click="btn_Combo_Click" Foreground="#FF686666" FontFamily="Proxima Nova Rg" Grid.Row="3" Grid.Column="1" Margin="0,50,0,10"/>
+
 
     </Grid>
 </Page>

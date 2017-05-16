@@ -66,5 +66,10 @@ namespace BRAVO_SemesterProjekt
             DB.CloseDb();
             MessageBox.Show("Redigering fuldført");
         }
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            EditMenu menu = new EditMenu();
+            NavigationService.Navigate(menu);
+        }
     }
 }
