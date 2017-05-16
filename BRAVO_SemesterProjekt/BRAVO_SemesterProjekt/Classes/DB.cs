@@ -208,13 +208,14 @@ namespace BRAVO_SemesterProjekt
         }
         public static void UpdateCombo(ComboProducts combo) //Lavet af Lasse, Redigeret af Claus
         {
-            SqlCommand command = new SqlCommand("UPDATE CombiProduct SET CombiProductName = @CombiProductName, Description = @Description, Price = @Price, StartTime = @StartTime, EndTime = @EndTime WHERE CombiId = @CombiId", connection);
-            command.Parameters.AddWithValue("@CombiProductName", combo.Name);
-            command.Parameters.AddWithValue("@Description", combo.Description);
-            command.Parameters.AddWithValue("@Price", combo.Price);
-            command.Parameters.AddWithValue("@StartTime", combo.StartTime);
-            command.Parameters.AddWithValue("@EndTime", combo.EndTime);
-            command.Parameters.AddWithValue("@CombiId", combo.Id);
+            SqlCommand command = new SqlCommand("UPDATE CombiProduct SET Activate = @Activate, CombiProductName = @CombiProductName, Description = @Description, Price = @Price, StartTime = @StartTime, EndTime = @EndTime WHERE CombiId = @CombiId", connection);
+            command.Parameters.Add(CreateParam("@Activate", combo.Activate, SqlDbType.Bit));
+            command.Parameters.Add(CreateParam("@CombiProductName", combo.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Description", combo.Description, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Price", combo.Price, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@StartTime", combo.StartTime, SqlDbType.Date));
+            command.Parameters.Add(CreateParam("@EndTime", combo.EndTime, SqlDbType.Date));
+            command.Parameters.Add(CreateParam("@CombiId", combo.Id, SqlDbType.Int));
 
             try
             {
