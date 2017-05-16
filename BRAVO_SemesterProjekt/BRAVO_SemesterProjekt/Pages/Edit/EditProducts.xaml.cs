@@ -17,11 +17,10 @@ using System.Windows.Shapes;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for EditProducts.xaml
+    /// Lavet af Anders
     /// </summary>
     public partial class EditProducts : Page
     {
-        Actors actor = new Actors();
         Products product = new Products();
         public EditProducts()
         {
@@ -36,7 +35,7 @@ namespace BRAVO_SemesterProjekt
         private void button_Edit_Product_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            DB.UpdateProduct(product, actor);
+            DB.UpdateProduct(product);
             dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;
             DB.CloseDb();
             MessageBox.Show("Redigering fuldført");
@@ -65,7 +64,8 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dataGrid_Edit_Product.SelectedItems)
             {
-                product.Name = row.Row.ItemArray[1].ToString();
+                product.Id = Convert.ToInt32(row.Row.ItemArray[0].ToString());
+                product.ProductName = row.Row.ItemArray[1].ToString();
                 product.City = row.Row.ItemArray[2].ToString();
                 product.Zipcode = row.Row.ItemArray[3].ToString();
                 product.Region = row.Row.ItemArray[4].ToString();
@@ -74,8 +74,11 @@ namespace BRAVO_SemesterProjekt
                 product.Longtitude = Convert.ToDouble(row.Row.ItemArray[7].ToString());
                 product.Url = row.Row.ItemArray[8].ToString();
                 product.Description = row.Row.ItemArray[9].ToString();
+                product.Price = Convert.ToDouble(row.Row.ItemArray[10].ToString());
                 product.Activate = Convert.ToBoolean(row.Row.ItemArray[11].ToString());
+                product.XmlId = Convert.ToInt32(row.Row.ItemArray[12].ToString());
                 product.Category = row.Row.ItemArray[13].ToString();
+                product.ActorName = row.Row.ItemArray[14].ToString();
             }
         }
     }
