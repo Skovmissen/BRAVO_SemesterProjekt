@@ -443,7 +443,6 @@ namespace BRAVO_SemesterProjekt
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_Cluster FROM ActorCluster WHERE FK_ActorName = @ActorName", connection);
                 reader.SelectCommand.Parameters.AddWithValue("@ActorName", "%" + actor.Name + "%");
                 reader.Fill(ds);
-
             }
             catch (Exception ex)
             {
