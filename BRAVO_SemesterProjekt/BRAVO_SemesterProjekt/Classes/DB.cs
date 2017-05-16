@@ -193,10 +193,11 @@ namespace BRAVO_SemesterProjekt
         }
         public static void UpdateCluster(Clusters cluster) // Lavet af Lasse og Nikolaj
         {
-            SqlCommand command = new SqlCommand("UPDATE Cluster SET ClusterName = @NewClusterName, Activate = @Activate WHERE ClusterName = @OldClusterName", connection);
+            SqlCommand command = new SqlCommand("UPDATE Cluster SET ClusterName = @NewClusterName, Activate = @Activate, Description = @Description WHERE ClusterName = @OldClusterName", connection);
             command.Parameters.AddWithValue("@OldClusterName", cluster.OldName);
             command.Parameters.AddWithValue("@NewClusterName", cluster.Name);
             command.Parameters.AddWithValue("@Activate", cluster.Activate);
+            command.Parameters.AddWithValue("@Description", cluster.Description);
             try
             {
                 command.ExecuteNonQuery();

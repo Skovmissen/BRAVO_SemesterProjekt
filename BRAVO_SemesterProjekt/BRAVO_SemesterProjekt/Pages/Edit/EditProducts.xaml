@@ -5,7 +5,6 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
-      Background="#FFFCA159"
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="EditProducts">
 
@@ -45,7 +44,8 @@
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="831,425,0,0" TextWrapping="Wrap" Text="{Binding Path=ActorName}" VerticalAlignment="Top" Width="191"/>
         <TextBox x:Name="textBox_Category" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="831,309,0,0" TextWrapping="Wrap" Text="{Binding Path=Category}" Background="#FFE6E6E6" VerticalAlignment="Top" Width="120"/>
 
-        <CheckBox x:Name="checkBox" Content="Aktiver" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="831,497,0,0" VerticalAlignment="Top" Height="15" Width="90" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <CheckBox x:Name="checkBox" Content="Aktiver" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="514,576,0,0" VerticalAlignment="Top" Height="14" Width="90" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <Button x:Name="btn_back" Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Height="49" Background="White" Click="button_back_Click"/>
 
 
     </Grid>

@@ -50,10 +50,15 @@ namespace BRAVO_SemesterProjekt
                 cluster.Name = row.Row.ItemArray[0].ToString();
                 product.ProductName = row.Row.ItemArray[0].ToString();
             }
-            DB.OpenDb();
-            ShowCluster.ItemsSource = DB.GetActorCluster(cluster).DefaultView;
-            ShowProduct.ItemsSource = DB.GetActorProducts(product).DefaultView;
-            DB.CloseDb();
+            //DB.OpenDb();
+            //ShowCluster.ItemsSource = DB.GetActorCluster(cluster).DefaultView;
+            //ShowProduct.ItemsSource = DB.GetActorProducts(product).DefaultView;
+            //DB.CloseDb();
+        }
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            ShowMenu menu = new ShowMenu();
+            NavigationService.Navigate(menu);
         }
     }
 }
