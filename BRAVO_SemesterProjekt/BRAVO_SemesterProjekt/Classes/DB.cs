@@ -226,7 +226,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void UpdateProduct(Products product) // Lavet af Lasse og Nikolaj
+        public static void UpdateXMLProduct(Products product) // Lavet af Lasse og Nikolaj
         {
             SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, FK_CategoryName = @CategoryName, FK_ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion, Price = @Price WHERE Xml_Id = @XmlId", connection);
             command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
@@ -252,7 +252,34 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
 
-        }      
+        }
+        public static void UpdateProduct(Products product) // Lavet af Lasse og Nikolaj
+        {
+            SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, FK_CategoryName = @CategoryName, FK_ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion, Price = @Price WHERE Xml_Id = @XmlId", connection);
+            command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ZipCode", product.Zipcode, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Region", product.Region, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Street", product.Street, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Latitude", product.Latitude, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@Longtitude", product.Longtitude, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@URL", product.Url, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Describtion", product.Description, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Activate", product.Activate, SqlDbType.Bit));
+            command.Parameters.Add(CreateParam("@ActorName", product.ActorName, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ProductName", product.ProductName, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@XmlId", product.XmlId, SqlDbType.Int));
+            command.Parameters.Add(CreateParam("@Price", product.Price, SqlDbType.Float));
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
         public static DataTable CheckForDoubleCategory(Products product) // Lavet af Nikolaj
         {
             DataTable dt = new DataTable();
@@ -566,6 +593,36 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
 
+        }
+        public static DataTable GetComboViewId(Products product) //Lavet af Lasse
+        {
+            DataTable ComboIdTable = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_CombiId FROM CombiView WHERE FK_ProductId = @ProductiId", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ProductiId", product.Id);
+                reader.Fill(ComboIdTable);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ComboIdTable;
+        }
+        public static void DeactiveCombos(ComboProducts combo) // Lavet af Lasse
+        {
+            SqlCommand command = new SqlCommand("UPDATE CombiProduct SET Activate = 0 WHERE CombiId = @ComboId", connection);
+            command.Parameters.AddWithValue("@ComboId", combo.Id);
+                       
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)
         {
