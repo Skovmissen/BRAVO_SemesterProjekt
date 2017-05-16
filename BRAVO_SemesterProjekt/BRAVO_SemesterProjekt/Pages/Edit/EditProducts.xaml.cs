@@ -62,7 +62,7 @@ namespace BRAVO_SemesterProjekt
 
         private void dataGrid_Edit_Product_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            foreach (DataRowView row in dataGrid_Edit_Product.SelectedItems)
+            foreach (DataRowView row in dataGrid_Edit_Product.SelectedItems) //fylder datagrid med opdaterede datas
             {
                 product.Id = Convert.ToInt32(row.Row.ItemArray[0].ToString());
                 product.ProductName = row.Row.ItemArray[1].ToString();

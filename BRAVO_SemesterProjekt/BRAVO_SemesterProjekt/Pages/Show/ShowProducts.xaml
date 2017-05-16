@@ -12,7 +12,7 @@
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="92" Text="Show Products"/>
         <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btn_search" Content="Button" HorizontalAlignment="Left" Margin="151,38,0,0" VerticalAlignment="Top" Width="75" Click="btn_search_Click"/>
-        <DataGrid x:Name="datagrid_ShowProducts" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Height="311" Width="423"/>
+        <DataGrid x:Name="datagrid_ShowProducts" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Height="311" Width="1171"/>
         <Label x:Name="label_Product_Name" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="490,75,0,0" VerticalAlignment="Top" Width="387"/>
     </Grid>
 </Page>

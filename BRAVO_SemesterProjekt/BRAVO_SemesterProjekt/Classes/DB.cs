@@ -420,7 +420,39 @@ namespace BRAVO_SemesterProjekt
             return ds;
         }
 
-        
+        public static DataTable GetActorProducts(Products product) // Lavet af Anders
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE FK_ActorName = @ActorName", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ActorName", "%" + product.ActorName + "%");
+                reader.Fill(ds);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
+        }
+        public static DataTable GetActorCluster(Actors actor) // Lavet af Anders
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_Cluster FROM ActorCluster WHERE FK_ActorName = @ActorName", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ActorName", "%" + actor.Name + "%");
+                reader.Fill(ds);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
+        }
+
         public static DataTable ShowActor() // Lavet af Anders
         {
             SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE Activate = 1", connection);
