@@ -37,7 +37,8 @@ namespace BRAVO_SemesterProjekt
             {
                 cluster.OldName = row.Row.ItemArray[0].ToString();
                 cluster.Name = row.Row.ItemArray[0].ToString();
-                cluster.Activate = Convert.ToBoolean(row.Row.ItemArray[1].ToString());
+                cluster.Description = row.Row.ItemArray[1].ToString();
+                cluster.Activate = Convert.ToBoolean(row.Row.ItemArray[2].ToString());
                
             }
         }
