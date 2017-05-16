@@ -206,10 +206,12 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void UpdateCombo(ComboProducts combo) //Lavet af Lasse
+        public static void UpdateCombo(ComboProducts combo) //Lavet af Lasse, Redigeret af Claus
         {
-            SqlCommand command = new SqlCommand("UPDATE CombiProduct SET CombiProductName = @CombiProductName, StartTime = @StartTime, EndTime = @EndTime WHERE CombiId = @CombiId", connection);
+            SqlCommand command = new SqlCommand("UPDATE CombiProduct SET CombiProductName = @CombiProductName, Description = @Description, Price = @Price, StartTime = @StartTime, EndTime = @EndTime WHERE CombiId = @CombiId", connection);
             command.Parameters.AddWithValue("@CombiProductName", combo.Name);
+            command.Parameters.AddWithValue("@Description", combo.Description);
+            command.Parameters.AddWithValue("@Price", combo.Price);
             command.Parameters.AddWithValue("@StartTime", combo.StartTime);
             command.Parameters.AddWithValue("@EndTime", combo.EndTime);
             command.Parameters.AddWithValue("@CombiId", combo.Id);

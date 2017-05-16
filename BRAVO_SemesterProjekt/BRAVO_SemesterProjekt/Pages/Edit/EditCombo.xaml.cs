@@ -26,11 +26,11 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class EditCombo : Page
     {
-        ComboProducts comboProduct = new ComboProducts();
+        ComboProducts combo = new ComboProducts();
         public EditCombo()
         {
             InitializeComponent();
-            DataContext = comboProduct;
+            DataContext = combo;
             DB.OpenDb();
             dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
             DB.CloseDb();
@@ -40,12 +40,12 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dataGrid_edit_Combo.SelectedItems)
             {
-                comboProduct.Name = row.Row.ItemArray[1].ToString();
-                comboProduct.Description = row.Row.ItemArray[2].ToString();
-                comboProduct.StartTime = Convert.ToDateTime(row.Row.ItemArray[3]);
-                comboProduct.EndTime = Convert.ToDateTime(row.Row.ItemArray[4]);
-                comboProduct.Price = Convert.ToDouble(row.Row.ItemArray[5]);               
-                comboProduct.Activate = Convert.ToBoolean(row.Row.ItemArray[6]);
+                combo.Name = row.Row.ItemArray[1].ToString();
+                combo.Description = row.Row.ItemArray[2].ToString();
+                combo.StartTime = Convert.ToDateTime(row.Row.ItemArray[3]);
+                combo.EndTime = Convert.ToDateTime(row.Row.ItemArray[4]);
+                combo.Price = Convert.ToDouble(row.Row.ItemArray[5]);               
+                combo.Activate = Convert.ToBoolean(row.Row.ItemArray[6]);
 
             }
 
@@ -54,14 +54,14 @@ namespace BRAVO_SemesterProjekt
         private void button_search_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            dataGrid_edit_Combo.ItemsSource = DB.SearchCombo(comboProduct).DefaultView;
+            dataGrid_edit_Combo.ItemsSource = DB.SearchCombo(combo).DefaultView;
             DB.CloseDb();
         }
 
         private void button_update_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            DB.UpdateCombo(comboProduct);
+            DB.UpdateCombo(combo);
             dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
             DB.CloseDb();
             MessageBox.Show("Redigering fuldført");
