@@ -56,10 +56,10 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void InsertActorInCluster(Actors actor, Clusters cluster) //Lavet af Lasse
+        public static void InsertActorInCluster(Clusters cluster) //Lavet af Lasse
         {
-            SqlCommand command = new SqlCommand("INSERT INTO ActorCluster (FK_ClusterName, FK_ActorName) VALUES (@ClusterName, @ActorName)", connection);
-            command.Parameters.Add(CreateParam("@ActorName", actor.OldName, SqlDbType.NVarChar));
+            SqlCommand command = new SqlCommand("INSERT INTO ActorCluster (FK_ClusterName, FK_ActorName) SELECT @ClusterName, @ActorName WHERE NOT EXISTS (SELECT FK_ActorName FROM ActorCluster WHERE FK_ActorName = @ActorName AND FK_ClusterName = @ClusterName)", connection);
+            command.Parameters.Add(CreateParam("@ActorName", cluster.ActorName, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ClusterName", cluster.Name, SqlDbType.NVarChar));
             try
             {
@@ -206,13 +206,16 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void UpdateCombo(ComboProducts combo) //Lavet af Lasse
+        public static void UpdateCombo(ComboProducts combo) //Lavet af Lasse, Redigeret af Claus
         {
-            SqlCommand command = new SqlCommand("UPDATE CombiProduct SET CombiProductName = @CombiProductName, StartTime = @StartTime, EndTime = @EndTime WHERE CombiId = @CombiId", connection);
-            command.Parameters.AddWithValue("@CombiProductName", combo.Name);
-            command.Parameters.AddWithValue("@StartTime", combo.StartTime);
-            command.Parameters.AddWithValue("@EndTime", combo.EndTime);
-            command.Parameters.AddWithValue("@CombiId", combo.Id);
+            SqlCommand command = new SqlCommand("UPDATE CombiProduct SET Activate = @Activate, CombiProductName = @CombiProductName, Description = @Description, Price = @Price, StartTime = @StartTime, EndTime = @EndTime WHERE CombiId = @CombiId", connection);
+            command.Parameters.Add(CreateParam("@Activate", combo.Activate, SqlDbType.Bit));
+            command.Parameters.Add(CreateParam("@CombiProductName", combo.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Description", combo.Description, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Price", combo.Price, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@StartTime", combo.StartTime, SqlDbType.Date));
+            command.Parameters.Add(CreateParam("@EndTime", combo.EndTime, SqlDbType.Date));
+            command.Parameters.Add(CreateParam("@CombiId", combo.Id, SqlDbType.Int));
 
             try
             {
@@ -223,7 +226,7 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static void UpdateProduct(Products product, Actors actor) // Lavet af Lasse og Nikolaj
+        public static void UpdateXMLProduct(Products product) // Lavet af Lasse og Nikolaj
         {
             SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, FK_CategoryName = @CategoryName, FK_ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion, Price = @Price WHERE Xml_Id = @XmlId", connection);
             command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
@@ -235,9 +238,9 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@URL", product.Url, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Describtion", product.Description, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
-            command.Parameters.Add(CreateParam("@ActorName", product.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ActorName", product.ActorName, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
-            command.Parameters.Add(CreateParam("@ProductName", product.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ProductName", product.ProductName, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@XmlId", product.XmlId, SqlDbType.Int));
             command.Parameters.Add(CreateParam("@Price", product.Price, SqlDbType.Float));
             try
@@ -249,7 +252,34 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
 
-        }      
+        }
+        public static void UpdateProduct(Products product) // Lavet af Lasse og Nikolaj
+        {
+            SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, FK_CategoryName = @CategoryName, FK_ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion, Price = @Price WHERE Xml_Id = @XmlId", connection);
+            command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ZipCode", product.Zipcode, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Region", product.Region, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Street", product.Street, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Latitude", product.Latitude, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@Longtitude", product.Longtitude, SqlDbType.Float));
+            command.Parameters.Add(CreateParam("@URL", product.Url, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Describtion", product.Description, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Activate", product.Activate, SqlDbType.Bit));
+            command.Parameters.Add(CreateParam("@ActorName", product.ActorName, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ProductName", product.ProductName, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@XmlId", product.XmlId, SqlDbType.Int));
+            command.Parameters.Add(CreateParam("@Price", product.Price, SqlDbType.Float));
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
         public static DataTable CheckForDoubleCategory(Products product) // Lavet af Nikolaj
         {
             DataTable dt = new DataTable();
@@ -417,7 +447,38 @@ namespace BRAVO_SemesterProjekt
             return ds;
         }
 
-        
+        public static DataTable GetActorProducts(Products product) // Lavet af Anders 
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE FK_ActorName = @ActorName", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ActorName", product.ProductName );
+                reader.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return dt;
+        }
+        public static DataTable GetActorCluster(Clusters cluster) // Lavet af Anders 
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ClusterName FROM ActorCluster WHERE FK_ActorName = @ActorName", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ActorName",  cluster.Name );
+                reader.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return dt;
+        }
+
         public static DataTable ShowActor() // Lavet af Anders
         {
             SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE Activate = 1", connection);
@@ -482,6 +543,22 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
+        public static DataTable GetComboProdutsInCombi(ComboProducts combo) //Lavet af Nikolaj
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ProductId FROM CombiView WHERE FK_CombiId = @CombiId", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@CombiId",combo.Id);
+                reader.Fill(ds);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
+        }
         public static DataTable GetProductsInCombo(DataTable products) //Lavet af NIkolaj
         {
             DataTable ds = new DataTable();
@@ -493,6 +570,26 @@ namespace BRAVO_SemesterProjekt
 
                     SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductId LIKE @ProductId", connection);
                     reader.SelectCommand.Parameters.AddWithValue("@ProductId", "%" + item.ItemArray[0].ToString() + "%");
+                    reader.Fill(ds);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
+        }
+        public static DataTable GetProductsInComboView(DataTable products) //Lavet af NIkolaj
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                foreach (DataRow item in products.Rows)
+                {
+
+
+                    SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductId = @ProductId", connection);
+                    reader.SelectCommand.Parameters.AddWithValue("@ProductId", item.ItemArray[0].ToString());
                     reader.Fill(ds);
                 }
             }
@@ -532,6 +629,36 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
 
+        }
+        public static DataTable GetComboViewId(Products product) //Lavet af Lasse
+        {
+            DataTable ComboIdTable = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_CombiId FROM CombiView WHERE FK_ProductId = @ProductiId", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ProductiId", product.Id);
+                reader.Fill(ComboIdTable);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ComboIdTable;
+        }
+        public static void DeactiveCombos(ComboProducts combo) // Lavet af Lasse
+        {
+            SqlCommand command = new SqlCommand("UPDATE CombiProduct SET Activate = 0 WHERE CombiId = @ComboId", connection);
+            command.Parameters.AddWithValue("@ComboId", combo.Id);
+                       
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         private static SqlParameter CreateParam(string name, object value, SqlDbType type)
         {

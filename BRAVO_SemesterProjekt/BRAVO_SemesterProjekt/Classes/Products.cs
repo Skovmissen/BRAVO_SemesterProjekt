@@ -91,14 +91,25 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
-        private string name;
+        private string actorName;
 
-        public string Name
+        public string ActorName
         {
-            get { return name; }
+            get { return actorName; }
             set
             {
-                name = value;
+                actorName = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private string productName;
+
+        public string ProductName
+        {
+            get { return productName; }
+            set
+            {
+                productName = value;
                 NotifyPropertyChanged();
             }
         }

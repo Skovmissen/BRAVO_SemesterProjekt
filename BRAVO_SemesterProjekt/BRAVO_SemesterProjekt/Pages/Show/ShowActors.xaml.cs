@@ -24,6 +24,8 @@ namespace BRAVO_SemesterProjekt
     public partial class ShowActors : Page
     {
         Actors actor = new Actors();
+        Clusters cluster = new Clusters();
+        Products product = new Products();
         public ShowActors()
         {
             DataContext = actor;
@@ -40,6 +42,19 @@ namespace BRAVO_SemesterProjekt
             DB.CloseDb();
         }
 
+        private void GridShowActor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            foreach (DataRowView row in GridShowActor.SelectedItems)
+            {
+                cluster.Name = row.Row.ItemArray[0].ToString();
+                product.ProductName = row.Row.ItemArray[0].ToString();
+            }
+            DB.OpenDb();
+            ShowCluster.ItemsSource = DB.GetActorCluster(cluster).DefaultView;
+            ShowProduct.ItemsSource = DB.GetActorProducts(product).DefaultView;
+            DB.CloseDb();
+        }
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             ShowMenu menu = new ShowMenu();

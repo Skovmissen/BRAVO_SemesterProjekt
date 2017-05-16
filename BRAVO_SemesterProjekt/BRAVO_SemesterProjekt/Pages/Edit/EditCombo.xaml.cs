@@ -26,42 +26,43 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class EditCombo : Page
     {
-        ComboProducts comboProduct = new ComboProducts();
-        public EditCombo()
+        ComboProducts combo = new ComboProducts(); //objekt af typen comboproducts
+        public EditCombo() //kontruktør binder datacontext til object og indlæser combo tabel i gridview
         {
             InitializeComponent();
-            DataContext = comboProduct;
+            DataContext = combo;
             DB.OpenDb();
             dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
             DB.CloseDb();
         }
 
-        private void dataGrid_edit_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dataGrid_edit_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e) //kolonner i gridview bindes til obj properties, så de kan persisteres til db 
         {
             foreach (DataRowView row in dataGrid_edit_Combo.SelectedItems)
             {
-                comboProduct.Name = row.Row.ItemArray[1].ToString();
-                comboProduct.Description = row.Row.ItemArray[2].ToString();
-                comboProduct.StartTime = Convert.ToDateTime(row.Row.ItemArray[3]);
-                comboProduct.EndTime = Convert.ToDateTime(row.Row.ItemArray[4]);
-                comboProduct.Price = Convert.ToDouble(row.Row.ItemArray[5]);               
-                comboProduct.Activate = Convert.ToBoolean(row.Row.ItemArray[6]);
+                combo.Id = Convert.ToInt32(row.Row.ItemArray[0]);
+                combo.Name = row.Row.ItemArray[1].ToString();
+                combo.Description = row.Row.ItemArray[2].ToString();
+                combo.StartTime = Convert.ToDateTime(row.Row.ItemArray[3]);
+                combo.EndTime = Convert.ToDateTime(row.Row.ItemArray[4]);
+                combo.Price = Convert.ToDouble(row.Row.ItemArray[5]);               
+                combo.Activate = Convert.ToBoolean(row.Row.ItemArray[6]);
 
             }
 
         }
 
-        private void button_search_Click(object sender, RoutedEventArgs e)
+        private void button_search_Click(object sender, RoutedEventArgs e) // søg efter kombo produkt
         {
             DB.OpenDb();
-            dataGrid_edit_Combo.ItemsSource = DB.SearchCombo(comboProduct).DefaultView;
+            dataGrid_edit_Combo.ItemsSource = DB.SearchCombo(combo).DefaultView;
             DB.CloseDb();
         }
 
-        private void button_update_Click(object sender, RoutedEventArgs e)
+        private void button_update_Click(object sender, RoutedEventArgs e) // instansen combo sendes til updatecombo metden, der opdaterer tabbellen, viewet opdateres.
         {
             DB.OpenDb();
-            DB.UpdateCombo(comboProduct);
+            DB.UpdateCombo(combo);
             dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
             DB.CloseDb();
             MessageBox.Show("Redigering fuldført");
