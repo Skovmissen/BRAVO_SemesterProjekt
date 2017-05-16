@@ -30,6 +30,17 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private string actorName;
+
+        public string ActorName
+        {
+            get { return actorName; }
+            set
+            {
+                actorName = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         private int id;
 
