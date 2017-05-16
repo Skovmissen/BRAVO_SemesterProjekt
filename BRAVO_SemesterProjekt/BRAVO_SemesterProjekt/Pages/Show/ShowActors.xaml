@@ -5,13 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1300"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="ShowActors">
 
     <Grid>
         <DataGrid x:Name="GridShowActor" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Height="219" Width="444" SelectionChanged="GridShowActor_SelectionChanged"/>
-        <DataGrid x:Name="ShowCluster" HorizontalAlignment="Left" Margin="547,61,0,0" VerticalAlignment="Top" Width="423" Height="219"/>
-        <DataGrid x:Name="ShowProduct" HorizontalAlignment="Left" Margin="547,414,0,0" VerticalAlignment="Top" Height="234" Width="423"/>
+        <DataGrid x:Name="ShowCluster" HorizontalAlignment="Left" Margin="547,61,0,0" VerticalAlignment="Top" Width="423" Height="219" ColumnWidth="*" IsReadOnly="True"/>
+        <DataGrid x:Name="ShowProduct" HorizontalAlignment="Left" Margin="547,414,0,0" VerticalAlignment="Top" Height="234" Width="423" ColumnWidth="*" IsReadOnly="True"/>
 
         <TextBox x:Name="SearchActor" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
         <Button x:Name="Btn_Search_Actor" Click="Btn_Search_Actor_Click" Content="Søg" HorizontalAlignment="Left" Margin="150,13,0,0" VerticalAlignment="Top" Width="75"/>

@@ -45,10 +45,10 @@ namespace BRAVO_SemesterProjekt
         private void GridShowActor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
-            foreach (DataRowView row in ShowProduct.SelectedItems)
+            foreach (DataRowView row in GridShowActor.SelectedItems)
             {
-                product.Id = Convert.ToInt32(row.Row.ItemArray[0].ToString());
-                product.ProductName = row.Row.ItemArray[1].ToString();
+                cluster.Name = row.Row.ItemArray[0].ToString();
+                product.ProductName = row.Row.ItemArray[0].ToString();
             }
             DB.OpenDb();
             ShowCluster.ItemsSource = DB.GetActorCluster(cluster).DefaultView;

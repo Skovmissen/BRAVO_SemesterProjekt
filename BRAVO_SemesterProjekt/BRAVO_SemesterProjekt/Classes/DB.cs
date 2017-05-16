@@ -447,13 +447,13 @@ namespace BRAVO_SemesterProjekt
             return ds;
         }
 
-        public static DataTable GetActorProducts(Products product) // Lavet af Anders GUESS NOT WORKING
+        public static DataTable GetActorProducts(Products product) // Lavet af Anders 
         {
             DataTable dt = new DataTable();
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE FK_ActorName = @ActorName", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@ActorName", "%" + product.ProductName + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@ActorName", product.ProductName );
                 reader.Fill(dt);
 
             }
@@ -463,13 +463,13 @@ namespace BRAVO_SemesterProjekt
             }
             return dt;
         }
-        public static DataTable GetActorCluster(Clusters cluster) // Lavet af Anders GUESS NOT WORKING
+        public static DataTable GetActorCluster(Clusters cluster) // Lavet af Anders 
         {
             DataTable dt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ClusterName FROM ActorCluster WHERE FK_ActorName Like @ClusterName", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@ClusterName", "%" + cluster.Name + "%");
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT FK_ClusterName FROM ActorCluster WHERE FK_ActorName = @ActorName", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@ActorName",  cluster.Name );
                 reader.Fill(dt);
             }
             catch (Exception ex)
