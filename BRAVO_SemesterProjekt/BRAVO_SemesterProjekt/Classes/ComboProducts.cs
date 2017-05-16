@@ -21,6 +21,17 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private string description;
+
+        public string Description
+        {
+            get { return description; }
+            set {
+                description = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private int id;
 
         public int Id
@@ -41,6 +52,19 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+
+        private double price;
+
+        public double Price
+        {
+            get { return price; }
+            set {
+                price = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
         private DateTime? endTime;
 
         public DateTime? EndTime
