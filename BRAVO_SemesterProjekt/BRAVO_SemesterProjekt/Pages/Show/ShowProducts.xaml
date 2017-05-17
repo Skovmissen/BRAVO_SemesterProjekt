@@ -1,18 +1,23 @@
-﻿<Page x:Class="BRAVO_SemesterProjekt.ShowProducts"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
+      xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="BRAVO_SemesterProjekt.ShowProducts"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1300"
       Title="ShowProducts">
 
+   
     <Grid>
-        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Height="39" Margin="10,114,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="143"/>
-        <Button x:Name="btn_search" Content="Søg" HorizontalAlignment="Left" Margin="176,114,0,0" VerticalAlignment="Top" Width="75" Click="btn_search_Click" Height="39" Background="White"/>
-        <DataGrid x:Name="datagrid_ShowProducts" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Height="461" Width="787"/>
+        <Button x:Name="btn_search" Content="Søg" HorizontalAlignment="Left" Margin="572,114,0,0" VerticalAlignment="Top" Width="75" Click="btn_search_Click" Height="39" Background="White"/>
+        <DataGrid x:Name="datagrid_ShowProducts" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Height="461" Width="445"/>
         <Label x:Name="label" Content="Liste over aktive produkter" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
+        <TextBox x:Name="textbox_product" HorizontalAlignment="Left" Height="23" Margin="10,125,0,0" TextWrapping="Wrap" Text="{Binding Path=SearchProduct}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_city" HorizontalAlignment="Left" Height="23" Margin="148,125,0,0" TextWrapping="Wrap" Text="{Binding Path=SearchCity}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_searchZipcode" HorizontalAlignment="Left" Height="23" Margin="288,125,0,0" TextWrapping="Wrap" Text="{Binding Path=SearchZipcode}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_catName" HorizontalAlignment="Left" Height="23" Margin="429,125,0,0" TextWrapping="Wrap" Text="{Binding Path=SearchCatname}" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Page>

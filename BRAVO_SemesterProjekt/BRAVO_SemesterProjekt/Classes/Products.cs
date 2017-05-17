@@ -143,6 +143,51 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
+        //Props til at filtrere produkter
+        private string searchProduct;
+
+        public string SearchProduct
+        {
+            get { return searchProduct; }
+            set { searchProduct = value;
+                NotifyPropertyChanged();
+
+            }
+        }
+        private string searchCity;
+
+        public string SearchCity
+        {
+            get { return searchCity; }
+            set { searchCity = value;
+                NotifyPropertyChanged();
+
+            }
+        }
+        private string searchZipcode;
+
+        public string SearchZipcode
+        {
+            get { return searchZipcode; }
+            set { searchZipcode = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private string searchCatname;
+
+        public string SearchCatname
+        {
+            get { return searchCatname; }
+            set { searchCatname = value;
+                NotifyPropertyChanged();
+            }
+        }
+        // -- //
+
+
+
+
+
         private string street;
 
         public string Street

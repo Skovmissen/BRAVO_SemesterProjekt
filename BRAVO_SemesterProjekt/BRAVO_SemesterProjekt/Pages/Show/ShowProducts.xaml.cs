@@ -22,16 +22,16 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class ShowProducts : Page
     {
-        Products product = new Products();
+        
         TempData temp = new TempData();
+        Products product = new Products();
         public ShowProducts()
         {
             InitializeComponent();
-            DataContext = product;
+            DataContext = temp;
             DB.OpenDb();
             datagrid_ShowProducts.ItemsSource = DB.ShowProducts().DefaultView;
             DB.CloseDb();
-
         }
 
         /// <summary>
@@ -40,9 +40,8 @@ namespace BRAVO_SemesterProjekt
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            datagrid_ShowProducts.ItemsSource = DB.SearchProduct(temp).DefaultView;
-            DB.CloseDb();
-            
+            datagrid_ShowProducts.ItemsSource = DB.SearchProduct(product).DefaultView;
+            DB.CloseDb();            
         }
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
