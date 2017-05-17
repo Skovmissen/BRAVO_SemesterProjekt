@@ -43,6 +43,11 @@ namespace BRAVO_SemesterProjekt
             DB.UpdateActor(actor);
             edit_Actor.ItemsSource = DB.ShowActor().DefaultView;
             DB.CloseDb();
+            actor.OldName = null;
+            actor.Name = null;
+            actor.Email = null;
+            actor.Tlf = null;
+            actor.Activate = false;
             MessageBox.Show("Redigering fuldført");
         }
 

@@ -145,6 +145,9 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
+
+        
+
         public static void InsertProduct(Products product, Actors actor) // Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, Price) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @Price)", connection);
@@ -415,21 +418,24 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable SearchProduct(TempData temp) // Lavet af Nikolaj
+        public static DataTable SearchProduct(Products product) // Lavet af Nikolaj
         {
-            DataTable ds = new DataTable();
+            DataTable dt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search OR ZipCode LIKE @search OR FK_CategoryName LIKE @search OR Region LIKE @search OR Describtion LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
-                reader.Fill(ds);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @searchProduct OR ZipCode LIKE @searchZipcode OR FK_CategoryName LIKE @searchCatname OR City LIKE @searchCity", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@searchProduct", "%" + product.SearchProduct + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@searchZipcode", "%" + product.SearchZipcode + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@searchCity", "%" + product.SearchCity + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@searchCatname", "%" + product.SearchCatname + "%");
+                reader.Fill(dt);
             }
             catch (Exception)
             {
 
                 throw;
             }
-            return ds;
+            return dt;
         }
         public static DataTable GetClusterActors(Clusters cluster) // Lavet af Claus og Nikolaj
         {
@@ -446,6 +452,23 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
             return ds;
+        }
+        public static int GetcomboId(ComboProducts combo)
+        {
+            int id = 0;
+            try
+            {
+                SqlCommand reader = new SqlCommand("SELECT CombiId FROM CombiProduct WHERE CombiProductName = @CombiName", connection);
+                reader.Parameters.AddWithValue("@CombiName", combo.Name);
+                id = Convert.ToInt32(reader.ExecuteScalar());
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return id;
         }
 
         public static DataTable GetActorProducts(Products product) // Lavet af Anders 
@@ -482,7 +505,7 @@ namespace BRAVO_SemesterProjekt
 
         public static DataTable ShowActor() // Lavet af Anders
         {
-            SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE Activate = 1", connection);
+            SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE ActorName = ActorName", connection);
             DataTable dt = new DataTable();
             ShowActor.Fill(dt);
             return dt;

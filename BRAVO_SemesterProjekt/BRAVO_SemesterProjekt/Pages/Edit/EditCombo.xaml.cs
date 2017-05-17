@@ -19,10 +19,6 @@ namespace BRAVO_SemesterProjekt
     /// <summary>
     /// Af Claus
     /// Interaction logic for EditCombo.xaml
-    /// 
-    /// deaktivering produkt??
-    /// start,slu,aktiver
-    /// 
     /// </summary>
     public partial class EditCombo : Page
     {
