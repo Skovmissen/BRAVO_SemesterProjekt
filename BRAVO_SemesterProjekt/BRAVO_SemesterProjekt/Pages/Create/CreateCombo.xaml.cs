@@ -143,9 +143,9 @@ namespace BRAVO_SemesterProjekt
 
         private void comboBox_DropDownClosed(object sender, EventArgs e)
         {
-
-            combo.Name = cmb_combiproducts.Text;
             ShowProductsInCombi();
+            combo.Name = cmb_combiproducts.Text;
+            
             DB.OpenDb();
             combo.Id = DB.GetcomboId(combo);
             DB.CloseDb();
