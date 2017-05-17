@@ -147,16 +147,11 @@ namespace BRAVO_SemesterProjekt
         
 
             DB.OpenDb();
-            combo.Id = DB.GetcomboId(combo);
-            product.Id = DB.GetProductIdInCombo(combo);
-            DataTable products = DB.GetProductIdFromCombo(combo);
-            dg_showproduts.ItemsSource = DB.GetProductsInComboView(products).DefaultView;
+            combo.Id = DB.GetcomboId(combo);                        
             DB.CloseDb();
+            ShowProductsInCombi();
         }
 
-        private void cmb_combiproducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
+       
     }
 }

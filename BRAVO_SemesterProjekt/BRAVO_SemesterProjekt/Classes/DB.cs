@@ -358,7 +358,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Products", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product", connection);
 
                 reader.Fill(ds);
             }
