@@ -44,6 +44,19 @@ namespace BRAVO_SemesterProjekt
                DiableCluster();
             }
             DB.CloseDb();
+            product.Id = 0;
+            product.ProductName = null;
+            product.City = null;
+            product.Zipcode = null;
+            product.Region = null;
+            product.Street = null;
+            product.Latitude = 0;
+            product.Longtitude = 0;
+            product.Url = null;
+            product.Description = null;
+            product.Price = 0;
+            product.Category = null;
+            product.ActorName = null;
             MessageBox.Show("Redigering fuldført");
         }
 
@@ -59,6 +72,11 @@ namespace BRAVO_SemesterProjekt
             for (int i = 0; i < category.Rows.Count; i++)
             {
                 cmb_category.Items.Add(category.Rows[i]["CategoryName"]);
+            }
+            DataTable actorname = DB.ShowActor();
+            for (int i = 0; i < actorname.Rows.Count; i++)
+            {
+                cmb_Actorname.Items.Add(actorname.Rows[i]["ActorName"]);
             }
         }
         private void cmb_category_DropDownClosed(object sender, EventArgs e)
@@ -82,7 +100,6 @@ namespace BRAVO_SemesterProjekt
                 product.Description = row.Row.ItemArray[9].ToString();
                 product.Price = Convert.ToDouble(row.Row.ItemArray[10].ToString());
                 product.Activate = Convert.ToBoolean(row.Row.ItemArray[11].ToString());
-                product.XmlId = Convert.ToInt32(row.Row.ItemArray[12].ToString());
                 product.Category = row.Row.ItemArray[13].ToString();
                 product.ActorName = row.Row.ItemArray[14].ToString();
             }

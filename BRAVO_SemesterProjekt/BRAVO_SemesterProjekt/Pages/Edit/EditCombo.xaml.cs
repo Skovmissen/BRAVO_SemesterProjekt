@@ -62,10 +62,18 @@ namespace BRAVO_SemesterProjekt
 
         private void button_update_Click(object sender, RoutedEventArgs e) // instansen combo sendes til updatecombo metden, der opdaterer tabbellen, viewet opdateres.
         {
+
             DB.OpenDb();
             DB.UpdateCombo(combo);
             dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
             DB.CloseDb();
+            combo.Id = 0;
+            combo.Name = null;
+            combo.Description = null;
+            combo.StartTime = null;
+            combo.EndTime = null;
+            combo.Price = 0;
+            
             MessageBox.Show("Redigering fuldført");
         }
         private void button_Click(object sender, RoutedEventArgs e)
