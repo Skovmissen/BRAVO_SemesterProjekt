@@ -9,7 +9,7 @@
       Title="EditActors">
 
     <Grid>
-        <DataGrid x:Name="edit_Actor" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Height="305" Width="809" SelectionChanged="edit_Actor_SelectionChanged"/>
+        <DataGrid x:Name="edit_Actor" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Height="305" Width="809" ColumnWidth="*" SelectionChanged="edit_Actor_SelectionChanged"/>
         <TextBox x:Name="txt_Edit_ActorName" HorizontalAlignment="Left" Height="39" Margin="10,482,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="193"/>
         <TextBox x:Name="txt_Edit_ActorEmail" HorizontalAlignment="Left" Height="38" Margin="223,482,0,0" TextWrapping="Wrap" Text="{Binding Path=Email}" VerticalAlignment="Top" Width="172"/>
         <TextBox x:Name="txt_Edit_ActorTlf" HorizontalAlignment="Left" Height="39" Margin="412,482,0,0" TextWrapping="Wrap" Text="{Binding Path=Tlf}" VerticalAlignment="Top" Width="169"/>

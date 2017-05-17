@@ -26,7 +26,12 @@ namespace BRAVO_SemesterProjekt
         public EditActors()
         {
             InitializeComponent();
-            DataContext = actor;
+            //DataContext = actor;
+            txt_Edit_Search.DataContext = temp;
+            txt_Edit_ActorEmail.DataContext = actor;
+            txt_Edit_ActorTlf.DataContext = actor;
+            txt_Edit_ActorName.DataContext = actor;
+            checkBox.DataContext = actor;
             DB.OpenDb();
             edit_Actor.ItemsSource = DB.ShowActor().DefaultView;
             DB.CloseDb();
@@ -43,6 +48,7 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_Edit_Search_Click(object sender, RoutedEventArgs e)
         {
+            
             DB.OpenDb();
             edit_Actor.ItemsSource = DB.SearchActor(temp).DefaultView;
             DB.CloseDb();
