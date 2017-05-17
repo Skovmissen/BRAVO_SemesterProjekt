@@ -43,6 +43,7 @@ namespace BRAVO_SemesterProjekt
             DB.OpenDb();       
             dataGrid_cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;            
             DB.CloseDb();
+            
         }
 
         private void dataGrid_cluster_SelectionChanged(object sender, SelectionChangedEventArgs e)//ved valg af række i datagrid vises resultat i clusterdata griddet.

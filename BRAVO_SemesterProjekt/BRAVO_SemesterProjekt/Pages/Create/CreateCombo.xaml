@@ -18,7 +18,7 @@
         <Label x:Name="label1" Content="Startdato" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="102"/>
         <Label x:Name="label2" Content="Slutdato" HorizontalAlignment="Left" Margin="136,126,0,0" VerticalAlignment="Top" Width="102"/>
         <DataGrid x:Name="dg_showcombiproducts" HorizontalAlignment="Left" Margin="14,452,0,0" VerticalAlignment="Top" Height="232" Width="650" IsReadOnly="True" ColumnWidth="*" SelectionChanged="dg_showcombiproducts_SelectionChanged" Background="#FFFCA159" BorderBrush="#FFFCA159"/>
-        <DataGrid x:Name="dg_showproduts" HorizontalAlignment="Left" Margin="850,212,0,0" RowBackground="#FFFCA159" VerticalAlignment="Top" Height="188" Width="406" IsReadOnly="True" ColumnWidth="*" Background="#FFFCA159" BorderBrush="#FFFCA159" GridLinesVisibility="None" HeadersVisibility="Column" OpacityMask="Black" FontSize="16"/>
+        <DataGrid x:Name="dg_showproduts" HorizontalAlignment="Left" Margin="850,212,0,0" RowBackground="#FFFCA159" VerticalAlignment="Top" Height="188" Width="406" IsReadOnly="True" ColumnWidth="*" Background="#FFFCA159" BorderBrush="#FFFCA159" GridLinesVisibility="None" HeadersVisibility="None" OpacityMask="Black" FontSize="16"/>
         <ComboBox x:Name="cmb_products" HorizontalAlignment="Left" Margin="708,329,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_products_DropDownClosed"/>
         <Button x:Name="button1" Content="Tilføj produkt" HorizontalAlignment="Left" Margin="708,369,0,0" VerticalAlignment="Top" Width="86" Click="btn_addproductInCombi"/>
         <Label x:Name="label3" Content="{Binding Path=Name }" HorizontalAlignment="Left" Margin="850,151,0,0" VerticalAlignment="Top" Width="230" FontWeight="Bold" Height="43"/>

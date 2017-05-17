@@ -57,8 +57,8 @@ namespace BRAVO_SemesterProjekt
                 product.ProductName = row.Row.ItemArray[0].ToString();
             }
             DB.OpenDb();
-            ActorData.ItemsSource = DB.GetActorProducts(product).DefaultView;
-
+            ActorDataProducts.ItemsSource = DB.GetActorProducts(product).DefaultView;
+            ActorDataCluster.ItemsSource = DB.GetActorCluster(cluster).DefaultView;
             DB.CloseDb();
         }
     }

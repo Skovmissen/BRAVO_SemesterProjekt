@@ -9,12 +9,12 @@
       Title="ShowCombos">
 
     <Grid>
-        <DataGrid x:Name="GridShowCombo" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="432" Width="620" SelectionChanged="GridShowCombo_SelectionChanged"/>
+        <DataGrid x:Name="GridShowCombo" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="432" Width="620" SelectionChanged="GridShowCombo_SelectionChanged" IsReadOnly="True" ColumnWidth="*"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="30" Margin="10,94,0,0" TextWrapping="Wrap" Text="{Binding Path=Search }" VerticalAlignment="Top" Width="136"/>
-        <DataGrid x:Name="dataGridCombo" HorizontalAlignment="Left" Margin="659,158,0,0" VerticalAlignment="Top" Height="432" Width="631"/>
+        <DataGrid x:Name="dataGridCombo" HorizontalAlignment="Left" Margin="659,158,0,0" VerticalAlignment="Top" Height="432" Width="631" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None"/>
         <Button x:Name="btn_Search_Combo" Content="Søg" HorizontalAlignment="Left" Margin="159,94,0,0" VerticalAlignment="Top" Width="85" Click="btn_Search_Combo_Click" Height="30" Background="White"/>
-        <Label x:Name="label" Content="Liste af aktive kombi-produkter" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
-        <Label x:Name="label_Copy" Content="Information omkring det valge produkt" HorizontalAlignment="Left" Margin="659,129,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
+        <Label x:Name="label" Content="Vælg Kombinations produkt for yderlige informationer" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
+        <Label x:Name="label_Copy" Content="Produkter i det valgte kombinations produkt" HorizontalAlignment="Left" Margin="659,129,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
 
     </Grid>
