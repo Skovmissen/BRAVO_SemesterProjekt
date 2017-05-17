@@ -358,7 +358,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, City, ZipCode, FK_CategoryName FROM Product WHERE Activate = 1", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, FK_CategoryName, City, ZipCode FROM Product", connection);
 
                 reader.Fill(ds);
             }
@@ -573,6 +573,22 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
             return ds;
+        }
+        public static int GetProductIdInCombo(ComboProducts combo) //Lavet af Nikolaj
+        {
+            int id = 0;
+            try
+            {
+                SqlCommand reader = new SqlCommand("SELECT FK_ProductId FROM CombiView WHERE FK_CombiId = @CombiId", connection);
+                reader.Parameters.AddWithValue("@CombiId", combo.Id);
+                id = Convert.ToInt32(reader.ExecuteScalar());
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return id;
         }
         public static DataTable GetProductIdFromCombo(ComboProducts combo) //Lavet af Nikolaj
         {
