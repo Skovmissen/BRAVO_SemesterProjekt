@@ -509,7 +509,7 @@ namespace BRAVO_SemesterProjekt
 
         public static DataTable ShowCombo() //Lavet af Anders og Nikolaj
         {
-            SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE EndTime > @Date AND Activate = 1", connection);
+            SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE EndTime > @Date", connection);
             ShowCombiProduct.SelectCommand.Parameters.AddWithValue("@Date", DateTime.Now);
             DataTable dt = new DataTable();
             ShowCombiProduct.Fill(dt);
@@ -572,8 +572,8 @@ namespace BRAVO_SemesterProjekt
                 {
 
 
-                    SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductId LIKE @ProductId", connection);
-                    reader.SelectCommand.Parameters.AddWithValue("@ProductId", "%" + item.ItemArray[0].ToString() + "%");
+                    SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductId = @ProductId", connection);
+                    reader.SelectCommand.Parameters.AddWithValue("@ProductId", item.ItemArray[0].ToString());
                     reader.Fill(ds);
                 }
             }

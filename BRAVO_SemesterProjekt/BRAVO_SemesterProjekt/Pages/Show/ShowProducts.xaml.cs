@@ -22,11 +22,13 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class ShowProducts : Page
     {
+        
+        TempData temp = new TempData();
         Products product = new Products();
         public ShowProducts()
         {
             InitializeComponent();
-            DataContext = product;
+            DataContext = temp;
             DB.OpenDb();
             datagrid_ShowProducts.ItemsSource = DB.ShowProducts().DefaultView;
             DB.CloseDb();
