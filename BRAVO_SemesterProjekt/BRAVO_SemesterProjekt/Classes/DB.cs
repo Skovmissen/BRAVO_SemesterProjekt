@@ -358,6 +358,22 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Products", connection);
+
+                reader.Fill(ds);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return ds;
+        }
+        public static DataTable ShowProductsOverview() // Lavet af Claus
+        {
+            DataTable ds = new DataTable();
+            try
+            {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, FK_CategoryName, City, ZipCode FROM Product", connection);
 
                 reader.Fill(ds);
@@ -369,6 +385,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
+
         public static DataTable ShowActorsProducts(Actors actor) // Lavet af Claus
         {
             DataTable ds = new DataTable();
