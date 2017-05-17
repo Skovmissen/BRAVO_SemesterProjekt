@@ -145,6 +145,9 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
+
+        
+
         public static void InsertProduct(Products product, Actors actor) // Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, Price) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @Price)", connection);
@@ -446,6 +449,23 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
             return ds;
+        }
+        public static int GetcomboId(ComboProducts combo)
+        {
+            int id = 0;
+            try
+            {
+                SqlCommand reader = new SqlCommand("SELECT CombiId FROM CombiProduct WHERE CombiProductName = @CombiName", connection);
+                reader.Parameters.AddWithValue("@CombiName", combo.Name);
+                id = Convert.ToInt32(reader.ExecuteScalar());
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return id;
         }
 
         public static DataTable GetActorProducts(Products product) // Lavet af Anders 
