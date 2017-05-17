@@ -27,7 +27,7 @@
         <DatePicker HorizontalAlignment="Left" Margin="145,363,0,0" SelectedDate="{Binding Path=StartTime}" VerticalAlignment="Top" Width="114" Height="28"/>
         <DatePicker HorizontalAlignment="Left" Margin="278,363,0,0" SelectedDate="{Binding Path=EndTime}" VerticalAlignment="Top" Width="112" Height="28"/>
         <Button x:Name="button" Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Height="49" Background="White" Click="button_Click"/>
-        <Label x:Name="lbl_Header" Content="Redigere Kombinations Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="145,0,0,0" VerticalAlignment="Top" Height="86" Width="1145" FontSize="20"/>
+        <Label x:Name="lbl_Header" Content="Redigere Kombinations Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Height="86" Width="1145" FontSize="20"/>
 
     </Grid>
 </Page>

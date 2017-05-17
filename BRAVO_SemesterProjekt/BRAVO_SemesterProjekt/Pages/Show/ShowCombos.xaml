@@ -16,7 +16,7 @@
         <Label x:Name="label" Content="Vælg Kombinations produkt for yderlige informationer" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Label x:Name="label_Copy" Content="Produkter i det valgte kombinations produkt" HorizontalAlignment="Left" Margin="659,129,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Header" Content="Kombinations produkts oversigt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="189,3,0,0" VerticalAlignment="Top" Height="86" Width="1111" FontSize="20"/>
+        <Label x:Name="lbl_Header" Content="Kombinations produkts oversigt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="189,10,0,0" VerticalAlignment="Top" Height="86" Width="1111" FontSize="20"/>
 
     </Grid>
 </Page>
