@@ -50,7 +50,7 @@ namespace BRAVO_SemesterProjekt
         private void button_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            dataGrid_Edit_Product.ItemsSource = DB.SearchProduct(temp).DefaultView;
+            dataGrid_Edit_Product.ItemsSource = DB.SearchProduct(product).DefaultView;
             DB.CloseDb();
         }
         private void Fillcombo() //Denne metode finder produktnavne og fylder dem i comboboxe
@@ -82,7 +82,7 @@ namespace BRAVO_SemesterProjekt
                 product.Description = row.Row.ItemArray[9].ToString();
                 product.Price = Convert.ToDouble(row.Row.ItemArray[10].ToString());
                 product.Activate = Convert.ToBoolean(row.Row.ItemArray[11].ToString());
-                product.XmlId = Convert.ToInt32(row.Row.ItemArray[12].ToString());
+                
                 product.Category = row.Row.ItemArray[13].ToString();
                 product.ActorName = row.Row.ItemArray[14].ToString();
             }
