@@ -10,7 +10,7 @@
 
     <Grid>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1156,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <TextBox x:Name="txt_productname" HorizontalAlignment="Left" Height="23" Margin="9,227,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_productname" HorizontalAlignment="Left" Height="23" Margin="9,227,0,0" TextWrapping="Wrap" Text="{Binding Path=ProductName}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txt_street" HorizontalAlignment="Left" Height="23" Margin="9,279,0,0" TextWrapping="Wrap" Text="{Binding Path=Street}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txt_city" HorizontalAlignment="Left" Height="23" Margin="9,334,0,0" TextWrapping="Wrap" Text="{Binding Path=City}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txt_zipcode" HorizontalAlignment="Left" Height="23" Margin="9,387,0,0" TextWrapping="Wrap" Text="{Binding Path=Zipcode}" VerticalAlignment="Top" Width="120"/>

@@ -111,11 +111,20 @@ namespace BRAVO_SemesterProjekt
         {
             try
             {
-                DB.OpenDb();
+                if (combo.Name != "")
+                { 
+                    DB.OpenDb();
                 DB.InsertCombo(combo);
+                cmb_combiproducts.Items.Clear();
+                FillcomboWithCombiProducts();                
                 DB.CloseDb();
                 MessageBox.Show("Kombiprodukt er oprettet");
-                
+                }
+                else
+                {
+                    MessageBox.Show("Det valgte Kombinations produktnavn er ikke gyldigt");
+                }
+
             }
             catch (SqlException)
             {
@@ -143,8 +152,9 @@ namespace BRAVO_SemesterProjekt
 
         private void comboBox_DropDownClosed(object sender, EventArgs e)
         {
-            combo.Name = cmb_combiproducts.Text;
-        
+            combo.NewComBoName = cmb_combiproducts.Text;
+            lbl_comproductname.Content = cmb_combiproducts.Text;
+
 
             DB.OpenDb();
             combo.Id = DB.GetcomboId(combo);                        

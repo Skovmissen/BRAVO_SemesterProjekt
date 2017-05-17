@@ -83,6 +83,16 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private string newComboName;
+
+        public string NewComBoName
+        {
+            get { return newComboName; }
+            set { newComboName = value;
+                NotifyPropertyChanged();
+            }
+        }
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;
