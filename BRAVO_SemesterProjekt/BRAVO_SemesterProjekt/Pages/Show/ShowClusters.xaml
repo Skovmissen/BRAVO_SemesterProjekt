@@ -16,7 +16,7 @@
         <Label x:Name="label1" Content="Vælg klynge for yderligere information" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Label x:Name="label1_Copy" Content="Aktører i den valgte klynge" HorizontalAlignment="Left" Margin="664,165,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1112,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Label x:Name="label" Content="Oversigt over klynger" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="1301" Height="81" FontSize="20"/>
+        <Label x:Name="label" Content="Oversigt over klynger" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Width="1107" Height="81" FontSize="20"/>
 
     </Grid>
 </Page>

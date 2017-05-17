@@ -22,7 +22,7 @@
         <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="97" Margin="15,191,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="388"/>
         <Label x:Name="label3" Content="Tilføj beskrivelse" HorizontalAlignment="Left" Margin="16,168,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label4" Content="Tilføj aktør til klynge:" HorizontalAlignment="Left" Margin="634,243,0,0" VerticalAlignment="Top" Width="220"/>
-        <Label x:Name="lbl_Header" Content="Opret Klynge" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="86" Width="1280" FontSize="20"/>
+        <Label x:Name="lbl_Header" Content="Opret Klynge" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Top" Height="86" Width="1096" FontSize="20"/>
 
     </Grid>
 </Page>

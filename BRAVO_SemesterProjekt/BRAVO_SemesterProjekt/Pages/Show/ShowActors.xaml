@@ -18,6 +18,6 @@
         <Label x:Name="lbl_actor" Content="Liste af alle aktive aktører" HorizontalAlignment="Left" Margin="6,149,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Label x:Name="lbl_actorProducts" Content="Den valgte aktørs produkter" HorizontalAlignment="Left" Margin="716,149,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Label x:Name="lbl_ActorsClusters" Content="Klynger den valgte aktør er medlem af" HorizontalAlignment="Left" Margin="715,371,0,0" VerticalAlignment="Top" Width="289"  Foreground="#FF535353"/>
-        <Label x:Name="lbl_Header" Content="Aktør Oversigt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="86" Width="1280" FontSize="20"/>
+        <Label x:Name="lbl_Header" Content="Aktør Oversigt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="189,0,0,0" VerticalAlignment="Top" Height="86" Width="1101" FontSize="20"/>
     </Grid>
 </Page>
