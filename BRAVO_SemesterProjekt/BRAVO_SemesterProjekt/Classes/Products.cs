@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BRAVO_SemesterProjekt
 {
-    public class Products : Actors, INotifyPropertyChanged
+    public class Products : INotifyPropertyChanged
     {
         private bool activate;
 

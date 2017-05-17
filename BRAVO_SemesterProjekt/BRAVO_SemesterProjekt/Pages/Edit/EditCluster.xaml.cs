@@ -37,7 +37,8 @@ namespace BRAVO_SemesterProjekt
             {
                 cluster.OldName = row.Row.ItemArray[0].ToString();
                 cluster.Name = row.Row.ItemArray[0].ToString();
-                cluster.Activate = Convert.ToBoolean(row.Row.ItemArray[1].ToString());
+                cluster.Description = row.Row.ItemArray[1].ToString();
+                cluster.Activate = Convert.ToBoolean(row.Row.ItemArray[2].ToString());
                
             }
         }
@@ -57,6 +58,11 @@ namespace BRAVO_SemesterProjekt
             DB.OpenDb();
             edit_Cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;
             DB.CloseDb();
+        }
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            EditMenu menu = new EditMenu();
+            NavigationService.Navigate(menu);
         }
     }
 }

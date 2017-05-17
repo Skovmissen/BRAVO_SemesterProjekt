@@ -9,21 +9,13 @@
       Title="ShowClusters">
 
     <Grid>
-        <Button x:Name="btn_search_cluster" Content="Søg" HorizontalAlignment="Left" Margin="137,28,0,0" VerticalAlignment="Top" Width="75" Click="btn_search_cluster_Click"/>
-        <TextBox x:Name="search_cluster" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="120" Margin="0,28,0,0"/>
-        <DataGrid x:Name="dataGrid_cluster" IsReadOnly="True" HorizontalAlignment="Left" Margin="0,137,0,0" VerticalAlignment="Top" Height="91" Width="300" SelectionChanged="dataGrid_cluster_SelectionChanged"  />
-        <Label x:Name="label" HorizontalAlignment="Left" Margin="352,33,0,0" VerticalAlignment="Top" Height="79" Width="244"/>
-        <DataGrid x:Name="ClusterData" RowBackground="#FFFCA159" Background="#FFFCA159"  IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="352,137,0,0" VerticalAlignment="Top" Height="91" Width="409"/>
-        <DataGrid.ColumnHeaderStyle>
-            <Style TargetType="{x:Type DataGridColumnHeader}">
-                <Setter Property="FontWeight"
-                  Value="Bold" />
-            </Style>
-        </DataGrid.ColumnHeaderStyle>
-
-        <Label x:Name="label_name" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="352,254,0,0" VerticalAlignment="Top" Width="206"/>
-        <Label x:Name="label_description" Content="{Binding Path=Description}" HorizontalAlignment="Left" Margin="352,269,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.333,1.318" Height="89" Width="409"/>
-
+        <Button x:Name="btn_search_cluster" Content="Søg" HorizontalAlignment="Left" Margin="176,111,0,0" VerticalAlignment="Top" Width="96" Click="btn_search_cluster_Click" Height="29" Background="White"/>
+        <TextBox x:Name="search_cluster" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="155" Margin="10,111,0,0"/>
+        <DataGrid x:Name="dataGrid_cluster" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Height="433" Width="586" SelectionChanged="dataGrid_cluster_SelectionChanged"  />
+        <DataGrid x:Name="ClusterData" HorizontalAlignment="Left" Margin="664,194,0,0" VerticalAlignment="Top" Height="310" Width="627"/>
+        <Label x:Name="label1" Content="Liste af alle aktive klynger" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
+        <Label x:Name="label1_Copy" Content="Information omkring den valgte klynge" HorizontalAlignment="Left" Margin="664,165,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
+        <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1112,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
 
     </Grid>
 </Page>

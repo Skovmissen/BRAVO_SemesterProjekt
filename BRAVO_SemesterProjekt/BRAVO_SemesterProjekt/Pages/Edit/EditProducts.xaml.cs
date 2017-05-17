@@ -22,6 +22,7 @@ namespace BRAVO_SemesterProjekt
     public partial class EditProducts : Page
     {
         Products product = new Products();
+        ComboProducts combo = new ComboProducts();
         public EditProducts()
         {
             InitializeComponent();
@@ -36,7 +37,11 @@ namespace BRAVO_SemesterProjekt
         {
             DB.OpenDb();
             DB.UpdateProduct(product);
-            dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;
+            dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;            
+            if (product.Activate == false)  //Lavet ad Lasse
+            {
+               DiableCluster();
+            }
             DB.CloseDb();
             MessageBox.Show("Redigering fuldført");
         }
@@ -80,6 +85,23 @@ namespace BRAVO_SemesterProjekt
                 product.Category = row.Row.ItemArray[13].ToString();
                 product.ActorName = row.Row.ItemArray[14].ToString();
             }
+        }
+        private void DiableCluster()    //Lavet af Lasse
+        {
+            DataTable ComboIdTable = DB.GetComboViewId(product);
+
+            foreach (DataRow row in ComboIdTable.Rows)
+            {
+                combo.Id = Convert.ToInt32(row.ItemArray[0]);
+                DB.DeactiveCombos(combo);
+            }
+            int counter = ComboIdTable.Rows.Count;
+            MessageBox.Show(counter + " Produkt kombinationer er blevet deaktiveret");
+        }
+        private void button_back_Click(object sender, RoutedEventArgs e)
+        {
+            EditMenu menu = new EditMenu();
+            NavigationService.Navigate(menu);
         }
     }
 }

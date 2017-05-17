@@ -60,5 +60,12 @@ namespace BRAVO_SemesterProjekt
             }
            
         }
+       
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            EditMenu menu = new EditMenu();
+            NavigationService.Navigate(menu);
+        }
     }
 }

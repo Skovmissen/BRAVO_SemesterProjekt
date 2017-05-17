@@ -147,7 +147,7 @@ namespace BRAVO_SemesterProjekt
 
             if (dtProduct.Rows.Count > 0)
             {
-                DB.UpdateProduct(product);
+                DB.UpdateXMLProduct(product);
             }
             else
             {

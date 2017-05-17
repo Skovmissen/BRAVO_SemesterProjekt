@@ -41,6 +41,7 @@ namespace BRAVO_SemesterProjekt
                 DB.CloseDb();
                 MessageBox.Show("Aktør er oprettet");
                 ClearBoxes();
+                
             }
             catch (SqlException)
             {

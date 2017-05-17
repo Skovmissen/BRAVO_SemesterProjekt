@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BRAVO_SemesterProjekt
 {
-    public class ComboProducts : Products, INotifyPropertyChanged
+    public class ComboProducts : INotifyPropertyChanged
     {
         private bool activate;
 
