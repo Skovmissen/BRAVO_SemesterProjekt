@@ -43,7 +43,7 @@
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="289,618,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="191"/>
         <TextBox x:Name="textBox_Category" IsReadOnly="True" HorizontalAlignment="Left" Height="24" Margin="289,561,0,0" TextWrapping="Wrap" Text="{Binding Path=Category}" Background="#FFE6E6E6" VerticalAlignment="Top" Width="173"/>
 
-        <CheckBox x:Name="checkBox" Content="Aktivere eller deaktivere produkt" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="10,670,0,0" VerticalAlignment="Top" Height="11" Width="234" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <CheckBox x:Name="checkBox" Content="Aktivere eller deaktivere produkt" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="10,670,0,0" VerticalAlignment="Top" Height="28" Width="249" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
         <Button x:Name="btn_back" Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Height="49" Background="White" Click="button_back_Click"/>
         <ComboBox x:Name="cmb_Actorname" HorizontalAlignment="Left" Margin="290,676,0,0" VerticalAlignment="Top" Text="{Binding Path=ActorName}" Width="189"/>
         <TextBox x:Name="txt_actorname" Text="{Binding Path=ActorName}" HorizontalAlignment="Left" Height="22" Margin="289,676,0,0" TextWrapping="Wrap"  Background="#FFE6E6E6" VerticalAlignment="Top" Width="173"/>
