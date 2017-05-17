@@ -358,6 +358,22 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product", connection);
+
+                reader.Fill(ds);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return ds;
+        }
+        public static DataTable ShowProductsOverview() // Lavet af Claus
+        {
+            DataTable ds = new DataTable();
+            try
+            {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, FK_CategoryName, City, ZipCode FROM Product", connection);
 
                 reader.Fill(ds);
@@ -369,6 +385,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
+
         public static DataTable ShowActorsProducts(Actors actor) // Lavet af Claus
         {
             DataTable ds = new DataTable();
@@ -418,12 +435,28 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable SearchProduct(Products product) // Lavet af Nikolaj
+        public static DataTable SearchProduct(TempData temp) // Lavet af Nikolaj
         {
             DataTable dt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @searchProduct OR ZipCode LIKE @searchZipcode OR FK_CategoryName LIKE @searchCatname OR City LIKE @searchCity", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search OR ZipCode LIKE @search OR FK_CategoryName LIKE @search OR City LIKE @search OR Region LIKE @search OR Description LIKE @search", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.Fill(dt);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+        public static DataTable SearchProductOverview(Products product) // Lavet af Claus
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, City, ZipCode, FK_CategoryName FROM Product WHERE ProductName LIKE @searchProduct OR ZipCode LIKE @searchZipcode OR FK_CategoryName LIKE @searchCatname OR City LIKE @searchCity", connection);
                 reader.SelectCommand.Parameters.AddWithValue("@searchProduct", "%" + product.SearchProduct + "%");
                 reader.SelectCommand.Parameters.AddWithValue("@searchZipcode", "%" + product.SearchZipcode + "%");
                 reader.SelectCommand.Parameters.AddWithValue("@searchCity", "%" + product.SearchCity + "%");
@@ -504,6 +537,13 @@ namespace BRAVO_SemesterProjekt
         }
 
         public static DataTable ShowActor() // Lavet af Anders
+        {
+            SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE Activate = 1", connection);
+            DataTable dt = new DataTable();
+            ShowActor.Fill(dt);
+            return dt;
+        }
+        public static DataTable ShowAllActor() // Lavet af Anders
         {
             SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE ActorName = ActorName", connection);
             DataTable dt = new DataTable();

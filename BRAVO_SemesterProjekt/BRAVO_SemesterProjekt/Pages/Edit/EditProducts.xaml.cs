@@ -31,6 +31,7 @@ namespace BRAVO_SemesterProjekt
             DB.OpenDb();
             Fillcombo();
             dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;
+            
             DB.CloseDb();
         }
 
@@ -63,7 +64,7 @@ namespace BRAVO_SemesterProjekt
         private void button_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            dataGrid_Edit_Product.ItemsSource = DB.SearchProduct(product).DefaultView;
+            dataGrid_Edit_Product.ItemsSource = DB.SearchProduct(temp).DefaultView;
             DB.CloseDb();
         }
         private void Fillcombo() //Denne metode finder produktnavne og fylder dem i comboboxe
@@ -88,7 +89,7 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dataGrid_Edit_Product.SelectedItems) //fylder datagrid med opdaterede datas
             {
-                product.Id = Convert.ToInt32(row.Row.ItemArray[0].ToString());
+                
                 product.ProductName = row.Row.ItemArray[1].ToString();
                 product.City = row.Row.ItemArray[2].ToString();
                 product.Zipcode = row.Row.ItemArray[3].ToString();
@@ -120,6 +121,13 @@ namespace BRAVO_SemesterProjekt
         {
             EditMenu menu = new EditMenu();
             NavigationService.Navigate(menu);
+        }
+        private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "Describtion")
+            {
+                e.Column = null;
+            }
         }
     }
 }
