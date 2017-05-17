@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BRAVO_SemesterProjekt
 {
-    public class Clusters : Actors, INotifyPropertyChanged
+    public class Clusters : INotifyPropertyChanged
     {
         private bool activate;
 
