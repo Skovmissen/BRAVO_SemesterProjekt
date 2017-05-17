@@ -9,19 +9,19 @@
       Title="EditActors">
 
     <Grid>
-        <DataGrid x:Name="edit_Actor" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Height="305" Width="394" SelectionChanged="edit_Actor_SelectionChanged"/>
-        <TextBox x:Name="txt_Edit_ActorName" HorizontalAlignment="Left" Height="22" Margin="426,179,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="143"/>
-        <TextBox x:Name="txt_Edit_ActorEmail" HorizontalAlignment="Left" Height="24" Margin="426,240,0,0" TextWrapping="Wrap" Text="{Binding Path=Email}" VerticalAlignment="Top" Width="143"/>
-        <TextBox x:Name="txt_Edit_ActorTlf" HorizontalAlignment="Left" Height="22" Margin="426,297,0,0" TextWrapping="Wrap" Text="{Binding Path=Tlf}" VerticalAlignment="Top" Width="143"/>
+        <DataGrid x:Name="edit_Actor" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Height="305" Width="809" SelectionChanged="edit_Actor_SelectionChanged"/>
+        <TextBox x:Name="txt_Edit_ActorName" HorizontalAlignment="Left" Height="39" Margin="10,482,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="193"/>
+        <TextBox x:Name="txt_Edit_ActorEmail" HorizontalAlignment="Left" Height="38" Margin="223,482,0,0" TextWrapping="Wrap" Text="{Binding Path=Email}" VerticalAlignment="Top" Width="172"/>
+        <TextBox x:Name="txt_Edit_ActorTlf" HorizontalAlignment="Left" Height="39" Margin="412,482,0,0" TextWrapping="Wrap" Text="{Binding Path=Tlf}" VerticalAlignment="Top" Width="169"/>
 
-        <Label x:Name="lbl_Name" Content="Navn" HorizontalAlignment="Left" Margin="426,144,0,0" VerticalAlignment="Top" Height="30" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Email" Content="Email" HorizontalAlignment="Left" Margin="426,205,0,0" VerticalAlignment="Top" Height="30" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Tlf" Content="TLF" HorizontalAlignment="Left" Margin="426,266,0,0" VerticalAlignment="Top" Height="30" Foreground="#FF535353"/>
-        <Button x:Name="btn_Edit" Content="Opdatere" HorizontalAlignment="Left" Margin="426,408,0,0" VerticalAlignment="Top" Width="143" Click="btn_Edit_Click" Background="White" Height="41"/>
+        <Label x:Name="lbl_Name" Content="Navn" HorizontalAlignment="Left" Margin="10,461,0,0" VerticalAlignment="Top" Height="30" Foreground="#FF535353"/>
+        <Label x:Name="lbl_Email" Content="Email" HorizontalAlignment="Left" Margin="223,461,0,0" VerticalAlignment="Top" Height="30" Foreground="#FF535353"/>
+        <Label x:Name="lbl_Tlf" Content="TLF" HorizontalAlignment="Left" Margin="412,461,0,0" VerticalAlignment="Top" Height="30" Foreground="#FF535353"/>
+        <Button x:Name="btn_Edit" Content="Opdatere" HorizontalAlignment="Left" Margin="638,482,0,0" VerticalAlignment="Top" Width="181" Click="btn_Edit_Click" Background="White" Height="41"/>
         <Label x:Name="label_Copy3" Content="Vælg hvilken aktør du vil redigere" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Height="30" Foreground="#FF535353"/>
-        <TextBox x:Name="txt_Edit_Search" HorizontalAlignment="Left" Height="22" Margin="197,118,0,0" TextWrapping="Wrap" Text="{Binding Search}" VerticalAlignment="Top" Width="127"/>
-        <Button x:Name="btn_Edit_Search" Content="Søg" HorizontalAlignment="Left" Margin="329,118,0,0" VerticalAlignment="Top" Width="75" Click="btn_Edit_Search_Click" Background="White" Height="22" />
-        <CheckBox x:Name="checkBox" Content="Active" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="426,324,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
+        <TextBox x:Name="txt_Edit_Search" HorizontalAlignment="Left" Height="22" Margin="612,117,0,0" TextWrapping="Wrap" Text="{Binding Search}" VerticalAlignment="Top" Width="127"/>
+        <Button x:Name="btn_Edit_Search" Content="Søg" HorizontalAlignment="Left" Margin="744,117,0,0" VerticalAlignment="Top" Width="75" Click="btn_Edit_Search_Click" Background="White" Height="22" />
+        <CheckBox x:Name="checkBox" Content="Active" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="10,526,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Button x:Name="button" Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Height="49" Background="White" Click="button_Click"/>
 
     </Grid>
