@@ -26,7 +26,7 @@ namespace BRAVO_SemesterProjekt
     {
         
         Clusters cluster = new Clusters();
-        Actors actor = new Actors();
+        //Actors actor = new Actors();
         TempData temp = new TempData();
         
         public ShowClusters() //vis klynge metoden køres og sendes til datagriddet

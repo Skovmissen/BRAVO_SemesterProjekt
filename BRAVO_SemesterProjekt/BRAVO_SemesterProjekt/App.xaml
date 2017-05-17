@@ -6,12 +6,7 @@
     <Application.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="FontFamily" Value="Proxima Nova Rg" />
-            
-        </Style>
 
-        <Style x:Key="DataGrid_BRAVOColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}"  >
-            <Setter Property="Background" Value="#88800080" />
-            <Setter Property="Foreground" Value="White" />
         </Style>
     </Application.Resources>
 </Application>
