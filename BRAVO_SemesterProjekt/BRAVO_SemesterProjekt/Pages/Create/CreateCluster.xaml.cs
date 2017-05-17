@@ -96,7 +96,7 @@ namespace BRAVO_SemesterProjekt
             catch (SqlException)
             {
 
-                MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                MessageBox.Show("Et felt er ikke udfyldt korrekt eller klyngen eksisterer i forvejen");
             }
             catch (Exception)
             {
@@ -137,6 +137,8 @@ namespace BRAVO_SemesterProjekt
             DB.OpenDb();
             DataGridShowSpecificCluster();
             DB.CloseDb();
+            label1.Content = cmb_cluster.Text;
+            txt_navn.Clear();
         }
     }
 }
