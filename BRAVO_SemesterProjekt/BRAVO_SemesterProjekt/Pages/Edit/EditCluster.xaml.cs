@@ -22,12 +22,13 @@ namespace BRAVO_SemesterProjekt
     public partial class EditCluster : Page
     {
         Clusters cluster = new Clusters();
+        TempData temp = new TempData();
         public EditCluster()
         {
             InitializeComponent();
             DataContext = cluster;
             DB.OpenDb();
-            edit_Cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;
+            edit_Cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
             DB.CloseDb();
         }
 
@@ -47,7 +48,7 @@ namespace BRAVO_SemesterProjekt
         {
             DB.OpenDb();
             DB.UpdateCluster(cluster);
-            edit_Cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;
+            edit_Cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
             DB.CloseDb();
             MessageBox.Show("Redigering fuldført");
            
@@ -56,7 +57,7 @@ namespace BRAVO_SemesterProjekt
         private void btn_Edit_Search_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            edit_Cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;
+            edit_Cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
             DB.CloseDb();
         }
         private void button_Click(object sender, RoutedEventArgs e)

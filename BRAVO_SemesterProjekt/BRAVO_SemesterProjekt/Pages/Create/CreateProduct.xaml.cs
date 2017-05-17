@@ -84,13 +84,10 @@ namespace BRAVO_SemesterProjekt
         {
             product.City = null;
             product.Description = null;
-            product.Email = null;
             product.Latitude = 0;
             product.Longtitude = 0;
-            product.Name = null;
             product.Region = null;
             product.Street = null;
-            product.Tlf = null;
             product.Url = null;
             product.Zipcode = null;
             cmb_category.SelectedItem = null;

@@ -131,7 +131,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
             command.Parameters.Add(CreateParam("@ActorName", actor.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
-            command.Parameters.Add(CreateParam("@ProductName", product.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ProductName", product.ProductName, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@XmlId", product.XmlId, SqlDbType.Int));
             command.Parameters.Add(CreateParam("@Price", product.Price, SqlDbType.Float));
 
@@ -159,7 +159,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
             command.Parameters.Add(CreateParam("@ActorName", actor.Name, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
-            command.Parameters.Add(CreateParam("@ProductName", product.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ProductName", product.ProductName, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Price", product.Price, SqlDbType.Float));
 
 
@@ -399,13 +399,13 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable SearchCluster(Clusters cluster) //Lavet af Claus og Nikolaj
+        public static DataTable SearchCluster(TempData temp) //Lavet af Claus og Nikolaj
         {
             DataTable ds = new DataTable();
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Cluster WHERE ClusterName LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + cluster.Search + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
                 reader.Fill(ds);
 
             }
@@ -415,13 +415,13 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable SearchProduct(Products product) // Lavet af Nikolaj
+        public static DataTable SearchProduct(TempData temp) // Lavet af Nikolaj
         {
             DataTable ds = new DataTable();
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search OR ZipCode LIKE @search OR FK_CategoryName LIKE @search OR Region LIKE @search OR Describtion LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + product.Search + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
                 reader.Fill(ds);
             }
             catch (Exception)
@@ -512,13 +512,13 @@ namespace BRAVO_SemesterProjekt
             ShowCombiProduct.Fill(dt);
             return dt;
         }
-        public static DataTable SearchCombo(ComboProducts combo) //Lavet af Anders
+        public static DataTable SearchCombo(TempData temp) //Lavet af Anders
         {
             DataTable SearchComboDt = new DataTable();
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE CombiProductName LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + combo.Search + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
                 reader.Fill(SearchComboDt);
 
             }
@@ -615,10 +615,10 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
-        public static int SelectProductId(ComboProducts combo) //Lavet af Lasse og Nikolaj
+        public static int SelectProductId(TempData temp) //Lavet af Lasse og Nikolaj
         {
             SqlCommand command = new SqlCommand("SELECT ProductId FROM Product WHERE ProductName = @ProductName", connection);
-            command.Parameters.AddWithValue("@ProductName", combo.ChosenItem);
+            command.Parameters.AddWithValue("@ProductName", temp.ChosenItem);
             try
             {
                 int id = Convert.ToInt32(command.ExecuteScalar());

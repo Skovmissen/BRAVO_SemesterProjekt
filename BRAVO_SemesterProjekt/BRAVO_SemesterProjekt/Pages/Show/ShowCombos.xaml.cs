@@ -24,6 +24,7 @@ namespace BRAVO_SemesterProjekt
 
         Products product = new Products();
         ComboProducts combo = new ComboProducts();
+        TempData temp = new TempData();
         public ShowCombos()
         {
             DataContext = combo;
@@ -36,7 +37,7 @@ namespace BRAVO_SemesterProjekt
         private void btn_Search_Combo_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            GridShowCombo.ItemsSource = DB.SearchCombo(combo).DefaultView;
+            GridShowCombo.ItemsSource = DB.SearchCombo(temp).DefaultView;
             DB.CloseDb();
         }
 

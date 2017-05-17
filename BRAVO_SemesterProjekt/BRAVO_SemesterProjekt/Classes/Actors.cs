@@ -10,7 +10,7 @@ namespace BRAVO_SemesterProjekt
 {
     public class Actors : INotifyPropertyChanged
     {
-      
+        
         private bool activate;
 
         public bool Activate

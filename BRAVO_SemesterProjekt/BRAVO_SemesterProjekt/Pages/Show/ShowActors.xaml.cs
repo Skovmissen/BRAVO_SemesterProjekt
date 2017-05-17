@@ -26,6 +26,7 @@ namespace BRAVO_SemesterProjekt
         Actors actor = new Actors();
         Clusters cluster = new Clusters();
         Products product = new Products();
+        TempData temp = new TempData();
         public ShowActors()
         {
             DataContext = actor;
@@ -38,7 +39,7 @@ namespace BRAVO_SemesterProjekt
         private void Btn_Search_Actor_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            GridShowActor.ItemsSource = DB.SearchActor(actor).DefaultView;
+            GridShowActor.ItemsSource = DB.SearchActor(temp).DefaultView;
             DB.CloseDb();
         }
 
@@ -56,8 +57,8 @@ namespace BRAVO_SemesterProjekt
                 product.ProductName = row.Row.ItemArray[0].ToString();
             }
             DB.OpenDb();
-            ActorData.ItemsSource = DB.GetActorProducts(product).DefaultView;
-
+            ActorDataProducts.ItemsSource = DB.GetActorProducts(product).DefaultView;
+            ActorDataCluster.ItemsSource = DB.GetActorCluster(cluster).DefaultView;
             DB.CloseDb();
         }
     }

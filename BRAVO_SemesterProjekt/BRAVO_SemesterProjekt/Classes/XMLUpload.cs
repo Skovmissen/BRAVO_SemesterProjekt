@@ -57,7 +57,7 @@ namespace BRAVO_SemesterProjekt
                     XmlNode zip = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:PostalCode", ns);
                     XmlNode price = item.SelectSingleNode(@".//BravoXML:PriceGroups/BravoXML:PriceGroup/BravoXML:PriceFrom", ns);
                     CheckForNull(name, xmlId, addressLine1, url, tlf, latitude, longitude, region, description, category, email, city, zip, temp, actor, product, price);
-                    product.Name = actor.Name;
+                    product.ProductName = actor.Name;
                     product.Street = addressLine1.InnerText;
 
                     InsertInDb(actor, product);
