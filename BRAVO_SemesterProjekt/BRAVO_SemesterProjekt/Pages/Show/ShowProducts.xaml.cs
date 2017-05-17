@@ -40,13 +40,21 @@ namespace BRAVO_SemesterProjekt
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            datagrid_ShowProducts.ItemsSource = DB.SearchProduct(product).DefaultView;
+            datagrid_ShowProducts.ItemsSource = DB.SearchProductOverview(product).DefaultView;
             DB.CloseDb();            
         }
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             ShowMenu menu = new ShowMenu();
             NavigationService.Navigate(menu);
+        }
+
+        private void datagrid_ShowProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (DataRowView row in datagrid_ShowProducts.SelectedItems)
+            {
+                product.ProductName = row.Row.ItemArray[1].ToString();
+            }
         }
     }
 }

@@ -50,7 +50,7 @@ namespace BRAVO_SemesterProjekt
         private void button_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            dataGrid_Edit_Product.ItemsSource = DB.SearchProduct(temp).DefaultView;
+            dataGrid_Edit_Product.ItemsSource = DB.SearchProduct(product).DefaultView;
             DB.CloseDb();
         }
         private void Fillcombo() //Denne metode finder produktnavne og fylder dem i comboboxe
