@@ -10,7 +10,7 @@
       Title="EditCombo">
 
     <Grid>
-        <DataGrid x:Name="dataGrid_edit_Combo" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Height="115" Width="187" SelectionChanged="dataGrid_edit_Combo_SelectionChanged"/>
+        <DataGrid x:Name="dataGrid_edit_Combo" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Height="115" Width="187" SelectionChanged="dataGrid_edit_Combo_SelectionChanged"/>
         <Label x:Name="header_gridview" Content="Redigér kombinationsprodukt" HorizontalAlignment="Left" Margin="3,53,0,0" VerticalAlignment="Top" Width="194"/>
         <Label x:Name="label_combiproduct" Content="Kombiprodukt" HorizontalAlignment="Left" Margin="233,53,0,0" VerticalAlignment="Top" Width="97"/>
         <TextBox x:Name="textBox_ComboName" HorizontalAlignment="Left" Height="23" Margin="236,80,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="120"/>

@@ -11,9 +11,19 @@
     <Grid>
         <Button x:Name="btn_search_cluster" Content="Søg" HorizontalAlignment="Left" Margin="137,28,0,0" VerticalAlignment="Top" Width="75" Click="btn_search_cluster_Click"/>
         <TextBox x:Name="search_cluster" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="120" Margin="0,28,0,0"/>
-        <DataGrid x:Name="dataGrid_cluster" HorizontalAlignment="Left" Margin="0,137,0,0" VerticalAlignment="Top" Height="91" Width="300" SelectionChanged="dataGrid_cluster_SelectionChanged"  />
+        <DataGrid x:Name="dataGrid_cluster" IsReadOnly="True" HorizontalAlignment="Left" Margin="0,137,0,0" VerticalAlignment="Top" Height="91" Width="300" SelectionChanged="dataGrid_cluster_SelectionChanged"  />
         <Label x:Name="label" HorizontalAlignment="Left" Margin="352,33,0,0" VerticalAlignment="Top" Height="79" Width="244"/>
-        <DataGrid x:Name="ClusterData" HorizontalAlignment="Left" Margin="352,137,0,0" VerticalAlignment="Top" Height="91" Width="409"/>
+        <DataGrid x:Name="ClusterData" RowBackground="#FFFCA159" Background="#FFFCA159"  IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="352,137,0,0" VerticalAlignment="Top" Height="91" Width="409"/>
+        <DataGrid.ColumnHeaderStyle>
+            <Style TargetType="{x:Type DataGridColumnHeader}">
+                <Setter Property="FontWeight"
+                  Value="Bold" />
+            </Style>
+        </DataGrid.ColumnHeaderStyle>
+
+        <Label x:Name="label_name" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="352,254,0,0" VerticalAlignment="Top" Width="206"/>
+        <Label x:Name="label_description" Content="{Binding Path=Description}" HorizontalAlignment="Left" Margin="352,269,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.333,1.318" Height="89" Width="409"/>
+
 
     </Grid>
 </Page>

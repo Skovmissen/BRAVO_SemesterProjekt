@@ -26,9 +26,9 @@ namespace BRAVO_SemesterProjekt
     {
         
         Clusters cluster = new Clusters();
-        Actors actor = new Actors();
+        //Actors actor = new Actors();
         
-        public ShowClusters()
+        public ShowClusters() //vis klynge metoden køres og sendes til datagriddet
         {
             DataContext = cluster;
             InitializeComponent();
@@ -37,21 +37,20 @@ namespace BRAVO_SemesterProjekt
             DB.CloseDb();
         }
 
-        private void btn_search_cluster_Click(object sender, RoutedEventArgs e)
+        private void btn_search_cluster_Click(object sender, RoutedEventArgs e)//søge metoden køres og og sendes til datagriddet
         {
-            DB.OpenDb();
-       
-            dataGrid_cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;
-            
+            DB.OpenDb();       
+            dataGrid_cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;            
             DB.CloseDb();
         }
 
-        private void dataGrid_cluster_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dataGrid_cluster_SelectionChanged(object sender, SelectionChangedEventArgs e)//ved valg af række i datagrid vises resultat i clusterdata griddet.
         {
 
             foreach (DataRowView row in dataGrid_cluster.SelectedItems)
             {
                 cluster.Name = row.Row.ItemArray[0].ToString();
+                cluster.Description = row.Row.ItemArray[1].ToString();
             }
             DB.OpenDb();
             ClusterData.ItemsSource = DB.GetClusterActors(cluster).DefaultView;
