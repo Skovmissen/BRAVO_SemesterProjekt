@@ -30,6 +30,7 @@ namespace BRAVO_SemesterProjekt
             DB.OpenDb();
             edit_Cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
             DB.CloseDb();
+            
         }
 
         private void edit_Cluster_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -50,6 +51,10 @@ namespace BRAVO_SemesterProjekt
             DB.UpdateCluster(cluster);
             edit_Cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
             DB.CloseDb();
+            cluster.OldName = null;
+            cluster.Name = null;
+            cluster.Description = null;
+            cluster.Activate = false;
             MessageBox.Show("Redigering fuldført");
            
         }

@@ -482,7 +482,7 @@ namespace BRAVO_SemesterProjekt
 
         public static DataTable ShowActor() // Lavet af Anders
         {
-            SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE Activate = 1", connection);
+            SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE ActorName = ActorName", connection);
             DataTable dt = new DataTable();
             ShowActor.Fill(dt);
             return dt;
