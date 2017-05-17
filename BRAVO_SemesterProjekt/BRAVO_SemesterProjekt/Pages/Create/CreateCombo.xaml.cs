@@ -28,6 +28,7 @@ namespace BRAVO_SemesterProjekt
         ComboProducts combo = new ComboProducts();
         Products product = new Products();
         Actors actor = new Actors();
+        TempData temp = new TempData();
         
         public CreateCombo()
         {
@@ -79,9 +80,9 @@ namespace BRAVO_SemesterProjekt
 
         private void cmb_products_DropDownClosed(object sender, EventArgs e)    //Den metode finder produktetsId da det er det der skal sættes ind i databasen
         {
-            combo.ChosenItem = cmb_products.Text;
+            temp.ChosenItem = cmb_products.Text;
             DB.OpenDb();
-            product.Id = DB.SelectProductId(combo);
+            product.Id = DB.SelectProductId(temp);
             DB.CloseDb();
         }
 

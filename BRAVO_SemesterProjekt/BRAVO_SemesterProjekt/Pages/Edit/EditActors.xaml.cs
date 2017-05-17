@@ -22,6 +22,7 @@ namespace BRAVO_SemesterProjekt
     public partial class EditActors : Page
     {
         Actors actor = new Actors();
+        TempData temp = new TempData();
         public EditActors()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace BRAVO_SemesterProjekt
         private void btn_Edit_Search_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            edit_Actor.ItemsSource = DB.SearchActor(actor).DefaultView;
+            edit_Actor.ItemsSource = DB.SearchActor(temp).DefaultView;
             DB.CloseDb();
         }
 

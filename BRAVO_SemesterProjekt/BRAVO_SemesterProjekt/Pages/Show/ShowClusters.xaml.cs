@@ -27,6 +27,7 @@ namespace BRAVO_SemesterProjekt
         
         Clusters cluster = new Clusters();
         Actors actor = new Actors();
+        TempData temp = new TempData();
         
         public ShowClusters()
         {
@@ -41,7 +42,7 @@ namespace BRAVO_SemesterProjekt
         {
             DB.OpenDb();
        
-            dataGrid_cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;
+            dataGrid_cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
             
             DB.CloseDb();
         }

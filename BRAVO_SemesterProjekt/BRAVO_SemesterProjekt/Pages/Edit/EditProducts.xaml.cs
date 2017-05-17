@@ -23,6 +23,7 @@ namespace BRAVO_SemesterProjekt
     {
         Products product = new Products();
         ComboProducts combo = new ComboProducts();
+        TempData temp = new TempData();
         public EditProducts()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace BRAVO_SemesterProjekt
         private void button_Click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
-            dataGrid_Edit_Product.ItemsSource = DB.SearchProduct(product).DefaultView;
+            dataGrid_Edit_Product.ItemsSource = DB.SearchProduct(temp).DefaultView;
             DB.CloseDb();
         }
         private void Fillcombo() //Denne metode finder produktnavne og fylder dem i comboboxe

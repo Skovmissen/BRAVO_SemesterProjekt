@@ -27,6 +27,7 @@ namespace BRAVO_SemesterProjekt
     public partial class EditCombo : Page
     {
         ComboProducts combo = new ComboProducts(); //objekt af typen comboproducts
+        TempData temp = new TempData();
         public EditCombo() //kontruktør binder datacontext til object og indlæser combo tabel i gridview
         {
             InitializeComponent();
@@ -55,7 +56,7 @@ namespace BRAVO_SemesterProjekt
         private void button_search_Click(object sender, RoutedEventArgs e) // søg efter kombo produkt
         {
             DB.OpenDb();
-            dataGrid_edit_Combo.ItemsSource = DB.SearchCombo(combo).DefaultView;
+            dataGrid_edit_Combo.ItemsSource = DB.SearchCombo(temp).DefaultView;
             DB.CloseDb();
         }
 
