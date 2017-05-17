@@ -41,7 +41,7 @@ namespace BRAVO_SemesterProjekt
         private void btn_search_cluster_Click(object sender, RoutedEventArgs e)//søge metoden køres og og sendes til datagriddet
         {
             DB.OpenDb();       
-            dataGrid_cluster.ItemsSource = DB.SearchCluster(cluster).DefaultView;            
+            dataGrid_cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;            
             DB.CloseDb();
         }
 
