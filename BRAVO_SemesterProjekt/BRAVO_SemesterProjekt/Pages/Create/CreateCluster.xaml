@@ -14,14 +14,14 @@
         <TextBox x:Name="txt_navn" HorizontalAlignment="Left" Height="23" Margin="15,140,0,0" TextWrapping="Wrap" Text="{Binding Path = Name}" VerticalAlignment="Top" Width="132"/>
         <Label x:Name="label" Content="Indtast navn på klynge:" HorizontalAlignment="Left" Margin="16,109,0,0" VerticalAlignment="Top" Width="165"/>
         <ComboBox x:Name="cmb_actor" HorizontalAlignment="Left" Margin="634,280,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed" IsReadOnly="True"/>
-        <DataGrid x:Name="dg_showcluster" HorizontalAlignment="Left" Margin="16,340,0,0" VerticalAlignment="Top" Height="285" Width="597" ColumnWidth="*" IsReadOnly="True" SelectionChanged="dg_showcluster_SelectionChanged"/>
-        <DataGrid x:Name="dg_ShowspecificCluster" HorizontalAlignment="Left" Margin="634,340,0,0" VerticalAlignment="Top" Height="285" Width="662" ColumnWidth="*" IsReadOnly="True"/>
+        <DataGrid x:Name="dg_ShowspecificCluster" HorizontalAlignment="Left" Margin="901,191,0,0" VerticalAlignment="Top" Height="285" Width="389" ColumnWidth="*" IsReadOnly="True"/>
         <Button x:Name="button1" Content="Tilføj til klynge" HorizontalAlignment="Left" Margin="775,280,0,0" VerticalAlignment="Top" Width="95" Click="btn_addActorToCluster"/>
         <Label x:Name="label1" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="639,241,0,0" VerticalAlignment="Top" Width="120" Height="24" FontWeight="Bold" />
-        <Label x:Name="label2" Content="Tryk på en klynge for yderlig information samt at tilføje aktører til en klynge" HorizontalAlignment="Left" Margin="16,630,0,0" VerticalAlignment="Top" Width="388" FontSize="11"/>
         <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="97" Margin="15,191,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="388"/>
         <Label x:Name="label3" Content="Tilføj beskrivelse" HorizontalAlignment="Left" Margin="16,168,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label4" Content="Tilføj aktør til klynge:" HorizontalAlignment="Left" Margin="634,243,0,0" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="label4" Content="Vælg aktør" HorizontalAlignment="Left" Margin="634,243,0,0" VerticalAlignment="Top" Width="220"/>
+        <ComboBox x:Name="cmb_cluster" HorizontalAlignment="Left" Margin="639,191,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_cluster_DropDownClosed"/>
+        <Label x:Name="label5" Content="Vælg klynge" HorizontalAlignment="Left" Margin="639,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.412,0.625" Width="120"/>
 
     </Grid>
 </Page>

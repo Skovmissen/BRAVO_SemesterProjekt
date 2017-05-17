@@ -20,7 +20,7 @@
         <DataGrid x:Name="dg_showproduts" HorizontalAlignment="Left" Margin="859,282,0,0" VerticalAlignment="Top" Height="406" Width="406" IsReadOnly="True" ColumnWidth="*" GridLinesVisibility="All" HeadersVisibility="None" OpacityMask="Black" FontSize="16"/>
         <ComboBox x:Name="cmb_products" HorizontalAlignment="Left" Margin="680,425,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_products_DropDownClosed"/>
         <Button x:Name="button1" Content="Tilføj produkt" HorizontalAlignment="Left" Margin="680,472,0,0" VerticalAlignment="Top" Width="120" Click="btn_addproductInCombi" Height="64"/>
-        <Label x:Name="label3" Content="{Binding Path=Name }" HorizontalAlignment="Left" Margin="859,247,0,0" VerticalAlignment="Top" Width="230" FontWeight="Bold" Height="38" FontSize="16"/>
+        <Label x:Name="lbl_comproductname" Content="" HorizontalAlignment="Left" Margin="859,247,0,0" VerticalAlignment="Top" Width="230" FontWeight="Bold" Height="38" FontSize="16"/>
         <ComboBox x:Name="cmb_actor" HorizontalAlignment="Left" Margin="680,363,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="143" Margin="10,396,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="370"/>
         <Label x:Name="label4" Content="Beskrivelse" HorizontalAlignment="Left" Margin="10,372,0,0" VerticalAlignment="Top" Width="120"/>

@@ -36,7 +36,8 @@ namespace BRAVO_SemesterProjekt
             {
                 DB.OpenDb();                    //Denne indeholder en catch med messagebox, det skal den ikke gøre, der skal try catch om alle db.open i stedet for. ellers kommer der dobbelt messageboxe
                 FillcomboActor();
-                DataGridShowAllCluster();
+                FillcomboCluster();
+                //DataGridShowAllCluster();
                 DB.CloseDb(); 
             }
             catch (Exception)
@@ -57,23 +58,16 @@ namespace BRAVO_SemesterProjekt
                 cmb_actor.Items.Add(actor.Rows[i]["ActorName"]);    //For hver række der er i datatablet actor, under kolonnen ActorName, smider den aktørnavnet i comboboxen
             }
         }
-        private void DataGridShowAllCluster()
+        private void FillcomboCluster()   //Denne metoder fylder comboboxen med alle aktører i databasen
         {
-            DataTable ShowCluster = DB.ShowCluster();
-            dg_showcluster.ItemsSource = ShowCluster.DefaultView;
-        }
-
-        private void dg_showcluster_SelectionChanged(object sender, SelectionChangedEventArgs e)    //Denne metode finder klynges aktører, ved hjælp af det man markerer i datagridet 
-        {
-            foreach (DataRowView view in dg_showcluster.SelectedItems)
+            DataTable cluster = DB.ShowCluster();
+            for (int i = 0; i < cluster.Rows.Count; i++)
             {
-                cluster.Name = view.Row.ItemArray[0].ToString(); //Her finden jeg det objekt der ligger i kolonne 0 i datagridet på den markerede linje og gemmer det i propertien Cluster.Name som en string
-
+                cmb_cluster.Items.Add(cluster.Rows[i]["ClusterName"]);    //For hver række der er i datatablet actor, under kolonnen ActorName, smider den aktørnavnet i comboboxen
             }
-            DataGridShowSpecificCluster();
-
         }
-        private void DataGridShowSpecificCluster()
+               
+        private void DataGridShowSpecificCluster()      //Fylder et datagrid med aktører under den valgte klynge
         {
             DataTable ShowSpecificClusterTable = DB.GetClusterActors(cluster);
             dg_ShowspecificCluster.ItemsSource = ShowSpecificClusterTable.DefaultView;
@@ -87,7 +81,9 @@ namespace BRAVO_SemesterProjekt
                 {
                     DB.OpenDb();
                     DB.InsertCluster(cluster);
-                    DataGridShowAllCluster();
+                    //DataGridShowAllCluster();
+                    cmb_cluster.Items.Clear();
+                    FillcomboCluster();
                     DB.CloseDb();
                     MessageBox.Show("Klynge er oprettet");
                 }
@@ -133,6 +129,14 @@ namespace BRAVO_SemesterProjekt
         {
             CreateMenu menu = new CreateMenu();
             NavigationService.Navigate(menu);
+        }
+
+        private void cmb_cluster_DropDownClosed(object sender, EventArgs e)
+        {
+            cluster.Name = cmb_cluster.Text;
+            DB.OpenDb();
+            DataGridShowSpecificCluster();
+            DB.CloseDb();
         }
     }
 }
