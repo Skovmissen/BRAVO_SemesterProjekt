@@ -567,6 +567,22 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
+        public static int GetProductIdInCombo(ComboProducts combo) //Lavet af Nikolaj
+        {
+            int id = 0;
+            try
+            {
+                SqlCommand reader = new SqlCommand("SELECT FK_ProductId FROM CombiView WHERE FK_CombiId = @CombiId", connection);
+                reader.Parameters.AddWithValue("@CombiId", combo.Id);
+                id = Convert.ToInt32(reader.ExecuteScalar());
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return id;
+        }
         public static DataTable GetProductIdFromCombo(ComboProducts combo) //Lavet af Nikolaj
         {
             DataTable ds = new DataTable();
