@@ -30,7 +30,7 @@ namespace BRAVO_SemesterProjekt
             InitializeComponent();
             DataContext = product;
             DB.OpenDb();
-            datagrid_ShowProducts.ItemsSource = DB.ShowProducts().DefaultView;
+            datagrid_ShowProducts.ItemsSource = DB.ShowProductsOverview().DefaultView;
             DB.CloseDb();
         }
 
@@ -57,6 +57,11 @@ namespace BRAVO_SemesterProjekt
 
                 product.Description = row.Row.ItemArray[9].ToString();
             }
+        }
+
+        private void datagrid_ShowProducts_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+          
         }
     }
 }
