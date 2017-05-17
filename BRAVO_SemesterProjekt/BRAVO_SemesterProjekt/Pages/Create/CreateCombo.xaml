@@ -17,20 +17,18 @@
         <Label x:Name="label" Content="Navn" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.023,0.324" Width="120"/>
         <Label x:Name="label1" Content="Startdato" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="102"/>
         <Label x:Name="label2" Content="Slutdato" HorizontalAlignment="Left" Margin="136,126,0,0" VerticalAlignment="Top" Width="102"/>
-        <DataGrid x:Name="dg_showcombiproducts" HorizontalAlignment="Left" Margin="14,452,0,0" VerticalAlignment="Top" Height="232" Width="650" IsReadOnly="True" ColumnWidth="*" SelectionChanged="dg_showcombiproducts_SelectionChanged" Background="#FFFCA159" BorderBrush="#FFFCA159"/>
         <DataGrid x:Name="dg_showproduts" HorizontalAlignment="Left" Margin="850,212,0,0" RowBackground="#FFFCA159" VerticalAlignment="Top" Height="188" Width="406" IsReadOnly="True" ColumnWidth="*" Background="#FFFCA159" BorderBrush="#FFFCA159" GridLinesVisibility="None" HeadersVisibility="None" OpacityMask="Black" FontSize="16"/>
         <ComboBox x:Name="cmb_products" HorizontalAlignment="Left" Margin="708,329,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_products_DropDownClosed"/>
         <Button x:Name="button1" Content="Tilføj produkt" HorizontalAlignment="Left" Margin="708,369,0,0" VerticalAlignment="Top" Width="86" Click="btn_addproductInCombi"/>
         <Label x:Name="label3" Content="{Binding Path=Name }" HorizontalAlignment="Left" Margin="850,151,0,0" VerticalAlignment="Top" Width="230" FontWeight="Bold" Height="43"/>
-        <Label x:Name="label2_Copy" Content="Tryk på en klynge for yderlig information" HorizontalAlignment="Left" Margin="14,684,0,0" VerticalAlignment="Top" Width="388" FontSize="8"/>
         <ComboBox x:Name="cmb_actor" HorizontalAlignment="Left" Margin="708,267,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="94" Margin="10,204,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="355"/>
         <Label x:Name="label4" Content="Beskrivelse" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label5" Content="Vælg aktør" HorizontalAlignment="Left" Margin="708,241,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label6" Content="Vælg produkt" HorizontalAlignment="Left" Margin="708,303,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label7" Content="Kombinations produkter" HorizontalAlignment="Left" Margin="14,422,0,0" VerticalAlignment="Top" Width="175"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="10,327,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label8" Content="Pris" HorizontalAlignment="Left" Margin="10,303,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cmb_combiproducts" HorizontalAlignment="Left" Margin="708,204,0,0" VerticalAlignment="Top" Width="120"  IsSynchronizedWithCurrentItem="True" DropDownClosed="comboBox_DropDownClosed" SelectionChanged="cmb_combiproducts_SelectionChanged"/>
 
     </Grid>
 </Page>

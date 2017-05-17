@@ -145,6 +145,9 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
         }
+
+        
+
         public static void InsertProduct(Products product, Actors actor) // Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, Price) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @Price)", connection);
@@ -355,7 +358,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, City, ZipCode, FK_CategoryName FROM Product WHERE Activate = 1", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, FK_CategoryName, City, ZipCode FROM Product", connection);
 
                 reader.Fill(ds);
             }
@@ -466,6 +469,23 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
+        public static int GetcomboId(ComboProducts combo)
+        {
+            int id = 0;
+            try
+            {
+                SqlCommand reader = new SqlCommand("SELECT CombiId FROM CombiProduct WHERE CombiProductName = @CombiName", connection);
+                reader.Parameters.AddWithValue("@CombiName", combo.Name);
+                id = Convert.ToInt32(reader.ExecuteScalar());
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return id;
+        }
 
         public static DataTable GetActorProducts(Products product) // Lavet af Anders 
         {
@@ -502,6 +522,13 @@ namespace BRAVO_SemesterProjekt
         public static DataTable ShowActor() // Lavet af Anders
         {
             SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE Activate = 1", connection);
+            DataTable dt = new DataTable();
+            ShowActor.Fill(dt);
+            return dt;
+        }
+        public static DataTable ShowAllActor() // Lavet af Anders
+        {
+            SqlDataAdapter ShowActor = new SqlDataAdapter("SELECT * FROM Actor WHERE ActorName = ActorName", connection);
             DataTable dt = new DataTable();
             ShowActor.Fill(dt);
             return dt;
@@ -562,6 +589,22 @@ namespace BRAVO_SemesterProjekt
                 throw ex;
             }
             return ds;
+        }
+        public static int GetProductIdInCombo(ComboProducts combo) //Lavet af Nikolaj
+        {
+            int id = 0;
+            try
+            {
+                SqlCommand reader = new SqlCommand("SELECT FK_ProductId FROM CombiView WHERE FK_CombiId = @CombiId", connection);
+                reader.Parameters.AddWithValue("@CombiId", combo.Id);
+                id = Convert.ToInt32(reader.ExecuteScalar());
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return id;
         }
         public static DataTable GetProductIdFromCombo(ComboProducts combo) //Lavet af Nikolaj
         {

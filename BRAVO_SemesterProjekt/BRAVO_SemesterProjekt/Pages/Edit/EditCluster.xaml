@@ -9,7 +9,7 @@
       Title="EditCluster">
 
     <Grid>
-        <DataGrid x:Name="edit_Cluster" IsReadOnly="True" HorizontalAlignment="Left" Margin="6,134,0,0" VerticalAlignment="Top" Height="258" Width="765" SelectionChanged="edit_Cluster_SelectionChanged"/>
+        <DataGrid x:Name="edit_Cluster" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="6,134,0,0" VerticalAlignment="Top" Height="258" Width="765" SelectionChanged="edit_Cluster_SelectionChanged"/>
         <TextBox x:Name="txt_Edit_ClusterName" HorizontalAlignment="Left" Height="23" Margin="10,441,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="120"/>
 
 

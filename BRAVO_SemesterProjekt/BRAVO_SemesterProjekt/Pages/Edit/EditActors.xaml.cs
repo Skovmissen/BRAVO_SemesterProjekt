@@ -33,7 +33,7 @@ namespace BRAVO_SemesterProjekt
             txt_Edit_ActorName.DataContext = actor;
             checkBox.DataContext = actor;
             DB.OpenDb();
-            edit_Actor.ItemsSource = DB.ShowActor().DefaultView;
+            edit_Actor.ItemsSource = DB.ShowAllActor().DefaultView;
             DB.CloseDb();
         }
 
@@ -41,8 +41,13 @@ namespace BRAVO_SemesterProjekt
         {
             DB.OpenDb();
             DB.UpdateActor(actor);
-            edit_Actor.ItemsSource = DB.ShowActor().DefaultView;
+            edit_Actor.ItemsSource = DB.ShowAllActor().DefaultView;
             DB.CloseDb();
+            actor.OldName = null;
+            actor.Name = null;
+            actor.Email = null;
+            actor.Tlf = null;
+            actor.Activate = false;
             MessageBox.Show("Redigering fuldført");
         }
 

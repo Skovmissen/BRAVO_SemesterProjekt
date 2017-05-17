@@ -10,13 +10,13 @@
       Title="EditCombo">
 
     <Grid>
-        <DataGrid x:Name="dataGrid_edit_Combo" ColumnWidth="*" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Height="228" Width="404" SelectionChanged="dataGrid_edit_Combo_SelectionChanged"/>
+        <DataGrid x:Name="dataGrid_edit_Combo" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Height="228" Width="404" ColumnWidth="*" SelectionChanged="dataGrid_edit_Combo_SelectionChanged"/>
         <Label x:Name="header_gridview" Content="Redigér kombinationsprodukt" HorizontalAlignment="Left" Margin="3,73,0,0" VerticalAlignment="Top" Width="194" Foreground="#FF535353"/>
         <Label x:Name="label_combiproduct" Content="Kombiprodukt" HorizontalAlignment="Left" Margin="8,341,0,0" VerticalAlignment="Top" Width="96" Foreground="#FF535353"/>
         <TextBox x:Name="textBox_ComboName" HorizontalAlignment="Left" Height="28" Margin="10,363,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_startTime" Content="Starttid" HorizontalAlignment="Left" Margin="145,341,0,0" VerticalAlignment="Top" Height="24" Width="50" Foreground="#FF535353"/>
         <Label x:Name="label_endTime" Content="Sluttid" HorizontalAlignment="Left" Margin="278,341,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
-        <CheckBox x:Name="checkBox" Content="Aktiv" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="352,434,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
+        <CheckBox x:Name="checkBox" Content="Aktivere eller Deaktivere produktet" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="352,434,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <TextBox x:Name="textBox_search" HorizontalAlignment="Left" Height="35" Margin="227,62,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="button_search" Content="Søg" HorizontalAlignment="Left" Margin="352,62,0,0" VerticalAlignment="Top" Width="62" Click="button_search_Click" Height="35" Background="White"/>
         <Button x:Name="button_update" Content="Opdater" HorizontalAlignment="Left" VerticalAlignment="Top" Width="198" Margin="622,477,0,0" Click="button_update_Click" Background="White" Height="67"/>
