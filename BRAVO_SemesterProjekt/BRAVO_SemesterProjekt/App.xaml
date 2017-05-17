@@ -7,5 +7,6 @@
         <Style TargetType="{x:Type Label}">
             <Setter Property="FontFamily" Value="Proxima Nova Rg" />
         </Style>
+        
     </Application.Resources>
 </Application>
