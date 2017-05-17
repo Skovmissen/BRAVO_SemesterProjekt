@@ -29,6 +29,7 @@
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="10,327,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label8" Content="Pris" HorizontalAlignment="Left" Margin="10,303,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="cmb_combiproducts" HorizontalAlignment="Left" Margin="708,204,0,0" VerticalAlignment="Top" Width="120"  IsSynchronizedWithCurrentItem="True" DropDownClosed="comboBox_DropDownClosed" SelectionChanged="cmb_combiproducts_SelectionChanged"/>
+        <Label x:Name="lbl_Header" Content="Opret Kombinations Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="86" Width="1280" FontSize="20"/>
 
     </Grid>
 </Page>
