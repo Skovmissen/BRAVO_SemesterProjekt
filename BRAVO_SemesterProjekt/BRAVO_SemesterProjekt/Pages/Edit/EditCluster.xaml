@@ -24,6 +24,7 @@
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="112" Margin="148,441,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="330"/>
         <Label x:Name="lbl_Name_Copy" Content="Beskrivelse" HorizontalAlignment="Left" Margin="148,411,0,0" VerticalAlignment="Top" Height="30" Foreground="#FFFFFFFF"/>
         <Label x:Name="lbl_Header" Content="Redigere Klynge" HorizontalContentAlignment="Center" Foreground="#FFFFFFFF" HorizontalAlignment="Left" Margin="137,8,0,0" VerticalAlignment="Top" Height="51" Width="1153" FontSize="20"/>
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,722"/>
 
     </Grid>
 </Page>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
         mc:Ignorable="d"
-        Title="MainWindow" Background="#FFFCA159" Height="800" Width="1300"  WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="800" Width="1300"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
 
@@ -20,8 +20,10 @@
         </Grid.RowDefinitions>
 
         <DockPanel Panel.ZIndex="999" Grid.Row="0" Grid.ColumnSpan="2" >
+            
             <Menu DockPanel.Dock="Top" Height="67" Padding="10" Margin="0,0,0,0" Panel.ZIndex="9">
-                <MenuItem Header="Opret" Height="33" MinWidth="100" FontSize="14">
+                <Hyperlink  NavigateUri="MainWindow.xaml" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="{x:Null}" Foreground="Black" FontSize="18" FontWeight="Bold">FORSIDE</Hyperlink>
+                <MenuItem Header="Opret" Height="33" Margin="20,0,0,0" MinWidth="100" FontSize="14">
                     <MenuItem Name="NewActor"  Header="Aktør" Click="NewActor_Click"  />
                     <MenuItem Name="NewProduct"  Header="Produkt" Click="NewProduct_Click"  />
                     <MenuItem Name="NewKombi"  Header="Kombi-produkt" Click="NewKombi_Click"  />
@@ -42,7 +44,7 @@
                 <MenuItem Header="Upload" Height="33" MinWidth="100" FontSize="14" Margin="30,0,0,0" >
                     <MenuItem Header="XML" Height="33" MinWidth="100" FontSize="14" Click="Upload_Click"/>
                 </MenuItem>
-                <Hyperlink NavigateUri="MainWindow.xaml" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="{x:Null}" Foreground="Black" FontSize="18" FontWeight="Bold">FORSIDE</Hyperlink>
+               
             </Menu>
 
         </DockPanel>

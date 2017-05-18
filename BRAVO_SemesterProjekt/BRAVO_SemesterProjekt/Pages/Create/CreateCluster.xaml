@@ -5,11 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
+      Background="#FFFCA159"
       d:DesignHeight="800" d:DesignWidth="1300"
       Title="CreateCluster">
 
     <Grid>
-        <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
+        <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <Button x:Name="button" Content="Opret klynge" HorizontalAlignment="Left" Margin="266,383,0,0" VerticalAlignment="Top" Width="132" Click="btn_saveClusterName" Height="60"/>
         <TextBox x:Name="txt_navn" HorizontalAlignment="Left" Height="36" Margin="12,194,0,0" TextWrapping="Wrap" Text="{Binding Path = Name}" VerticalAlignment="Top" Width="132"/>
         <Label x:Name="label" Content="Indtast navn på klynge:" HorizontalAlignment="Left" Margin="12,165,0,0" VerticalAlignment="Top" Width="165"/>
@@ -25,6 +26,7 @@
         <Label x:Name="lbl_Header" Content="Opret Klynge" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="194,13,0,0" VerticalAlignment="Top" Height="86" Width="866" FontSize="20"/>
         <Label x:Name="label2" Content="Opret ny klynge" HorizontalAlignment="Left" Margin="12,99,0,0" VerticalAlignment="Top" Width="202" Height="66" FontSize="18"/>
         <Label x:Name="label6" Content="Tilføj aktører til en klynge" HorizontalAlignment="Left" Margin="822,99,0,0" VerticalAlignment="Top" Width="238" FontSize="18"/>
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,722"/>
 
     </Grid>
 </Page>

@@ -5,11 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
+      Background="#FFFCA159"
       d:DesignHeight="800" d:DesignWidth="1300"
       Title="CreateCombo">
 
     <Grid>
-        <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353" RenderTransformOrigin="2.19,0.4"/>
+        <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="52" Margin="10,230,0,0" TextWrapping="Wrap" Text="{Binding Path= Name}" VerticalAlignment="Top" Width="179"/>
         <DatePicker HorizontalAlignment="Left" Margin="16,573,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartTime}"/>
         <DatePicker HorizontalAlignment="Left" Margin="145,573,0,0" VerticalAlignment="Top" SelectedDate="{Binding EndTime}"/>
@@ -34,6 +35,7 @@
         <Label x:Name="label10" Content="Produkter i valgte kombinations produkt:" HorizontalAlignment="Left" Margin="859,230,0,0" VerticalAlignment="Top" Width="257"/>
         <Label x:Name="label11" Content="Opret et nyt kombinations produkt" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.288,0.479" Height="55" Width="338" FontSize="18"/>
         <Label x:Name="label12" Content="Opret kombinations produkter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="964" Height="63" FontSize="20" HorizontalContentAlignment="Center" Margin="194,10,0,0"/>
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,722"/>
 
     </Grid>
 </Page>
