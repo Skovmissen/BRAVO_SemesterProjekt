@@ -93,6 +93,7 @@ namespace BRAVO_SemesterProjekt
                 product.Url = row.Row.ItemArray[7].ToString();
                 product.Latitude = Convert.ToDouble(row.Row.ItemArray[8].ToString());
                 product.Longtitude = Convert.ToDouble(row.Row.ItemArray[9].ToString());
+                product.Region = row.Row.ItemArray[10].ToString();
 
             }
             // Denne string temp bruger jeg til at formatere tal i string format.
@@ -101,12 +102,12 @@ namespace BRAVO_SemesterProjekt
             product.Latitude = double.Parse(temp, CultureInfo.InvariantCulture); //stringen temp blive i double.parse parset til en Double. det double.parse gør er at konvertere en string værdi til en double værdi
 
             temp = product.Longtitude.ToString();
-            temp = temp.Insert(2, ".");
+            temp = temp.Insert(2, ",");
             product.Longtitude = double.Parse(temp, CultureInfo.InvariantCulture);
         }
         private void datagrid_ShowProducts_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {// i datagrid hvor oversigt vises frasorteres de kolonner der ikke er relevante for oversigten
-            if (e.PropertyName == "Describtion" || e.PropertyName == "URL" || e.PropertyName == "Street" || e.PropertyName == "Price" || e.PropertyName == "Latitude" || e.PropertyName == "Longtitude")
+            if (e.PropertyName == "Describtion" || e.PropertyName == "Region" || e.PropertyName == "URL" || e.PropertyName == "Street" || e.PropertyName == "Price" || e.PropertyName == "Latitude" || e.PropertyName == "Longtitude")
             {
                 e.Column = null;
             }
