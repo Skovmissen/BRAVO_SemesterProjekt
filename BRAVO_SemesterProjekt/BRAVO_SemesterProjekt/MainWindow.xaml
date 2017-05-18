@@ -21,7 +21,7 @@
 
         <DockPanel Panel.ZIndex="999" Grid.Row="0" Grid.ColumnSpan="2" >
 
-            <Menu DockPanel.Dock="Top" Height="49" Padding="10" Margin="0,0,0,0" Panel.ZIndex="9">
+            <Menu DockPanel.Dock="Top" Height="61" Padding="10" Margin="0,0,0,0" Panel.ZIndex="9">
                 <Hyperlink  NavigateUri="MainWindow.xaml" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="{x:Null}" Foreground="Black" FontSize="18" FontWeight="Bold">FORSIDE</Hyperlink>
                 <MenuItem Header="Opret" Height="33" Margin="20,0,0,0" MinWidth="100" FontSize="14">
                     <MenuItem Name="NewActor"  Header="Aktør" Click="NewActor_Click"  />

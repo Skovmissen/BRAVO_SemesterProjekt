@@ -11,7 +11,7 @@
 
     <Grid>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="52" Margin="10,230,0,0" TextWrapping="Wrap" Text="{Binding Path= Name}" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,230,0,0" TextWrapping="Wrap" Text="{Binding Path= Name}" VerticalAlignment="Top" Width="179"/>
         <DatePicker HorizontalAlignment="Left" Margin="16,573,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartTime}"/>
         <DatePicker HorizontalAlignment="Left" Margin="145,573,0,0" VerticalAlignment="Top" SelectedDate="{Binding EndTime}"/>
         <Button x:Name="button" Content="Opret kombi produkt" HorizontalAlignment="Left" Margin="10,624,0,0" VerticalAlignment="Top" Width="370" Height="64" Click="btn_CreateCombo"/>
@@ -27,14 +27,14 @@
         <Label x:Name="label4" Content="Beskrivelse" HorizontalAlignment="Left" Margin="10,372,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label5" Content="Vælg aktør" HorizontalAlignment="Left" Margin="680,337,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label6" Content="Vælg produkt" HorizontalAlignment="Left" Margin="680,399,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="52" Margin="10,316,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="10,316,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="179"/>
         <Label x:Name="label8" Content="Pris" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="cmb_combiproducts" HorizontalAlignment="Left" Margin="680,300,0,0" VerticalAlignment="Top" Width="120"  IsSynchronizedWithCurrentItem="True" DropDownClosed="comboBox_DropDownClosed" BorderBrush="White"/>
         <Label x:Name="label7" Content="Vælg Kombinations produkt" HorizontalAlignment="Left" Margin="680,271,0,0" VerticalAlignment="Top" Width="179"/>
         <Label x:Name="label9" Content="Tilføj produkt til kombinations produkt&#xD;&#xA;" HorizontalAlignment="Left" Margin="717,146,0,0" VerticalAlignment="Top" Height="51" Width="548" FontSize="18"/>
         <Label x:Name="label10" Content="Produkter i valgte kombinations produkt:" HorizontalAlignment="Left" Margin="859,230,0,0" VerticalAlignment="Top" Width="257"/>
         <Label x:Name="label11" Content="Opret et nyt kombinations produkt" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.288,0.479" Height="55" Width="338" FontSize="18"/>
-        <Label x:Name="label12" Content="Opret kombinations produkter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="964" Height="35" FontSize="20" HorizontalContentAlignment="Center" Margin="194,10,0,0"/>
+        <Label x:Name="label12" Content="Opret kombinations produkter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1292" Height="35" FontSize="20" HorizontalContentAlignment="Center"/>
         <Rectangle HorizontalAlignment="Stretch" Fill="#FF535353" Height="2" Margin="0,76,0,644"/>
         <Rectangle VerticalAlignment="Stretch" Fill="#FF535353" Width="2" Margin="630,76,660,0"/>
 
