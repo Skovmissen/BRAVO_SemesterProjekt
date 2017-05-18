@@ -37,18 +37,13 @@ namespace BRAVO_SemesterProjekt
                 DB.OpenDb();                    //Denne indeholder en catch med messagebox, det skal den ikke gøre, der skal try catch om alle db.open i stedet for. ellers kommer der dobbelt messageboxe
                 FillcomboActor();
                 FillcomboCluster();
-                //DataGridShowAllCluster();
                 DB.CloseDb(); 
             }
             catch (Exception)
             {
-               
-                
-                //MessageBox.Show("Der er ingen forbindelse til databasen");
-            }
-            
 
-
+                throw;
+            }           
         }
         private void FillcomboActor()   //Denne metoder fylder comboboxen med alle aktører i databasen
         {
@@ -68,9 +63,8 @@ namespace BRAVO_SemesterProjekt
         }
                
         private void DataGridShowSpecificCluster()      //Fylder et datagrid med aktører under den valgte klynge
-        {
-            DataTable ShowSpecificClusterTable = DB.GetClusterActors(cluster);
-            dg_ShowspecificCluster.ItemsSource = ShowSpecificClusterTable.DefaultView;
+        {            
+            dg_ShowspecificCluster.ItemsSource = DB.GetClusterActors(cluster).DefaultView;
         }
         private void btn_saveClusterName(object sender, RoutedEventArgs e)
         {
@@ -80,8 +74,7 @@ namespace BRAVO_SemesterProjekt
                 if (cluster.Name != "") //Lavet for at forhindre en et tomt klynge navn bliver oprettet, i tilfælde af der bliver skrevet noget tekst, det bliver slettet, og man trykker opret.
                 {
                     DB.OpenDb();
-                    DB.InsertCluster(cluster);
-                    //DataGridShowAllCluster();
+                    DB.InsertCluster(cluster);                    
                     cmb_cluster.Items.Clear();
                     FillcomboCluster();
                     DB.CloseDb();

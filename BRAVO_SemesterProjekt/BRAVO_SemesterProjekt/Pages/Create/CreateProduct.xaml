@@ -10,6 +10,8 @@
 
     <Grid>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1156,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
+        <ComboBox x:Name="cmb_actor" DataContext="" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed"/>
+        <ComboBox x:Name="cmb_category" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_category_DropDownClosed"/>
         <TextBox x:Name="txt_productname" HorizontalAlignment="Left" Height="23" Margin="9,227,0,0" TextWrapping="Wrap" Text="{Binding Path=ProductName}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txt_street" HorizontalAlignment="Left" Height="23" Margin="9,279,0,0" TextWrapping="Wrap" Text="{Binding Path=Street}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txt_city" HorizontalAlignment="Left" Height="23" Margin="9,334,0,0" TextWrapping="Wrap" Text="{Binding Path=City}" VerticalAlignment="Top" Width="120"/>
@@ -26,15 +28,14 @@
         <Label x:Name="label_Copy5" Content="Bredegrad:" HorizontalAlignment="Left" Margin="157,303,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txt_url" HorizontalAlignment="Left" Height="23" Margin="157,384,0,0" TextWrapping="Wrap" Text="{Binding Path=Url}" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_Copy6" Content="Url:" HorizontalAlignment="Left" Margin="157,357,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txt_desciption" HorizontalAlignment="Left" Height="130" Margin="298,227,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="435"/>
-        <ComboBox x:Name="cmb_actor" DataContext="" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed"/>
-        <ComboBox x:Name="cmb_category" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_category_DropDownClosed"/>
-        <Label x:Name="label_Copy7" Content="Beskrivelse:" HorizontalAlignment="Left" Margin="298,196,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button" Content="Opret produkt" HorizontalAlignment="Left" Margin="455,366,0,0" VerticalAlignment="Top" Width="278" Height="44" Click="btn_opretprodukt"/>
+        <TextBox x:Name="txt_desciption" HorizontalAlignment="Left" Height="130" Margin="10,439,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="435"/>
+        
+        <Label x:Name="label_Copy7" Content="Beskrivelse:" HorizontalAlignment="Left" Margin="10,415,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label1" Content="Vælg aktør" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label2" Content="Vælg kategori" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="298,384,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label3" Content="Pris:" HorizontalAlignment="Left" Margin="298,357,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="10,604,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button" Content="Opret produkt" HorizontalAlignment="Left" Margin="167,584,0,0" VerticalAlignment="Top" Width="278" Height="44" Click="btn_opretprodukt"/>
+        <Label x:Name="label3" Content="Pris:" HorizontalAlignment="Left" Margin="10,574,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lbl_Header" Content="Opret Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="144,10,0,0" VerticalAlignment="Top" Height="86" Width="1066" FontSize="20"/>
     </Grid>
 </Page>
