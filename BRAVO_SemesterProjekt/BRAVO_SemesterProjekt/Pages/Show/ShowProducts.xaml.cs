@@ -82,5 +82,12 @@ namespace BRAVO_SemesterProjekt
                 e.Column = null;
             }
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Print.WriteToFile(product);
+        }
+
+       
     }
 }

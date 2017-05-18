@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,28 +38,47 @@ namespace BRAVO_SemesterProjekt
 
         private void button_Edit_Product_Click(object sender, RoutedEventArgs e)
         {
-            DB.OpenDb();
-            DB.UpdateProduct(product);
-            dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;            
-            if (product.Activate == false)  //Lavet ad Lasse
+            try
             {
-               DiableCluster();
+                if (!(product.ProductName == null || product.ProductName == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Street == null || product.Street == "" || product.Latitude == 0  || product.Longtitude == 0 || product.Url == null || product.Url == "" || product.Description == null || product.Description == "" || product.Price == 0 || product.Category == null || product.Category == "" || product.ActorName == null || product.ActorName == "" ))
+                {
+                    DB.OpenDb();
+                    DB.UpdateProduct(product);
+                    dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;
+                    if (product.Activate == false)  //Lavet ad Lasse
+                    {
+                        DiableCluster();
+                    }
+                    DB.CloseDb();
+                    product.Id = 0;
+                    product.ProductName = null;
+                    product.City = null;
+                    product.Zipcode = null;
+                    product.Region = null;
+                    product.Street = null;
+                    product.Latitude = 0;
+                    product.Longtitude = 0;
+                    product.Url = null;
+                    product.Description = null;
+                    product.Price = 0;
+                    product.Category = null;
+                    product.ActorName = null;
+                    MessageBox.Show("Redigering fuldført");
+                }
+                else
+                {
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                }
             }
-            DB.CloseDb();
-            product.Id = 0;
-            product.ProductName = null;
-            product.City = null;
-            product.Zipcode = null;
-            product.Region = null;
-            product.Street = null;
-            product.Latitude = 0;
-            product.Longtitude = 0;
-            product.Url = null;
-            product.Description = null;
-            product.Price = 0;
-            product.Category = null;
-            product.ActorName = null;
-            MessageBox.Show("Redigering fuldført");
+            catch (SqlException)
+            {
+                MessageBox.Show("Ingen forbindelse til Databasen");
+                
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -89,7 +109,7 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dataGrid_Edit_Product.SelectedItems) //fylder datagrid med opdaterede datas
             {
-                
+               
                 product.ProductName = row.Row.ItemArray[1].ToString();
                 product.City = row.Row.ItemArray[2].ToString();
                 product.Zipcode = row.Row.ItemArray[3].ToString();
@@ -103,6 +123,7 @@ namespace BRAVO_SemesterProjekt
                 product.Activate = Convert.ToBoolean(row.Row.ItemArray[11].ToString());
                 product.Category = row.Row.ItemArray[13].ToString();
                 product.ActorName = row.Row.ItemArray[14].ToString();
+                product.OldName = product.ProductName;
             }
         }
         private void DiableCluster()    //Lavet af Lasse

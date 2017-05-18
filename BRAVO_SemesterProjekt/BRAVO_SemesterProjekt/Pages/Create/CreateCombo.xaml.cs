@@ -88,12 +88,20 @@ namespace BRAVO_SemesterProjekt
         {
             try
             {
-                DB.OpenDb();
-                DB.InsertProductInCombi(combo, product);
-                
-                DB.CloseDb();
-                ShowProductsInCombi();
-                MessageBox.Show("Produktet er oprettet i den valgte Kombo");
+                if (!(combo.NewComBoName == null || actor.Name == null || temp.ChosenItem == null))
+                {
+                    DB.OpenDb();
+                    DB.InsertProductInCombi(combo, product);
+
+                    DB.CloseDb();
+                    ShowProductsInCombi();
+                    MessageBox.Show("Produktet er oprettet i den valgte Kombo");
+                }
+                else
+                {
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                }
+               
             }
             catch (SqlException)
             {
@@ -111,25 +119,28 @@ namespace BRAVO_SemesterProjekt
         {
             try
             {
-                if (combo.Name != "")
-                { 
+                
+                   
+                    if (!(combo.Name == null || combo.Name == "" || combo.Price == 0 || combo.Description == null || combo.Description == "" || combo.StartTime == null || combo.EndTime == null))
+                    {
                     DB.OpenDb();
-                DB.InsertCombo(combo);
-                cmb_combiproducts.Items.Clear();
-                FillcomboWithCombiProducts();                
-                DB.CloseDb();
-                MessageBox.Show("Kombiprodukt er oprettet");
+                    DB.InsertCombo(combo);
+                    cmb_combiproducts.Items.Clear();
+                    FillcomboWithCombiProducts();
+                    DB.CloseDb();
+                    MessageBox.Show("Kombiprodukt er oprettet");
                 }
                 else
                 {
-                    MessageBox.Show("Det valgte Kombinations produktnavn er ikke gyldigt");
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
                 }
+             
 
             }
             catch (SqlException)
             {
 
-                MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                MessageBox.Show("Ingen forbindelses til DB");
             }
             catch (Exception)
             {

@@ -46,7 +46,7 @@ namespace BRAVO_SemesterProjekt
             catch (SqlException)
             {
 
-                MessageBox.Show("Et fel er ikke udfyldt korrekt eller aktøren eksisterer i forvejen");
+                MessageBox.Show("Et felt er ikke udfyldt korrekt eller aktøren eksisterer i forvejen");
             }
             catch (Exception)
             {
