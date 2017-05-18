@@ -30,5 +30,6 @@
         <Label x:Name="label_description" Content="Produktbeskrivelse" HorizontalAlignment="Left" Margin="497,368,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_productname" Content="{Binding Path=ProductName}" HorizontalAlignment="Left" Margin="527,230,0,0" VerticalAlignment="Top" Height="24" Width="99"/>
         <Label x:Name="lbl_Header" Content="Produkt Oversigt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Height="86" Width="1096" FontSize="20"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="1197,628,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
     </Grid>
 </Page>

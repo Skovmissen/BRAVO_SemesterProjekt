@@ -63,5 +63,10 @@ namespace BRAVO_SemesterProjekt
         {
           
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Print.WriteToFile(product);
+        }
     }
 }

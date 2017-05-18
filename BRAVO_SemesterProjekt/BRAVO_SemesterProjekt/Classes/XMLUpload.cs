@@ -172,10 +172,12 @@ namespace BRAVO_SemesterProjekt
             if (name == null)
             {
                 actor.Name = "Intet Navn";
+                products.ActorName = "Intet Navn";
             }
             else
             {
                 actor.Name = name.InnerText;
+                products.ActorName = name.InnerText;
             }
 
             if (xmlId == null)
