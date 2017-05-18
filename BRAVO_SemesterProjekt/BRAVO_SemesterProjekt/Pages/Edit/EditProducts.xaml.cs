@@ -89,7 +89,7 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dataGrid_Edit_Product.SelectedItems) //fylder datagrid med opdaterede datas
             {
-                
+               
                 product.ProductName = row.Row.ItemArray[1].ToString();
                 product.City = row.Row.ItemArray[2].ToString();
                 product.Zipcode = row.Row.ItemArray[3].ToString();
@@ -103,6 +103,7 @@ namespace BRAVO_SemesterProjekt
                 product.Activate = Convert.ToBoolean(row.Row.ItemArray[11].ToString());
                 product.Category = row.Row.ItemArray[13].ToString();
                 product.ActorName = row.Row.ItemArray[14].ToString();
+                product.OldName = product.ProductName;
             }
         }
         private void DiableCluster()    //Lavet af Lasse
