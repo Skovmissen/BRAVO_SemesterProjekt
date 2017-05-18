@@ -492,7 +492,7 @@ namespace BRAVO_SemesterProjekt
             try
             {
                 SqlCommand reader = new SqlCommand("SELECT CombiId FROM CombiProduct WHERE CombiProductName = @CombiName", connection);
-                reader.Parameters.AddWithValue("@CombiName", combo.Name);
+                reader.Parameters.AddWithValue("@CombiName", combo.NewComBoName);
                 id = Convert.ToInt32(reader.ExecuteScalar());
 
 

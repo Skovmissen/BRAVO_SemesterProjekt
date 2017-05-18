@@ -12,6 +12,7 @@
         <Button x:Name="button" Content="Upload" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Width="280" Click="Upload_Click" Height="77" Background="White" FontWeight="Bold"/>
         <Button x:Name="button1" Content="Vælg Fil" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Width="123" Click="Choose_File_Click" Height="37" Background="White" FontWeight="Bold"/>
         <Label x:Name="label" Content="{Binding Path=Path}" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Height="175" Width="1273"/>
+        <Label x:Name="lbl_Header" Content="Upload" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="133,0,0,0" VerticalAlignment="Top" Height="86" Width="1157" FontSize="20"/>
 
     </Grid>
 </Page>
