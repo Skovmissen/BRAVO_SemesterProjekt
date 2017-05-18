@@ -6,19 +6,19 @@
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d"
 Background="#FFFCA159"
-      Title="CreateActors" Height="800" Width="1300">
+      Title="CreateActors" Height="722" Width="1292">
 
     <Grid>
 
-        <TextBox x:Name="txt_Navn" Height="50" Margin="10,127,976,623" Text="{Binding Path= Name}"/>
-        <TextBox x:Name="txt_Email" Height="50" Margin="10,208,976,542" Text="{Binding Path= Email }"/>
-        <TextBox x:Name="txt_tlf" Height="50" Margin="10,288,976,462" Text="{Binding Path= Tlf}"/>
+        <TextBox x:Name="txt_Navn" Height="50" Margin="10,125,976,547" Text="{Binding Path= Name}"/>
+        <TextBox x:Name="txt_Email" Height="50" Margin="10,209,976,463" Text="{Binding Path= Email }"/>
+        <TextBox x:Name="txt_tlf" Height="50" Margin="10,294,976,378" Text="{Binding Path= Tlf}"/>
         <Button x:Name="button" Content="Opret aktør" Margin="10,362,890,0" VerticalAlignment="Top" Height="60" Click="btn_gem" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,722"/>
-        <Label x:Name="label" Content="NAVN" Margin="10,98,1111,674" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="label_Copy" Content="EMAIL" Margin="10,180,1111,592" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="label_Copy1" Content="TELEFON" Margin="10,264,1121,512" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF535353" Height="2" Margin="0,76,0,644"/>
+        <Label x:Name="label" Content="NAVN" Margin="10,97,1111,602" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <Label x:Name="label_Copy" Content="EMAIL" Margin="10,180,1111,513" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <Label x:Name="label_Copy1" Content="TELEFON" Margin="10,264,1121,433" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
         <Label x:Name="lbl_Header" Content="Opret Aktør" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="189,12,0,0" VerticalAlignment="Top" Height="34" Width="965" FontSize="20"/>
     </Grid>
 </Page>

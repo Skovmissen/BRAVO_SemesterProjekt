@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d"
       Background="#FFFCA159"
-      d:DesignHeight="800" d:DesignWidth="1300"
+      d:DesignHeight="722" d:DesignWidth="1292"
       Title="CreateProduct">
 
     <Grid>
@@ -37,7 +37,7 @@
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="10,604,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="button" Content="Opret produkt" HorizontalAlignment="Left" Margin="167,584,0,0" VerticalAlignment="Top" Width="278" Height="44" Click="btn_opretprodukt"/>
         <Label x:Name="label3" Content="Pris:" HorizontalAlignment="Left" Margin="10,574,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="lbl_Header" Content="Opret Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="144,10,0,0" VerticalAlignment="Top" Height="86" Width="1066" FontSize="20"/>
-        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,722"/>
+        <Label x:Name="lbl_Header" Content="Opret Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="144,10,0,0" VerticalAlignment="Top" Height="35" Width="1066" FontSize="20"/>
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF535353" Height="2" Margin="0,76,0,644"/>
     </Grid>
 </Page>
