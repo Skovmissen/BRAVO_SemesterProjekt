@@ -22,9 +22,9 @@ namespace BRAVO_SemesterProjekt
                 connection = new SqlConnection(ConfigurationManager.ConnectionStrings["connectToDb"].ConnectionString);
                 connection.Open();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Der er ingen forbindelse til databasen");
+                throw ex;
                 
             }
         }

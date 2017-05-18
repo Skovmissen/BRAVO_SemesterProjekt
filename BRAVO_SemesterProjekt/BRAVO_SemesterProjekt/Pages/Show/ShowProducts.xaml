@@ -33,5 +33,6 @@
         <Label x:Name="label_title_latitude" Content="Breddegrad:" HorizontalAlignment="Left" Margin="818,685,0,0" VerticalAlignment="Top" Width="85"/>
         <Label x:Name="label_longitude" Content="{Binding Path=Longtitude}" HorizontalAlignment="Left" Margin="908,659,0,0" VerticalAlignment="Top" Height="25" Width="141"/>
         <Label x:Name="label_title_longitude" Content="Længdegrad:" HorizontalAlignment="Left" Margin="818,660,0,0" VerticalAlignment="Top" Width="85"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="1215,714,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
     </Grid>
 </Page>
