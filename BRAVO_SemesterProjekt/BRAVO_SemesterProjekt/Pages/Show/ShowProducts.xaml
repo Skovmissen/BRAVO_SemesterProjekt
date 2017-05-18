@@ -13,7 +13,7 @@
 
     <Grid>
         <Button x:Name="btn_search" Content="Søg" HorizontalAlignment="Left" Margin="572,125,0,0" VerticalAlignment="Top" Width="75" Click="btn_search_Click" Height="39" Background="White"/>
-        <DataGrid x:Name="datagrid_ShowProducts" Background="#FFE6D431" BorderBrush="#FFE6D431" AutoGenerateColumns="True" AutoGeneratingColumn="datagrid_ShowProducts_AutoGeneratingColumn" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Height="461" Width="445" SelectionChanged="datagrid_ShowProducts_SelectionChanged_1" />
+        <DataGrid x:Name="datagrid_ShowProducts" Background="#FFE6D431" BorderBrush="#FFE6D431" AutoGenerateColumns="True" AutoGeneratingColumn="datagrid_ShowProducts_AutoGeneratingColumn" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Height="461" Width="445" SelectionChanged="datagrid_ShowProducts_SelectionChanged_1" />
         <Label x:Name="label" Content="Liste over aktive produkter" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <TextBox x:Name="textbox_product" HorizontalAlignment="Left" Height="23" Margin="10,136,0,0" TextWrapping="Wrap" Text="{Binding Path=SearchProduct}" VerticalAlignment="Top" Width="120"/>
