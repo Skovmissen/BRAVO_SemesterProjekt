@@ -102,9 +102,7 @@ namespace BRAVO_SemesterProjekt
                     DB.OpenDb();
                     DB.InsertProductInCombi(combo, product);
                     ShowProductsInCombi();
-                    DB.CloseDb();
-                    
-                    MessageBox.Show("Produktet er oprettet i den valgte Kombo");
+                    DB.CloseDb();                                       
                 }
                 else
                 {
@@ -114,8 +112,8 @@ namespace BRAVO_SemesterProjekt
             }
             catch (SqlException)
             {
-
-                MessageBox.Show("Et felt er ikke blevet valgt");
+                
+                MessageBox.Show("Der er ingen forbindelse til databasen");
             }
             catch (Exception)
             {

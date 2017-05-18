@@ -684,7 +684,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void InsertProductInCombi(ComboProducts combo, Products product) //Lavet af Lasse og Nikolaj
         {
-            SqlCommand command = new SqlCommand("INSERT INTO CombiView (FK_CombiId, FK_ProductId) VALUES (@FK_CombiId, @FK_ProductId)", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO CombiView (FK_CombiId, FK_ProductId) SELECT @FK_CombiId, @FK_ProductId WHERE NOT EXISTS (SELECT FK_CombiID FROM CombiView WHERE FK_CombiId = @FK_CombiId AND FK_ProductId = @FK_ProductId)", connection);
             command.Parameters.Add(CreateParam("@FK_CombiId", combo.Id, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@FK_ProductId", product.Id, SqlDbType.NVarChar));
             
