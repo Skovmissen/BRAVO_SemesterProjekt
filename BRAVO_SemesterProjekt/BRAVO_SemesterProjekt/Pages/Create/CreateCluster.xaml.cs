@@ -37,7 +37,6 @@ namespace BRAVO_SemesterProjekt
                 DB.OpenDb();                    //Denne indeholder en catch med messagebox, det skal den ikke gøre, der skal try catch om alle db.open i stedet for. ellers kommer der dobbelt messageboxe
                 FillcomboActor();
                 FillcomboCluster();
-                //DataGridShowAllCluster();
                 DB.CloseDb(); 
             }
             catch (Exception)
@@ -68,9 +67,8 @@ namespace BRAVO_SemesterProjekt
         }
                
         private void DataGridShowSpecificCluster()      //Fylder et datagrid med aktører under den valgte klynge
-        {
-            DataTable ShowSpecificClusterTable = DB.GetClusterActors(cluster);
-            dg_ShowspecificCluster.ItemsSource = ShowSpecificClusterTable.DefaultView;
+        {            
+            dg_ShowspecificCluster.ItemsSource = DB.GetClusterActors(cluster).DefaultView;
         }
         private void btn_saveClusterName(object sender, RoutedEventArgs e)
         {
