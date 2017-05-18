@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,9 +28,22 @@ namespace BRAVO_SemesterProjekt
         {
             InitializeComponent();
             DataContext = cluster;
-            DB.OpenDb();
-            edit_Cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
-            DB.CloseDb();
+            try
+            {
+                DB.OpenDb();
+                edit_Cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
+                DB.CloseDb();
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Ingen forbindelse til databsen");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Ukendt fejl");
+            }
+           
             
         }
 
@@ -47,15 +61,38 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
         {
-            DB.OpenDb();
-            DB.UpdateCluster(cluster);
-            edit_Cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
-            DB.CloseDb();
-            cluster.OldName = null;
-            cluster.Name = null;
-            cluster.Description = null;
-            cluster.Activate = false;
-            MessageBox.Show("Redigering fuldført");
+            try
+            {
+                if (!(cluster.OldName == null || cluster.OldName == "" || cluster.Name == null || cluster.Name == "" || cluster.Description == null | cluster.Description == ""))
+                {
+                    DB.OpenDb();
+                    DB.UpdateCluster(cluster);
+                    edit_Cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
+                    DB.CloseDb();
+                    cluster.OldName = null;
+                    cluster.Name = null;
+                    cluster.Description = null;
+                    cluster.Activate = false;
+                    MessageBox.Show("Redigering fuldført");
+                }
+                else
+                {
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                }
+                
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ukendt fejl");
+            }
+
+           
+            
            
         }
 

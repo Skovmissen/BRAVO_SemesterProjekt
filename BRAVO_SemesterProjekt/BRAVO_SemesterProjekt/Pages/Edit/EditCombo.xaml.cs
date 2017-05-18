@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,19 +59,37 @@ namespace BRAVO_SemesterProjekt
 
         private void button_update_Click(object sender, RoutedEventArgs e) // instansen combo sendes til updatecombo metden, der opdaterer tabbellen, viewet opdateres.
         {
+            try
+            {
+                if (!(combo.Name == null || combo.Name == "" || combo.Description == null || combo.Description == "" || combo.StartTime == null ||  combo.EndTime == null || combo.Price == 0))
+                {
+                    DB.OpenDb();
+                    DB.UpdateCombo(combo);
+                    dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
+                    DB.CloseDb();
+                    combo.Id = 0;
+                    combo.Name = null;
+                    combo.Description = null;
+                    combo.StartTime = null;
+                    combo.EndTime = null;
+                    combo.Price = 0;
 
-            DB.OpenDb();
-            DB.UpdateCombo(combo);
-            dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
-            DB.CloseDb();
-            combo.Id = 0;
-            combo.Name = null;
-            combo.Description = null;
-            combo.StartTime = null;
-            combo.EndTime = null;
-            combo.Price = 0;
-            
-            MessageBox.Show("Redigering fuldført");
+                    MessageBox.Show("Redigering fuldført");
+                }
+                else
+                {
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                }
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Ingen forbindelse til Databasen");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         private void button_Click(object sender, RoutedEventArgs e)
         {

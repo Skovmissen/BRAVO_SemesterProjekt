@@ -12,8 +12,8 @@
 
     <Grid>
         <Button x:Name="btn_search" Content="Søg" HorizontalAlignment="Left" Margin="572,125,0,0" VerticalAlignment="Top" Width="75" Click="btn_search_Click" Height="39" Background="White"/>
-        <DataGrid x:Name="datagrid_ShowProducts" AutoGenerateColumns="True" AutoGeneratingColumn="datagrid_ShowProducts_AutoGeneratingColumn" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Height="461" Width="445" SelectionChanged="datagrid_ShowProducts_SelectionChanged_1" />
-        <Label x:Name="label" Content="Liste over aktive produkter" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
+        <DataGrid x:Name="datagrid_ShowProducts" AutoGenerateColumns="True" AutoGeneratingColumn="datagrid_ShowProducts_AutoGeneratingColumn" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Height="461" Width="445" SelectionChanged="datagrid_ShowProducts_SelectionChanged_1" />
+        <Label x:Name="label" Content="Liste over aktive produkter" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <TextBox x:Name="textbox_product" HorizontalAlignment="Left" Height="23" Margin="10,136,0,0" TextWrapping="Wrap" Text="{Binding Path=SearchProduct}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox_city" HorizontalAlignment="Left" Height="23" Margin="148,136,0,0" TextWrapping="Wrap" Text="{Binding Path=SearchCity}" VerticalAlignment="Top" Width="120"/>
@@ -26,13 +26,24 @@
         <Label x:Name="label_searchCity" Content="City" HorizontalAlignment="Left" Margin="152,114,0,0" VerticalAlignment="Top" Width="115"/>
         <Label x:Name="label_searchZipcode" Content="Postnummer" HorizontalAlignment="Left" Margin="291,114,0,0" VerticalAlignment="Top" Width="115"/>
         <Label x:Name="label_searchCatname" Content="Kategori" HorizontalAlignment="Left" Margin="432,114,0,0" VerticalAlignment="Top" Width="115"/>
-        <Label x:Name="label_description" Content="Produktbeskrivelse" HorizontalAlignment="Left" Margin="489,402,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_productname" Content="{Binding Path=ProductName}" HorizontalAlignment="Left" Margin="491,214,0,0" VerticalAlignment="Top" Height="24" Width="289"/>
-        <Label x:Name="label_latitude" Content="{Binding Path=Latitude}" HorizontalAlignment="Left" Margin="908,685,0,0" VerticalAlignment="Top" Height="25" Width="141"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="284" Margin="491,426,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="304"/>
-        <Label x:Name="label_title_latitude" Content="Breddegrad:" HorizontalAlignment="Left" Margin="818,685,0,0" VerticalAlignment="Top" Width="85"/>
-        <Label x:Name="label_longitude" Content="{Binding Path=Longtitude}" HorizontalAlignment="Left" Margin="908,659,0,0" VerticalAlignment="Top" Height="25" Width="141"/>
-        <Label x:Name="label_title_longitude" Content="Længdegrad:" HorizontalAlignment="Left" Margin="818,660,0,0" VerticalAlignment="Top" Width="85"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="1215,714,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Label x:Name="label_description" Content="Produktbeskrivelse" HorizontalAlignment="Left" Margin="533,425,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_latitude" Content="{Binding Path=Latitude}" HorizontalAlignment="Left" Margin="624,395,0,0" VerticalAlignment="Top" Height="25" Width="141"/>
+        <TextBox x:Name="textBox" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Height="199" Margin="535,449,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="409" IsReadOnly="True"/>
+        <Label x:Name="label_title_latitude" Content="Breddegrad:" HorizontalAlignment="Left" Margin="534,395,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label x:Name="label_longitude" Content="{Binding Path=Longtitude}" HorizontalAlignment="Left" Margin="624,376,0,0" VerticalAlignment="Top" Height="25" Width="141"/>
+        <Label x:Name="label_title_longitude" Content="Længdegrad:" HorizontalAlignment="Left" Margin="534,377,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label x:Name="label_productname" Content="{Binding Path=ProductName}" HorizontalAlignment="Left" Margin="623,201,0,0" VerticalAlignment="Top" Height="25" Width="258"/>
+        <Label x:Name="label_title_productname" Content="Produkt:" HorizontalAlignment="Left" Margin="533,202,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label x:Name="label_Catname" Content="{Binding Path=Category}" HorizontalAlignment="Left" Margin="623,233,0,0" VerticalAlignment="Top" Height="25" Width="280"/>
+        <Label x:Name="label_title_Catname" Content="Kategori:" HorizontalAlignment="Left" Margin="533,234,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label x:Name="label_price" Content="{Binding Path=Price}" HorizontalAlignment="Left" Margin="623,263,0,0" VerticalAlignment="Top" Height="25" Width="141"/>
+        <Label x:Name="label_title_price" Content="Pris:" HorizontalAlignment="Left" Margin="533,264,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label x:Name="label_street" Content="{Binding Path=Street }" HorizontalAlignment="Left" Margin="623,293,0,0" VerticalAlignment="Top" Height="25" Width="201"/>
+        <Label x:Name="label_title_address" Content="Adresse:" HorizontalAlignment="Left" Margin="533,294,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label x:Name="label_zipcode" Content="{Binding Path=Zipcode}" HorizontalAlignment="Left" Margin="623,308,0,0" VerticalAlignment="Top" Height="25" Width="52"/>
+        <Label x:Name="label_City" Content="{Binding Path=City}" HorizontalAlignment="Left" Margin="673,308,0,0" VerticalAlignment="Top" Height="25" Width="141"/>
+        <Label x:Name="label_url" Content="{Binding Path=Url}" HorizontalAlignment="Left" Margin="623,342,0,0" VerticalAlignment="Top" Height="25" Width="236"/>
+        <Label x:Name="label_title_url" Content="Webadresse:" HorizontalAlignment="Left" Margin="533,343,0,0" VerticalAlignment="Top" Width="85"/>
+
     </Grid>
 </Page>
