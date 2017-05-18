@@ -34,16 +34,19 @@ namespace BRAVO_SemesterProjekt
             
             try
             {
-                DB.OpenDb();                    //Denne indeholder en catch med messagebox, det skal den ikke gøre, der skal try catch om alle db.open i stedet for. ellers kommer der dobbelt messageboxe
+                DB.OpenDb();                    
                 FillcomboActor();
                 FillcomboCluster();
                 DB.CloseDb(); 
             }
-            catch (Exception)
+            catch (SqlException)
             {
 
-
                 MessageBox.Show("Der er ingen forbindelse til databasen");
+            }
+            catch
+            {
+                MessageBox.Show("Ukendt fejl");
             }
             
 
@@ -102,7 +105,7 @@ namespace BRAVO_SemesterProjekt
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Ukendt fejl");
             }
 
         }
@@ -130,7 +133,7 @@ namespace BRAVO_SemesterProjekt
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Ukendt fejl");
             }
 
         }
