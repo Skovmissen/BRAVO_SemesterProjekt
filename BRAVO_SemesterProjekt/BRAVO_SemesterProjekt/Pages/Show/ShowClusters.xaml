@@ -5,14 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
+      Background="#FFE6D431"
       d:DesignHeight="814" d:DesignWidth="1301"
       Title="ShowClusters">
 
     <Grid>
         <Button x:Name="btn_search_cluster" Content="Søg" HorizontalAlignment="Left" Margin="176,111,0,0" VerticalAlignment="Top" Width="96" Click="btn_search_cluster_Click" Height="29" Background="White"/>
-        <TextBox x:Name="search_cluster" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="155" Margin="10,111,0,0"/>
-        <DataGrid x:Name="dataGrid_cluster" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Height="433" Width="586" SelectionChanged="dataGrid_cluster_SelectionChanged" IsReadOnly="True"/>
-        <DataGrid x:Name="ClusterData" HorizontalAlignment="Left" Margin="664,194,0,0" VerticalAlignment="Top" Height="310" Width="424" HeadersVisibility="None" IsReadOnly="True" ColumnWidth="*"/>
+        <TextBox x:Name="search_cluster" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="155" Margin="10,111,0,0"/>
+        <DataGrid x:Name="dataGrid_cluster" Background="#FFE6D431" BorderBrush="#FFE6D431" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Height="433" Width="586" SelectionChanged="dataGrid_cluster_SelectionChanged" IsReadOnly="True"/>
+        <DataGrid x:Name="ClusterData" Background="#FFE6D431" BorderBrush="#FFE6D431" HorizontalAlignment="Left" Margin="664,194,0,0" VerticalAlignment="Top" Height="310" Width="424" HeadersVisibility="None" IsReadOnly="True" ColumnWidth="*"/>
         <Label x:Name="label1" Content="Vælg klynge for yderligere information" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Label x:Name="label1_Copy" Content="Aktører i den valgte klynge" HorizontalAlignment="Left" Margin="664,165,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1112,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>

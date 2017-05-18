@@ -27,8 +27,9 @@ namespace BRAVO_SemesterProjekt
         TempData temp = new TempData();
         public ShowCombos()
         {
-            DataContext = combo;
+            
             InitializeComponent();
+            txt_Search_Combo.DataContext = temp;
             DB.OpenDb();
             GridShowCombo.ItemsSource = DB.ShowCombo().DefaultView;
             DB.CloseDb();

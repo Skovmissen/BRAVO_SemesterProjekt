@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,15 +25,16 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class ShowClusters : Page
     {
-        
+
         Clusters cluster = new Clusters();
         //Actors actor = new Actors();
         TempData temp = new TempData();
-        
+
         public ShowClusters() //vis klynge metoden køres og sendes til datagriddet
         {
-            DataContext = cluster;
+
             InitializeComponent();
+            DataContext = temp;
             DB.OpenDb();
             dataGrid_cluster.ItemsSource = DB.ShowCluster().DefaultView;
             DB.CloseDb();
@@ -40,10 +42,23 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_search_cluster_Click(object sender, RoutedEventArgs e)//søge metoden køres og og sendes til datagriddet
         {
-            DB.OpenDb();       
-            dataGrid_cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;            
-            DB.CloseDb();
-            
+            try
+            {
+                DB.OpenDb();
+                dataGrid_cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
+                DB.CloseDb();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt Fejl");
+            }
+
+
         }
 
         private void dataGrid_cluster_SelectionChanged(object sender, SelectionChangedEventArgs e)//ved valg af række i datagrid vises resultat i clusterdata griddet.
@@ -57,8 +72,8 @@ namespace BRAVO_SemesterProjekt
             DB.OpenDb();
             ClusterData.ItemsSource = DB.GetClusterActors(cluster).DefaultView;
             DB.CloseDb();
-           
-           
+
+
         }
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {

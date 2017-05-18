@@ -5,13 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
+      Background="#FFE6D431"
       d:DesignHeight="800" d:DesignWidth="1300"
       Title="ShowCombos">
 
     <Grid>
-        <DataGrid x:Name="GridShowCombo" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="432" Width="620" SelectionChanged="GridShowCombo_SelectionChanged" IsReadOnly="True" ColumnWidth="*"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="30" Margin="10,94,0,0" TextWrapping="Wrap" Text="{Binding Path=Search }" VerticalAlignment="Top" Width="136"/>
-        <DataGrid x:Name="dataGridCombo" HorizontalAlignment="Left" Margin="659,158,0,0" VerticalAlignment="Top" Height="432" Width="631" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None"/>
+        <DataGrid x:Name="GridShowCombo" Background="#FFE6D431" BorderBrush="#FFE6D431" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="432" Width="620" SelectionChanged="GridShowCombo_SelectionChanged" IsReadOnly="True" ColumnWidth="*"/>
+        <TextBox x:Name="txt_Search_Combo" HorizontalAlignment="Left" Height="30" Margin="10,94,0,0" TextWrapping="Wrap" Text="{Binding Path=Search }" VerticalAlignment="Top" Width="136"/>
+        <DataGrid x:Name="dataGridCombo" Background="#FFE6D431" BorderBrush="#FFE6D431" HorizontalAlignment="Left" Margin="659,158,0,0" VerticalAlignment="Top" Height="432" Width="631" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None"/>
         <Button x:Name="btn_Search_Combo" Content="Søg" HorizontalAlignment="Left" Margin="159,94,0,0" VerticalAlignment="Top" Width="85" Click="btn_Search_Combo_Click" Height="30" Background="White"/>
         <Label x:Name="label" Content="Vælg Kombinations produkt for yderlige informationer" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Label x:Name="label_Copy" Content="Produkter i det valgte kombinations produkt" HorizontalAlignment="Left" Margin="659,129,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>

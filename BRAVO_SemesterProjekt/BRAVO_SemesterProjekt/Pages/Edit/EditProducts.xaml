@@ -5,29 +5,30 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
+       Background="#FF0069B7"
       d:DesignHeight="800" d:DesignWidth="1300"
       Title="EditProducts">
 
     <Grid>
-        <DataGrid x:Name="dataGrid_Edit_Product" IsReadOnly="True" AutoGenerateColumns="true" AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Height="206" Width="1052" ColumnWidth="*" SelectionChanged="dataGrid_Edit_Product_SelectionChanged"/>
+        <DataGrid x:Name="dataGrid_Edit_Product" Background="#FF0069B7" BorderBrush="#FF0069B7" IsReadOnly="True" AutoGenerateColumns="true"  AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Height="206" Width="1052" ColumnWidth="*" SelectionChanged="dataGrid_Edit_Product_SelectionChanged"/>
         <ComboBox x:Name="cmb_category" HorizontalAlignment="Left" Margin="289,561,0,0" VerticalAlignment="Top" Width="190" DropDownClosed="cmb_category_DropDownClosed" Height="24"/>
 
         <Button x:Name="button" Content="Søg"  HorizontalAlignment="Left" Margin="972,85,0,0" VerticalAlignment="Top" Width="90" Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353" RenderTransformOrigin="0.453,-0.517" Height="31"/>
         <Button x:Name="button_Edit_Product" Content="Opdatere" HorizontalAlignment="Left" Margin="816,609,0,0" VerticalAlignment="Top" Width="246" Click="button_Edit_Product_Click" Height="72" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Edit_Product" Content="Vælg det produkt du vil redigere" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="266" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_ProductName" Content="Produkt navn" HorizontalAlignment="Left" Margin="10,348,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_City" Content="By" HorizontalAlignment="Left" Margin="10,409,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Zipcode" Content="Postnr" HorizontalAlignment="Left" Margin="10,468,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Region" Content="Kommune" HorizontalAlignment="Left" Margin="10,528,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_street" Content="Vejnavn" HorizontalAlignment="Left" Margin="10,591,0,0" VerticalAlignment="Top" Width="158" Height="27" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Latitude" Content="Breddegrad" HorizontalAlignment="Left" Margin="289,348,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Longtitude" Content="Længdegrad" HorizontalAlignment="Left" Margin="289,409,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_URL" Content="Url" HorizontalAlignment="Left" Margin="289,468,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Description" Content="Beskrivelse" HorizontalAlignment="Left" Margin="504,348,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="label_Category" Content="Kategori" HorizontalAlignment="Left" Margin="289,529,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.222,1.043" Width="190" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Price" Content="Pris" HorizontalAlignment="Left" Margin="289,590,0,0" VerticalAlignment="Top" Width="157" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_ActorName" Content="Aktør navn" HorizontalAlignment="Left" Margin="289,647,0,0" VerticalAlignment="Top" Width="120" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Search" Content="Søg efter produkt" HorizontalAlignment="Left" Margin="694,86,0,0" VerticalAlignment="Top" Width="153" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353" Height="30"/>
+        <Label x:Name="lbl_Edit_Product" Content="Vælg det produkt du vil redigere" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="266" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_ProductName" Content="Produkt navn" HorizontalAlignment="Left" Margin="10,348,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_City" Content="By" HorizontalAlignment="Left" Margin="10,409,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_Zipcode" Content="Postnr" HorizontalAlignment="Left" Margin="10,468,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_Region" Content="Kommune" HorizontalAlignment="Left" Margin="10,528,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_street" Content="Vejnavn" HorizontalAlignment="Left" Margin="10,591,0,0" VerticalAlignment="Top" Width="158" Height="27" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_Latitude" Content="Breddegrad" HorizontalAlignment="Left" Margin="289,348,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_Longtitude" Content="Længdegrad" HorizontalAlignment="Left" Margin="289,409,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_URL" Content="Url" HorizontalAlignment="Left" Margin="289,468,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_Description" Content="Beskrivelse" HorizontalAlignment="Left" Margin="504,348,0,0" VerticalAlignment="Top" Width="158" Height="26" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="label_Category" Content="Kategori" HorizontalAlignment="Left" Margin="289,529,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.222,1.043" Width="190" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_Price" Content="Pris" HorizontalAlignment="Left" Margin="289,590,0,0" VerticalAlignment="Top" Width="157" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_ActorName" Content="Aktør navn" HorizontalAlignment="Left" Margin="289,647,0,0" VerticalAlignment="Top" Width="120" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
+        <Label x:Name="lbl_Search" Content="Søg efter produkt" HorizontalAlignment="Left" Margin="694,86,0,0" VerticalAlignment="Top" Width="153" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF" Height="30"/>
 
 
         <TextBox x:Name="textBox_Search_Edit_Product" HorizontalAlignment="Left" Height="31" Margin="847,86,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
@@ -43,11 +44,11 @@
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="289,618,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="191"/>
         <TextBox x:Name="textBox_Category" IsReadOnly="True" HorizontalAlignment="Left" Height="24" Margin="289,561,0,0" TextWrapping="Wrap" Text="{Binding Path=Category}" Background="#FFE6E6E6" VerticalAlignment="Top" Width="173"/>
 
-        <CheckBox x:Name="checkBox" Content="Aktivere eller deaktivere produkt" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="10,670,0,0" VerticalAlignment="Top" Height="28" Width="249" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
+        <CheckBox x:Name="checkBox" Content="Aktivere eller deaktivere produkt" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="10,670,0,0" VerticalAlignment="Top" Height="28" Width="249" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
         <Button x:Name="btn_back" Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Height="49" Background="White" Click="button_back_Click"/>
         <ComboBox x:Name="cmb_Actorname" HorizontalAlignment="Left" Margin="290,676,0,0" VerticalAlignment="Top" Text="{Binding Path=ActorName}" Width="189"/>
         <TextBox x:Name="txt_actorname" Text="{Binding Path=ActorName}" HorizontalAlignment="Left" Height="22" Margin="289,676,0,0" TextWrapping="Wrap"  Background="#FFE6E6E6" VerticalAlignment="Top" Width="173"/>
-        <Label x:Name="lbl_Header" Content="Redigere Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="137,10,0,0" VerticalAlignment="Top" Height="49" Width="1153" FontSize="20"/>
+        <Label x:Name="lbl_Header" Foreground="#FFFFFFFF" Content="Redigere Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="137,10,0,0" VerticalAlignment="Top" Height="49" Width="1153" FontSize="20"/>
 
 
     </Grid>
