@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
-      Background="#FF00B155"
+      Background="#FFE6D431"
       d:DesignHeight="732" d:DesignWidth="1293"
       Title="Upload">
 
