@@ -22,11 +22,10 @@ namespace BRAVO_SemesterProjekt
                 connection = new SqlConnection(ConfigurationManager.ConnectionStrings["connectToDb"].ConnectionString);
                 connection.Open();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Der er ingen forbindelse til databasen");
-
-
+                throw ex;
+                
             }
         }
         
@@ -375,7 +374,7 @@ namespace BRAVO_SemesterProjekt
             DataTable ds = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, FK_CategoryName, City, ZipCode FROM Product", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, City, ZipCode, FK_CategoryName, Describtion, Latitude, Longtitude FROM Product", connection);
 
                 reader.Fill(ds);
             }
@@ -457,7 +456,7 @@ namespace BRAVO_SemesterProjekt
             DataTable dt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, City, ZipCode, FK_CategoryName FROM Product WHERE ProductName LIKE @searchProduct OR ZipCode LIKE @searchZipcode OR FK_CategoryName LIKE @searchCatname OR City LIKE @searchCity", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, City, ZipCode, FK_CategoryName, Describtion, Latitude, Longtitude FROM Product WHERE ProductName LIKE @searchProduct AND ZipCode LIKE @searchZipcode AND FK_CategoryName LIKE @searchCatname AND City LIKE @searchCity", connection);
                 reader.SelectCommand.Parameters.AddWithValue("@searchProduct", "%" + product.SearchProduct + "%");
                 reader.SelectCommand.Parameters.AddWithValue("@searchZipcode", "%" + product.SearchZipcode + "%");
                 reader.SelectCommand.Parameters.AddWithValue("@searchCity", "%" + product.SearchCity + "%");

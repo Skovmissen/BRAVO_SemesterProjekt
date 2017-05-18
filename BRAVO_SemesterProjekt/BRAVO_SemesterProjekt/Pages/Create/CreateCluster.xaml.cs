@@ -42,8 +42,12 @@ namespace BRAVO_SemesterProjekt
             catch (Exception)
             {
 
-                throw;
-            }           
+
+                MessageBox.Show("Der er ingen forbindelse til databasen");
+            }
+            
+
+
         }
         private void FillcomboActor()   //Denne metoder fylder comboboxen med alle aktører i databasen
         {
@@ -70,26 +74,30 @@ namespace BRAVO_SemesterProjekt
         {
             try
             {
+               
+         
 
-                if (cluster.Name != "") //Lavet for at forhindre en et tomt klynge navn bliver oprettet, i tilfælde af der bliver skrevet noget tekst, det bliver slettet, og man trykker opret.
+                if (!(cluster.Name == null || cluster.Name == "" || cluster.Description == null || cluster.Description == ""))
                 {
                     DB.OpenDb();
-                    DB.InsertCluster(cluster);                    
+                    DB.InsertCluster(cluster);
                     cmb_cluster.Items.Clear();
                     FillcomboCluster();
                     DB.CloseDb();
                     MessageBox.Show("Klynge er oprettet");
+                    txt_description.Clear();
+                    txt_navn.Clear();
                 }
                 else
                 {
-                    MessageBox.Show("Det valgte klynge navn er ikke gyldigt");
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
                 }
 
             }
             catch (SqlException)
             {
 
-                MessageBox.Show("Et felt er ikke udfyldt korrekt eller klyngen eksisterer i forvejen");
+                MessageBox.Show("Ingen forbindelse til Databasen");
             }
             catch (Exception)
             {
@@ -102,10 +110,22 @@ namespace BRAVO_SemesterProjekt
         {
             try
             {
-                DB.OpenDb();
-                DB.InsertActorInCluster(cluster);
-                DataGridShowSpecificCluster();
-                DB.CloseDb();
+                if (!(cluster.Name == null || cluster.ActorName == null ))
+                {
+                    DB.OpenDb();
+                    DB.InsertActorInCluster(cluster);
+                    DataGridShowSpecificCluster();
+                    DB.CloseDb();
+                }
+                else
+                {
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                }
+                
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Ingen forbindelse til Databasen");
             }
             catch (Exception)
             {
