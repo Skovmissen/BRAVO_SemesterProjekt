@@ -148,7 +148,7 @@ namespace BRAVO_SemesterProjekt
 
         
 
-        public static void InsertProduct(Products product, Actors actor) // Lavet af Lasse
+        public static void InsertProduct(Products product) // Lavet af Lasse
         {
             SqlCommand command = new SqlCommand("INSERT INTO Product (City, ZipCode, Region, Street, Latitude, Longtitude, URL, Describtion, Activate, FK_ActorName, FK_CategoryName, ProductName, Price) VALUES (@City, @ZipCode, @Region, @Street, @Latitude, @Longtitude, @URL, @Describtion, @Activate, @ActorName, @CategoryName, @ProductName, @Price)", connection);
             command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
@@ -160,7 +160,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@URL", product.Url, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Describtion", product.Description, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Activate", 1, SqlDbType.Int));
-            command.Parameters.Add(CreateParam("@ActorName", actor.Name, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@ActorName", product.ActorName , SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@CategoryName", product.Category, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ProductName", product.ProductName, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Price", product.Price, SqlDbType.Float));
@@ -442,7 +442,7 @@ namespace BRAVO_SemesterProjekt
             DataTable dt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search OR ZipCode LIKE @search OR FK_CategoryName LIKE @search OR City LIKE @search OR Region LIKE @search OR Description LIKE @search", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search OR ZipCode LIKE @search OR FK_CategoryName LIKE @search OR City LIKE @search OR Region LIKE @search OR Describtion LIKE @search", connection);
                 reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
                 reader.Fill(dt);
             }

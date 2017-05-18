@@ -28,6 +28,7 @@ namespace BRAVO_SemesterProjekt
         public EditProducts()
         {
             InitializeComponent();
+            textBox_Search_Edit_Product.DataContext = temp;
             DataContext = product;
             DB.OpenDb();
             Fillcombo();

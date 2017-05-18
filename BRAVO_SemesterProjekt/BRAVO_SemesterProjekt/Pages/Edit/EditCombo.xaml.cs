@@ -28,6 +28,8 @@ namespace BRAVO_SemesterProjekt
         public EditCombo() //kontruktør binder datacontext til object og indlæser combo tabel i gridview
         {
             InitializeComponent();
+            textBox_search.DataContext = temp;
+
             DataContext = combo;
             DB.OpenDb();
             dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;

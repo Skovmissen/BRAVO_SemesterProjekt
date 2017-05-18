@@ -34,21 +34,30 @@ namespace BRAVO_SemesterProjekt
         {
             InitializeComponent();
             DataContext = combo;
+
+            try
+            {
             DB.OpenDb();
             FillcomboWithActors();
             FillcomboWithCombiProducts();
             DB.CloseDb();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Der er ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }           
         }
                
        
-
-        
         private void ShowProductsInCombi()  //Denne metode finder alle de produktid'er der er tilhørende det valgte komboId, hvorefter den henter produktnavnene ud og læser dem ind i datagridet.
-        {
-            DB.OpenDb();
+        {           
             DataTable comboProducts = DB.GetProductIdFromCombo(combo);            
-            dg_showproduts.ItemsSource = DB.GetProductsInComboView(comboProducts).DefaultView;
-            DB.CloseDb();            
+            dg_showproduts.ItemsSource = DB.GetProductsInComboView(comboProducts).DefaultView;                        
         }
         private void FillcomboWithActorsProducts()   //Denne metoder fylder comboboxen med alle produkter i databasen
         {
@@ -92,9 +101,9 @@ namespace BRAVO_SemesterProjekt
                 {
                     DB.OpenDb();
                     DB.InsertProductInCombi(combo, product);
-
-                    DB.CloseDb();
                     ShowProductsInCombi();
+                    DB.CloseDb();
+                    
                     MessageBox.Show("Produktet er oprettet i den valgte Kombo");
                 }
                 else
@@ -168,9 +177,10 @@ namespace BRAVO_SemesterProjekt
 
 
             DB.OpenDb();
-            combo.Id = DB.GetcomboId(combo);                        
-            DB.CloseDb();
+            combo.Id = DB.GetcomboId(combo);
             ShowProductsInCombi();
+            DB.CloseDb();
+            
         }
 
        

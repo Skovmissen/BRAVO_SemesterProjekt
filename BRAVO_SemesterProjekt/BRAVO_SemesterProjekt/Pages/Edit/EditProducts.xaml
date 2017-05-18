@@ -47,7 +47,7 @@
         <Button x:Name="btn_back" Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Height="49" Background="White" Click="button_back_Click"/>
         <ComboBox x:Name="cmb_Actorname" HorizontalAlignment="Left" Margin="290,676,0,0" VerticalAlignment="Top" Text="{Binding Path=ActorName}" Width="189"/>
         <TextBox x:Name="txt_actorname" Text="{Binding Path=ActorName}" HorizontalAlignment="Left" Height="22" Margin="289,676,0,0" TextWrapping="Wrap"  Background="#FFE6E6E6" VerticalAlignment="Top" Width="173"/>
-        <Label x:Name="lbl_Header" Content="Redigere Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="137,10,0,0" VerticalAlignment="Top" Height="86" Width="1153" FontSize="20"/>
+        <Label x:Name="lbl_Header" Content="Redigere Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="137,10,0,0" VerticalAlignment="Top" Height="49" Width="1153" FontSize="20"/>
 
 
     </Grid>

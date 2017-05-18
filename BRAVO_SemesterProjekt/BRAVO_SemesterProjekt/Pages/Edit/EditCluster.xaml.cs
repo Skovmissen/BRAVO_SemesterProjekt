@@ -27,6 +27,7 @@ namespace BRAVO_SemesterProjekt
         public EditCluster()
         {
             InitializeComponent();
+            txt_Edit_Search.DataContext = temp;
             DataContext = cluster;
             try
             {

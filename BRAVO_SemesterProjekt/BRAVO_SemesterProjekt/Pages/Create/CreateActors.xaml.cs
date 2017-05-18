@@ -28,30 +28,36 @@ namespace BRAVO_SemesterProjekt
         {
             DataContext = actor;
             InitializeComponent();
-            
-            
         }
 
         private void btn_gem(object sender, RoutedEventArgs e)
         {
             try
             {
+                if (!(actor.Name == null || actor.Name == "" || actor.Email == null || actor.Email == "" || actor.Tlf == null || actor.Tlf == ""))
+                {
                 DB.OpenDb();
                 DB.InsertActor(actor);
                 DB.CloseDb();
                 MessageBox.Show("Aktør er oprettet");
                 ClearBoxes();
+                }
+
+                else
+                {
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                }               
                 
             }
             catch (SqlException)
             {
 
-                MessageBox.Show("Et felt er ikke udfyldt korrekt eller aktøren eksisterer i forvejen");
+                MessageBox.Show("Der er ingen forbindelse til databasen");
             }
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Ukendt fejl");
             }
             
         }

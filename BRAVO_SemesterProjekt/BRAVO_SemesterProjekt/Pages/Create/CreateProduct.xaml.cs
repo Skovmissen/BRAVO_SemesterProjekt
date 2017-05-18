@@ -24,7 +24,7 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class CreateProduct : Page
     {
-        Actors actor = new Actors();
+      
         Products product = new Products();
         public CreateProduct()
         {
@@ -54,29 +54,36 @@ namespace BRAVO_SemesterProjekt
         }
         private void cmb_actor_DropDownClosed(object sender, EventArgs e)
         {
-            actor.Name = cmb_actor.Text;
+            product.ActorName = cmb_actor.Text;
         }      
 
         private void btn_opretprodukt(object sender, RoutedEventArgs e)
         {
             try
             {
+                if (!(product.ProductName == null || product.ProductName == "" || product.Street == null || product.Street == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Region == null || product.Region == "" || product.Longtitude == 0 || product.Latitude == 0 || product.Url == null || product.Url == "" || product.Price == 0 || product.Description == null || product.Description == "" || product.ActorName == null || product.Category == null))
+                {
                 DB.OpenDb();
-                DB.InsertProduct(product, actor);
+                DB.InsertProduct(product);
                 DB.CloseDb();
                 MessageBox.Show("Produktet er oprettet");
                 ClearBoxes();
+                }
+                else
+                {
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
 
+                }               
             }
             catch (SqlException)
             {
-
-                MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                
+                MessageBox.Show("Der er ingen forbindelse til databasen");
             }
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Ukendt fejl");
             }
             
         }
@@ -91,6 +98,7 @@ namespace BRAVO_SemesterProjekt
             product.Url = null;
             product.Zipcode = null;
             cmb_category.SelectedItem = null;
+            cmb_actor.SelectedItem = null;
             product.Price = 0;
             product.ProductName = null;
         }
