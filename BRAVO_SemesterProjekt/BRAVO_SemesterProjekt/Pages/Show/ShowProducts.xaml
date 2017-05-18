@@ -41,9 +41,12 @@
         <Label x:Name="label_street" Content="{Binding Path=Street }" HorizontalAlignment="Left" Margin="623,293,0,0" VerticalAlignment="Top" Height="25" Width="201"/>
         <Label x:Name="label_title_address" Content="Adresse:" HorizontalAlignment="Left" Margin="533,294,0,0" VerticalAlignment="Top" Width="85"/>
         <Label x:Name="label_zipcode" Content="{Binding Path=Zipcode}" HorizontalAlignment="Left" Margin="623,308,0,0" VerticalAlignment="Top" Height="25" Width="52"/>
-        <Label x:Name="label_City" Content="{Binding Path=City}" HorizontalAlignment="Left" Margin="673,308,0,0" VerticalAlignment="Top" Height="25" Width="141"/>
+        <Label x:Name="label_City" Content="{Binding Path=City}" HorizontalAlignment="Left" Margin="663,308,0,0" VerticalAlignment="Top" Height="25" Width="141"/>
         <Label x:Name="label_url" Content="{Binding Path=Url}" HorizontalAlignment="Left" Margin="623,342,0,0" VerticalAlignment="Top" Height="25" Width="236"/>
         <Label x:Name="label_title_url" Content="Webadresse:" HorizontalAlignment="Left" Margin="533,343,0,0" VerticalAlignment="Top" Width="85"/>
+        <Button x:Name="button" Content="Print" HorizontalAlignment="Left" Margin="474,50,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Label x:Name="label_title_region" Content="Kommune" HorizontalAlignment="Left" Margin="662,322,0,0" VerticalAlignment="Top" Height="25" Width="68"/>
+        <Label x:Name="label_region" Content="{Binding Path=Region}" HorizontalAlignment="Left" Margin="623,322,0,0" VerticalAlignment="Top" Height="25" Width="65"/>
 
     </Grid>
 </Page>
