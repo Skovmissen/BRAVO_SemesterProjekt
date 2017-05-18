@@ -48,6 +48,7 @@ namespace BRAVO_SemesterProjekt
             
             try
             {
+                
                 if (!(product.SearchCatname == null && product.SearchCity == null && product.SearchZipcode == null && product.SearchProduct == null))
                 {
                     DB.OpenDb();
@@ -102,7 +103,7 @@ namespace BRAVO_SemesterProjekt
             product.Latitude = double.Parse(temp, CultureInfo.InvariantCulture); //stringen temp blive i double.parse parset til en Double. det double.parse gør er at konvertere en string værdi til en double værdi
 
             temp = product.Longtitude.ToString();
-            temp = temp.Insert(2, ",");
+            temp = temp.Insert(2, ".");
             product.Longtitude = double.Parse(temp, CultureInfo.InvariantCulture);
         }
         private void datagrid_ShowProducts_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
