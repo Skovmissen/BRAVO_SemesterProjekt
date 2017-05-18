@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,19 +50,34 @@ namespace BRAVO_SemesterProjekt
             NavigationService.Navigate(menu);
         }
 
-        private void datagrid_ShowProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void datagrid_ShowProducts_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             foreach (DataRowView row in datagrid_ShowProducts.SelectedItems)
             {
-                product.ProductName = row.Row.ItemArray[1].ToString();
+                product.ProductName = row.Row.ItemArray[0].ToString();
+                product.Description = row.Row.ItemArray[4].ToString();
+                product.Latitude = Convert.ToDouble(row.Row.ItemArray[5].ToString());
+                product.Longtitude = Convert.ToDouble(row.Row.ItemArray[6].ToString());
 
-                product.Description = row.Row.ItemArray[9].ToString();
             }
+            string temp = product.Latitude.ToString();
+            temp = temp.Insert(2, ".");
+            product.Latitude =  double.Parse(temp, CultureInfo.InvariantCulture);
+
+            temp = product.Longtitude.ToString();
+            temp = temp.Insert(2, ".");
+            product.Longtitude = double.Parse(temp, CultureInfo.InvariantCulture);
+
+
+
         }
 
-        private void datagrid_ShowProducts_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        private void datagrid_ShowProducts_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-          
+            if (e.PropertyName == "Describtion" || e.PropertyName == "Latitude" || e.PropertyName == "Longitude")
+            {
+                e.Column = null;
+            }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
