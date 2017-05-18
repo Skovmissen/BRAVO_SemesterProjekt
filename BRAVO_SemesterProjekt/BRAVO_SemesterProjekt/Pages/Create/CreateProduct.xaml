@@ -27,12 +27,12 @@
         <TextBox x:Name="txt_url" HorizontalAlignment="Left" Height="23" Margin="157,384,0,0" TextWrapping="Wrap" Text="{Binding Path=Url}" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_Copy6" Content="Url:" HorizontalAlignment="Left" Margin="157,357,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txt_desciption" HorizontalAlignment="Left" Height="130" Margin="298,227,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="435"/>
-        <ComboBox x:Name="cmb_actor" DataContext="" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed"/>
+        <ComboBox x:Name="cmb_actor" DataContext="" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed"/>
         <ComboBox x:Name="cmb_category" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_category_DropDownClosed"/>
         <Label x:Name="label_Copy7" Content="Beskrivelse:" HorizontalAlignment="Left" Margin="298,196,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="button" Content="Opret produkt" HorizontalAlignment="Left" Margin="455,366,0,0" VerticalAlignment="Top" Width="278" Height="44" Click="btn_opretprodukt"/>
-        <Label x:Name="label1" Content="Vælg aktør" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label2" Content="Vælg kategori" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="Vælg aktør" HorizontalAlignment="Left" Margin="9,98,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label2" Content="Vælg kategori" HorizontalAlignment="Left" Margin="9,147,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="298,384,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label3" Content="Pris:" HorizontalAlignment="Left" Margin="298,357,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lbl_Header" Content="Opret Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="144,10,0,0" VerticalAlignment="Top" Height="86" Width="1066" FontSize="20"/>
