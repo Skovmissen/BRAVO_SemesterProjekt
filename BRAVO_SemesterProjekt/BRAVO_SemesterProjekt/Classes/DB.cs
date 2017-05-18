@@ -371,19 +371,19 @@ namespace BRAVO_SemesterProjekt
         }
         public static DataTable ShowProductsOverview() // Lavet af Claus
         {
-            DataTable ds = new DataTable();
+            DataTable dt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, City, ZipCode, FK_CategoryName, Describtion, Latitude, Longtitude FROM Product", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, FK_CategoryName, Describtion, Price, Street, City, ZipCode, URL, Latitude, Longtitude FROM Product WHERE Activate = 1", connection);
 
-                reader.Fill(ds);
+                reader.Fill(dt);
             }
             catch (Exception)
             {
 
                 throw;
             }
-            return ds;
+            return dt;
         }
 
         public static DataTable ShowActorsProducts(Actors actor) // Lavet af Claus
@@ -456,7 +456,8 @@ namespace BRAVO_SemesterProjekt
             DataTable dt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, City, ZipCode, FK_CategoryName, Describtion, Latitude, Longtitude FROM Product WHERE ProductName LIKE @searchProduct AND ZipCode LIKE @searchZipcode AND FK_CategoryName LIKE @searchCatname AND City LIKE @searchCity", connection);
+                
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName, FK_CategoryName, Describtion, Price, Street, City, ZipCode, URL, Latitude, Longtitude FROM Product WHERE Activate = 1 AND ProductName LIKE @searchProduct AND ZipCode LIKE @searchZipcode AND FK_CategoryName LIKE @searchCatname AND City LIKE @searchCity", connection);
                 reader.SelectCommand.Parameters.AddWithValue("@searchProduct", "%" + product.SearchProduct + "%");
                 reader.SelectCommand.Parameters.AddWithValue("@searchZipcode", "%" + product.SearchZipcode + "%");
                 reader.SelectCommand.Parameters.AddWithValue("@searchCity", "%" + product.SearchCity + "%");
