@@ -52,8 +52,8 @@
         <Button x:Name="btn_Create"  HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="OPRET" FontSize="36" Background="#FFFCA159" Click="btn_Create_Click" Foreground="White" FontFamily="Proxima Nova Rg" FontWeight="Bold" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
         <Button x:Name="btn_Edit" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="REDIGERE"  FontSize="36" Background="#FF0069B7" Click="btn_Edit_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="1" Grid.Row="1" />
 
-        <Button x:Name="btn_Show" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="OVERSIGT" FontSize="36" Background="#FFE6D431" Click="btn_Show_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" />
-        <Button x:Name="btn_Upload" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="UPLOAD" FontSize="36" Background="#FF00B155" Click="btn_Upload_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="1" Grid.Row="2" />
+        <Button x:Name="btn_Show" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="OVERSIGT" FontSize="36" Background="#FF00B155" Click="btn_Show_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" />
+        <Button x:Name="btn_Upload" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="UPLOAD" FontSize="36" Background="#FFE6D431" Click="btn_Upload_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="1" Grid.Row="2" />
 
         <Frame x:Name="frame" Panel.ZIndex="999" HorizontalAlignment="Center" Height="732" VerticalAlignment="Center" Width="1292" NavigationUIVisibility="Hidden" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="0,38,0,-1" />
     </Grid>
