@@ -5,13 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
+      Background="#FFE6D431"
       d:DesignHeight="800" d:DesignWidth="1300"
       Title="ShowActors">
 
     <Grid>
-        <DataGrid x:Name="GridShowActor" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="6,178,0,0" VerticalAlignment="Top" Height="423" Width="671" SelectionChanged="GridShowActor_SelectionChanged_1"/>
-        <DataGrid x:Name="ActorDataProducts" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None" HorizontalAlignment="Left" Margin="716,178,0,0" VerticalAlignment="Top" Width="506" Height="188"/>
-        <DataGrid x:Name="ActorDataCluster" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None" HorizontalAlignment="Left" Margin="715,404,0,0" VerticalAlignment="Top" Height="188" Width="507"/>
+        <DataGrid x:Name="GridShowActor" Background="#FFE6D431" BorderBrush="#FFE6D431" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="6,178,0,0" VerticalAlignment="Top" Height="423" Width="671" SelectionChanged="GridShowActor_SelectionChanged_1"/>
+        <DataGrid x:Name="ActorDataProducts" Background="#FFE6D431" BorderBrush="#FFE6D431" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None" HorizontalAlignment="Left" Margin="716,178,0,0" VerticalAlignment="Top" Width="506" Height="188"/>
+        <DataGrid x:Name="ActorDataCluster" Background="#FFE6D431" BorderBrush="#FFE6D431" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None" HorizontalAlignment="Left" Margin="715,404,0,0" VerticalAlignment="Top" Height="188" Width="507"/>
         <TextBox x:Name="txt_search_actor" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="198" Margin="386,138,0,0"/>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <Button x:Name="Btn_Search_Actor" Click="Btn_Search_Actor_Click" Content="Søg" HorizontalAlignment="Left" Margin="602,138,0,0" VerticalAlignment="Top" Width="75" Height="35" Background="White"/>
