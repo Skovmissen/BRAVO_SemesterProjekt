@@ -48,6 +48,7 @@ namespace BRAVO_SemesterProjekt
       
             try
             {
+                
                 if (!(product.SearchCatname == null && product.SearchCity == null && product.SearchZipcode == null && product.SearchProduct == null))
                 {
                     datagrid_ShowProducts.UnselectAllCells();
