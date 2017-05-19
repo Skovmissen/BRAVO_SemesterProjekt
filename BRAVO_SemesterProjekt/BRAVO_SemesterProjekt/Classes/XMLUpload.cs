@@ -202,7 +202,7 @@ namespace BRAVO_SemesterProjekt
             }
             else
             {
-                products.Latitude = Convert.ToDouble(latitude.InnerText);
+                products.Latitude = double.Parse(latitude.InnerText, CultureInfo.InvariantCulture);
             }
             if (longitude == null)
             {
@@ -210,7 +210,7 @@ namespace BRAVO_SemesterProjekt
             }
             else
             {
-                products.Longtitude = Convert.ToDouble(longitude.InnerText);
+                products.Longtitude = double.Parse(longitude.InnerText, CultureInfo.InvariantCulture);
             }
             if (region == null)
             {

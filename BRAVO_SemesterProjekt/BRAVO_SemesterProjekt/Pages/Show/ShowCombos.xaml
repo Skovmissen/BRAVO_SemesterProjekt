@@ -10,7 +10,7 @@
       Title="ShowCombos">
 
     <Grid>
-        <DataGrid x:Name="GridShowCombo" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="432" Width="620" SelectionChanged="GridShowCombo_SelectionChanged" IsReadOnly="True" ColumnWidth="*"/>
+        <DataGrid x:Name="GridShowCombo" AutoGenerateColumns="True" AutoGeneratingColumn="GridShowCombo_AutoGeneratingColumn" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="432" Width="620" SelectionChanged="GridShowCombo_SelectionChanged" IsReadOnly="True" ColumnWidth="*"/>
         <TextBox x:Name="txt_Search_Combo" HorizontalAlignment="Left" Height="30" Margin="404,121,0,0" TextWrapping="Wrap" Text="{Binding Path=Search }" VerticalAlignment="Top" Width="136"/>
         <DataGrid x:Name="dataGridCombo" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="659,468,0,0" VerticalAlignment="Top" Height="254" Width="623" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None"/>
         <Button x:Name="btn_Search_Combo" Content="Søg" HorizontalAlignment="Left" Margin="545,121,0,0" VerticalAlignment="Top" Width="85" Click="btn_Search_Combo_Click" Height="30" Background="White"/>
@@ -22,10 +22,12 @@
         <Label x:Name="label1" Content="Kombinationsprodukt navn" HorizontalAlignment="Left" Margin="665,107,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Dato Fra og Til" HorizontalAlignment="Left" Margin="665,176,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label3" Content="Beskrivelse" HorizontalAlignment="Left" Margin="665,235,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_name" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="665,134,0,0" VerticalAlignment="Top" Width="517" Height="37"/>
+        <Label x:Name="lbl_name" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="665,134,0,0" VerticalAlignment="Top" Width="157" Height="37"/>
         <Label x:Name="lbl_start" Content="{Binding Path=StartTime}" HorizontalAlignment="Left" Margin="665,203,0,0" VerticalAlignment="Top" Width="72" Height="27"/>
         <Label x:Name="lbl_end" Content="{Binding EndTime}" HorizontalAlignment="Left" Margin="742,203,0,0" VerticalAlignment="Top" Width="80" Height="27"/>
         <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="174" Margin="665,262,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="532"/>
+        <Label x:Name="lbl_price_name" Content="Pris" HorizontalAlignment="Left" Margin="870,107,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_price" Content="{Binding Path=Price}" HorizontalAlignment="Left" Margin="870,121,0,0" VerticalAlignment="Top" Width="133" Height="23"/>
 
     </Grid>
 </Page>
