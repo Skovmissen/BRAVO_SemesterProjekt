@@ -7,7 +7,7 @@
       xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="BRAVO_SemesterProjekt.ShowProducts"
       mc:Ignorable="d" 
     Background="#FF00B155"
-      d:DesignHeight="800" d:DesignWidth="1300"
+      d:DesignHeight="722" d:DesignWidth="1292"
       Title="ShowProducts">
 
 
@@ -15,7 +15,7 @@
         <Button x:Name="btn_search" Content="Søg" HorizontalAlignment="Left" Margin="572,125,0,0" VerticalAlignment="Top" Width="75" Click="btn_search_Click" Height="39" Background="White"/>
         <DataGrid x:Name="datagrid_ShowProducts" Background="#FF00B155" BorderBrush="#FF00B155" AutoGenerateColumns="True" AutoGeneratingColumn="datagrid_ShowProducts_AutoGeneratingColumn" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Height="461" Width="445" SelectionChanged="datagrid_ShowProducts_SelectionChanged_1" />
         <Label x:Name="label" Content="Liste over aktive produkter" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
-        <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
+        <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <TextBox x:Name="textbox_product" HorizontalAlignment="Left" Height="23" Margin="10,136,0,0" TextWrapping="Wrap" Text="{Binding Path=SearchProduct}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox_city" HorizontalAlignment="Left" Height="23" Margin="148,136,0,0" TextWrapping="Wrap" Text="{Binding Path=SearchCity}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox_searchZipcode" HorizontalAlignment="Left" Height="23" Margin="288,136,0,0" TextWrapping="Wrap" Text="{Binding Path=SearchZipcode}" VerticalAlignment="Top" Width="120"/>
@@ -45,12 +45,12 @@
         <Label x:Name="label_City" Content="{Binding Path=City}" HorizontalAlignment="Left" Margin="663,308,0,0" VerticalAlignment="Top" Height="25" Width="141"/>
         <Label x:Name="label_url" Content="{Binding Path=Url}" HorizontalAlignment="Left" Margin="623,342,0,0" VerticalAlignment="Top" Height="25" Width="236"/>
         <Label x:Name="label_title_url" Content="Webadresse:" HorizontalAlignment="Left" Margin="533,343,0,0" VerticalAlignment="Top" Width="85"/>
-        <Button x:Name="button" Content="Print" HorizontalAlignment="Left" Margin="869,61,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button" Content="Print" HorizontalAlignment="Left" Margin="841,120,0,0" VerticalAlignment="Top" Width="135" Click="button_Click" Height="44"/>
         <Label x:Name="label_title_region"  Content="{Binding Path=OldName}" HorizontalAlignment="Left" Margin="662,322,0,0" VerticalAlignment="Top" Height="25" Width="68"/>
         <Label x:Name="label_region" Content="{Binding Path=Region}" HorizontalAlignment="Left" Margin="623,322,0,0" VerticalAlignment="Top" Height="25" Width="65"/>
-        <Label x:Name="label_print" Content="Print dit valgte produkt" HorizontalAlignment="Left" Margin="809,86,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_header" Content="Produktoversigt" FontSize="20" HorizontalAlignment="Left" Margin="588,22,0,0" VerticalAlignment="Top"/>
-        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,722"/>
+        <Label x:Name="label_print" Content="Print dit valgte produkt" HorizontalAlignment="Left" Margin="841,168,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_header" HorizontalContentAlignment="Center" Content="Produktoversigt" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1292"/>
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,77,0,643"/>
 
 
     </Grid>

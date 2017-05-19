@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
        Background="#FF0069B7"
-      d:DesignHeight="800" d:DesignWidth="1300"
+      d:DesignHeight="722" d:DesignWidth="1292"
       Title="EditProducts">
 
     <Grid>
@@ -40,16 +40,16 @@
         <TextBox x:Name="textBox_Latitude" HorizontalAlignment="Left" Height="23" Margin="290,381,0,0" TextWrapping="Wrap" Text="{Binding Path=Latitude}" VerticalAlignment="Top" Width="190"/>
         <TextBox x:Name="textBox_Longtitude" HorizontalAlignment="Left" Height="24" Margin="290,439,0,0" TextWrapping="Wrap" Text="{Binding Path=Longtitude}" VerticalAlignment="Top" Width="190"/>
         <TextBox x:Name="textBox_URL" HorizontalAlignment="Left" Height="24" Margin="290,499,0,0" TextWrapping="Wrap" Text="{Binding Path=Url}" VerticalAlignment="Top" Width="190"/>
-        <TextBox x:Name="textBox_Description" HorizontalAlignment="Left" Height="204" Margin="504,381,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="558"/>
+        <TextBox x:Name="textBox_Description" AcceptsReturn="True" HorizontalAlignment="Left" Height="204" Margin="504,381,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="558"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="289,618,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="191"/>
         <TextBox x:Name="textBox_Category" IsReadOnly="True" HorizontalAlignment="Left" Height="24" Margin="289,561,0,0" TextWrapping="Wrap" Text="{Binding Path=Category}" Background="#FFE6E6E6" VerticalAlignment="Top" Width="173"/>
 
         <CheckBox x:Name="checkBox" Content="Aktivere eller deaktivere produkt" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="10,670,0,0" VerticalAlignment="Top" Height="28" Width="249" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FFFFFFFF"/>
-        <Button x:Name="btn_back" Content="Tilbage" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Height="49" Background="White" Click="button_back_Click"/>
+        <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="button_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <ComboBox x:Name="cmb_Actorname" HorizontalAlignment="Left" Margin="290,676,0,0" VerticalAlignment="Top" Text="{Binding Path=ActorName}" Width="189"/>
         <TextBox x:Name="txt_actorname" Text="{Binding Path=ActorName}" HorizontalAlignment="Left" Height="22" Margin="289,676,0,0" TextWrapping="Wrap"  Background="#FFE6E6E6" VerticalAlignment="Top" Width="173"/>
-        <Label x:Name="lbl_Header" Foreground="#FFFFFFFF" Content="Redigere Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="137,10,0,0" VerticalAlignment="Top" Height="49" Width="1153" FontSize="20"/>
-        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,722"/>
+        <Label x:Name="lbl_Header" Foreground="#FFFFFFFF" Content="Redigere Produkt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="1292" FontSize="20"/>
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,79,0,641"/>
 
 
     </Grid>
