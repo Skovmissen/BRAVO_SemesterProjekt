@@ -115,5 +115,13 @@ namespace BRAVO_SemesterProjekt
             EditMenu menu = new EditMenu();
             NavigationService.Navigate(menu);
         }
+
+        private void edit_Actor_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == ")
+            {
+
+            }
+        }
     }
 }
