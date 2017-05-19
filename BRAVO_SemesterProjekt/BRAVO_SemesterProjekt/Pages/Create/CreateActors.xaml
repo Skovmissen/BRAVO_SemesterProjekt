@@ -19,6 +19,6 @@ Background="#FFFCA159"
         <Label x:Name="label" Content="NAVN" Margin="10,110,1111,588" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
         <Label x:Name="label_Copy" Content="EMAIL" Margin="10,188,1111,504" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
         <Label x:Name="label_Copy1" Content="TELEFON" Margin="10,282,1121,414" FontFamily="Proxima Nova Rg" FontWeight="Bold" FontSize="14" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Header" Content="Opret Aktør" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="1292" FontSize="20"/>
+        <Label x:Name="lbl_Header" Content="Opret Aktør" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="1292" FontSize="20"/>
     </Grid>
 </Page>

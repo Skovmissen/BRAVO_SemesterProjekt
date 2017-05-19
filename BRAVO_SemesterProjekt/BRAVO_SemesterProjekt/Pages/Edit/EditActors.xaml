@@ -24,7 +24,7 @@
         <Button x:Name="btn_Edit_Search" Content="Søg" HorizontalAlignment="Left" Margin="796,121,0,0" VerticalAlignment="Top" Width="75" Click="btn_Edit_Search_Click" Background="White" Height="22" />
         <CheckBox x:Name="checkBox" Content="Aktivere eller deaktivere" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="486,530,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF"/>
         <Button x:Name="button" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Header" Content="Redigere Aktør" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFFFF" Height="30" Width="1292" FontSize="20"/>
+        <Label x:Name="lbl_Header" Content="Redigere Aktør" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFFFF" Height="35" Width="1292" FontSize="20"/>
         <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,10,644"/>
 
     </Grid>
