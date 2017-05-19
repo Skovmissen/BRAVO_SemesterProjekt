@@ -25,19 +25,19 @@ namespace BRAVO_SemesterProjekt
     public partial class CreateCluster : Page
     {
         Clusters cluster = new Clusters();
-        
+
         public CreateCluster()
         {
 
             InitializeComponent();
             DataContext = cluster;
-            
+
             try
             {
-                DB.OpenDb();                    
+                DB.OpenDb();
                 FillcomboActor();
                 FillcomboCluster();
-                DB.CloseDb(); 
+                DB.CloseDb();
             }
             catch (SqlException)
             {
@@ -48,7 +48,7 @@ namespace BRAVO_SemesterProjekt
             {
                 MessageBox.Show("Ukendt fejl");
             }
-            
+
 
 
         }
@@ -68,44 +68,54 @@ namespace BRAVO_SemesterProjekt
                 cmb_cluster.Items.Add(cluster.Rows[i]["ClusterName"]);    //For hver række der er i datatablet actor, under kolonnen ActorName, smider den aktørnavnet i comboboxen
             }
         }
-               
+
         private void DataGridShowSpecificCluster()      //Fylder et datagrid med aktører under den valgte klynge
-        {            
+        {
             dg_ShowspecificCluster.ItemsSource = DB.GetClusterActors(cluster).DefaultView;
         }
         private void btn_saveClusterName(object sender, RoutedEventArgs e)
         {
-            try
+            DB.OpenDb();
+            DataTable checkDoubleCluster = DB.CheckForDoubleCluster(cluster);
+            DB.CloseDb();
+            if (checkDoubleCluster.Rows.Count > 0)
             {
-               
-         
-
-                if (!(cluster.Name == null || cluster.Name == "" || cluster.Description == null || cluster.Description == ""))
-                {
-                    DB.OpenDb();
-                    DB.InsertCluster(cluster);
-                    cmb_cluster.Items.Clear();
-                    FillcomboCluster();
-                    DB.CloseDb();
-                    MessageBox.Show("Klynge er oprettet");
-                    txt_description.Clear();
-                    txt_navn.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
-                }
-
+                MessageBox.Show("Klynge navnet er i forvejen oprettet");
             }
-            catch (SqlException)
+            else
             {
 
-                MessageBox.Show("Ingen forbindelse til Databasen");
-            }
-            catch (Exception)
-            {
 
-                MessageBox.Show("Ukendt fejl");
+                try
+                {
+
+                    if (!(cluster.Name == null || cluster.Name == "" || cluster.Description == null || cluster.Description == ""))
+                    {
+                        DB.OpenDb();
+                        DB.InsertCluster(cluster);
+                        cmb_cluster.Items.Clear();
+                        FillcomboCluster();
+                        DB.CloseDb();
+                        MessageBox.Show("Klynge er oprettet");
+                        txt_description.Clear();
+                        txt_navn.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                    }
+
+                }
+                catch (SqlException)
+                {
+
+                    MessageBox.Show("Ingen forbindelse til Databasen");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Ukendt fejl");
+                }
             }
 
         }
@@ -113,7 +123,7 @@ namespace BRAVO_SemesterProjekt
         {
             try
             {
-                if (!(cluster.Name == null || cluster.ActorName == null ))
+                if (!(cluster.Name == null || cluster.ActorName == null))
                 {
                     DB.OpenDb();
                     DB.InsertActorInCluster(cluster);
@@ -124,7 +134,7 @@ namespace BRAVO_SemesterProjekt
                 {
                     MessageBox.Show("Et felt er ikke udfyldt korrekt");
                 }
-                
+
             }
             catch (SqlException)
             {

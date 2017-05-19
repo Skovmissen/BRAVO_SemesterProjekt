@@ -125,7 +125,9 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_CreateCombo(object sender, RoutedEventArgs e)
         {
+            DB.OpenDb();
             DataTable CheckDouble = DB.CheckForDoubleCombo(combo);
+            DB.CloseDb();
             if (CheckDouble.Rows.Count > 0)
             {
                 MessageBox.Show("Kombinations produktet eksistere allerede i databasen");

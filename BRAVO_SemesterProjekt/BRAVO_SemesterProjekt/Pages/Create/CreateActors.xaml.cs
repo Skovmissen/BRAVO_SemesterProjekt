@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -32,34 +33,43 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_gem(object sender, RoutedEventArgs e)
         {
-            try
+            DB.OpenDb();
+            DataTable CheckDoubleActor = DB.CheckForDoubleActor(actor);
+            if (CheckDoubleActor.Rows.Count > 0)
             {
-                if (!(actor.Name == null || actor.Name == "" || actor.Email == null || actor.Email == "" || actor.Tlf == null || actor.Tlf == ""))
+                MessageBox.Show("Aktør navnet findes i forvejen");
+            }
+            else
+            {
+                try
                 {
-                DB.OpenDb();
-                DB.InsertActor(actor);
-                DB.CloseDb();
-                MessageBox.Show("Aktør er oprettet");
-                ClearBoxes();
+                    if (!(actor.Name == null || actor.Name == "" || actor.Email == null || actor.Email == "" || actor.Tlf == null || actor.Tlf == ""))
+                    {
+                        DB.OpenDb();
+                        DB.InsertActor(actor);
+                        DB.CloseDb();
+                        MessageBox.Show("Aktør er oprettet");
+                        ClearBoxes();
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                    }
+
                 }
-
-                else
+                catch (SqlException)
                 {
-                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
-                }               
-                
-            }
-            catch (SqlException)
-            {
 
-                MessageBox.Show("Der er ingen forbindelse til databasen");
-            }
-            catch (Exception)
-            {
+                    MessageBox.Show("Der er ingen forbindelse til databasen");
+                }
+                catch (Exception)
+                {
 
-                MessageBox.Show("Ukendt fejl");
+                    MessageBox.Show("Ukendt fejl");
+                }
             }
-            
+
         }
         private void ClearBoxes()
         {

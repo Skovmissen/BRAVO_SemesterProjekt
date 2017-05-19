@@ -303,6 +303,23 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
+        public static DataTable CheckForDoubleCluster(Clusters cluster) // Lavet af Nikolaj
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter command = new SqlDataAdapter("SELECT ClusterName FROM Cluster WHERE ClusterName = @ClusterName", connection);
+            command.SelectCommand.Parameters.AddWithValue("@ClusterName", cluster.Name);
+            try
+            {
+                command.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
         public static DataTable CheckForDoubleActor(Actors actor) // Lavet af Nikolaj
         {
             DataTable dt = new DataTable();
