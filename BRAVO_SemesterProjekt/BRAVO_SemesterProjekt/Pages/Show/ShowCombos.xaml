@@ -19,9 +19,13 @@
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <Label x:Name="lbl_Header" Content="Kombinations produkts oversigt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="1282" FontSize="20"/>
         <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,644"/>
-        <Label x:Name="label1" Content="Kombinationsprodukt navn" HorizontalAlignment="Left" Margin="680,107,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="Dato Fra og Til" HorizontalAlignment="Left" Margin="680,176,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3" Content="Beskrivelse" HorizontalAlignment="Left" Margin="680,235,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Kombinationsprodukt navn" HorizontalAlignment="Left" Margin="665,107,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Dato Fra og Til" HorizontalAlignment="Left" Margin="665,176,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Beskrivelse" HorizontalAlignment="Left" Margin="665,235,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_name" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="665,134,0,0" VerticalAlignment="Top" Width="517" Height="37"/>
+        <Label x:Name="lbl_start" Content="{Binding Path=StartTime}" HorizontalAlignment="Left" Margin="665,203,0,0" VerticalAlignment="Top" Width="72" Height="27"/>
+        <Label x:Name="lbl_end" Content="{Binding EndTime}" HorizontalAlignment="Left" Margin="742,203,0,0" VerticalAlignment="Top" Width="80" Height="27"/>
+        <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="174" Margin="665,262,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="532"/>
 
     </Grid>
 </Page>
