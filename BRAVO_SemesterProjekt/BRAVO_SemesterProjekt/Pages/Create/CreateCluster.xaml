@@ -13,7 +13,7 @@
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <Button x:Name="button" Content="Opret klynge" HorizontalAlignment="Left" Margin="266,383,0,0" VerticalAlignment="Top" Width="132" Click="btn_saveClusterName" Height="60"/>
         <TextBox x:Name="txt_navn" HorizontalAlignment="Left" Height="23" Margin="12,194,0,0" TextWrapping="Wrap" Text="{Binding Path = Name}" VerticalAlignment="Top" Width="132"/>
-        <Label x:Name="label" Content="Indtast navn på klynge:" HorizontalAlignment="Left" Margin="12,165,0,0" VerticalAlignment="Top" Width="165"/>
+        <Label x:Name="label" Content="Indtast navn på klynge" HorizontalAlignment="Left" Margin="12,165,0,0" VerticalAlignment="Top" Width="165"/>
         <ComboBox x:Name="cmb_actor" HorizontalAlignment="Left" Margin="640,258,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed" IsReadOnly="True"/>
         <DataGrid x:Name="dg_ShowspecificCluster" HorizontalAlignment="Left" Margin="822,194,0,0" VerticalAlignment="Top" Height="306" Width="390" ColumnWidth="*" IsReadOnly="True" HeadersVisibility="None"/>
         <Button x:Name="button1" Content="Tilføj til klynge" HorizontalAlignment="Left" Margin="640,329,0,0" VerticalAlignment="Top" Width="120" Click="btn_addActorToCluster" Height="44"/>
