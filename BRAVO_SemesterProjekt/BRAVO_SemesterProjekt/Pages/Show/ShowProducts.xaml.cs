@@ -38,6 +38,7 @@ namespace BRAVO_SemesterProjekt
             product.SearchCity = "";
             product.SearchProduct = "";
             product.SearchZipcode = "";
+      
         }
 
         /// <summary>
