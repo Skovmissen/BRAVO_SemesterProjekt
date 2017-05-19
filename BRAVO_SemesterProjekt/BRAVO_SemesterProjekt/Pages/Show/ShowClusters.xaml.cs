@@ -35,6 +35,7 @@ namespace BRAVO_SemesterProjekt
 
             InitializeComponent();
             DataContext = temp;
+            txt_description.DataContext = cluster;
             DB.OpenDb();
             dataGrid_cluster.ItemsSource = DB.ShowCluster().DefaultView;
             DB.CloseDb();
@@ -79,6 +80,18 @@ namespace BRAVO_SemesterProjekt
         {
             ShowMenu menu = new ShowMenu();
             NavigationService.Navigate(menu);
+        }
+
+        private void dataGrid_cluster_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "Description" || e.PropertyName == "Activate")
+            {
+                e.Column = null;
+            }
+            if (e.PropertyName == "ClusterName")
+            {
+                e.Column.Header = "Klynge";
+            }
         }
     }
 }
