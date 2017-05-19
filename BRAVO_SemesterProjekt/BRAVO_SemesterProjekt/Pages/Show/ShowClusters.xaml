@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
       Background="#FF00B155"
-      d:DesignHeight="814" d:DesignWidth="1301"
+      d:DesignHeight="722" d:DesignWidth="1292"
       Title="ShowClusters">
 
     <Grid>
@@ -16,9 +16,9 @@
         <DataGrid x:Name="ClusterData" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="664,194,0,0" VerticalAlignment="Top" Height="310" Width="424" HeadersVisibility="None" IsReadOnly="True" ColumnWidth="*"/>
         <Label x:Name="label1" Content="Vælg klynge for yderligere information" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Label x:Name="label1_Copy" Content="Aktører i den valgte klynge" HorizontalAlignment="Left" Margin="664,165,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
-        <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1112,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Label x:Name="label" Content="Oversigt over klynger" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Width="1107" Height="81" FontSize="20"/>
-        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,1,736"/>
+        <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
+        <Label x:Name="label" Content="Oversigt over klynger" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1292" Height="35" FontSize="20"/>
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,75,1,645"/>
 
     </Grid>
 </Page>

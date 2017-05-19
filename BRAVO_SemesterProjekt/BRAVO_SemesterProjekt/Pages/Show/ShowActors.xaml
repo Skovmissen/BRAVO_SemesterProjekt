@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
       mc:Ignorable="d" 
       Background="#FF00B155"
-      d:DesignHeight="800" d:DesignWidth="1300"
+      d:DesignHeight="722" d:DesignWidth="1292"
       Title="ShowActors">
 
     <Grid>
@@ -14,12 +14,12 @@
         <DataGrid x:Name="ActorDataProducts" Background="#FF00B155" BorderBrush="#FF00B155" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None" HorizontalAlignment="Left" Margin="716,178,0,0" VerticalAlignment="Top" Width="506" Height="188"/>
         <DataGrid x:Name="ActorDataCluster" Background="#FF00B155" BorderBrush="#FF00B155" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None" HorizontalAlignment="Left" Margin="715,404,0,0" VerticalAlignment="Top" Height="188" Width="507"/>
         <TextBox x:Name="txt_search_actor" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="198" Margin="386,138,0,0"/>
-        <Button x:Name="btn_back" Content="Tilbage" Margin="10,10,1111,0" VerticalAlignment="Top" Height="60" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
+        <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
         <Button x:Name="Btn_Search_Actor" Click="Btn_Search_Actor_Click" Content="Søg" HorizontalAlignment="Left" Margin="602,138,0,0" VerticalAlignment="Top" Width="75" Height="35" Background="White"/>
         <Label x:Name="lbl_actor" Content="Liste af alle aktive aktører" HorizontalAlignment="Left" Margin="6,149,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Label x:Name="lbl_actorProducts" Content="Den valgte aktørs produkter" HorizontalAlignment="Left" Margin="716,149,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Label x:Name="lbl_ActorsClusters" Content="Klynger den valgte aktør er medlem af" HorizontalAlignment="Left" Margin="715,371,0,0" VerticalAlignment="Top" Width="289"  Foreground="#FF535353"/>
-        <Label x:Name="lbl_Header" Content="Aktør Oversigt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="189,10,0,0" VerticalAlignment="Top" Height="86" Width="1101" FontSize="20"/>
-        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,722"/>
+        <Label x:Name="lbl_Header" Content="Aktør Oversigt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="189,10,0,0" VerticalAlignment="Top" Height="46" Width="1101" FontSize="20"/>
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,75,0,645"/>
     </Grid>
 </Page>
