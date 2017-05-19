@@ -17,7 +17,7 @@
         <Label x:Name="label1" Content="Vælg klynge for yderligere information" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Label x:Name="label1_Copy" Content="Aktører i den valgte klynge" HorizontalAlignment="Left" Margin="638,366,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
         <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Label x:Name="label" Content="Oversigt over klynger" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1292" Height="35" FontSize="20"/>
+        <Label x:Name="label" Content="Oversigt over klynger" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1022" Height="35" FontSize="20" Margin="145,22,0,0"/>
         <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,75,1,645"/>
         <Label x:Name="label2" Content="Beskrivelse" HorizontalAlignment="Left" Margin="638,158,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="167" Margin="638,194,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="400" IsReadOnly="True"/>

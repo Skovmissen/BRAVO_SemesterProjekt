@@ -10,7 +10,7 @@
       Title="EditCluster">
 
     <Grid>
-        <DataGrid x:Name="edit_Cluster" Background="#FF0069B7" BorderBrush="#FF0069B7" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="38,164,0,0" VerticalAlignment="Top" Height="258" Width="765" SelectionChanged="edit_Cluster_SelectionChanged"/>
+        <DataGrid x:Name="edit_Cluster" AutoGenerateColumns="True" AutoGeneratingColumn="edit_Cluster_AutoGeneratingColumn" Background="#FF0069B7" BorderBrush="#FF0069B7" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="38,164,0,0" VerticalAlignment="Top" Height="258" Width="765" SelectionChanged="edit_Cluster_SelectionChanged"/>
         <TextBox x:Name="txt_Edit_ClusterName" HorizontalAlignment="Left" Height="22" Margin="29,524,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="120"/>
 
 
