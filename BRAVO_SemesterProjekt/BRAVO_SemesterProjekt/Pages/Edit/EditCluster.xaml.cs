@@ -108,5 +108,21 @@ namespace BRAVO_SemesterProjekt
             EditMenu menu = new EditMenu();
             NavigationService.Navigate(menu);
         }
+
+        private void edit_Cluster_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "ClusterName")
+            {
+                e.Column.Header = "Klyngenavn";
+            }
+            if (e.PropertyName == "Description")
+            {
+                e.Column.Header = "Beskrivelse";
+            }
+            if (e.PropertyName == "Activate")
+            {
+                e.Column.Header = "Aktiv";
+            }
+        }
     }
 }

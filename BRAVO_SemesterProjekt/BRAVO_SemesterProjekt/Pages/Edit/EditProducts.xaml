@@ -10,7 +10,7 @@
       Title="EditProducts">
 
     <Grid>
-        <DataGrid x:Name="dataGrid_Edit_Product" Background="#FF0069B7" BorderBrush="#FF0069B7" IsReadOnly="True" AutoGenerateColumns="true"  AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Height="206" Width="1272" ColumnWidth="*" SelectionChanged="dataGrid_Edit_Product_SelectionChanged"/>
+        <DataGrid x:Name="dataGrid_Edit_Product" AutoGenerateColumns="True" AutoGeneratingColumn="dataGrid_Edit_Product_AutoGeneratingColumn" Background="#FF0069B7" BorderBrush="#FF0069B7" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Height="206" Width="1272" ColumnWidth="*" SelectionChanged="dataGrid_Edit_Product_SelectionChanged"/>
         <ComboBox x:Name="cmb_category" HorizontalAlignment="Left" Margin="289,561,0,0" VerticalAlignment="Top" Width="190" DropDownClosed="cmb_category_DropDownClosed" Height="24"/>
 
         <Button x:Name="button" Content="Søg"  HorizontalAlignment="Left" Margin="972,85,0,0" VerticalAlignment="Top" Width="90" Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353" RenderTransformOrigin="0.453,-0.517" Height="31"/>

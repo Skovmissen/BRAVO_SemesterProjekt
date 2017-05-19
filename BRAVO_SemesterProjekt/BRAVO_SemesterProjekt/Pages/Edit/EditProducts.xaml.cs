@@ -144,11 +144,64 @@ namespace BRAVO_SemesterProjekt
             EditMenu menu = new EditMenu();
             NavigationService.Navigate(menu);
         }
-        private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+
+        private void dataGrid_Edit_Product_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == "Describtion")
+            if (e.PropertyName == "Describtion" || e.PropertyName == "ProductId" || e.PropertyName == "XML_Id")
             {
                 e.Column = null;
+            }
+            if (e.PropertyName == "ProductName")
+            {
+                e.Column.Header = "Produktnavn";
+            }
+            if (e.PropertyName == "City")
+            {
+                e.Column.Header = "By";
+            }
+            if (e.PropertyName == "ZipCode")
+            {
+                e.Column.Header = "Post.Nr.";
+            }
+            if (e.PropertyName == "Region")
+            {
+                e.Column.Header = "Kommune";
+            }
+            if (e.PropertyName == "Street")
+            {
+                e.Column.Header = "Vejnavn";
+            }
+            if (e.PropertyName == "Longtitude")
+            {
+                e.Column.Header = "Længdegrad";
+            }
+            if (e.PropertyName == "Latitude")
+            {
+                e.Column.Header = "Breddegrad";
+            }
+            if (e.PropertyName == "URL")
+            {
+                e.Column.Header = "Webadresse";
+            }
+            if (e.PropertyName == "Description")
+            {
+                e.Column.Header = "Beskrivelse";
+            }
+            if (e.PropertyName == "Price")
+            {
+                e.Column.Header = "Pris";
+            }
+            if (e.PropertyName == "Activate")
+            {
+                e.Column.Header = "Aktiv";
+            }
+            if (e.PropertyName == "FK_CategoryName")
+            {
+                e.Column.Header = "Kategori";
+            }
+            if (e.PropertyName == "FK_ActorName")
+            {
+                e.Column.Header = "Aktørnavn";
             }
         }
     }
