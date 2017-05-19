@@ -51,7 +51,7 @@
         <Label x:Name="label_print" Content="Print dit valgte produkt" HorizontalAlignment="Left" Margin="809,86,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_header" Content="Produktoversigt" FontSize="20" HorizontalAlignment="Left" Margin="588,22,0,0" VerticalAlignment="Top"/>
         <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,722"/>
-      
+
 
     </Grid>
 </Page>
