@@ -38,7 +38,8 @@ namespace BRAVO_SemesterProjekt
             product.SearchCity = "";
             product.SearchProduct = "";
             product.SearchZipcode = "";
-      
+
+           
         }
 
         /// <summary>
@@ -120,6 +121,23 @@ namespace BRAVO_SemesterProjekt
             if (e.PropertyName == "Describtion" || e.PropertyName == "Region" || e.PropertyName == "URL" || e.PropertyName == "Street" || e.PropertyName == "Price" || e.PropertyName == "Latitude" || e.PropertyName == "Longtitude")
             {
                 e.Column = null;
+            }
+            //kolonnenavne redigeres her så de giver mening for bruger - navnene fra tabellen udskiftes med en string værdi.
+            if (e.PropertyName == "ProductName")
+            {
+                e.Column.Header = "Produkt";
+            }
+            if (e.PropertyName == "FK_CategoryName")
+            {
+                e.Column.Header = "Kategori";
+            }
+            if (e.PropertyName == "City")
+            {
+                e.Column.Header = "By";
+            }
+            if (e.PropertyName == "ZipCode")
+            {
+                e.Column.Header = "Post.Nr.";
             }
         }
 
