@@ -34,7 +34,7 @@ namespace BRAVO_SemesterProjekt
         {
 
             InitializeComponent();
-            DataContext = temp;
+            search_cluster.DataContext = temp;
             txt_description.DataContext = cluster;
             DB.OpenDb();
             dataGrid_cluster.ItemsSource = DB.ShowCluster().DefaultView;
@@ -93,5 +93,7 @@ namespace BRAVO_SemesterProjekt
                 e.Column.Header = "Klynge";
             }
         }
+
+       
     }
 }
