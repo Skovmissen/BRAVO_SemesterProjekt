@@ -10,7 +10,7 @@
       Title="ShowCombos">
 
     <Grid>
-        <DataGrid x:Name="GridShowCombo" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="432" Width="620" SelectionChanged="GridShowCombo_SelectionChanged" IsReadOnly="True" ColumnWidth="*"/>
+        <DataGrid x:Name="GridShowCombo" AutoGenerateColumns="True" AutoGeneratingColumn="GridShowCombo_AutoGeneratingColumn" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="432" Width="620" SelectionChanged="GridShowCombo_SelectionChanged" IsReadOnly="True" ColumnWidth="*"/>
         <TextBox x:Name="txt_Search_Combo" HorizontalAlignment="Left" Height="30" Margin="404,121,0,0" TextWrapping="Wrap" Text="{Binding Path=Search }" VerticalAlignment="Top" Width="136"/>
         <DataGrid x:Name="dataGridCombo" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="659,468,0,0" VerticalAlignment="Top" Height="254" Width="623" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None"/>
         <Button x:Name="btn_Search_Combo" Content="Søg" HorizontalAlignment="Left" Margin="545,121,0,0" VerticalAlignment="Top" Width="85" Click="btn_Search_Combo_Click" Height="30" Background="White"/>

@@ -68,5 +68,13 @@ namespace BRAVO_SemesterProjekt
             ShowMenu menu = new ShowMenu();
             NavigationService.Navigate(menu);
         }
+
+        private void GridShowCombo_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "CombiId" || e.PropertyName == "Description" || e.PropertyName == "Price" || e.PropertyName == "Activate")
+            {
+                e.Column = null;
+            }
+        }
     }
 }

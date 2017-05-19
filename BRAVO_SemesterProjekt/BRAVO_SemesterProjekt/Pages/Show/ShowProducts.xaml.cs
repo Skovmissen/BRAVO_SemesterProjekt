@@ -97,23 +97,14 @@ namespace BRAVO_SemesterProjekt
                 product.Latitude = Convert.ToDouble(row.Row.ItemArray[8].ToString());
                 product.Longtitude = Convert.ToDouble(row.Row.ItemArray[9].ToString());
                 product.Region = row.Row.ItemArray[10].ToString();
-                format_Latitude_Longitude();
+
                 product.OldName = "Kommune";
 
             }
 
             
         }
-        private void format_Latitude_Longitude()// Denne metode bruger jeg til at formatere længde-breddegrader så der kommer punktum med.
-        {
-            string temp = product.Latitude.ToString(); //her konverteres til string, og lægges i en string temp
-            temp = temp.Insert(2, "."); // insert metoden tager en index værdi og en string, så jeg deklarerer at jeg vil indsætte en string . på plads 2 i indexet
-            product.Latitude = double.Parse(temp, CultureInfo.InvariantCulture); //stringen temp bliver i double.parse parset til en Double. Det double.parse gør er at konvertere en string værdi til en double værdi
-
-            temp = product.Longtitude.ToString();
-            temp = temp.Insert(2, ".");
-            product.Longtitude = double.Parse(temp, CultureInfo.InvariantCulture);
-        }
+       
         
         private void datagrid_ShowProducts_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {// i datagrid hvor oversigt vises frasorteres de kolonner der ikke er relevante for oversigten
