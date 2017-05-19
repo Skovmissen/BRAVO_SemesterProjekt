@@ -10,7 +10,7 @@
       Title="ShowActors">
 
     <Grid>
-        <DataGrid x:Name="GridShowActor" Background="#FF00B155" BorderBrush="#FF00B155" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="6,178,0,0" VerticalAlignment="Top" Height="423" Width="671" SelectionChanged="GridShowActor_SelectionChanged_1"/>
+        <DataGrid x:Name="GridShowActor" AutoGenerateColumns="True" AutoGeneratingColumn="GridShowActor_AutoGeneratingColumn" Background="#FF00B155" BorderBrush="#FF00B155" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" Margin="6,178,0,0" VerticalAlignment="Top" Height="423" Width="671" SelectionChanged="GridShowActor_SelectionChanged_1"/>
         <DataGrid x:Name="ActorDataProducts" Background="#FF00B155" BorderBrush="#FF00B155" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None" HorizontalAlignment="Left" Margin="716,178,0,0" VerticalAlignment="Top" Width="506" Height="188"/>
         <DataGrid x:Name="ActorDataCluster" Background="#FF00B155" BorderBrush="#FF00B155" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None" HorizontalAlignment="Left" Margin="715,404,0,0" VerticalAlignment="Top" Height="188" Width="507"/>
         <TextBox x:Name="txt_search_actor" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="198" Margin="386,138,0,0"/>

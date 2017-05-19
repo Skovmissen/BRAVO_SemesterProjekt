@@ -30,6 +30,8 @@
         <Rectangle VerticalAlignment="Stretch" Fill="#FF535353" Width="2" Margin="606,76,684,0"/>
 
         <Rectangle HorizontalAlignment="Stretch" Fill="#FF535353" Height="2" Margin="0,76,0,644"/>
+        <Label x:Name="label7" Content="Klynge navn" HorizontalAlignment="Left" Margin="822,138,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label7_Copy" Content="Aktører i klynge" HorizontalAlignment="Left" Margin="822,505,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

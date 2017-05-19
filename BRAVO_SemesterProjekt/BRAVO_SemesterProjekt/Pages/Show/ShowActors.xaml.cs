@@ -62,5 +62,17 @@ namespace BRAVO_SemesterProjekt
             ActorDataCluster.ItemsSource = DB.GetActorCluster(cluster).DefaultView;
             DB.CloseDb();
         }
+
+        private void GridShowActor_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "Activate")
+            {
+                e.Column = null;
+            }
+            if (e.PropertyName == "ActorName")
+            {
+                e.Column.Header = "Aktør";
+            }
+        }
     }
 }

@@ -33,6 +33,8 @@ namespace BRAVO_SemesterProjekt
             lbl_start.DataContext = combo;
             lbl_name.DataContext = combo;
             txt_description.DataContext = combo;
+            lbl_price.DataContext = combo;
+            
             txt_Search_Combo.DataContext = temp;
             DB.OpenDb();
             GridShowCombo.ItemsSource = DB.ShowCombo().DefaultView;
@@ -55,6 +57,7 @@ namespace BRAVO_SemesterProjekt
                 combo.EndTime = Convert.ToDateTime(row.Row.ItemArray[4].ToString());
                 combo.Description = row.Row.ItemArray[2].ToString();
                 combo.Name = row.Row.ItemArray[1].ToString();
+                combo.Price = Convert.ToDouble(row.Row.ItemArray[5].ToString());
             }
           
             DB.OpenDb();

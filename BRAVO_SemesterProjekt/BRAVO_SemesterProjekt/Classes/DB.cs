@@ -337,8 +337,25 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
+        public static DataTable CheckForDoubleCombo(ComboProducts combo) // Lavet af Nikolaj
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter command = new SqlDataAdapter("SELECT CombiProductName FROM CombiProduct WHERE CombiProductName = @Name", connection);
+            command.SelectCommand.Parameters.AddWithValue("@Name", combo.NewComBoName);
+            try
+            {
+                command.Fill(dt);
+                return dt;
 
-        
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+
         public static DataTable ShowCluster() // Lavet af Claus
         {
             DataTable ds = new DataTable();
