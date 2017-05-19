@@ -358,7 +358,7 @@ namespace BRAVO_SemesterProjekt
         {
             DataTable dt = new DataTable();
             SqlDataAdapter command = new SqlDataAdapter("SELECT CombiProductName FROM CombiProduct WHERE CombiProductName = @Name", connection);
-            command.SelectCommand.Parameters.AddWithValue("@Name", combo.NewComBoName);
+            command.SelectCommand.Parameters.AddWithValue("@Name", combo.Name);
             try
             {
                 command.Fill(dt);
@@ -476,7 +476,7 @@ namespace BRAVO_SemesterProjekt
             DataTable dt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search OR ZipCode LIKE @search OR FK_CategoryName LIKE @search OR City LIKE @search OR Region LIKE @search OR Describtion LIKE @search", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search", connection);
                 reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
                 reader.Fill(dt);
             }
@@ -612,13 +612,39 @@ namespace BRAVO_SemesterProjekt
             ShowCombiProduct.Fill(dt);
             return dt;
         }
-        public static DataTable SearchCombo(TempData temp) //Lavet af Anders
+        public static DataTable ShowEditCombo() //Lavet af Anders og Nikolaj
+        {
+            SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE EndTime >= @Date", connection);
+            ShowCombiProduct.SelectCommand.Parameters.AddWithValue("@Date", DateTime.Now);
+            DataTable dt = new DataTable();
+            ShowCombiProduct.Fill(dt);
+            return dt;
+        }
+        public static DataTable SearchCombo(TempData temp, ComboProducts combo) //Lavet af Anders
+        {
+            DataTable SearchComboDt = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE CombiProductName LIKE @search AND StartTime >= @StartTime AND EndTime <= @EndTime AND EndTime > StartTime", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@StartTime", combo.SearchStartTime);
+                reader.SelectCommand.Parameters.AddWithValue("@EndTime", combo.SearchEndTime);
+                reader.Fill(SearchComboDt);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return SearchComboDt;
+        }
+        public static DataTable SearchEditCombo(TempData temp, ComboProducts combo) //Lavet af Anders
         {
             DataTable SearchComboDt = new DataTable();
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE CombiProductName LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");               
                 reader.Fill(SearchComboDt);
 
             }

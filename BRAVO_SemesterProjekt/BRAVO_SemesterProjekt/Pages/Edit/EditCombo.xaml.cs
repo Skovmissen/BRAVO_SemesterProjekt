@@ -32,7 +32,7 @@ namespace BRAVO_SemesterProjekt
 
             DataContext = combo;
             DB.OpenDb();
-            dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
+            dataGrid_edit_Combo.ItemsSource = DB.ShowEditCombo().DefaultView;
             DB.CloseDb();
         }
 
@@ -56,7 +56,7 @@ namespace BRAVO_SemesterProjekt
         private void button_search_Click(object sender, RoutedEventArgs e) // søg efter kombo produkt
         {
             DB.OpenDb();
-            dataGrid_edit_Combo.ItemsSource = DB.SearchCombo(temp).DefaultView;
+            dataGrid_edit_Combo.ItemsSource = DB.SearchEditCombo(temp, combo).DefaultView;
             DB.CloseDb();
         }
 
@@ -68,7 +68,7 @@ namespace BRAVO_SemesterProjekt
                 {
                     DB.OpenDb();
                     DB.UpdateCombo(combo);
-                    dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
+                    dataGrid_edit_Combo.ItemsSource = DB.ShowEditCombo().DefaultView;
                     DB.CloseDb();
                     combo.Id = 0;
                     combo.Name = null;

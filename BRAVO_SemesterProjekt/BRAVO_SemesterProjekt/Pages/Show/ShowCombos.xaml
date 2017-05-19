@@ -25,9 +25,11 @@
         <Label x:Name="lbl_name" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="665,134,0,0" VerticalAlignment="Top" Width="157" Height="37"/>
         <Label x:Name="lbl_start" Content="{Binding Path=StartTime}" HorizontalAlignment="Left" Margin="665,203,0,0" VerticalAlignment="Top" Width="72" Height="27"/>
         <Label x:Name="lbl_end" Content="{Binding EndTime}" HorizontalAlignment="Left" Margin="742,203,0,0" VerticalAlignment="Top" Width="80" Height="27"/>
-        <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="174" Margin="665,262,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="532"/>
+        <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="174" Margin="665,262,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="532" IsReadOnly="True"/>
         <Label x:Name="lbl_price_name" Content="Pris" HorizontalAlignment="Left" Margin="870,107,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_price" Content="{Binding Path=Price}" HorizontalAlignment="Left" Margin="870,121,0,0" VerticalAlignment="Top" Width="133" Height="23"/>
+        <DatePicker Name="dp_start" HorizontalAlignment="Left" Margin="404,90,0,0" VerticalAlignment="Top" Width="68" SelectedDate="{Binding Path=SearchStartTime}"/>
+        <DatePicker Name="dp_end" HorizontalAlignment="Left" Margin="472,90,0,0" VerticalAlignment="Top" Width="68" SelectedDate="{Binding Path=SearchEndTime}"/>
 
     </Grid>
 </Page>

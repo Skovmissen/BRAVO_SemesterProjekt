@@ -137,7 +137,7 @@ namespace BRAVO_SemesterProjekt
                 try
                 {
 
-                    if (!(combo.Name == null || combo.Name == "" || combo.Price == 0 || combo.Description == null || combo.Description == "" || combo.StartTime == null || combo.EndTime == null))
+                    if (!(combo.Name == null || combo.Name == "" || combo.Price == 0 || combo.Description == null || combo.Description == "" || combo.StartTime == null || combo.EndTime == null || combo.EndTime < combo.StartTime || combo.StartTime < DateTime.Now.Date))
                     {
                     DB.OpenDb();
                     DB.InsertCombo(combo);

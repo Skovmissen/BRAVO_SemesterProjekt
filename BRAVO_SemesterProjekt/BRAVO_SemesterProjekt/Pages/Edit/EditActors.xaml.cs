@@ -118,7 +118,7 @@ namespace BRAVO_SemesterProjekt
 
         private void edit_Actor_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == ")
+            if (e.PropertyName == "")
             {
 
             }

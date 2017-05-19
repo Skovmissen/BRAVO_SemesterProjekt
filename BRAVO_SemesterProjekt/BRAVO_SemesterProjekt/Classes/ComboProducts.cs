@@ -83,6 +83,27 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
+        private DateTime? searchEndTime;
+
+        public DateTime? SearchEndTime
+        {
+            get { return searchEndTime; }
+            set { searchEndTime = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private DateTime? searchStartTime;
+
+        public DateTime? SearchStartTime
+        {
+            get { return searchStartTime; }
+            set { searchStartTime = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+
         private string newComboName;
 
         public string NewComBoName
