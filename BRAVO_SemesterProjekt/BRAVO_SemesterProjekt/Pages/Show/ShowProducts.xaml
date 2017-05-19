@@ -50,7 +50,7 @@
         <Label x:Name="label_print" Content="Print dit valgte produkt" HorizontalAlignment="Left" Margin="812,165,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_header" Content="Produktoversigt" FontSize="20" HorizontalAlignment="Left" Margin="588,22,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_back_Copy" Content="Tilbage" Margin="10,35,1189,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,8,644"/>
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,644"/>
 
 
     </Grid>
