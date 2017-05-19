@@ -51,6 +51,7 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
+        
 
         private void button_search_Click(object sender, RoutedEventArgs e) // søg efter kombo produkt
         {
@@ -97,6 +98,39 @@ namespace BRAVO_SemesterProjekt
         {
             EditMenu menu = new EditMenu();
             NavigationService.Navigate(menu);
+        }
+
+        private void dataGrid_edit_Combo_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "CombiId")
+            {
+                e.Column = null;
+            }
+             //kolonnenavne redigeres her så de giver mening for bruger - navnene fra tabellen udskiftes med en string værdi.
+            if (e.PropertyName == "CombiProductName")
+            {
+                e.Column.Header = "Kombinationsprodukt";
+            }
+            if (e.PropertyName == "Description")
+            {
+                e.Column.Header = "Beskrivelse";
+            }
+            if (e.PropertyName == "StartTime")
+            {
+                e.Column.Header = "Starttid";
+            }
+            if (e.PropertyName == "EndTime")
+            {
+                e.Column.Header = "Sluttid";
+            }
+            if (e.PropertyName == "Price")
+            {
+                e.Column.Header = "Pris";
+            }
+            if (e.PropertyName == "Activate")
+            {
+                e.Column.Header = "Aktiv";
+            }
         }
     }
 }

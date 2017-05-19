@@ -102,8 +102,7 @@ namespace BRAVO_SemesterProjekt
                 product.OldName = "Kommune";
 
             }
-        }
-              
+        }       
         private void datagrid_ShowProducts_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {// i datagrid hvor oversigt vises frasorteres de kolonner der ikke er relevante for oversigten
             if (e.PropertyName == "Describtion" || e.PropertyName == "Region" || e.PropertyName == "URL" || e.PropertyName == "Street" || e.PropertyName == "Price" || e.PropertyName == "Latitude" || e.PropertyName == "Longtitude")
