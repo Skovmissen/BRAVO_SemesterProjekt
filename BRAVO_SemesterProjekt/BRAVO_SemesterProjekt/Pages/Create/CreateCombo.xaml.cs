@@ -24,12 +24,12 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class CreateCombo : Page
     {
-       
+
         ComboProducts combo = new ComboProducts();
         Products product = new Products();
         Actors actor = new Actors();
         TempData temp = new TempData();
-        
+
         public CreateCombo()
         {
             InitializeComponent();
@@ -37,10 +37,10 @@ namespace BRAVO_SemesterProjekt
 
             try
             {
-            DB.OpenDb();
-            FillcomboWithActors();
-            FillcomboWithCombiProducts();
-            DB.CloseDb();
+                DB.OpenDb();
+                FillcomboWithActors();
+                FillcomboWithCombiProducts();
+                DB.CloseDb();
             }
             catch (SqlException)
             {
@@ -50,14 +50,14 @@ namespace BRAVO_SemesterProjekt
             {
 
                 MessageBox.Show("Ukendt fejl");
-            }           
+            }
         }
-               
-       
+
+
         private void ShowProductsInCombi()  //Denne metode finder alle de produktid'er der er tilhørende det valgte komboId, hvorefter den henter produktnavnene ud og læser dem ind i datagridet.
-        {           
-            DataTable comboProducts = DB.GetProductIdFromCombo(combo);            
-            dg_showproduts.ItemsSource = DB.GetProductsInComboView(comboProducts).DefaultView;                        
+        {
+            DataTable comboProducts = DB.GetProductIdFromCombo(combo);
+            dg_showproduts.ItemsSource = DB.GetProductsInComboView(comboProducts).DefaultView;
         }
         private void FillcomboWithActorsProducts()   //Denne metoder fylder comboboxen med alle produkter i databasen
         {
@@ -95,6 +95,7 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_addproductInCombi(object sender, RoutedEventArgs e)
         {
+
             try
             {
                 if (!(combo.NewComBoName == null || actor.Name == null || temp.ChosenItem == null))
@@ -102,17 +103,17 @@ namespace BRAVO_SemesterProjekt
                     DB.OpenDb();
                     DB.InsertProductInCombi(combo, product);
                     ShowProductsInCombi();
-                    DB.CloseDb();                                       
+                    DB.CloseDb();
                 }
                 else
                 {
                     MessageBox.Show("Et felt er ikke udfyldt korrekt");
                 }
-               
+
             }
             catch (SqlException)
             {
-                
+
                 MessageBox.Show("Der er ingen forbindelse til databasen");
             }
             catch (Exception)
@@ -121,39 +122,47 @@ namespace BRAVO_SemesterProjekt
                 throw;
             }
         }
-      
+
         private void btn_CreateCombo(object sender, RoutedEventArgs e)
         {
-            try
+            DataTable CheckDouble = DB.CheckForDoubleCombo(combo);
+            if (CheckDouble.Rows.Count > 0)
             {
-                
-                   
+                MessageBox.Show("Kombinations produktet eksistere allerede i databasen");
+            }
+            else
+            {
+                try
+                {
+
                     if (!(combo.Name == null || combo.Name == "" || combo.Price == 0 || combo.Description == null || combo.Description == "" || combo.StartTime == null || combo.EndTime == null))
                     {
-                    DB.OpenDb();
-                    DB.InsertCombo(combo);
-                    cmb_combiproducts.Items.Clear();
-                    FillcomboWithCombiProducts();
-                    DB.CloseDb();
-                    MessageBox.Show("Kombiprodukt er oprettet");
+                        DB.OpenDb();
+                        DB.InsertCombo(combo);
+                        cmb_combiproducts.Items.Clear();
+                        FillcomboWithCombiProducts();
+                        DB.CloseDb();
+                        MessageBox.Show("Kombiprodukt er oprettet");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                    }
+
+
                 }
-                else
+                catch (SqlException)
                 {
-                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+
+                    MessageBox.Show("Ingen forbindelses til DB");
                 }
-             
+                catch (Exception)
+                {
 
+                    throw;
+                }
             }
-            catch (SqlException)
-            {
 
-                MessageBox.Show("Ingen forbindelses til DB");
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
         }
 
         private void cmb_actor_DropDownClosed(object sender, EventArgs e)
@@ -178,9 +187,9 @@ namespace BRAVO_SemesterProjekt
             combo.Id = DB.GetcomboId(combo);
             ShowProductsInCombi();
             DB.CloseDb();
-            
+
         }
 
-       
+
     }
 }
