@@ -134,6 +134,7 @@ namespace BRAVO_SemesterProjekt
                     DB.InsertCombo(combo);
                     cmb_combiproducts.Items.Clear();
                     FillcomboWithCombiProducts();
+                    Clearboxes();
                     DB.CloseDb();
                     MessageBox.Show("Kombiprodukt er oprettet");
                 }
@@ -179,6 +180,14 @@ namespace BRAVO_SemesterProjekt
             ShowProductsInCombi();
             DB.CloseDb();
             
+        }
+        private void Clearboxes()
+        {
+            combo.Name = null;
+            combo.Description = null;
+            combo.Price = 0;
+            combo.StartTime = null;
+            combo.EndTime = null;
         }
 
        
