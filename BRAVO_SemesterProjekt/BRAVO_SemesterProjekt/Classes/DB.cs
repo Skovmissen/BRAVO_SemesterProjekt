@@ -303,6 +303,23 @@ namespace BRAVO_SemesterProjekt
             }
 
         }
+        public static DataTable CheckForDoubleCluster(Clusters cluster) // Lavet af Nikolaj
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter command = new SqlDataAdapter("SELECT ClusterName FROM Cluster WHERE ClusterName = @ClusterName", connection);
+            command.SelectCommand.Parameters.AddWithValue("@ClusterName", cluster.Name);
+            try
+            {
+                command.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
         public static DataTable CheckForDoubleActor(Actors actor) // Lavet af Nikolaj
         {
             DataTable dt = new DataTable();
@@ -589,7 +606,7 @@ namespace BRAVO_SemesterProjekt
 
         public static DataTable ShowCombo() //Lavet af Anders og Nikolaj
         {
-            SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE EndTime > @Date AND Activate = 1", connection);
+            SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE EndTime >= @Date AND Activate = 1", connection);
             ShowCombiProduct.SelectCommand.Parameters.AddWithValue("@Date", DateTime.Now);
             DataTable dt = new DataTable();
             ShowCombiProduct.Fill(dt);

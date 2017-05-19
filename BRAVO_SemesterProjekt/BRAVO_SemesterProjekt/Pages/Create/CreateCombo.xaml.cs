@@ -125,7 +125,9 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_CreateCombo(object sender, RoutedEventArgs e)
         {
+            DB.OpenDb();
             DataTable CheckDouble = DB.CheckForDoubleCombo(combo);
+            DB.CloseDb();
             if (CheckDouble.Rows.Count > 0)
             {
                 MessageBox.Show("Kombinations produktet eksistere allerede i databasen");
@@ -137,18 +139,19 @@ namespace BRAVO_SemesterProjekt
 
                     if (!(combo.Name == null || combo.Name == "" || combo.Price == 0 || combo.Description == null || combo.Description == "" || combo.StartTime == null || combo.EndTime == null))
                     {
-                        DB.OpenDb();
-                        DB.InsertCombo(combo);
-                        cmb_combiproducts.Items.Clear();
-                        FillcomboWithCombiProducts();
-                        DB.CloseDb();
-                        MessageBox.Show("Kombiprodukt er oprettet");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Et felt er ikke udfyldt korrekt");
-                    }
-
+                    DB.OpenDb();
+                    DB.InsertCombo(combo);
+                    cmb_combiproducts.Items.Clear();
+                    FillcomboWithCombiProducts();
+                    Clearboxes();
+                    DB.CloseDb();
+                    MessageBox.Show("Kombiprodukt er oprettet");
+                }
+                else
+                {
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+                }
+             
 
                 }
                 catch (SqlException)
@@ -188,6 +191,14 @@ namespace BRAVO_SemesterProjekt
             ShowProductsInCombi();
             DB.CloseDb();
 
+        }
+        private void Clearboxes()
+        {
+            combo.Name = null;
+            combo.Description = null;
+            combo.Price = 0;
+            combo.StartTime = null;
+            combo.EndTime = null;
         }
 
 

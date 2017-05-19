@@ -17,7 +17,7 @@
         <ComboBox x:Name="cmb_actor" HorizontalAlignment="Left" Margin="640,258,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmb_actor_DropDownClosed" IsReadOnly="True"/>
         <DataGrid x:Name="dg_ShowspecificCluster" HorizontalAlignment="Left" Margin="822,194,0,0" VerticalAlignment="Top" Height="306" Width="390" ColumnWidth="*" IsReadOnly="True" HeadersVisibility="None"/>
         <Button x:Name="button1" Content="Tilføj til klynge" HorizontalAlignment="Left" Margin="640,329,0,0" VerticalAlignment="Top" Width="120" Click="btn_addActorToCluster" Height="44"/>
-        <Label x:Name="label1" Content="" HorizontalAlignment="Left" Margin="822,165,0,0" VerticalAlignment="Top" Width="120" Height="24" FontWeight="Bold" />
+        <Label x:Name="label1" Content="" HorizontalAlignment="Left" Margin="907,138,0,0" VerticalAlignment="Top" Width="120" Height="24" FontWeight="Bold" />
         <TextBox x:Name="txt_description" AcceptsReturn="True" HorizontalAlignment="Left" Height="97" Margin="10,258,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="388"/>
         <Label x:Name="label3" Content="Tilføj beskrivelse" HorizontalAlignment="Left" Margin="11,235,0,0" VerticalAlignment="Top" Width="120"/>
 
@@ -31,7 +31,7 @@
 
         <Rectangle HorizontalAlignment="Stretch" Fill="#FF535353" Height="2" Margin="0,76,0,644"/>
         <Label x:Name="label7" Content="Klynge navn" HorizontalAlignment="Left" Margin="822,138,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label7_Copy" Content="Aktører i klynge" HorizontalAlignment="Left" Margin="822,505,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label7_Copy" Content="Aktører i klynge" HorizontalAlignment="Left" Margin="822,165,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
