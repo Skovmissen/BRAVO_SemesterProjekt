@@ -10,8 +10,8 @@
       Title="ShowClusters">
 
     <Grid>
-        <Button x:Name="btn_search_cluster" Content="Søg" HorizontalAlignment="Left" Margin="500,158,0,0" VerticalAlignment="Top" Width="96" Click="btn_search_cluster_Click" Height="29" Background="White"/>
-        <TextBox x:Name="search_cluster" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="156" Margin="339,158,0,0"/>
+        <Button x:Name="btn_search_cluster" Content="Søg" HorizontalAlignment="Left" Margin="500,158,0,0" VerticalAlignment="Top" Width="96" Click="btn_search_cluster_Click" Height="31" Background="White"/>
+        <TextBox x:Name="search_cluster" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="156" Margin="339,158,0,0" />
         <DataGrid x:Name="dataGrid_cluster" ColumnWidth="*" AutoGenerateColumns="True" AutoGeneratingColumn="dataGrid_cluster_AutoGeneratingColumn" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Height="504" Width="586" SelectionChanged="dataGrid_cluster_SelectionChanged" IsReadOnly="True"/>
         <DataGrid x:Name="ClusterData" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="638,388,0,0" VerticalAlignment="Top" Height="310" Width="519" HeadersVisibility="None" IsReadOnly="True" ColumnWidth="*"/>
         <Label x:Name="label1" Content="Vælg klynge for yderligere information" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>

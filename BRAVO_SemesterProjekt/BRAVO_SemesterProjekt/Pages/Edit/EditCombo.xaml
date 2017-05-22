@@ -18,9 +18,9 @@
         <Label x:Name="label_startTime" Content="Starttid" HorizontalAlignment="Left" Margin="308,447,0,0" VerticalAlignment="Top" Height="24" Width="50" Foreground="#FFFFFFFF"/>
         <Label x:Name="label_endTime" Content="Sluttid" HorizontalAlignment="Left" Margin="442,447,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF"/>
         <CheckBox x:Name="checkBox" Content="Aktivere eller Deaktivere produktet" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="366,545,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF"/>
-        <TextBox x:Name="textBox_search" HorizontalAlignment="Left" Height="35" Margin="642,87,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button_search" Content="Søg" HorizontalAlignment="Left" Margin="767,87,0,0" VerticalAlignment="Top" Width="62" Click="button_search_Click" Height="35" Background="White"/>
-        <Button x:Name="button_update" Content="Opdater" HorizontalAlignment="Left" VerticalAlignment="Top" Width="198" Margin="631,588,0,0" Click="button_update_Click" Background="White" Height="67"/>
+        <TextBox x:Name="textBox_search" HorizontalAlignment="Left" Height="36" Margin="642,87,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button_search" Content="Søg" HorizontalAlignment="Left" Margin="767,87,0,0" VerticalAlignment="Top" Width="62" Click="button_search_Click" Height="36" Background="White"/>
+        <Button x:Name="button_update" Content="Opdater" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="649,615,0,0" Click="button_update_Click" Height="40"/>
         <Label x:Name="label_description" Content="Beskrivelse" HorizontalAlignment="Left" Margin="20,521,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF"/>
         <TextBox x:Name="textBox_description" AcceptsReturn="True" HorizontalAlignment="Left" Height="110" Margin="24,545,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="322"/>
         <Label x:Name="label_price" Content="Pris" HorizontalAlignment="Left" Margin="163,447,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF"/>

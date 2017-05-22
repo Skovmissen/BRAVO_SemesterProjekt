@@ -15,7 +15,7 @@
 
 
         <Label x:Name="lbl_Name" Content="Navn" HorizontalAlignment="Left" Margin="29,494,0,0" VerticalAlignment="Top" Height="30" Foreground="#FFFFFFFF"/>
-        <Button x:Name="btn_Edit" Content="Opdatere" HorizontalAlignment="Left" Margin="673,594,0,0" VerticalAlignment="Top" Width="130" Click="btn_Edit_Click" Height="42" Background="White"/>
+        <Button x:Name="btn_Edit" Content="Opdatere" HorizontalAlignment="Left" Margin="623,596,0,0" VerticalAlignment="Top" Width="180" Click="btn_Edit_Click" Height="40"/>
         <Label x:Name="label_Copy3" Content="Vælg hvilken klynge du vil redigere" HorizontalAlignment="Left" Margin="38,129,0,0" VerticalAlignment="Top" Height="30" Foreground="#FFFFFFFF"/>
         <TextBox x:Name="txt_Edit_Search" HorizontalAlignment="Left" Height="30" Margin="598,129,0,0" TextWrapping="Wrap" Text="{Binding Search}" VerticalAlignment="Top" Width="126"/>
         <Button x:Name="btn_Edit_Search" Content="Søg" HorizontalAlignment="Left" Margin="729,129,0,0" VerticalAlignment="Top" Width="74" Click="btn_Edit_Search_Click" Height="30" Background="White" />
