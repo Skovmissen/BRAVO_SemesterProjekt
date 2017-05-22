@@ -259,7 +259,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void UpdateProduct(Products product) // Lavet af Lasse og Nikolaj
         {
-            SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, FK_CategoryName = @CategoryName, FK_ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion, Price = @Price WHERE ProductName = @OldName", connection);
+            SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, FK_CategoryName = @CategoryName, FK_ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion, Price = @Price WHERE ProductId = @Id", connection);
             command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ZipCode", product.Zipcode, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Region", product.Region, SqlDbType.NVarChar));
@@ -274,7 +274,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@ProductName", product.ProductName, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@XmlId", product.XmlId, SqlDbType.Int));
             command.Parameters.Add(CreateParam("@Price", product.Price, SqlDbType.Float));
-            command.Parameters.Add(CreateParam("@OldName", product.OldName, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Id", product.Id, SqlDbType.Int));
             try
             {
                 command.ExecuteNonQuery();
