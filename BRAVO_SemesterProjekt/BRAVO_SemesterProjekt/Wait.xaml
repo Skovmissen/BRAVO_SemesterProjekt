@@ -6,21 +6,13 @@
         xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
         mc:Ignorable="d"
         Title="Wait" Height="200" Width="250" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-            <GradientStop Color="#FFB48405" Offset="0.153"/>
-            <GradientStop Color="#FF8400F1" Offset="1"/>
-            <GradientStop Color="#FF72A00F" Offset="0.37"/>
-            <GradientStop Color="#FF1E6A02" Offset="0.523"/>
-            <GradientStop Color="#FF1F0889" Offset="0.777"/>
-        </LinearGradientBrush>
-    </Window.Background>
+   
     <Grid Margin="0,0,0,2">
 
-        <Label Content="Upload igang, vent venligst" Background="{x:Null}" Foreground="White" Margin="41,10,40.8,97.4"></Label>
+        <Label Content="Upload igang, vent venligst" Background="{x:Null}" HorizontalContentAlignment="Center" Foreground="Black" Margin="21,10,20,97"></Label>
         <Grid Margin="10,55,10,113">
 
-            <ProgressBar Name="pbStatus"  Height="23" VerticalAlignment="Center" HorizontalAlignment="Center" Width="202" Minimum="0" Maximum="100" Value="{Binding Path=Counter}" Margin="10,-5,10,4"/>
+            <ProgressBar Name="pbStatus"  Height="23" VerticalAlignment="Center" Background="White" HorizontalAlignment="Center" Width="202" Minimum="0" Maximum="100" Value="{Binding Path=Counter}" Margin="10,-5,10,4"/>
             <TextBlock Padding="10" Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="98,-11,56,-16" Width="68" Height="49" />
         </Grid>
 
