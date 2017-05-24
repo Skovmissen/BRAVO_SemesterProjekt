@@ -38,17 +38,7 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
-        private int id;
-
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                NotifyPropertyChanged();
-            }
-        }
+        
         private string name;
 
         public string Name
