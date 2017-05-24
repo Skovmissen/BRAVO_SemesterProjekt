@@ -8,7 +8,7 @@ namespace BRAVO_SemesterProjekt
  
     static class DB
     {
-        static private SqlConnection connection = null;       
+        private static SqlConnection connection = null;       
         public static void OpenDb() // Lavet af Lasse
         {
             try

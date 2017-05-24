@@ -34,9 +34,9 @@ namespace BRAVO_SemesterProjekt
                 {
                     if (!(actor.Name == null || actor.Name == "" || actor.Email == null || actor.Email == "" || actor.Tlf == null || actor.Tlf == ""))
                     {
-                        DB.OpenDb();
+
                         DB.InsertActor(actor);
-                        DB.CloseDb();
+
                         MessageBox.Show("Aktør er oprettet");
                         ClearBoxes();
                     }
@@ -58,7 +58,7 @@ namespace BRAVO_SemesterProjekt
                     MessageBox.Show("Ukendt fejl");
                 }
             }
-
+            DB.CloseDb();
         }
         private void ClearBoxes()
         {

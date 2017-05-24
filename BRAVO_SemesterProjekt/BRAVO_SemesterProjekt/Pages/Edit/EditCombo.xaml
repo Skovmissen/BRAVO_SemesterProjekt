@@ -1,36 +1,60 @@
 ﻿<Page x:Class="BRAVO_SemesterProjekt.EditCombo"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
-      mc:Ignorable="d" 
-       Background="#FF0069B7"
+      mc:Ignorable="d"
+      Background="#FF0069B7"
       d:DesignHeight="722" d:DesignWidth="1292"
 
       Title="EditCombo">
 
     <Grid>
-        <DataGrid x:Name="dataGrid_edit_Combo" AutoGenerateColumns="True" AutoGeneratingColumn="dataGrid_edit_Combo_AutoGeneratingColumn" Background="#FF0069B7" BorderBrush="#FF0069B7" IsReadOnly="True" HorizontalAlignment="Left" Margin="25,128,0,0" VerticalAlignment="Top" Height="290" Width="804" ColumnWidth="*" SelectionChanged="dataGrid_edit_Combo_SelectionChanged"/>
-        <Label x:Name="header_gridview" Content="Redigér kombinationsprodukt" HorizontalAlignment="Left" Margin="18,100,0,0" VerticalAlignment="Top" Width="194" Foreground="#FFFFFFFF"/>
-        <Label x:Name="label_combiproduct" Content="Kombiprodukt" HorizontalAlignment="Left" Margin="22,452,0,0" VerticalAlignment="Top" Width="96" Foreground="#FFFFFFFF"/>
-        <TextBox x:Name="textBox_ComboName" HorizontalAlignment="Left" Height="23" Margin="24,474,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_startTime" Content="Starttid" HorizontalAlignment="Left" Margin="308,447,0,0" VerticalAlignment="Top" Height="24" Width="50" Foreground="#FFFFFFFF"/>
-        <Label x:Name="label_endTime" Content="Sluttid" HorizontalAlignment="Left" Margin="442,447,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF"/>
-        <CheckBox x:Name="checkBox" Content="Aktivere eller Deaktivere produktet" IsChecked="{Binding Path=Activate}" HorizontalAlignment="Left" Margin="366,545,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF"/>
-        <TextBox x:Name="textBox_search" HorizontalAlignment="Left" Height="36" Margin="642,87,0,0" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button_search" Content="Søg" HorizontalAlignment="Left" Margin="767,87,0,0" VerticalAlignment="Top" Width="62" Click="button_search_Click" Height="36" Background="White"/>
-        <Button x:Name="button_update" Content="Opdater" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="649,615,0,0" Click="button_update_Click" Height="40"/>
-        <Label x:Name="label_description" Content="Beskrivelse" HorizontalAlignment="Left" Margin="20,521,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF"/>
-        <TextBox x:Name="textBox_description" AcceptsReturn="True" HorizontalAlignment="Left" Height="110" Margin="24,545,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="322"/>
-        <Label x:Name="label_price" Content="Pris" HorizontalAlignment="Left" Margin="163,447,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF"/>
-        <TextBox x:Name="textBox_price" HorizontalAlignment="Left" Height="23" Margin="163,474,0,0" TextWrapping="Wrap" Text="{Binding Path=Price}" VerticalAlignment="Top" Width="120"/>
-        <DatePicker HorizontalAlignment="Left" Margin="308,469,0,0" SelectedDate="{Binding Path=StartTime}" VerticalAlignment="Top" Width="114" Height="28"/>
-        <DatePicker HorizontalAlignment="Left" Margin="442,469,0,0" SelectedDate="{Binding Path=EndTime}" VerticalAlignment="Top" Width="112" Height="28"/>
-        <Button x:Name="button" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Header" Content="Redigere Kombinations Produkt" Foreground="#FFFFFFFF" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="1292" FontSize="20"/>
-        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,644"/>
-        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,440,0,280"/>
+        <DataGrid x:Name="dataGrid_edit_Combo" AutoGenerateColumns="True"
+                  AutoGeneratingColumn="dataGrid_edit_Combo_AutoGeneratingColumn" Background="#FF0069B7"
+                  BorderBrush="#FF0069B7" IsReadOnly="True" HorizontalAlignment="Left" Margin="25,128,0,0"
+                  VerticalAlignment="Top" Height="290" Width="804" ColumnWidth="*"
+                  SelectionChanged="dataGrid_edit_Combo_SelectionChanged" />
+        <Label x:Name="header_gridview" Content="Redigér kombinationsprodukt" HorizontalAlignment="Left"
+               Margin="18,100,0,0" VerticalAlignment="Top" Width="194" Foreground="#FFFFFFFF" />
+        <Label x:Name="label_combiproduct" Content="Kombiprodukt" HorizontalAlignment="Left" Margin="22,452,0,0"
+               VerticalAlignment="Top" Width="96" Foreground="#FFFFFFFF" />
+        <TextBox x:Name="textBox_ComboName" HorizontalAlignment="Left" Height="23" Margin="24,474,0,0"
+                 TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="120" />
+        <Label x:Name="label_startTime" Content="Starttid" HorizontalAlignment="Left" Margin="308,447,0,0"
+               VerticalAlignment="Top" Height="24" Width="50" Foreground="#FFFFFFFF" />
+        <Label x:Name="label_endTime" Content="Sluttid" HorizontalAlignment="Left" Margin="442,447,0,0"
+               VerticalAlignment="Top" Foreground="#FFFFFFFF" />
+        <CheckBox x:Name="checkBox" Content="Aktivere eller Deaktivere produktet" IsChecked="{Binding Path=Activate}"
+                  HorizontalAlignment="Left" Margin="366,545,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF" />
+        <TextBox x:Name="textBox_search" HorizontalAlignment="Left" Height="36" Margin="642,87,0,0" TextWrapping="Wrap"
+                 Text="{Binding Path=Search}" VerticalAlignment="Top" Width="120" />
+        <Button x:Name="button_search" Content="Søg" HorizontalAlignment="Left" Margin="767,87,0,0"
+                VerticalAlignment="Top" Width="62" Click="button_search_Click" Height="36" Background="White" />
+        <Button x:Name="button_update" Content="Opdater" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180"
+                Margin="649,615,0,0" Click="button_update_Click" Height="40" />
+        <Label x:Name="label_description" Content="Beskrivelse" HorizontalAlignment="Left" Margin="20,521,0,0"
+               VerticalAlignment="Top" Foreground="#FFFFFFFF" />
+        <TextBox x:Name="textBox_description" AcceptsReturn="True" HorizontalAlignment="Left" Height="110"
+                 Margin="24,545,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top"
+                 Width="322" />
+        <Label x:Name="label_price" Content="Pris" HorizontalAlignment="Left" Margin="163,447,0,0"
+               VerticalAlignment="Top" Foreground="#FFFFFFFF" />
+        <TextBox x:Name="textBox_price" HorizontalAlignment="Left" Height="23" Margin="163,474,0,0" TextWrapping="Wrap"
+                 Text="{Binding Path=Price}" VerticalAlignment="Top" Width="120" />
+        <DatePicker HorizontalAlignment="Left" Margin="308,469,0,0" SelectedDate="{Binding Path=StartTime}"
+                    VerticalAlignment="Top" Width="114" Height="28" />
+        <DatePicker HorizontalAlignment="Left" Margin="442,469,0,0" SelectedDate="{Binding Path=EndTime}"
+                    VerticalAlignment="Top" Width="112" Height="28" />
+        <Button x:Name="button" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36"
+                Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
+                Foreground="#FF535353" />
+        <Label x:Name="lbl_Header" Content="Redigere Kombinations Produkt" Foreground="#FFFFFFFF"
+               HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35"
+               Width="1292" FontSize="20" />
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,644" />
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,440,0,280" />
 
     </Grid>
 </Page>

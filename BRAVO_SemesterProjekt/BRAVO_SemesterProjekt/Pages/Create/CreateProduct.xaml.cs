@@ -13,7 +13,6 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class CreateProduct : Page
     {
-      
         Products product = new Products();
         public CreateProduct()
         {

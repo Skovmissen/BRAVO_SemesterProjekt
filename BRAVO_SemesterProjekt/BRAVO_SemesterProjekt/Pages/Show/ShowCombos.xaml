@@ -1,35 +1,61 @@
 ﻿<Page x:Class="BRAVO_SemesterProjekt.ShowCombos"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       Background="#FF00B155"
       d:DesignHeight="722" d:DesignWidth="1292"
       Title="ShowCombos">
 
     <Grid>
-        <DataGrid x:Name="GridShowCombo" AutoGenerateColumns="True" AutoGeneratingColumn="GridShowCombo_AutoGeneratingColumn" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="432" Width="620" SelectionChanged="GridShowCombo_SelectionChanged" IsReadOnly="True" ColumnWidth="*"/>
-        <TextBox x:Name="txt_Search_Combo" HorizontalAlignment="Left" Height="32" Margin="404,121,0,0" TextWrapping="Wrap" Text="{Binding Path=Search }" VerticalAlignment="Top" Width="136"/>
-        <DataGrid x:Name="dataGridCombo" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="659,468,0,0" VerticalAlignment="Top" Height="254" Width="623" IsReadOnly="True" ColumnWidth="*" HeadersVisibility="None"/>
-        <Button x:Name="btn_Search_Combo" Content="Søg" HorizontalAlignment="Left" Margin="545,121,0,0" VerticalAlignment="Top" Width="85" Click="btn_Search_Combo_Click" Height="32" Background="White"/>
-        <Label x:Name="label" Content="Vælg Kombinations produkt for yderlige informationer" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
-        <Label x:Name="label_Copy" Content="Produkter i det valgte kombinations produkt" HorizontalAlignment="Left" Margin="659,441,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
-        <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Label x:Name="lbl_Header" Content="Kombinations produkts oversigt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="33" Width="1046" FontSize="20" Margin="126,22,0,0"/>
-        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,644"/>
-        <Label x:Name="label1" Content="Kombinationsprodukt navn" HorizontalAlignment="Left" Margin="665,107,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="Dato Fra og Til" HorizontalAlignment="Left" Margin="665,176,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3" Content="Beskrivelse" HorizontalAlignment="Left" Margin="665,235,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_name" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="665,134,0,0" VerticalAlignment="Top" Width="157" Height="37"/>
-        <Label x:Name="lbl_start" Content="{Binding Path=StartTime}" HorizontalAlignment="Left" Margin="665,203,0,0" VerticalAlignment="Top" Width="72" Height="27"/>
-        <Label x:Name="lbl_end" Content="{Binding EndTime}" HorizontalAlignment="Left" Margin="742,203,0,0" VerticalAlignment="Top" Width="80" Height="27"/>
-        <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="174" Margin="665,262,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="532" IsReadOnly="True"/>
-        <Label x:Name="lbl_price_name" Content="Pris" HorizontalAlignment="Left" Margin="870,107,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_price" Content="{Binding Path=Price}" HorizontalAlignment="Left" Margin="870,121,0,0" VerticalAlignment="Top" Width="133" Height="23"/>
-        <DatePicker Name="dp_start" HorizontalAlignment="Left" Margin="404,90,0,0" VerticalAlignment="Top" Width="104" SelectedDate="{Binding Path=SearchStartTime}"/>
-        <DatePicker Name="dp_end" HorizontalAlignment="Left" Margin="513,90,0,0" VerticalAlignment="Top" Width="106" SelectedDate="{Binding Path=SearchEndTime}"/>
+        <DataGrid x:Name="GridShowCombo" AutoGenerateColumns="True"
+                  AutoGeneratingColumn="GridShowCombo_AutoGeneratingColumn" Background="#FF00B155"
+                  BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top"
+                  Height="432" Width="620" SelectionChanged="GridShowCombo_SelectionChanged" IsReadOnly="True"
+                  ColumnWidth="*" />
+        <TextBox x:Name="txt_Search_Combo" HorizontalAlignment="Left" Height="32" Margin="404,121,0,0"
+                 TextWrapping="Wrap" Text="{Binding Path=Search }" VerticalAlignment="Top" Width="136" />
+        <DataGrid x:Name="dataGridCombo" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left"
+                  Margin="659,468,0,0" VerticalAlignment="Top" Height="254" Width="623" IsReadOnly="True"
+                  ColumnWidth="*" HeadersVisibility="None" />
+        <Button x:Name="btn_Search_Combo" Content="Søg" HorizontalAlignment="Left" Margin="545,121,0,0"
+                VerticalAlignment="Top" Width="85" Click="btn_Search_Combo_Click" Height="32" Background="White" />
+        <Label x:Name="label" Content="Vælg Kombinations produkt for yderlige informationer" HorizontalAlignment="Left"
+               Margin="10,134,0,0" VerticalAlignment="Top" Foreground="#FF535353" />
+        <Label x:Name="label_Copy" Content="Produkter i det valgte kombinations produkt" HorizontalAlignment="Left"
+               Margin="659,441,0,0" VerticalAlignment="Top" Foreground="#FF535353" />
+        <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36"
+                Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
+                Foreground="#FF535353" />
+        <Label x:Name="lbl_Header" Content="Kombinations produkts oversigt" HorizontalContentAlignment="Center"
+               HorizontalAlignment="Left" VerticalAlignment="Top" Height="33" Width="1046" FontSize="20"
+               Margin="126,22,0,0" />
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,644" />
+        <Label x:Name="label1" Content="Kombinationsprodukt navn" HorizontalAlignment="Left" Margin="665,107,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="label2" Content="Dato Fra og Til" HorizontalAlignment="Left" Margin="665,176,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="label3" Content="Beskrivelse" HorizontalAlignment="Left" Margin="665,235,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="lbl_name" Content="{Binding Path=Name}" HorizontalAlignment="Left" Margin="665,134,0,0"
+               VerticalAlignment="Top" Width="157" Height="37" />
+        <Label x:Name="lbl_start" Content="{Binding Path=StartTime}" HorizontalAlignment="Left" Margin="665,203,0,0"
+               VerticalAlignment="Top" Width="72" Height="27" />
+        <Label x:Name="lbl_end" Content="{Binding EndTime}" HorizontalAlignment="Left" Margin="742,203,0,0"
+               VerticalAlignment="Top" Width="80" Height="27" />
+        <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="174" Margin="665,262,0,0"
+                 TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="532"
+                 IsReadOnly="True" />
+        <Label x:Name="lbl_price_name" Content="Pris" HorizontalAlignment="Left" Margin="870,107,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="lbl_price" Content="{Binding Path=Price}" HorizontalAlignment="Left" Margin="870,121,0,0"
+               VerticalAlignment="Top" Width="133" Height="23" />
+        <DatePicker Name="dp_start" HorizontalAlignment="Left" Margin="404,90,0,0" VerticalAlignment="Top" Width="104"
+                    SelectedDate="{Binding Path=SearchStartTime}" />
+        <DatePicker Name="dp_end" HorizontalAlignment="Left" Margin="513,90,0,0" VerticalAlignment="Top" Width="106"
+                    SelectedDate="{Binding Path=SearchEndTime}" />
 
     </Grid>
 </Page>
