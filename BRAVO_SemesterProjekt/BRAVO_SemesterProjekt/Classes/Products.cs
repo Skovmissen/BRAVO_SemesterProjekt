@@ -187,11 +187,6 @@ namespace BRAVO_SemesterProjekt
                 NotifyPropertyChanged();
             }
         }
-        // -- //
-
-
-
-
 
         private string street;
 

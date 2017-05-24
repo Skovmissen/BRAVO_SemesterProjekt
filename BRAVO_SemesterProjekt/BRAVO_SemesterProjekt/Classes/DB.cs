@@ -664,22 +664,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static int GetProductIdInCombo(ComboProducts combo) //Lavet af Nikolaj
-        {
-            int id = 0;
-            try
-            {
-                SqlCommand reader = new SqlCommand("SELECT FK_ProductId FROM CombiView WHERE FK_CombiId = @CombiId", connection);
-                reader.Parameters.AddWithValue("@CombiId", combo.Id);
-                id = Convert.ToInt32(reader.ExecuteScalar());
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return id;
-        }
+        
         public static DataTable GetProductIdFromCombo(ComboProducts combo) //Lavet af Nikolaj
         {
             DataTable ds = new DataTable();
@@ -716,26 +701,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable GetProductsInComboView(DataTable products) //Lavet af NIkolaj
-        {
-            DataTable ds = new DataTable();
-            try
-            {
-                foreach (DataRow item in products.Rows)
-                {
-
-
-                    SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductId = @ProductId", connection);
-                    reader.SelectCommand.Parameters.AddWithValue("@ProductId", item.ItemArray[0].ToString());
-                    reader.Fill(ds);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return ds;
-        }
+        
         public static void InsertProductInCombi(ComboProducts combo, Products product) //Lavet af Lasse og Nikolaj
         {
             SqlCommand command = new SqlCommand("INSERT INTO CombiView (FK_CombiId, FK_ProductId) SELECT @FK_CombiId, @FK_ProductId WHERE NOT EXISTS (SELECT FK_CombiID FROM CombiView WHERE FK_CombiId = @FK_CombiId AND FK_ProductId = @FK_ProductId)", connection);

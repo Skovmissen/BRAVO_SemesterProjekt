@@ -46,7 +46,7 @@ namespace BRAVO_SemesterProjekt
         private void ShowProductsInCombi()  //Denne metode finder alle de produktid'er der er tilhørende det valgte komboId, hvorefter den henter produktnavnene ud og læser dem ind i datagridet.
         {
             DataTable comboProducts = DB.GetProductIdFromCombo(combo);
-            dg_showproduts.ItemsSource = DB.GetProductsInComboView(comboProducts).DefaultView;
+            dg_showproduts.ItemsSource = DB.GetProductsInCombo(comboProducts).DefaultView;
         }
         private void FillcomboWithActorsProducts()   //Denne metoder fylder comboboxen med alle produkter i databasen
         {
