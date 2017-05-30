@@ -53,8 +53,10 @@ namespace BRAVO_SemesterProjekt
             DataTable products = DB.ShowActorsProducts(actor);
             for (int i = 0; i < products.Rows.Count; i++)
             {
+              
                 cmb_products.Items.Add(products.Rows[i]["ProductName"]);
             }
+         
         }
         private void FillcomboWithActors()   //Denne metoder fylder comboboxen med alle produkter i databasen
         {
