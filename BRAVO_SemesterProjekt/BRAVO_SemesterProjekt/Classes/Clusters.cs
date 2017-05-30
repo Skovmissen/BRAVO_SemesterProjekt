@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace BRAVO_SemesterProjekt
 {
+    //Af Lasse
     public class Clusters : INotifyPropertyChanged
     {
         private bool activate;

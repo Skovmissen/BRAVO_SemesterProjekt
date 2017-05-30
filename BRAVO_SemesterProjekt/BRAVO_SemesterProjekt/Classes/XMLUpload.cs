@@ -10,6 +10,8 @@ namespace BRAVO_SemesterProjekt
 {
     /// <summary>
     /// Lavet af alle
+    /// 
+    /// Denne klasse styre upload af xml, der indgår de nødvendige metoder til denne funktion.
     /// </summary>
     class XMLUpload
     {
@@ -31,7 +33,7 @@ namespace BRAVO_SemesterProjekt
                 XmlNodeList productNode = doc.DocumentElement.SelectNodes("/BravoXML:ArrayOfProduct/BravoXML:Product", ns); //Laver en liste af alle produkter i xml-dokumentet.
                 temp.NodeCount = productNode.Count;
 
-                DB.OpenDb();
+                
                 foreach (XmlNode item in productNode)
                 {
                     ExtractValuesFromXml(temp, actor, product, ns, item);
@@ -44,7 +46,7 @@ namespace BRAVO_SemesterProjekt
                     }
                     await PutTaskDelay();
                 }
-                DB.CloseDb();
+               
                 wait.WaitEnd(); //Lukker loadings vinduet.
                 if (wait.Cancel == true)
                 {
@@ -86,7 +88,7 @@ namespace BRAVO_SemesterProjekt
             product.Street = addressLine1.InnerText;
         }
 
-        public static XmlDocument LoadDoc(TempData temp, Wait wait) //LoadDoc bruges til at loade XML-Dokument stien ind i doc, så man kan arbejde med den.
+        private static XmlDocument LoadDoc(TempData temp, Wait wait) //LoadDoc bruges til at loade XML-Dokument stien ind i doc, så man kan arbejde med den.
         {
             XmlDocument doc = new XmlDocument();
             try
@@ -105,24 +107,21 @@ namespace BRAVO_SemesterProjekt
                 MessageBox.Show("Du har ikke valgt nogen fil");
                 wait.WaitEnd();
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
 
             return doc;
         }
-        public static XmlNamespaceManager NameSpace(TempData temp, XmlDocument doc) // Namespace bliver brugt til at definere det namespace der står i toppen af XML dokumentet xnsm:
+
+        private static XmlNamespaceManager NameSpace(TempData temp, XmlDocument doc) // Namespace bliver brugt til at definere det namespace der står i toppen af XML dokumentet xnsm:
         {
             XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
             ns.AddNamespace("BravoXML", "http://schemas.datacontract.org/2004/07/GuideDenmark.External.Data.Model");
 
             return ns;
         }
-        public static void InsertInDb(Actors actor, Products product) //indsætter de funde data fra xml dokumentet i databasen.
+
+        private static void InsertInDb(Actors actor, Products product) //indsætter de funde data fra xml dokumentet i databasen.
         {
+            DB.OpenDb();
             DataTable dtActor = DB.CheckForDoubleActor(actor);
             if (dtActor.Rows.Count == 0)
             {
@@ -146,7 +145,7 @@ namespace BRAVO_SemesterProjekt
             {
                 DB.InsertXMLProduct(product, actor);
             }
-
+            DB.CloseDb();
         }
         private static async Task PutTaskDelay() // Async bruges til at forsinke metoden så den har tid til at opdatere gui, hvori vores progress bar er.
         {

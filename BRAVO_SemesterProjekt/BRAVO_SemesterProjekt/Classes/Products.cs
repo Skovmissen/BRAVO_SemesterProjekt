@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace BRAVO_SemesterProjekt
 {
+    //Af Claus
     public class Products : INotifyPropertyChanged
     {
         private bool activate;

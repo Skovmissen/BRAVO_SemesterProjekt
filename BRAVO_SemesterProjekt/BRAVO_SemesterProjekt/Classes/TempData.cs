@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace BRAVO_SemesterProjekt
 {
+    //Af Nikolaj
     public class TempData : INotifyPropertyChanged
     {
         

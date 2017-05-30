@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace BRAVO_SemesterProjekt
 {
+    //Af Anders
     public class ComboProducts : INotifyPropertyChanged
     {
         private bool activate;

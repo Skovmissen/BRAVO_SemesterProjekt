@@ -5,7 +5,9 @@ using System.Data.SqlClient;
 
 namespace BRAVO_SemesterProjekt
 {
- 
+ /// <summary>
+ /// Denne klasse styre alle vores database kald
+ /// </summary>
     static class DB
     {
         private static SqlConnection connection = null;       

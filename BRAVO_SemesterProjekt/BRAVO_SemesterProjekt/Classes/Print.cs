@@ -3,7 +3,7 @@ using System.IO;
 
 namespace BRAVO_SemesterProjekt
 {
-
+    //Af Nikolaj
     public class Print
     {
 
