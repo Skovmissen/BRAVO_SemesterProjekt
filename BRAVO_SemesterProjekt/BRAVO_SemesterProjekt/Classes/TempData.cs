@@ -22,7 +22,7 @@ namespace BRAVO_SemesterProjekt
         }
 
 
-        private string search; // Søgnings property hvori man gemmer den midlertidige søge stræng.
+        private string search; // Søgnings property hvori man gemmer den midlertidige søge streng.
 
         public string Search
         {

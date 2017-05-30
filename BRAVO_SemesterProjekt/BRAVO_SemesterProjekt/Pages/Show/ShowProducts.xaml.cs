@@ -13,7 +13,6 @@ namespace BRAVO_SemesterProjekt
     public partial class ShowProducts : Page
     {
 
-        //TempData temp = new TempData();
         Products product = new Products();
 
         private bool valgt = false;
@@ -33,7 +32,7 @@ namespace BRAVO_SemesterProjekt
         }
 
         /// <summary>
-        /// klik på knap søger produkt tabel for det indtastede
+        /// klik på knap søger i produkttabel for det bruger har indtastet
         /// </summary>
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
@@ -45,7 +44,7 @@ namespace BRAVO_SemesterProjekt
                 {
                     datagrid_ShowProducts.UnselectAllCells();
                     DB.OpenDb();
-                    datagrid_ShowProducts.ItemsSource = DB.SearchProductOverview(product).DefaultView;//metoden kalder de søgte koonner i DB og sender dem til datagriddet
+                    datagrid_ShowProducts.ItemsSource = DB.SearchProductOverview(product).DefaultView;//metoden kalder de søgte kolonner i DB og sender dem til datagriddet
                     DB.CloseDb();
                 }
                 else
