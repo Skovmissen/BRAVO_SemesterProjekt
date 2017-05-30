@@ -16,14 +16,14 @@
                   BorderBrush="#FF0069B7" IsReadOnly="True" HorizontalAlignment="Left" Margin="25,128,0,0"
                   VerticalAlignment="Top" Height="290" Width="804" ColumnWidth="*"
                   SelectionChanged="dataGrid_edit_Combo_SelectionChanged" />
-        <Label x:Name="header_gridview" Content="Redigér kombinationsprodukt" HorizontalAlignment="Left"
+        <Label x:Name="header_gridview" Content="Vælg kombinationsprodukt" HorizontalAlignment="Left"
                Margin="18,100,0,0" VerticalAlignment="Top" Width="194" Foreground="#FFFFFFFF" />
-        <Label x:Name="label_combiproduct" Content="Kombiprodukt" HorizontalAlignment="Left" Margin="22,452,0,0"
+        <Label x:Name="label_combiproduct" Content="Navn" HorizontalAlignment="Left" Margin="22,452,0,0"
                VerticalAlignment="Top" Width="96" Foreground="#FFFFFFFF" />
         <TextBox x:Name="textBox_ComboName" HorizontalAlignment="Left" Height="23" Margin="24,474,0,0"
                  TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="120" />
         <Label x:Name="label_startTime" Content="Starttid" HorizontalAlignment="Left" Margin="308,447,0,0"
-               VerticalAlignment="Top" Height="24" Width="50" Foreground="#FFFFFFFF" />
+               VerticalAlignment="Top" Height="24" Width="77" Foreground="#FFFFFFFF" />
         <Label x:Name="label_endTime" Content="Sluttid" HorizontalAlignment="Left" Margin="442,447,0,0"
                VerticalAlignment="Top" Foreground="#FFFFFFFF" />
         <CheckBox x:Name="checkBox" Content="Aktivere eller Deaktivere produktet" IsChecked="{Binding Path=Activate}"
@@ -33,7 +33,7 @@
         <Button x:Name="button_search" Content="Søg" HorizontalAlignment="Left" Margin="767,87,0,0"
                 VerticalAlignment="Top" Width="62" Click="button_search_Click" Height="36" Background="White" />
         <Button x:Name="button_update" Content="Opdater" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180"
-                Margin="649,615,0,0" Click="button_update_Click" Height="40" />
+                Margin="366,615,0,0" Click="button_update_Click" Height="40" />
         <Label x:Name="label_description" Content="Beskrivelse" HorizontalAlignment="Left" Margin="20,521,0,0"
                VerticalAlignment="Top" Foreground="#FFFFFFFF" />
         <TextBox x:Name="textBox_description" AcceptsReturn="True" HorizontalAlignment="Left" Height="110"
@@ -50,7 +50,7 @@
         <Button x:Name="button" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36"
                 Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
                 Foreground="#FF535353" />
-        <Label x:Name="lbl_Header" Content="Redigere Kombinations Produkt" Foreground="#FFFFFFFF"
+        <Label x:Name="lbl_Header" Content="Rediger Kombinationsprodukt" Foreground="#FFFFFFFF"
                HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35"
                Width="1292" FontSize="20" />
         <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,644" />

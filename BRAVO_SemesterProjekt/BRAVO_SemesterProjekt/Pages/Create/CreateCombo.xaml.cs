@@ -18,7 +18,7 @@ namespace BRAVO_SemesterProjekt
         Products product = new Products();
         Actors actor = new Actors();
         TempData temp = new TempData();
-              
+
         public CreateCombo()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
-        
+
         private void ShowProductsInCombi()  //Denne metode finder alle de produktid'er der er tilhørende det valgte komboId, hvorefter den henter produktnavnene ud og læser dem ind i datagridet.
         {
             DataTable comboProducts = DB.GetProductIdFromCombo(combo);
@@ -51,8 +51,8 @@ namespace BRAVO_SemesterProjekt
         private void FillcomboWithActorsProducts()   //Denne metoder fylder comboboxen med alle den valgte aktørs produkter i databasen
         {
             DataTable products = DB.ShowActorsProducts(actor);
-            cmb_products.ItemsSource = products.DefaultView;          
-                   
+            cmb_products.ItemsSource = products.DefaultView;
+
         }
         private void FillcomboWithActors()   //Denne metoder fylder comboboxen med alle produkter i databasen
         {
@@ -71,7 +71,7 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
-       
+
         private void btn_addproductInCombi(object sender, RoutedEventArgs e)
         {
 
@@ -104,50 +104,54 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_CreateCombo(object sender, RoutedEventArgs e)
         {
-            DB.OpenDb();
-            DataTable CheckDouble = DB.CheckForDoubleCombo(combo);
-            DB.CloseDb();
-            if (CheckDouble.Rows.Count > 0)
-            {
-                MessageBox.Show("Kombinations produktet eksistere allerede i databasen");
-            }
-            else
-            {
-                try
-                {
 
-                    if (!(combo.Name == null || combo.Name == "" || combo.Price == 0 || combo.Description == null || combo.Description == "" || combo.StartTime == null || combo.EndTime == null || combo.EndTime < combo.StartTime || combo.StartTime < DateTime.Now.Date))
-                    {
+
+            try
+            {
+
+                if (!(combo.Name == null || combo.Name == "" || combo.Price <= 0 || combo.Description == null ||
+                      combo.Description == "" || combo.StartTime == null || combo.EndTime == null ||
+                      combo.EndTime < combo.StartTime || combo.StartTime < DateTime.Now.Date))
+                {
                     DB.OpenDb();
-                    DB.InsertCombo(combo);
-                    cmb_combiproducts.Items.Clear();
-                    FillcomboWithCombiProducts();
-                    Clearboxes();
-                    DB.CloseDb();
-                    MessageBox.Show("Kombiprodukt er oprettet");
+                    DataTable CheckDouble = DB.CheckForDoubleCombo(combo);
+
+                    if (CheckDouble.Rows.Count > 0)
+                    {
+                        MessageBox.Show("Kombinations produktet eksistere allerede i databasen");
+                    }
+                    else
+                    {
+                        DB.InsertCombo(combo);
+                        cmb_combiproducts.Items.Clear();
+                        FillcomboWithCombiProducts();
+                        Clearboxes();
+                        DB.CloseDb();
+                        MessageBox.Show("Kombiprodukt er oprettet");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Et felt er ikke udfyldt korrekt");
                 }
-             
 
-                }
-                catch (SqlException)
-                {
 
-                    MessageBox.Show("Ingen forbindelses til DB");
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
             }
+            catch (SqlException)
+            {
 
+                MessageBox.Show("Ingen forbindelses til DB");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        
+
+
+
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             CreateMenu menu = new CreateMenu();
@@ -158,9 +162,9 @@ namespace BRAVO_SemesterProjekt
         {
             combo.NewComBoName = cmb_combiproducts.Text;
             lbl_comproductname.Content = cmb_combiproducts.Text;
-            
+
             DB.OpenDb();
-            combo.Id = DB.GetcomboId(combo);            
+            combo.Id = DB.GetcomboId(combo);
             ShowProductsInCombi();
             DB.CloseDb();
 
@@ -174,7 +178,7 @@ namespace BRAVO_SemesterProjekt
         }
         private void cmb_actor_DropDownClosed(object sender, EventArgs e)
         {
-            actor.Name = cmb_actor.Text;            
+            actor.Name = cmb_actor.Text;
             FillcomboWithActorsProducts();
         }
         private void Clearboxes()

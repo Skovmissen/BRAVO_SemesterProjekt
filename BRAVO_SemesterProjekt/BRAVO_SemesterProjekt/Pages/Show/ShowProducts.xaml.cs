@@ -15,6 +15,8 @@ namespace BRAVO_SemesterProjekt
 
         //TempData temp = new TempData();
         Products product = new Products();
+
+        private bool valgt = false;
         public ShowProducts()
         {
             InitializeComponent();
@@ -73,6 +75,7 @@ namespace BRAVO_SemesterProjekt
 
         private void datagrid_ShowProducts_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+            valgt = true;
             foreach (DataRowView row in datagrid_ShowProducts.SelectedItems) //for hvert række i datagriddet bliver indholdet af kolonner lagt i properties, som vi kan databinde til.
             {
                 product.ProductName = row.Row.ItemArray[0].ToString();
@@ -116,9 +119,16 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void btn_Print_Click(object sender, RoutedEventArgs e)
         {
-            Print.WriteToFile(product);
+            if (valgt)
+            {
+                Print.WriteToFile(product);
+            }
+            else
+            {
+                MessageBox.Show("Vælg et produkt før du printer");
+            }
         }
 
         

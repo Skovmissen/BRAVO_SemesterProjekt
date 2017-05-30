@@ -49,7 +49,7 @@ namespace BRAVO_SemesterProjekt
         {
             try
             {
-                if (!(product.ProductName == null || product.ProductName == "" || product.Street == null || product.Street == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Region == null || product.Region == "" || product.Longtitude == 0 || product.Latitude == 0 || product.Url == null || product.Url == "" || product.Price == 0 || product.Description == null || product.Description == "" || product.ActorName == null || product.Category == null))
+                if (!(product.ProductName == null || product.ProductName == "" || product.Street == null || product.Street == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Region == null || product.Region == "" || product.Longtitude == 0 || product.Latitude == 0 || product.Url == null || product.Url == "" || product.Price <= 0 || product.Description == null || product.Description == "" || product.ActorName == null || product.Category == null))
                 {
                 DB.OpenDb();
                 DB.InsertProduct(product);

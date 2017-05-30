@@ -27,7 +27,7 @@
                VerticalAlignment="Top" Height="30" Foreground="#FFFFFFFF" />
         <Label x:Name="lbl_Tlf" Content="TLF" HorizontalAlignment="Left" Margin="483,514,0,0" VerticalAlignment="Top"
                Height="30" Foreground="#FFFFFFFF" />
-        <Button x:Name="btn_Edit" Content="Opdatere" HorizontalAlignment="Left" Margin="690,536,0,0"
+        <Button x:Name="btn_Edit" Content="Opdater" HorizontalAlignment="Left" Margin="501,588,0,0"
                 VerticalAlignment="Top" Width="181" Click="btn_Edit_Click" Height="40" />
         <Label x:Name="label_Copy3" Content="Vælg hvilken aktør du vil redigere" HorizontalAlignment="Left"
                Margin="62,122,0,0" VerticalAlignment="Top" Height="30" Foreground="#FFFFFFFF" />
@@ -36,11 +36,11 @@
         <Button x:Name="btn_Edit_Search" Content="Søg" HorizontalAlignment="Left" Margin="796,121,0,0"
                 VerticalAlignment="Top" Width="75" Click="btn_Edit_Search_Click" Background="White" Height="31" />
         <CheckBox x:Name="checkBox" Content="Aktivere eller deaktivere" IsChecked="{Binding Path=Activate}"
-                  HorizontalAlignment="Left" Margin="505,580,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF" />
+                  HorizontalAlignment="Left" Margin="59,576,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF" />
         <Button x:Name="button" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36"
                 Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
                 Foreground="#FF535353" />
-        <Label x:Name="lbl_Header" Content="Redigere Aktør" HorizontalContentAlignment="Center"
+        <Label x:Name="lbl_Header" Content="Rediger Aktør" HorizontalContentAlignment="Center"
                HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFFFF" Height="35" Width="1292"
                FontSize="20" />
         <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,76,0,644" />

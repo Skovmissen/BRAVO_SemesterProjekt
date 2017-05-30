@@ -22,42 +22,48 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_gem(object sender, RoutedEventArgs e)
         {
-            DB.OpenDb();
-            DataTable CheckDoubleActor = DB.CheckForDoubleActor(actor);
-            if (CheckDoubleActor.Rows.Count > 0)
-            {
-                MessageBox.Show("Aktør navnet findes i forvejen");
-            }
-            else
-            {
-                try
-                {
-                    if (!(actor.Name == null || actor.Name == "" || actor.Email == null || actor.Email == "" || actor.Tlf == null || actor.Tlf == ""))
-                    {
 
+
+
+
+            try
+            {
+                if (!(actor.Name == null || actor.Name == "" || actor.Email == null || actor.Email == "" || actor.Tlf == null || actor.Tlf == ""))
+                {
+                    DB.OpenDb();
+                    DataTable CheckDoubleActor = DB.CheckForDoubleActor(actor);
+                    if (CheckDoubleActor.Rows.Count > 0)
+                    {
+                        MessageBox.Show("Aktør navnet findes i forvejen");
+                    }
+                    else
+                    {
                         DB.InsertActor(actor);
 
                         MessageBox.Show("Aktør er oprettet");
                         ClearBoxes();
-                    }
 
-                    else
-                    {
-                        MessageBox.Show("Et felt er ikke udfyldt korrekt");
                     }
 
                 }
-                catch (SqlException)
-                {
 
-                    MessageBox.Show("Der er ingen forbindelse til databasen");
-                }
-                catch (Exception)
+                else
                 {
-
-                    MessageBox.Show("Ukendt fejl");
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
                 }
+
             }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Der er ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
+
             DB.CloseDb();
         }
         private void ClearBoxes()

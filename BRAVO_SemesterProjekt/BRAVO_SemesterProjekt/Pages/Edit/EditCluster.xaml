@@ -21,7 +21,7 @@
 
         <Label x:Name="lbl_Name" Content="Navn" HorizontalAlignment="Left" Margin="29,494,0,0" VerticalAlignment="Top"
                Height="30" Foreground="#FFFFFFFF" />
-        <Button x:Name="btn_Edit" Content="Opdatere" HorizontalAlignment="Left" Margin="623,596,0,0"
+        <Button x:Name="btn_Edit" Content="Opdatere" HorizontalAlignment="Left" Margin="518,596,0,0"
                 VerticalAlignment="Top" Width="180" Click="btn_Edit_Click" Height="40" />
         <Label x:Name="label_Copy3" Content="Vælg hvilken klynge du vil redigere" HorizontalAlignment="Left"
                Margin="38,129,0,0" VerticalAlignment="Top" Height="30" Foreground="#FFFFFFFF" />
@@ -30,7 +30,7 @@
         <Button x:Name="btn_Edit_Search" Content="Søg" HorizontalAlignment="Left" Margin="729,129,0,0"
                 VerticalAlignment="Top" Width="74" Click="btn_Edit_Search_Click" Height="30" Background="White" />
         <CheckBox x:Name="checkBox" Content="Aktivere eller Deaktivere" IsChecked="{Binding Path=Activate}"
-                  HorizontalAlignment="Left" Margin="502,524,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF" />
+                  HorizontalAlignment="Left" Margin="518,524,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF" />
         <Button x:Name="button" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36"
                 Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
                 Foreground="#FF535353" />
