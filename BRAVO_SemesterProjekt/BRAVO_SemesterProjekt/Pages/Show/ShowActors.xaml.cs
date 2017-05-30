@@ -1,40 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    /// Interaction logic for ShowActors.xaml
+    ///     Interaction logic for ShowActors.xaml
     /// </summary>
     public partial class ShowActors : Page
     {
-        Actors actor = new Actors();
-        Clusters cluster = new Clusters();
-        Products product = new Products();
-        TempData temp = new TempData();
+        private readonly Clusters cluster = new Clusters();
+        private readonly Products product = new Products();
+        private readonly TempData temp = new TempData();
+
         public ShowActors()
         {
-            
             InitializeComponent();
             txt_search_actor.DataContext = temp;
             DB.OpenDb();
             GridShowActor.ItemsSource = DB.ShowActor().DefaultView;
-            DB.CloseDb();     
+            DB.CloseDb();
         }
 
         private void Btn_Search_Actor_Click(object sender, RoutedEventArgs e)
@@ -46,7 +31,7 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
-            ShowMenu menu = new ShowMenu();
+            var menu = new ShowMenu();
             NavigationService.Navigate(menu);
         }
 
@@ -66,13 +51,9 @@ namespace BRAVO_SemesterProjekt
         private void GridShowActor_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if (e.PropertyName == "Activate")
-            {
                 e.Column = null;
-            }
             if (e.PropertyName == "ActorName")
-            {
                 e.Column.Header = "Aktør";
-            }
         }
     }
 }

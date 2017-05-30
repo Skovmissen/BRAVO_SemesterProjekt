@@ -1,20 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -26,6 +14,8 @@ namespace BRAVO_SemesterProjekt
     {
 
         Products product = new Products();
+
+        private bool valgt = false;
         public ShowProducts()
         {
             InitializeComponent();
@@ -84,7 +74,8 @@ namespace BRAVO_SemesterProjekt
 
         private void datagrid_ShowProducts_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            foreach (DataRowView row in datagrid_ShowProducts.SelectedItems) //for hver række i datagriddet bliver indholdet af kolonner lagt i properties, som vi kan databinde til.
+            valgt = true;
+            foreach (DataRowView row in datagrid_ShowProducts.SelectedItems) //for hvert række i datagriddet bliver indholdet af kolonner lagt i properties, som vi kan databinde til.
             {
                 product.ProductName = row.Row.ItemArray[0].ToString();
                 product.Category = row.Row.ItemArray[1].ToString();
@@ -127,9 +118,16 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {   // Denne metode kalder print klassen, og tager produkt objektet og skriver det til en txt fil.
-            Print.WriteToFile(product);
+        private void btn_Print_Click(object sender, RoutedEventArgs e)
+        {
+            if (valgt)
+            {
+                Print.WriteToFile(product);
+            }
+            else
+            {
+                MessageBox.Show("Vælg et produkt før du printer");
+            }
         }
 
         

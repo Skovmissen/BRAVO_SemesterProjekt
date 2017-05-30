@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -32,7 +21,7 @@ namespace BRAVO_SemesterProjekt
 
             DataContext = combo;
             DB.OpenDb();
-            dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
+            dataGrid_edit_Combo.ItemsSource = DB.ShowEditCombo().DefaultView;
             DB.CloseDb();
         }
 
@@ -56,7 +45,7 @@ namespace BRAVO_SemesterProjekt
         private void button_search_Click(object sender, RoutedEventArgs e) // søg efter kombo produkt
         {
             DB.OpenDb();
-            dataGrid_edit_Combo.ItemsSource = DB.SearchCombo(temp).DefaultView;
+            dataGrid_edit_Combo.ItemsSource = DB.SearchEditCombo(temp, combo).DefaultView;
             DB.CloseDb();
         }
 
@@ -68,7 +57,7 @@ namespace BRAVO_SemesterProjekt
                 {
                     DB.OpenDb();
                     DB.UpdateCombo(combo);
-                    dataGrid_edit_Combo.ItemsSource = DB.ShowCombo().DefaultView;
+                    dataGrid_edit_Combo.ItemsSource = DB.ShowEditCombo().DefaultView;
                     DB.CloseDb();
                     combo.Id = 0;
                     combo.Name = null;

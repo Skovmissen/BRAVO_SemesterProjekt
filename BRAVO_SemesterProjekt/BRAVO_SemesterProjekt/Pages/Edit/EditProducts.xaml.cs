@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -41,7 +30,7 @@ namespace BRAVO_SemesterProjekt
         {
             try
             {
-                if (!(product.ProductName == null || product.ProductName == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Street == null || product.Street == "" || product.Latitude == 0  || product.Longtitude == 0 || product.Url == null || product.Url == "" || product.Description == null || product.Description == "" || product.Price == 0 || product.Category == null || product.Category == "" || product.ActorName == null || product.ActorName == "" ))
+                if (!(product.ProductName == null || product.ProductName == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Street == null || product.Street == "" || product.Latitude == 0  || product.Longtitude == 0 || product.Url == null || product.Url == "" || product.Description == null || product.Description == "" || product.Category == null || product.Category == "" || product.ActorName == null || product.ActorName == "" ))
                 {
                     DB.OpenDb();
                     DB.UpdateProduct(product);
@@ -124,7 +113,7 @@ namespace BRAVO_SemesterProjekt
                 product.Activate = Convert.ToBoolean(row.Row.ItemArray[11].ToString());
                 product.Category = row.Row.ItemArray[13].ToString();
                 product.ActorName = row.Row.ItemArray[14].ToString();
-                product.OldName = product.ProductName;
+                product.Id = Convert.ToInt32(row.Row.ItemArray[0]);
             }
         }
         private void DiableCluster()    //Lavet af Lasse

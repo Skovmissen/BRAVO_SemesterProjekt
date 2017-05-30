@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -24,7 +13,6 @@ namespace BRAVO_SemesterProjekt
     /// </summary>
     public partial class CreateProduct : Page
     {
-      
         Products product = new Products();
         public CreateProduct()
         {
@@ -61,7 +49,7 @@ namespace BRAVO_SemesterProjekt
         {
             try
             {
-                if (!(product.ProductName == null || product.ProductName == "" || product.Street == null || product.Street == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Region == null || product.Region == "" || product.Longtitude == 0 || product.Latitude == 0 || product.Url == null || product.Url == "" || product.Price == 0 || product.Description == null || product.Description == "" || product.ActorName == null || product.Category == null))
+                if (!(product.ProductName == null || product.ProductName == "" || product.Street == null || product.Street == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Region == null || product.Region == "" || product.Longtitude == 0 || product.Latitude == 0 || product.Url == null || product.Url == "" || product.Price <= 0 || product.Description == null || product.Description == "" || product.ActorName == null || product.Category == null))
                 {
                 DB.OpenDb();
                 DB.InsertProduct(product);

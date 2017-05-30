@@ -5,13 +5,21 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="{x:Type Label}">
-            <Setter Property="FontFamily" Value="Proxima Nova Rg" />
+            <Setter Property="FontFamily" Value="Roboto" />
             <Setter Property="Foreground" Value="#FF535353" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
+
         <Style TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="White" />
-            <Setter Property="FontFamily" Value="Proxima Nova Rg" />
+            <Setter Property="Background" Value="#fff" />
+            <Setter Property="FontFamily" Value="Roboto" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="Button.Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="3" Direction="300" />
+                </Setter.Value>
+            </Setter>
+
         </Style>
         <Style TargetType="{x:Type DataGrid}">
             <Setter Property="Background" Value="#FFFCA159" />
@@ -19,8 +27,8 @@
         </Style>
         <Style TargetType="{x:Type ComboBox}">
             <Setter Property="Background" Value="White" />
-            
+
         </Style>
-        
+
     </Application.Resources>
 </Application>

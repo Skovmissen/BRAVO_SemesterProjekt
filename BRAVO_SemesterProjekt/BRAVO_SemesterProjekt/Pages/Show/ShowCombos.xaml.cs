@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data;
 
 namespace BRAVO_SemesterProjekt
@@ -34,8 +23,12 @@ namespace BRAVO_SemesterProjekt
             lbl_name.DataContext = combo;
             txt_description.DataContext = combo;
             lbl_price.DataContext = combo;
+            dp_end.DataContext = combo;
+            dp_start.DataContext = combo;
             
             txt_Search_Combo.DataContext = temp;
+            combo.SearchStartTime = DateTime.Now;
+            combo.SearchEndTime = DateTime.Now;
             DB.OpenDb();
             GridShowCombo.ItemsSource = DB.ShowCombo().DefaultView;
             DB.CloseDb();
@@ -43,8 +36,9 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_Search_Combo_Click(object sender, RoutedEventArgs e)
         {
+
             DB.OpenDb();
-            GridShowCombo.ItemsSource = DB.SearchCombo(temp).DefaultView;
+            GridShowCombo.ItemsSource = DB.SearchCombo(temp, combo).DefaultView;
             DB.CloseDb();
         }
 

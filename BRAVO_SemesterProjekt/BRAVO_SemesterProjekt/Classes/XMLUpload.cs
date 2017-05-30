@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Xml;
-using System.Xml.Linq;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -21,15 +16,12 @@ namespace BRAVO_SemesterProjekt
 
         public static async void Uploadxml(TempData temp, Wait wait, Actors actor, Products product) //Finder alle de valgte elementer i XML dokumentet ved hjælp af XMLNodes, hvori vi bruger SelectSingleNode hvilket gør at vi kan definere den præcise placering i xml-dokumentet.
         {
-                      
             if (temp.Path == null)
             {
                 MessageBox.Show("Ingen fil valgt");
             }
             else
             {
-
-
                 double count = 0;
                 temp.Counter = 0;
                 wait.WaitStart(); //Åbner loading vinduet.
@@ -42,45 +34,18 @@ namespace BRAVO_SemesterProjekt
                 DB.OpenDb();
                 foreach (XmlNode item in productNode)
                 {
-                    XmlNode name = item["Name"];
-                    XmlNode xmlId = item["Id"];
-                    XmlNode addressLine1 = item.SelectSingleNode(@".//BravoXML:AddressLine1", ns);
-                    XmlNode url = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Link/BravoXML:Url", ns);
-                    XmlNode tlf = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Phone", ns);
-                    XmlNode latitude = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:GeoCoordinate/BravoXML:Latitude", ns);
-                    XmlNode longitude = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:GeoCoordinate/BravoXML:Longitude", ns);
-                    XmlNode region = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:Municipality/BravoXML:Name", ns);
-                    XmlNode description = item.SelectSingleNode(@".//BravoXML:Descriptions/BravoXML:Description/BravoXML:Text", ns);
-                    XmlNode category = item.SelectSingleNode(@".//BravoXML:Category/BravoXML:Name", ns);
-                    XmlNode email = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Email", ns);
-                    XmlNode city = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:City", ns);
-                    XmlNode zip = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:PostalCode", ns);
-                    XmlNode price = item.SelectSingleNode(@".//BravoXML:PriceGroups/BravoXML:PriceGroup/BravoXML:PriceFrom", ns);
-                    CheckForNull(name, xmlId, addressLine1, url, tlf, latitude, longitude, region, description, category, email, city, zip, temp, actor, product, price);
-                    product.ProductName = actor.Name;
-                    product.Street = addressLine1.InnerText;
-
+                    ExtractValuesFromXml(temp, actor, product, ns, item);
                     InsertInDb(actor, product);
-                    count++;
-                    double result = ((count / temp.NodeCount) * 100);
-                    temp.Counter = result;
+                    count = ProgressBar(temp, count);
                     if (wait.Cancel == true)
                     {
                         temp.Path = null;
                         break;
-
-
-
                     }
                     await PutTaskDelay();
-
                 }
-
-
-
                 DB.CloseDb();
                 wait.WaitEnd(); //Lukker loadings vinduet.
-                
                 if (wait.Cancel == true)
                 {
                     MessageBox.Show("Upload afbrudt");
@@ -89,10 +54,38 @@ namespace BRAVO_SemesterProjekt
                 {
                     MessageBox.Show("Upload Færdig");
                 }
-
             }
-
         }
+
+        private static double ProgressBar(TempData temp, double count)
+        {
+            count++;
+            double result = ((count / temp.NodeCount) * 100);
+            temp.Counter = result;
+            return count;
+        }
+
+        private static void ExtractValuesFromXml(TempData temp, Actors actor, Products product, XmlNamespaceManager ns, XmlNode item)
+        {
+            XmlNode name = item["Name"];
+            XmlNode xmlId = item["Id"];
+            XmlNode addressLine1 = item.SelectSingleNode(@".//BravoXML:AddressLine1", ns);
+            XmlNode url = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Link/BravoXML:Url", ns);
+            XmlNode tlf = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Phone", ns);
+            XmlNode latitude = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:GeoCoordinate/BravoXML:Latitude", ns);
+            XmlNode longitude = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:GeoCoordinate/BravoXML:Longitude", ns);
+            XmlNode region = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:Municipality/BravoXML:Name", ns);
+            XmlNode description = item.SelectSingleNode(@".//BravoXML:Descriptions/BravoXML:Description/BravoXML:Text", ns);
+            XmlNode category = item.SelectSingleNode(@".//BravoXML:Category/BravoXML:Name", ns);
+            XmlNode email = item.SelectSingleNode(@".//BravoXML:ContactInformation/BravoXML:Email", ns);
+            XmlNode city = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:City", ns);
+            XmlNode zip = item.SelectSingleNode(@".//BravoXML:Address/BravoXML:PostalCode", ns);
+            XmlNode price = item.SelectSingleNode(@".//BravoXML:PriceGroups/BravoXML:PriceGroup/BravoXML:PriceFrom", ns);
+            CheckForNull(name, xmlId, addressLine1, url, tlf, latitude, longitude, region, description, category, email, city, zip, temp, actor, product, price);
+            product.ProductName = actor.Name;
+            product.Street = addressLine1.InnerText;
+        }
+
         public static XmlDocument LoadDoc(TempData temp, Wait wait) //LoadDoc bruges til at loade XML-Dokument stien ind i doc, så man kan arbejde med den.
         {
             XmlDocument doc = new XmlDocument();

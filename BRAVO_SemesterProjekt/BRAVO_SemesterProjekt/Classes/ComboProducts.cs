@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
+using System.Data;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -26,12 +23,13 @@ namespace BRAVO_SemesterProjekt
         public string Description
         {
             get { return description; }
-            set {
+            set
+            {
                 description = value;
                 NotifyPropertyChanged();
             }
         }
-
+     
         private int id;
 
         public int Id
@@ -48,7 +46,9 @@ namespace BRAVO_SemesterProjekt
         public string Name
         {
             get { return name; }
-            set { name = value;
+            set
+            {
+                name = value;
                 NotifyPropertyChanged();
             }
         }
@@ -58,7 +58,8 @@ namespace BRAVO_SemesterProjekt
         public double Price
         {
             get { return price; }
-            set {
+            set
+            {
                 price = value;
                 NotifyPropertyChanged();
             }
@@ -70,7 +71,9 @@ namespace BRAVO_SemesterProjekt
         public DateTime? EndTime
         {
             get { return endTime; }
-            set { endTime = value;
+            set
+            {
+                endTime = value;
                 NotifyPropertyChanged();
             }
         }
@@ -79,16 +82,45 @@ namespace BRAVO_SemesterProjekt
         public DateTime? StartTime
         {
             get { return startTime; }
-            set { startTime = value;
+            set
+            {
+                startTime = value;
                 NotifyPropertyChanged();
             }
         }
+        private DateTime? searchEndTime;
+
+        public DateTime? SearchEndTime
+        {
+            get { return searchEndTime; }
+            set
+            {
+                searchEndTime = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private DateTime? searchStartTime;
+
+        public DateTime? SearchStartTime
+        {
+            get { return searchStartTime; }
+            set
+            {
+                searchStartTime = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+
         private string newComboName;
 
         public string NewComBoName
         {
             get { return newComboName; }
-            set { newComboName = value;
+            set
+            {
+                newComboName = value;
                 NotifyPropertyChanged();
             }
         }

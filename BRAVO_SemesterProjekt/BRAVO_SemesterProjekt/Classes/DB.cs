@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace BRAVO_SemesterProjekt
 {
  
     static class DB
     {
-        static private SqlConnection connection = null;       
+        private static SqlConnection connection = null;       
         public static void OpenDb() // Lavet af Lasse
         {
             try
@@ -259,7 +253,7 @@ namespace BRAVO_SemesterProjekt
         }
         public static void UpdateProduct(Products product) // Lavet af Lasse og Nikolaj
         {
-            SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, FK_CategoryName = @CategoryName, FK_ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion, Price = @Price WHERE ProductName = @OldName", connection);
+            SqlCommand command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, FK_CategoryName = @CategoryName, FK_ActorName = @ActorName, Activate = @Activate, City = @City, ZipCode = @ZipCode, Region = @Region, Street = @Street, Latitude = @Latitude, Longtitude = @Longtitude, URL = @URL, Describtion = @Describtion, Price = @Price WHERE ProductId = @Id", connection);
             command.Parameters.Add(CreateParam("@City", product.City, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@ZipCode", product.Zipcode, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@Region", product.Region, SqlDbType.NVarChar));
@@ -274,7 +268,7 @@ namespace BRAVO_SemesterProjekt
             command.Parameters.Add(CreateParam("@ProductName", product.ProductName, SqlDbType.NVarChar));
             command.Parameters.Add(CreateParam("@XmlId", product.XmlId, SqlDbType.Int));
             command.Parameters.Add(CreateParam("@Price", product.Price, SqlDbType.Float));
-            command.Parameters.Add(CreateParam("@OldName", product.OldName, SqlDbType.NVarChar));
+            command.Parameters.Add(CreateParam("@Id", product.Id, SqlDbType.Int));
             try
             {
                 command.ExecuteNonQuery();
@@ -358,7 +352,7 @@ namespace BRAVO_SemesterProjekt
         {
             DataTable dt = new DataTable();
             SqlDataAdapter command = new SqlDataAdapter("SELECT CombiProductName FROM CombiProduct WHERE CombiProductName = @Name", connection);
-            command.SelectCommand.Parameters.AddWithValue("@Name", combo.NewComBoName);
+            command.SelectCommand.Parameters.AddWithValue("@Name", combo.Name);
             try
             {
                 command.Fill(dt);
@@ -476,7 +470,7 @@ namespace BRAVO_SemesterProjekt
             DataTable dt = new DataTable();
             try
             {
-                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search OR ZipCode LIKE @search OR FK_CategoryName LIKE @search OR City LIKE @search OR Region LIKE @search OR Describtion LIKE @search", connection);
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM Product WHERE ProductName LIKE @search", connection);
                 reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
                 reader.Fill(dt);
             }
@@ -612,13 +606,39 @@ namespace BRAVO_SemesterProjekt
             ShowCombiProduct.Fill(dt);
             return dt;
         }
-        public static DataTable SearchCombo(TempData temp) //Lavet af Anders
+        public static DataTable ShowEditCombo() //Lavet af Anders og Nikolaj
+        {
+            SqlDataAdapter ShowCombiProduct = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE EndTime >= @Date", connection);
+            ShowCombiProduct.SelectCommand.Parameters.AddWithValue("@Date", DateTime.Now);
+            DataTable dt = new DataTable();
+            ShowCombiProduct.Fill(dt);
+            return dt;
+        }
+        public static DataTable SearchCombo(TempData temp, ComboProducts combo) //Lavet af Anders
+        {
+            DataTable SearchComboDt = new DataTable();
+            try
+            {
+                SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE CombiProductName LIKE @search AND StartTime >= @StartTime AND EndTime <= @EndTime AND EndTime > StartTime", connection);
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@StartTime", combo.SearchStartTime);
+                reader.SelectCommand.Parameters.AddWithValue("@EndTime", combo.SearchEndTime);
+                reader.Fill(SearchComboDt);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return SearchComboDt;
+        }
+        public static DataTable SearchEditCombo(TempData temp, ComboProducts combo) //Lavet af Anders
         {
             DataTable SearchComboDt = new DataTable();
             try
             {
                 SqlDataAdapter reader = new SqlDataAdapter("SELECT * FROM CombiProduct WHERE CombiProductName LIKE @search", connection);
-                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");
+                reader.SelectCommand.Parameters.AddWithValue("@search", "%" + temp.Search + "%");               
                 reader.Fill(SearchComboDt);
 
             }
@@ -644,22 +664,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static int GetProductIdInCombo(ComboProducts combo) //Lavet af Nikolaj
-        {
-            int id = 0;
-            try
-            {
-                SqlCommand reader = new SqlCommand("SELECT FK_ProductId FROM CombiView WHERE FK_CombiId = @CombiId", connection);
-                reader.Parameters.AddWithValue("@CombiId", combo.Id);
-                id = Convert.ToInt32(reader.ExecuteScalar());
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return id;
-        }
+        
         public static DataTable GetProductIdFromCombo(ComboProducts combo) //Lavet af Nikolaj
         {
             DataTable ds = new DataTable();
@@ -696,26 +701,7 @@ namespace BRAVO_SemesterProjekt
             }
             return ds;
         }
-        public static DataTable GetProductsInComboView(DataTable products) //Lavet af NIkolaj
-        {
-            DataTable ds = new DataTable();
-            try
-            {
-                foreach (DataRow item in products.Rows)
-                {
-
-
-                    SqlDataAdapter reader = new SqlDataAdapter("SELECT ProductName FROM Product WHERE ProductId = @ProductId", connection);
-                    reader.SelectCommand.Parameters.AddWithValue("@ProductId", item.ItemArray[0].ToString());
-                    reader.Fill(ds);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return ds;
-        }
+        
         public static void InsertProductInCombi(ComboProducts combo, Products product) //Lavet af Lasse og Nikolaj
         {
             SqlCommand command = new SqlCommand("INSERT INTO CombiView (FK_CombiId, FK_ProductId) SELECT @FK_CombiId, @FK_ProductId WHERE NOT EXISTS (SELECT FK_CombiID FROM CombiView WHERE FK_CombiId = @FK_CombiId AND FK_ProductId = @FK_ProductId)", connection);

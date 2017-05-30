@@ -5,44 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1300"  WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="800" Width="1300" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
 
-            <ColumnDefinition Width="960*"/>
-            <ColumnDefinition Width="960*"/>
+            <ColumnDefinition Width="960*" />
+            <ColumnDefinition Width="960*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
 
-            <RowDefinition Height="43*"/>
-            <RowDefinition Height="365*"/>
-            <RowDefinition Height="365*"/>
+            <RowDefinition Height="43*" />
+            <RowDefinition Height="365*" />
+            <RowDefinition Height="365*" />
         </Grid.RowDefinitions>
 
-        <DockPanel Panel.ZIndex="999" Grid.Row="0" Grid.ColumnSpan="2" >
+        <DockPanel Panel.ZIndex="999" Grid.Row="0" Grid.ColumnSpan="2">
 
             <Menu DockPanel.Dock="Top" Height="61" Padding="10" Margin="0,0,0,0" Panel.ZIndex="9">
-                <Hyperlink  NavigateUri="MainWindow.xaml" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="{x:Null}" Foreground="Black" FontSize="18" FontWeight="Bold">FORSIDE</Hyperlink>
+                <Hyperlink NavigateUri="MainWindow.xaml" RequestNavigate="Hyperlink_RequestNavigate"
+                           TextDecorations="{x:Null}" Foreground="Black" FontSize="18" FontWeight="Bold">
+                    FORSIDE
+                </Hyperlink>
                 <MenuItem Header="Opret/Tilføj" Height="33" Margin="20,0,0,0" MinWidth="100" FontSize="14">
-                    <MenuItem Name="NewActor"  Header="Aktør" Click="NewActor_Click"  />
-                    <MenuItem Name="NewProduct"  Header="Produkt" Click="NewProduct_Click"  />
-                    <MenuItem Name="NewKombi"  Header="Kombi-produkt" Click="NewKombi_Click"  />
-                    <MenuItem Name="NewCluster"  Header="Klynge" Click="NewCluster_Click"  />
+                    <MenuItem Name="NewActor" Header="Aktør" Click="NewActor_Click" />
+                    <MenuItem Name="NewProduct" Header="Produkt" Click="NewProduct_Click" />
+                    <MenuItem Name="NewKombi" Header="Kombi-produkt" Click="NewKombi_Click" />
+                    <MenuItem Name="NewCluster" Header="Klynge" Click="NewCluster_Click" />
                 </MenuItem>
                 <MenuItem Header="Redigere" Height="33" MinWidth="100" FontSize="14">
-                    <MenuItem Name="EditActor"  Header="Aktør" Click="EditActor_Click"  />
-                    <MenuItem Name="EditProduct"  Header="Produkt" Click="EditProduct_Click"  />
-                    <MenuItem Name="EditCombo"  Header="Kombi-produkt" Click="EditCombo_Click"  />
-                    <MenuItem Name="EditCluster"  Header="Klynge" Click="EditCluster_Click"  />
+                    <MenuItem Name="EditActor" Header="Aktør" Click="EditActor_Click" />
+                    <MenuItem Name="EditProduct" Header="Produkt" Click="EditProduct_Click" />
+                    <MenuItem Name="EditCombo" Header="Kombi-produkt" Click="EditCombo_Click" />
+                    <MenuItem Name="EditCluster" Header="Klynge" Click="EditCluster_Click" />
                 </MenuItem>
                 <MenuItem Header="Oversigt" Height="33" MinWidth="100" FontSize="14">
-                    <MenuItem Name="ShowActors"  Header="Aktører" Click="ShowActors_Click"  />
-                    <MenuItem Name="ShowProducts"  Header="Produkter" Click="ShowProduct_Click"  />
-                    <MenuItem Name="ShowCombos"  Header="Kombi-produkter" Click="ShowCombos_Click"  />
-                    <MenuItem Name="ShowClusters"  Header="Klynger" Click="ShowClusters_Click"  />
+                    <MenuItem Name="ShowActors" Header="Aktører" Click="ShowActors_Click" />
+                    <MenuItem Name="ShowProducts" Header="Produkter" Click="ShowProduct_Click" />
+                    <MenuItem Name="ShowCombos" Header="Kombi-produkter" Click="ShowCombos_Click" />
+                    <MenuItem Name="ShowClusters" Header="Klynger" Click="ShowClusters_Click" />
                 </MenuItem>
-                <MenuItem Header="Upload" Height="33" MinWidth="100" FontSize="14" Margin="0,0,0,0" >
-                    <MenuItem Header="XML" Height="33" MinWidth="100" FontSize="14" Click="Upload_Click"/>
+                <MenuItem Header="Upload" Height="33" MinWidth="100" FontSize="14" Margin="0,0,0,0">
+                    <MenuItem Header="XML" Height="33" MinWidth="100" FontSize="14" Click="Upload_Click" />
                 </MenuItem>
 
             </Menu>
@@ -50,14 +53,25 @@
         </DockPanel>
 
 
+        <Button x:Name="btn_Create" HorizontalContentAlignment="Stretch" Padding="20"
+                VerticalContentAlignment="Stretch" Content="OPRET/TILFØJ" FontSize="36" Background="#FFFCA159"
+                Click="btn_Create_Click" Foreground="White" FontFamily="Proxima Nova Rg" FontWeight="Bold"
+                Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
+        <Button x:Name="btn_Edit" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch"
+                Content="REDIGERE" FontSize="36" Background="#FF0069B7" Click="btn_Edit_Click" Foreground="White"
+                FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="1" Grid.Row="1" />
 
-        <Button x:Name="btn_Create"  HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="OPRET/TILFØJ" FontSize="36" Background="#FFFCA159" Click="btn_Create_Click" Foreground="White" FontFamily="Proxima Nova Rg" FontWeight="Bold" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn_Edit" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="REDIGERE"  FontSize="36" Background="#FF0069B7" Click="btn_Edit_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="1" Grid.Row="1" />
+        <Button x:Name="btn_Show" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch"
+                Content="OVERSIGT" FontSize="36" Background="#FF00B155" Click="btn_Show_Click" Foreground="White"
+                FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" />
+        <Button x:Name="btn_Upload" HorizontalContentAlignment="Stretch" Padding="20"
+                VerticalContentAlignment="Stretch" Content="UPLOAD" FontSize="36" Background="#FFE6D431"
+                Click="btn_Upload_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg"
+                Grid.Column="1" Grid.Row="2" />
 
-        <Button x:Name="btn_Show" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="OVERSIGT" FontSize="36" Background="#FF00B155" Click="btn_Show_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" />
-        <Button x:Name="btn_Upload" HorizontalContentAlignment="Stretch" Padding="20" VerticalContentAlignment="Stretch" Content="UPLOAD" FontSize="36" Background="#FFE6D431" Click="btn_Upload_Click" Foreground="White" FontWeight="Bold" FontFamily="Proxima Nova Rg" Grid.Column="1" Grid.Row="2" />
-
-        <Frame x:Name="frame" Panel.ZIndex="999" HorizontalAlignment="Center" Height="722" VerticalAlignment="Center" Width="1292" NavigationUIVisibility="Hidden" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,5,0,-1" Grid.Row="1" />
+        <Frame x:Name="frame" Panel.ZIndex="999" HorizontalAlignment="Center" Height="722" VerticalAlignment="Center"
+               Width="1292" NavigationUIVisibility="Hidden" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"
+               Margin="0,5,0,-1" Grid.Row="1" />
     </Grid>
 
 </Window>

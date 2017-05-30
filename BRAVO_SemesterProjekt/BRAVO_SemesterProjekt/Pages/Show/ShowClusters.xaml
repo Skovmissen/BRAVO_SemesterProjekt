@@ -1,26 +1,42 @@
 ﻿<Page x:Class="BRAVO_SemesterProjekt.ShowClusters"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:BRAVO_SemesterProjekt"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       Background="#FF00B155"
       d:DesignHeight="722" d:DesignWidth="1292"
       Title="ShowClusters">
 
     <Grid>
-        <Button x:Name="btn_search_cluster" Content="Søg" HorizontalAlignment="Left" Margin="500,158,0,0" VerticalAlignment="Top" Width="96" Click="btn_search_cluster_Click" Height="29" Background="White"/>
-        <TextBox x:Name="search_cluster" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="{Binding Path=Search}" VerticalAlignment="Top" Width="156" Margin="339,158,0,0"/>
-        <DataGrid x:Name="dataGrid_cluster" ColumnWidth="*" AutoGenerateColumns="True" AutoGeneratingColumn="dataGrid_cluster_AutoGeneratingColumn" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Height="504" Width="586" SelectionChanged="dataGrid_cluster_SelectionChanged" IsReadOnly="True"/>
-        <DataGrid x:Name="ClusterData" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="638,388,0,0" VerticalAlignment="Top" Height="310" Width="519" HeadersVisibility="None" IsReadOnly="True" ColumnWidth="*"/>
-        <Label x:Name="label1" Content="Vælg klynge for yderligere information" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
-        <Label x:Name="label1_Copy" Content="Aktører i den valgte klynge" HorizontalAlignment="Left" Margin="638,366,0,0" VerticalAlignment="Top" Foreground="#FF535353"/>
-        <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36" Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22" Foreground="#FF535353"/>
-        <Label x:Name="label" Content="Oversigt over klynger" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1022" Height="35" FontSize="20" Margin="145,22,0,0"/>
-        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,75,1,645"/>
-        <Label x:Name="label2" Content="Beskrivelse" HorizontalAlignment="Left" Margin="638,158,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="167" Margin="638,194,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="400"/>
+        <Button x:Name="btn_search_cluster" Content="Søg" HorizontalAlignment="Left" Margin="500,158,0,0"
+                VerticalAlignment="Top" Width="96" Click="btn_search_cluster_Click" Height="31" Background="White" />
+        <TextBox x:Name="search_cluster" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap"
+                 Text="{Binding Path=Search}" VerticalAlignment="Top" Width="156" Margin="339,158,0,0" />
+        <DataGrid x:Name="dataGrid_cluster" ColumnWidth="*" AutoGenerateColumns="True"
+                  AutoGeneratingColumn="dataGrid_cluster_AutoGeneratingColumn" Background="#FF00B155"
+                  BorderBrush="#FF00B155" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top"
+                  Height="504" Width="586" SelectionChanged="dataGrid_cluster_SelectionChanged" IsReadOnly="True" />
+        <DataGrid x:Name="ClusterData" Background="#FF00B155" BorderBrush="#FF00B155" HorizontalAlignment="Left"
+                  Margin="638,388,0,0" VerticalAlignment="Top" Height="310" Width="519" HeadersVisibility="None"
+                  IsReadOnly="True" ColumnWidth="*" />
+        <Label x:Name="label1" Content="Vælg klynge for yderligere information" HorizontalAlignment="Left"
+               Margin="10,165,0,0" VerticalAlignment="Top" Foreground="#FF535353" />
+        <Label x:Name="label1_Copy" Content="Aktører i den valgte klynge" HorizontalAlignment="Left"
+               Margin="638,366,0,0" VerticalAlignment="Top" Foreground="#FF535353" />
+        <Button x:Name="btn_back" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36"
+                Click="btn_back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
+                Foreground="#FF535353" />
+        <Label x:Name="label" Content="Oversigt over klynger" HorizontalContentAlignment="Center"
+               HorizontalAlignment="Left" VerticalAlignment="Top" Width="1022" Height="35" FontSize="20"
+               Margin="145,22,0,0" />
+        <Rectangle HorizontalAlignment="Stretch" Fill="#FF323232" Height="2" Margin="0,75,1,645" />
+        <Label x:Name="label2" Content="Beskrivelse" HorizontalAlignment="Left" Margin="638,158,0,0"
+               VerticalAlignment="Top" />
+        <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="167" Margin="638,194,0,0"
+                 TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="400"
+                 IsReadOnly="True" />
 
     </Grid>
 </Page>

@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -75,23 +64,25 @@ namespace BRAVO_SemesterProjekt
         }
         private void btn_saveClusterName(object sender, RoutedEventArgs e)
         {
-            DB.OpenDb();
-            DataTable checkDoubleCluster = DB.CheckForDoubleCluster(cluster);
-            DB.CloseDb();
-            if (checkDoubleCluster.Rows.Count > 0)
-            {
-                MessageBox.Show("Klynge navnet er i forvejen oprettet");
-            }
-            else
-            {
 
 
-                try
+
+
+            try
+            {
+
+                if (!(cluster.Name == null || cluster.Name == "" || cluster.Description == null || cluster.Description == ""))
                 {
 
-                    if (!(cluster.Name == null || cluster.Name == "" || cluster.Description == null || cluster.Description == ""))
+                    DB.OpenDb();
+                    DataTable checkDoubleCluster = DB.CheckForDoubleCluster(cluster);
+
+                    if (checkDoubleCluster.Rows.Count > 0)
                     {
-                        DB.OpenDb();
+                        MessageBox.Show("Klynge navnet er i forvejen oprettet");
+                    }
+                    else
+                    {
                         DB.InsertCluster(cluster);
                         cmb_cluster.Items.Clear();
                         FillcomboCluster();
@@ -100,25 +91,26 @@ namespace BRAVO_SemesterProjekt
                         txt_description.Clear();
                         txt_navn.Clear();
                     }
-                    else
-                    {
-                        MessageBox.Show("Et felt er ikke udfyldt korrekt");
-                    }
-
                 }
-                catch (SqlException)
+                else
                 {
-
-                    MessageBox.Show("Ingen forbindelse til Databasen");
+                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
                 }
-                catch (Exception)
-                {
 
-                    MessageBox.Show("Ukendt fejl");
-                }
             }
+            catch (SqlException)
+            {
 
+                MessageBox.Show("Ingen forbindelse til Databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
         }
+
+
         private void btn_addActorToCluster(object sender, RoutedEventArgs e)
         {
             try
