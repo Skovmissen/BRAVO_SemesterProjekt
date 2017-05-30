@@ -84,7 +84,5 @@ namespace BRAVO_SemesterProjekt
                 e.Column.Header = "Klynge";
             }
         }
-
-      
     }
 }

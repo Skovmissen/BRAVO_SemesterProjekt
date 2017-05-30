@@ -15,8 +15,8 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_Actor_Click(object sender, RoutedEventArgs e)
         {
-            btn_Actor.IsEnabled = false;
-            btn_Actor.Visibility = Visibility.Hidden;
+            btn_Actor.IsEnabled = false; //Her deaktivere vi knappen så den ikke kan bruges
+            btn_Actor.Visibility = Visibility.Hidden; //Her skjuler vi knappen
             btn_Cluster.IsEnabled = false;
             btn_Cluster.Visibility = Visibility.Hidden;
             btn_Combo.IsEnabled = false;

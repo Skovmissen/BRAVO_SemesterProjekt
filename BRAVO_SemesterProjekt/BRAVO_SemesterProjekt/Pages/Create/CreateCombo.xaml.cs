@@ -95,17 +95,10 @@ namespace BRAVO_SemesterProjekt
 
                 MessageBox.Show("Der er ingen forbindelse til databasen");
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
         }
 
         private void btn_CreateCombo(object sender, RoutedEventArgs e)
         {
-
-
             try
             {
 
@@ -145,17 +138,8 @@ namespace BRAVO_SemesterProjekt
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Ukendt fejl");
             }
-        }
-
-
-
-
-        private void btn_back_Click(object sender, RoutedEventArgs e)
-        {
-            CreateMenu menu = new CreateMenu();
-            NavigationService.Navigate(menu);
         }
 
         private void cmb_combiProducts_DropDownClosed(object sender, EventArgs e)
@@ -188,6 +172,11 @@ namespace BRAVO_SemesterProjekt
             combo.Price = 0;
             combo.StartTime = null;
             combo.EndTime = null;
+        }
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMenu menu = new CreateMenu();
+            NavigationService.Navigate(menu);
         }
     }
 }

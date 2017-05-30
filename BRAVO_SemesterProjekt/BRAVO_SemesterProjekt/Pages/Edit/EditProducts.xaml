@@ -19,7 +19,7 @@
                   Width="190" DropDownClosed="cmb_category_DropDownClosed" Height="24" />
 
         <Button x:Name="button" Content="Søg" HorizontalAlignment="Left" Margin="1192,90,0,0" VerticalAlignment="Top"
-                Width="90" Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
+                Width="90" Click="btn_search_products_click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
                 Foreground="#FF535353" RenderTransformOrigin="0.453,-0.517" Height="27" />
         <Button x:Name="button_Edit_Product" Content="Opdater" HorizontalAlignment="Left" Margin="882,607,0,0"
                 VerticalAlignment="Top" Width="180" Click="button_Edit_Product_Click" Height="40" />

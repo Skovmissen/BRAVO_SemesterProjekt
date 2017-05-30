@@ -5,13 +5,15 @@ using System.Windows.Controls;
 namespace BRAVO_SemesterProjekt
 {
     /// <summary>
-    ///     Interaction logic for ShowActors.xaml
+    /// Af Anders
+    /// 
+    /// Denne klasse styre vores oversigt af aktøre
     /// </summary>
     public partial class ShowActors : Page
     {
-        private readonly Clusters cluster = new Clusters();
-        private readonly Products product = new Products();
-        private readonly TempData temp = new TempData();
+        Clusters cluster = new Clusters();
+        Products product = new Products();
+        TempData temp = new TempData();
 
         public ShowActors()
         {

@@ -32,7 +32,7 @@
         <CheckBox x:Name="checkBox" Content="Aktivere eller Deaktivere" IsChecked="{Binding Path=Activate}"
                   HorizontalAlignment="Left" Margin="518,524,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF" />
         <Button x:Name="button" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36"
-                Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
+                Click="btn_back_click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
                 Foreground="#FF535353" />
         <TextBox x:Name="textBox" AcceptsReturn="True" HorizontalAlignment="Left" Height="112" Margin="167,524,0,0"
                  TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="330" />

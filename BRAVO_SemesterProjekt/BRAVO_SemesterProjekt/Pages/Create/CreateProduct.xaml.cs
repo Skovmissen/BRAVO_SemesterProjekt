@@ -45,7 +45,7 @@ namespace BRAVO_SemesterProjekt
             product.ActorName = cmb_actor.Text;
         }      
 
-        private void btn_opretprodukt(object sender, RoutedEventArgs e)
+        private void btn_CreateProduct(object sender, RoutedEventArgs e)
         {
             try
             {

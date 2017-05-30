@@ -48,7 +48,7 @@
         <DatePicker HorizontalAlignment="Left" Margin="442,469,0,0" SelectedDate="{Binding Path=EndTime}"
                     VerticalAlignment="Top" Width="112" Height="28" />
         <Button x:Name="button" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36"
-                Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
+                Click="btn_back_click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
                 Foreground="#FF535353" />
         <Label x:Name="lbl_Header" Content="Rediger Kombinationsprodukt" Foreground="#FFFFFFFF"
                HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35"

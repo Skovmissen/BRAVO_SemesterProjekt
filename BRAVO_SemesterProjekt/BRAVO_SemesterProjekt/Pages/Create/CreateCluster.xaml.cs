@@ -38,8 +38,6 @@ namespace BRAVO_SemesterProjekt
                 MessageBox.Show("Ukendt fejl");
             }
 
-
-
         }
         private void FillcomboActor()   //Denne metoder fylder comboboxen med alle aktører i databasen
         {
@@ -64,16 +62,10 @@ namespace BRAVO_SemesterProjekt
         }
         private void btn_saveClusterName(object sender, RoutedEventArgs e)
         {
-
-
-
-
             try
             {
-
                 if (!(cluster.Name == null || cluster.Name == "" || cluster.Description == null || cluster.Description == ""))
                 {
-
                     DB.OpenDb();
                     DataTable checkDoubleCluster = DB.CheckForDoubleCluster(cluster);
 
@@ -96,7 +88,6 @@ namespace BRAVO_SemesterProjekt
                 {
                     MessageBox.Show("Et felt er ikke udfyldt korrekt");
                 }
-
             }
             catch (SqlException)
             {
@@ -109,7 +100,6 @@ namespace BRAVO_SemesterProjekt
                 MessageBox.Show("Ukendt fejl");
             }
         }
-
 
         private void btn_addActorToCluster(object sender, RoutedEventArgs e)
         {
@@ -143,12 +133,6 @@ namespace BRAVO_SemesterProjekt
         {
             cluster.ActorName = cmb_actor.Text;
         }
-        private void btn_back_Click(object sender, RoutedEventArgs e)
-        {
-            CreateMenu menu = new CreateMenu();
-            NavigationService.Navigate(menu);
-        }
-
         private void cmb_cluster_DropDownClosed(object sender, EventArgs e)
         {
             cluster.Name = cmb_cluster.Text;
@@ -157,6 +141,11 @@ namespace BRAVO_SemesterProjekt
             DB.CloseDb();
             label1.Content = cmb_cluster.Text;
             txt_navn.Clear();
+        }
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMenu menu = new CreateMenu();
+            NavigationService.Navigate(menu);
         }
     }
 }

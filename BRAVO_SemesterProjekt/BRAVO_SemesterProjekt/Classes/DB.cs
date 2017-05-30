@@ -6,11 +6,11 @@ using System.Data.SqlClient;
 namespace BRAVO_SemesterProjekt
 {
  /// <summary>
- /// Denne klasse styre alle vores database kald
+ /// Denne klasse styre alle vores database kald.
  /// </summary>
     static class DB
     {
-        private static SqlConnection connection = null;       
+        private static SqlConnection connection = null; // dette gør at vi kan tilgå sqlconnection "connection" i alle de metoder hvor det er nødvendigt.
         public static void OpenDb() // Lavet af Lasse
         {
             try

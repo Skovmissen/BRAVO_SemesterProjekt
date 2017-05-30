@@ -6,6 +6,8 @@ namespace BRAVO_SemesterProjekt
 {
     /// <summary>
     /// Lavet af Nikolaj
+    /// 
+    /// 
     /// </summary>
     public partial class Upload : Page
     {
@@ -13,12 +15,12 @@ namespace BRAVO_SemesterProjekt
         Actors actor = new Actors();
         Products product = new Products();
 
-        
+
         public Upload()
         {
             InitializeComponent();
             DataContext = temp;
-        
+
         }
 
         private void Upload_Click(object sender, RoutedEventArgs e)
@@ -30,26 +32,16 @@ namespace BRAVO_SemesterProjekt
         private void Choose_File_Click(object sender, RoutedEventArgs e)
         {
             FileUrl();
-          
-            
         }
-        public void FileUrl()
-        {
-          
 
+        private void FileUrl() //Denne metode bruges til at åbne klassen OpenFileDialog, som bruger windows inbygget stifinder.
+        {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "XML Files (.xml)|*.xml"; // Gør at vi kun kan vælge XML filer i vores file dialog
             if (openFileDialog.ShowDialog() == true)
             {
                 temp.Path = openFileDialog.FileName;
-                
             }
-
-            
-        }
-        private void btn_back_Click(object sender, RoutedEventArgs e)
-        {
-            CreateMenu menu = new CreateMenu();
-            NavigationService.Navigate(menu);
         }
     }
 }

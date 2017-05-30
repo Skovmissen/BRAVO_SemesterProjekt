@@ -38,7 +38,7 @@
         <CheckBox x:Name="checkBox" Content="Aktivere eller deaktivere" IsChecked="{Binding Path=Activate}"
                   HorizontalAlignment="Left" Margin="59,576,0,0" VerticalAlignment="Top" Foreground="#FFFFFFFF" />
         <Button x:Name="button" Content="Tilbage" Margin="10,35,1181,0" VerticalAlignment="Top" Height="36"
-                Click="button_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
+                Click="btn_Back_Click" Background="White" FontFamily="Proxima Nova Rg" FontSize="22"
                 Foreground="#FF535353" />
         <Label x:Name="lbl_Header" Content="Rediger Aktør" HorizontalContentAlignment="Center"
                HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFFFF" Height="35" Width="1292"

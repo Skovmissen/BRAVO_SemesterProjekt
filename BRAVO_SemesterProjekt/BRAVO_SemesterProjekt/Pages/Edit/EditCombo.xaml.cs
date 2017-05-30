@@ -8,7 +8,8 @@ namespace BRAVO_SemesterProjekt
 {
     /// <summary>
     /// Af Claus
-    /// Interaction logic for EditCombo.xaml
+    /// 
+    /// Denne metode bruges til at rediger vores kombinationsprodukter
     /// </summary>
     public partial class EditCombo : Page
     {
@@ -80,18 +81,13 @@ namespace BRAVO_SemesterProjekt
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("Ukendt fejl");
             }
-        }
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            EditMenu menu = new EditMenu();
-            NavigationService.Navigate(menu);
         }
 
         private void dataGrid_edit_Combo_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == "CombiId")
+            if (e.PropertyName == "CombiId") //Denne if statement fjerner kollonnen fra datagridet
             {
                 e.Column = null;
             }
@@ -120,6 +116,11 @@ namespace BRAVO_SemesterProjekt
             {
                 e.Column.Header = "Aktiv";
             }
+        }
+        private void btn_back_click(object sender, RoutedEventArgs e)
+        {
+            EditMenu menu = new EditMenu();
+            NavigationService.Navigate(menu);
         }
     }
 }

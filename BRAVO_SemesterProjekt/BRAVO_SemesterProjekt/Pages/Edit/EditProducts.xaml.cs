@@ -8,6 +8,8 @@ namespace BRAVO_SemesterProjekt
 {
     /// <summary>
     /// Lavet af Anders
+    /// 
+    /// Denne klasse bruges til at rediger produkter
     /// </summary>
     public partial class EditProducts : Page
     {
@@ -22,7 +24,7 @@ namespace BRAVO_SemesterProjekt
             DB.OpenDb();
             Fillcombo();
             dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;
-            
+
             DB.CloseDb();
         }
 
@@ -30,7 +32,7 @@ namespace BRAVO_SemesterProjekt
         {
             try
             {
-                if (!(product.ProductName == null || product.ProductName == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Street == null || product.Street == "" || product.Latitude == 0  || product.Longtitude == 0 || product.Url == null || product.Url == "" || product.Description == null || product.Description == "" || product.Category == null || product.Category == "" || product.ActorName == null || product.ActorName == "" ))
+                if (!(product.ProductName == null || product.ProductName == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Street == null || product.Street == "" || product.Latitude == 0 || product.Longtitude == 0 || product.Url == null || product.Url == "" || product.Description == null || product.Description == "" || product.Category == null || product.Category == "" || product.ActorName == null || product.ActorName == ""))
                 {
                     DB.OpenDb();
                     DB.UpdateProduct(product);
@@ -40,19 +42,7 @@ namespace BRAVO_SemesterProjekt
                         DiableCluster();
                     }
                     DB.CloseDb();
-                    product.Id = 0;
-                    product.ProductName = null;
-                    product.City = null;
-                    product.Zipcode = null;
-                    product.Region = null;
-                    product.Street = null;
-                    product.Latitude = 0;
-                    product.Longtitude = 0;
-                    product.Url = null;
-                    product.Description = null;
-                    product.Price = 0;
-                    product.Category = null;
-                    product.ActorName = null;
+                    SetPropertiesNull(); // Denne metode nulstiller alle vores properties til null, så der ikke bliver problemer ved valg af nyt produkt
                     MessageBox.Show("Redigering fuldført");
                 }
                 else
@@ -63,15 +53,32 @@ namespace BRAVO_SemesterProjekt
             catch (SqlException)
             {
                 MessageBox.Show("Ingen forbindelse til Databasen");
-                
+
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("Ukendt fejl");
             }
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void SetPropertiesNull()
+        {
+            product.Id = 0;
+            product.ProductName = null;
+            product.City = null;
+            product.Zipcode = null;
+            product.Region = null;
+            product.Street = null;
+            product.Latitude = 0;
+            product.Longtitude = 0;
+            product.Url = null;
+            product.Description = null;
+            product.Price = 0;
+            product.Category = null;
+            product.ActorName = null;
+        }
+
+        private void btn_search_products_click(object sender, RoutedEventArgs e)
         {
             DB.OpenDb();
             dataGrid_Edit_Product.ItemsSource = DB.SearchProduct(temp).DefaultView;
@@ -99,7 +106,7 @@ namespace BRAVO_SemesterProjekt
         {
             foreach (DataRowView row in dataGrid_Edit_Product.SelectedItems) //fylder datagrid med opdaterede datas
             {
-               
+
                 product.ProductName = row.Row.ItemArray[1].ToString();
                 product.City = row.Row.ItemArray[2].ToString();
                 product.Zipcode = row.Row.ItemArray[3].ToString();
@@ -128,11 +135,7 @@ namespace BRAVO_SemesterProjekt
             int counter = ComboIdTable.Rows.Count;
             MessageBox.Show(counter + " Produkt kombinationer er blevet deaktiveret");
         }
-        private void button_back_Click(object sender, RoutedEventArgs e)
-        {
-            EditMenu menu = new EditMenu();
-            NavigationService.Navigate(menu);
-        }
+
 
         private void dataGrid_Edit_Product_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
@@ -192,6 +195,11 @@ namespace BRAVO_SemesterProjekt
             {
                 e.Column.Header = "Aktørnavn";
             }
+        }
+        private void button_back_Click(object sender, RoutedEventArgs e)
+        {
+            EditMenu menu = new EditMenu();
+            NavigationService.Navigate(menu);
         }
     }
 }

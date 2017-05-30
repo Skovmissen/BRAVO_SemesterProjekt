@@ -22,10 +22,6 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_gem(object sender, RoutedEventArgs e)
         {
-
-
-
-
             try
             {
                 if (!(actor.Name == null || actor.Name == "" || actor.Email == null || actor.Email == "" || actor.Tlf == null || actor.Tlf == ""))
@@ -42,9 +38,7 @@ namespace BRAVO_SemesterProjekt
 
                         MessageBox.Show("Aktør er oprettet");
                         ClearBoxes();
-
                     }
-
                 }
 
                 else
@@ -66,7 +60,7 @@ namespace BRAVO_SemesterProjekt
 
             DB.CloseDb();
         }
-        private void ClearBoxes()
+        private void ClearBoxes() // Denne metoder tømmer alle vores textboxes
         {
             actor.Name = null;
             actor.Tlf = null;
@@ -76,7 +70,7 @@ namespace BRAVO_SemesterProjekt
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             CreateMenu menu = new CreateMenu();
-            NavigationService.Navigate(menu);
+            NavigationService.Navigate(menu); //Bruger navigation service til at navigere til menu siden
         }
     }
 }

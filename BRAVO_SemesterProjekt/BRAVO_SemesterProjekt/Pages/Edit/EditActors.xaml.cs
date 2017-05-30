@@ -8,6 +8,8 @@ namespace BRAVO_SemesterProjekt
 {
     /// <summary>
     /// Lavet af Nikolaj
+    /// 
+    /// Denne Klasse bruges til at rediger aktør
     /// </summary>
     public partial class EditActors : Page
     {
@@ -16,8 +18,8 @@ namespace BRAVO_SemesterProjekt
         public EditActors()
         {
             InitializeComponent();
-            //DataContext = actor;
-            txt_Edit_Search.DataContext = temp;
+      
+            txt_Edit_Search.DataContext = temp; //Da vi har brug forskellige datacontexts har vi valgt at sætte dem specifik på de enkelte elementer.
             txt_Edit_ActorEmail.DataContext = actor;
             txt_Edit_ActorTlf.DataContext = actor;
             txt_Edit_ActorName.DataContext = actor;
@@ -100,14 +102,9 @@ namespace BRAVO_SemesterProjekt
         }
        
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void edit_Actor_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) //Vi bruger denne metod til at ændre navnet på vores kolonne headers
         {
-            EditMenu menu = new EditMenu();
-            NavigationService.Navigate(menu);
-        }
-
-        private void edit_Actor_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
+            
             if (e.PropertyName == "ActorName")
             {
                 e.Column.Header = "Aktørnavn";
@@ -116,6 +113,12 @@ namespace BRAVO_SemesterProjekt
             {
                 e.Column.Header = "Aktiv";
             }
+        }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            EditMenu menu = new EditMenu();
+            NavigationService.Navigate(menu);
         }
     }
 }
