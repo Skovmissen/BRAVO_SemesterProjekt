@@ -60,10 +60,10 @@ namespace BRAVO_SemesterProjekt
             DB.CloseDb();
         }
 
-        private void button_update_Click(object sender, RoutedEventArgs e) // instansen combo sendes til updatecombo metden, der opdaterer tabbellen, viewet opdateres.
+        private void button_update_Click(object sender, RoutedEventArgs e) // instansen combo sendes til updatecombo metoden, der opdaterer tabellen i databasen, viewet opdateres også.
         {
             try
-            {
+            {   // Hvis værdien i en property er anderledes end null, så køres if. Else får man en exeption.
                 if (!(combo.Name == null || combo.Name == "" || combo.Description == null || combo.Description == "" || combo.StartTime == null ||  combo.EndTime == null || combo.Price == 0))
                 {
                     DB.OpenDb();

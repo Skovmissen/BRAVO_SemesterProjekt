@@ -25,7 +25,6 @@ namespace BRAVO_SemesterProjekt
     public partial class ShowProducts : Page
     {
 
-        //TempData temp = new TempData();
         Products product = new Products();
         public ShowProducts()
         {
@@ -43,7 +42,7 @@ namespace BRAVO_SemesterProjekt
         }
 
         /// <summary>
-        /// klik på knap søger produkt tabel for det indtastede
+        /// klik på knap søger i produkttabel for det bruger har indtastet
         /// </summary>
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
@@ -55,7 +54,7 @@ namespace BRAVO_SemesterProjekt
                 {
                     datagrid_ShowProducts.UnselectAllCells();
                     DB.OpenDb();
-                    datagrid_ShowProducts.ItemsSource = DB.SearchProductOverview(product).DefaultView;//metoden kalder de søgte koonner i DB og sender dem til datagriddet
+                    datagrid_ShowProducts.ItemsSource = DB.SearchProductOverview(product).DefaultView;//metoden kalder de søgte kolonner i DB og sender dem til datagriddet
                     DB.CloseDb();
                 }
                 else
@@ -85,7 +84,7 @@ namespace BRAVO_SemesterProjekt
 
         private void datagrid_ShowProducts_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            foreach (DataRowView row in datagrid_ShowProducts.SelectedItems) //for hvert række i datagriddet bliver indholdet af kolonner lagt i properties, som vi kan databinde til.
+            foreach (DataRowView row in datagrid_ShowProducts.SelectedItems) //for hver række i datagriddet bliver indholdet af kolonner lagt i properties, som vi kan databinde til.
             {
                 product.ProductName = row.Row.ItemArray[0].ToString();
                 product.Category = row.Row.ItemArray[1].ToString();
@@ -129,7 +128,7 @@ namespace BRAVO_SemesterProjekt
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
-        {
+        {   // Denne metode kalder print klassen, og tager produkt objektet og skriver det til en txt fil.
             Print.WriteToFile(product);
         }
 

@@ -27,7 +27,6 @@ namespace BRAVO_SemesterProjekt
     {
 
         Clusters cluster = new Clusters();
-        //Actors actor = new Actors();
         TempData temp = new TempData();
 
         public ShowClusters() //vis klynge metoden køres og sendes til datagriddet
@@ -82,6 +81,7 @@ namespace BRAVO_SemesterProjekt
             NavigationService.Navigate(menu);
         }
 
+        //Auto generate column metoden her bruges til at frasortere kolonner i visning af datagriddet, samt ændre kolonnenavnene fra databasen til et mere sigende navn.
         private void dataGrid_cluster_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if (e.PropertyName == "Description" || e.PropertyName == "Activate")
