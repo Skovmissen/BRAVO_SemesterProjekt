@@ -30,7 +30,7 @@
         <DataGrid x:Name="dg_showproduts" HorizontalAlignment="Left" Margin="859,282,0,0" VerticalAlignment="Top"
                   Height="406" Width="406" IsReadOnly="True" ColumnWidth="*" GridLinesVisibility="All"
                   HeadersVisibility="None" OpacityMask="Black" FontSize="16" />
-        <ComboBox x:Name="cmb_products" HorizontalAlignment="Left" Margin="680,425,0,0" VerticalAlignment="Top"
+        <ComboBox x:Name="cmb_products" DisplayMemberPath="ProductName" SelectedValuePath="ProductId" HorizontalAlignment="Left" Margin="680,425,0,0" VerticalAlignment="Top"
                   Width="120" DropDownClosed="cmb_products_DropDownClosed" />
         <Button x:Name="button1" Content="Tilføj produkt" HorizontalAlignment="Left" Margin="680,472,0,0"
                 VerticalAlignment="Top" Width="174" Click="btn_addproductInCombi" Height="40" />
@@ -52,7 +52,7 @@
         <Label x:Name="label8" Content="Pris" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top"
                Width="120" />
         <ComboBox x:Name="cmb_combiproducts" HorizontalAlignment="Left" Margin="680,300,0,0" VerticalAlignment="Top"
-                  Width="120" IsSynchronizedWithCurrentItem="True" DropDownClosed="comboBox_DropDownClosed"
+                  Width="120" IsSynchronizedWithCurrentItem="True" DropDownClosed="cmb_combiProducts_DropDownClosed"
                   BorderBrush="White" />
         <Label x:Name="label7" Content="Vælg Kombinations produkt" HorizontalAlignment="Left" Margin="680,271,0,0"
                VerticalAlignment="Top" Width="179" />

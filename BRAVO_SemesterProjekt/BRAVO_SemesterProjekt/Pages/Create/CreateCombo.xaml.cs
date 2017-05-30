@@ -18,7 +18,7 @@ namespace BRAVO_SemesterProjekt
         Products product = new Products();
         Actors actor = new Actors();
         TempData temp = new TempData();
-
+              
         public CreateCombo()
         {
             InitializeComponent();
@@ -42,19 +42,17 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
-
+        
         private void ShowProductsInCombi()  //Denne metode finder alle de produktid'er der er tilhørende det valgte komboId, hvorefter den henter produktnavnene ud og læser dem ind i datagridet.
         {
             DataTable comboProducts = DB.GetProductIdFromCombo(combo);
             dg_showproduts.ItemsSource = DB.GetProductsInCombo(comboProducts).DefaultView;
         }
-        private void FillcomboWithActorsProducts()   //Denne metoder fylder comboboxen med alle produkter i databasen
+        private void FillcomboWithActorsProducts()   //Denne metoder fylder comboboxen med alle den valgte aktørs produkter i databasen
         {
             DataTable products = DB.ShowActorsProducts(actor);
-            for (int i = 0; i < products.Rows.Count; i++)
-            {
-                cmb_products.Items.Add(products.Rows[i]["ProductName"]);
-            }
+            cmb_products.ItemsSource = products.DefaultView;          
+                   
         }
         private void FillcomboWithActors()   //Denne metoder fylder comboboxen med alle produkter i databasen
         {
@@ -73,15 +71,7 @@ namespace BRAVO_SemesterProjekt
             }
         }
 
-
-        private void cmb_products_DropDownClosed(object sender, EventArgs e)    //Den metode finder produktetsId da det er det der skal sættes ind i databasen
-        {
-            temp.ChosenItem = cmb_products.Text;
-            DB.OpenDb();
-            product.Id = DB.SelectProductId(temp);
-            DB.CloseDb();
-        }
-
+       
         private void btn_addproductInCombi(object sender, RoutedEventArgs e)
         {
 
@@ -157,29 +147,35 @@ namespace BRAVO_SemesterProjekt
 
         }
 
-        private void cmb_actor_DropDownClosed(object sender, EventArgs e)
-        {
-            actor.Name = cmb_actor.Text;
-            cmb_products.Items.Clear();
-            FillcomboWithActorsProducts();
-        }
+        
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             CreateMenu menu = new CreateMenu();
             NavigationService.Navigate(menu);
         }
 
-        private void comboBox_DropDownClosed(object sender, EventArgs e)
+        private void cmb_combiProducts_DropDownClosed(object sender, EventArgs e)
         {
             combo.NewComBoName = cmb_combiproducts.Text;
             lbl_comproductname.Content = cmb_combiproducts.Text;
-
-
+            
             DB.OpenDb();
-            combo.Id = DB.GetcomboId(combo);
+            combo.Id = DB.GetcomboId(combo);            
             ShowProductsInCombi();
             DB.CloseDb();
 
+        }
+        private void cmb_products_DropDownClosed(object sender, EventArgs e)    //Den metode finder produktetsId da det er det der skal sættes ind i databasen
+        {
+
+            temp.ChosenItem = cmb_products.Text;
+            product.Id = Convert.ToInt32(cmb_products.SelectedValue);
+
+        }
+        private void cmb_actor_DropDownClosed(object sender, EventArgs e)
+        {
+            actor.Name = cmb_actor.Text;            
+            FillcomboWithActorsProducts();
         }
         private void Clearboxes()
         {
@@ -189,7 +185,5 @@ namespace BRAVO_SemesterProjekt
             combo.StartTime = null;
             combo.EndTime = null;
         }
-
-
     }
 }
