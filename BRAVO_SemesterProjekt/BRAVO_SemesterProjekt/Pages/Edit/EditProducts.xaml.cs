@@ -21,19 +21,32 @@ namespace BRAVO_SemesterProjekt
             InitializeComponent();
             textBox_Search_Edit_Product.DataContext = temp;
             DataContext = product;
-            DB.OpenDb();
-            Fillcombo();
-            dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;
+            try
+            {
+                DB.OpenDb();
+                Fillcombo();
+                dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;
+                DB.CloseDb();
+            }
+            catch (SqlException)
+            {
 
-            DB.CloseDb();
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
         }
 
         private void button_Edit_Product_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (!(product.ProductName == null || product.ProductName == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Street == null || product.Street == "" || product.Latitude == 0 || product.Longtitude == 0 || product.Url == null || product.Url == "" || product.Description == null || product.Description == "" || product.Category == null || product.Category == "" || product.ActorName == null || product.ActorName == ""))
             {
-                if (!(product.ProductName == null || product.ProductName == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Street == null || product.Street == "" || product.Latitude == 0 || product.Longtitude == 0 || product.Url == null || product.Url == "" || product.Description == null || product.Description == "" || product.Category == null || product.Category == "" || product.ActorName == null || product.ActorName == ""))
+                try
                 {
+
                     DB.OpenDb();
                     DB.UpdateProduct(product);
                     dataGrid_Edit_Product.ItemsSource = DB.ShowProducts().DefaultView;
@@ -44,20 +57,21 @@ namespace BRAVO_SemesterProjekt
                     DB.CloseDb();
                     SetPropertiesNull(); // Denne metode nulstiller alle vores properties til null, så der ikke bliver problemer ved valg af nyt produkt
                     MessageBox.Show("Redigering fuldført");
-                }
-                else
-                {
-                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
-                }
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Ingen forbindelse til Databasen");
 
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Ingen forbindelse til Databasen");
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ukendt fejl");
+                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Ukendt fejl");
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
             }
         }
 

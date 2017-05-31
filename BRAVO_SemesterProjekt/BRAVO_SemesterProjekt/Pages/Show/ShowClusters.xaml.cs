@@ -24,10 +24,24 @@ namespace BRAVO_SemesterProjekt
             InitializeComponent();
             search_cluster.DataContext = temp;
             txt_description.DataContext = cluster;
-            DB.OpenDb();
-            dataGrid_cluster.ItemsSource = DB.ShowCluster().DefaultView;
 
-            DB.CloseDb();
+            try
+            {
+                DB.OpenDb();
+                dataGrid_cluster.ItemsSource = DB.ShowCluster().DefaultView;
+
+                DB.CloseDb();
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
         }
 
         private void btn_search_cluster_Click(object sender, RoutedEventArgs e)//søge metoden køres og og sendes til datagriddet

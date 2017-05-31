@@ -18,10 +18,23 @@ namespace BRAVO_SemesterProjekt
         {
             InitializeComponent();
             DataContext = product;
-            DB.OpenDb();
-            Fillcombos();
-            DB.CloseDb();
-        }     
+            try
+            {
+                DB.OpenDb();
+                Fillcombos();
+                DB.CloseDb();
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
+        }
         private void Fillcombos() //Denne metode finder aktør- og produktnavne og fylder dem i comboboxe
         {
             DataTable actor = DB.ShowActor();
@@ -43,37 +56,46 @@ namespace BRAVO_SemesterProjekt
         private void cmb_actor_DropDownClosed(object sender, EventArgs e)
         {
             product.ActorName = cmb_actor.Text;
-        }      
+        }
 
         private void btn_CreateProduct(object sender, RoutedEventArgs e)
         {
-            try
+            if (!(product.ProductName == null || product.ProductName == "" || product.Street == null ||
+                  product.Street == "" || product.City == null || product.City == "" || product.Zipcode == null ||
+                  product.Zipcode == "" || product.Region == null || product.Region == "" || product.Longtitude == 0 ||
+                  product.Latitude == 0 || product.Url == null || product.Url == "" || product.Price <= 0 ||
+                  product.Description == null || product.Description == "" || product.ActorName == null ||
+                  product.Category == null))
             {
-                if (!(product.ProductName == null || product.ProductName == "" || product.Street == null || product.Street == "" || product.City == null || product.City == "" || product.Zipcode == null || product.Zipcode == "" || product.Region == null || product.Region == "" || product.Longtitude == 0 || product.Latitude == 0 || product.Url == null || product.Url == "" || product.Price <= 0 || product.Description == null || product.Description == "" || product.ActorName == null || product.Category == null))
+                try
                 {
-                DB.OpenDb();
-                DB.InsertProduct(product);
-                DB.CloseDb();
-                MessageBox.Show("Produktet er oprettet");
-                ClearBoxes();
+
+                    DB.OpenDb();
+                    DB.InsertProduct(product);
+                    DB.CloseDb();
+                    MessageBox.Show("Produktet er oprettet");
+                    ClearBoxes();
                 }
-                else
+
+
+                catch (SqlException)
                 {
-                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
 
-                }               
-            }
-            catch (SqlException)
-            {
-                
-                MessageBox.Show("Der er ingen forbindelse til databasen");
-            }
-            catch (Exception)
-            {
+                    MessageBox.Show("Der er ingen forbindelse til databasen");
+                }
+                catch (Exception)
+                {
 
-                MessageBox.Show("Ukendt fejl");
+                    MessageBox.Show("Ukendt fejl");
+                }
             }
-            
+            else
+
+            {
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
+
+            }
+
         }
         private void ClearBoxes()
         {

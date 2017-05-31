@@ -19,11 +19,23 @@ namespace BRAVO_SemesterProjekt
         {
             InitializeComponent();
             textBox_search.DataContext = temp;
-
             DataContext = combo;
-            DB.OpenDb();
-            dataGrid_edit_Combo.ItemsSource = DB.ShowEditCombo().DefaultView;
-            DB.CloseDb();
+            try
+            {
+                DB.OpenDb();
+                dataGrid_edit_Combo.ItemsSource = DB.ShowEditCombo().DefaultView;
+                DB.CloseDb();
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
         }
 
         private void dataGrid_edit_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e) //kolonner i gridview bindes til obj properties, så de kan persisteres til db 
@@ -52,9 +64,11 @@ namespace BRAVO_SemesterProjekt
 
         private void button_update_Click(object sender, RoutedEventArgs e) // instansen combo sendes til updatecombo metoden, der opdaterer tabellen i databasen, viewet opdateres også.
         {
-            try
-            {   // Hvis værdien i en property er anderledes end null, så køres if. Else får man en exeption.
-                if (!(combo.Name == null || combo.Name == "" || combo.Description == null || combo.Description == "" || combo.StartTime == null ||  combo.EndTime == null || combo.Price == 0))
+            // Hvis værdien i en property er anderledes end null, så køres if. Else får man en exeption.
+            if (!(combo.Name == null || combo.Name == "" || combo.Description == null || combo.Description == "" ||
+                  combo.StartTime == null || combo.EndTime == null || combo.Price == 0))
+            {
+                try
                 {
                     DB.OpenDb();
                     DB.UpdateCombo(combo);
@@ -69,19 +83,21 @@ namespace BRAVO_SemesterProjekt
 
                     MessageBox.Show("Redigering fuldført");
                 }
-                else
+
+
+                catch (SqlException)
                 {
-                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+
+                    MessageBox.Show("Ingen forbindelse til Databasen");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ukendt fejl");
                 }
             }
-            catch (SqlException)
+            else
             {
-
-                MessageBox.Show("Ingen forbindelse til Databasen");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Ukendt fejl");
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
             }
         }
 

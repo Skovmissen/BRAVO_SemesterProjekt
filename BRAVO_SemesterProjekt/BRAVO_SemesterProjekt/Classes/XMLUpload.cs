@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
@@ -121,31 +122,45 @@ namespace BRAVO_SemesterProjekt
 
         private static void InsertInDb(Actors actor, Products product) //indsætter de funde data fra xml dokumentet i databasen.
         {
-            DB.OpenDb();
-            DataTable dtActor = DB.CheckForDoubleActor(actor);
-            if (dtActor.Rows.Count == 0)
+            try
             {
-                DB.InsertActor(actor);
+                DB.OpenDb();
+                DataTable dtActor = DB.CheckForDoubleActor(actor);
+                if (dtActor.Rows.Count == 0)
+                {
+                    DB.InsertActor(actor);
+                }
+
+                DataTable dtCategory = DB.CheckForDoubleCategory(product);
+
+                if (dtCategory.Rows.Count == 0)
+                {
+                    DB.InsertCategory(product);
+                }
+
+                DataTable dtProduct = DB.CheckForDoubleProduct(product);
+
+                if (dtProduct.Rows.Count > 0)
+                {
+                    DB.UpdateXMLProduct(product);
+                }
+                else
+                {
+                    DB.InsertXMLProduct(product, actor);
+                }
+                DB.CloseDb();
             }
-
-            DataTable dtCategory = DB.CheckForDoubleCategory(product);
-
-            if (dtCategory.Rows.Count == 0)
+            catch (SqlException)
             {
-                DB.InsertCategory(product);
-            }
 
-            DataTable dtProduct = DB.CheckForDoubleProduct(product);
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
 
-            if (dtProduct.Rows.Count > 0)
-            {
-                DB.UpdateXMLProduct(product);
+                MessageBox.Show("Ukendt fejl");
             }
-            else
-            {
-                DB.InsertXMLProduct(product, actor);
-            }
-            DB.CloseDb();
+           
         }
         private static async Task PutTaskDelay() // Async bruges til at forsinke metoden så den har tid til at opdatere gui, hvori vores progress bar er.
         {

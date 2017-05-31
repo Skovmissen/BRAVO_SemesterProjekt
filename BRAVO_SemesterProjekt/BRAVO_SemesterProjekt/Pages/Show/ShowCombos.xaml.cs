@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace BRAVO_SemesterProjekt
 {
@@ -16,7 +17,7 @@ namespace BRAVO_SemesterProjekt
         TempData temp = new TempData();
         public ShowCombos()
         {
-            
+
             InitializeComponent();
             lbl_end.DataContext = combo;
             lbl_start.DataContext = combo;
@@ -25,21 +26,48 @@ namespace BRAVO_SemesterProjekt
             lbl_price.DataContext = combo;
             dp_end.DataContext = combo;
             dp_start.DataContext = combo;
-            
+
             txt_Search_Combo.DataContext = temp;
             combo.SearchStartTime = DateTime.Now;
             combo.SearchEndTime = DateTime.Now;
-            DB.OpenDb();
-            GridShowCombo.ItemsSource = DB.ShowCombo().DefaultView;
-            DB.CloseDb();
+
+            try
+            {
+                DB.OpenDb();
+                GridShowCombo.ItemsSource = DB.ShowCombo().DefaultView;
+                DB.CloseDb();
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
         }
 
         private void btn_Search_Combo_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                DB.OpenDb();
+                GridShowCombo.ItemsSource = DB.SearchCombo(temp, combo).DefaultView;
+                DB.CloseDb();
+            }
+            catch (SqlException)
+            {
 
-            DB.OpenDb();
-            GridShowCombo.ItemsSource = DB.SearchCombo(temp, combo).DefaultView;
-            DB.CloseDb();
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
+
         }
 
         private void GridShowCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -53,12 +81,25 @@ namespace BRAVO_SemesterProjekt
                 combo.Name = row.Row.ItemArray[1].ToString();
                 combo.Price = Convert.ToDouble(row.Row.ItemArray[5].ToString());
             }
-          
-            DB.OpenDb();
+            try
+            {
+                DB.OpenDb();
 
-            DataTable comboProducts = DB.GetComboProduts(combo);
-            dataGridCombo.ItemsSource = DB.GetProductsInCombo(comboProducts).DefaultView;
-            DB.CloseDb();
+                DataTable comboProducts = DB.GetComboProduts(combo);
+                dataGridCombo.ItemsSource = DB.GetProductsInCombo(comboProducts).DefaultView;
+                DB.CloseDb();
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
+
         }
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {

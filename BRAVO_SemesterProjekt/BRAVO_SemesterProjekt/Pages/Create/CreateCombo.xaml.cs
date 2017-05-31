@@ -74,26 +74,25 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_addproductInCombi(object sender, RoutedEventArgs e)
         {
-
-            try
+            if (!(combo.NewComBoName == null || actor.Name == null || temp.ChosenItem == null))
             {
-                if (!(combo.NewComBoName == null || actor.Name == null || temp.ChosenItem == null))
+                try
                 {
+
                     DB.OpenDb();
                     DB.InsertProductInCombi(combo, product);
                     ShowProductsInCombi();
                     DB.CloseDb();
                 }
-                else
+                catch (SqlException)
                 {
-                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+
+                    MessageBox.Show("Der er ingen forbindelse til databasen");
                 }
-
             }
-            catch (SqlException)
+            else
             {
-
-                MessageBox.Show("Der er ingen forbindelse til databasen");
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
             }
         }
 
@@ -146,11 +145,24 @@ namespace BRAVO_SemesterProjekt
         {
             combo.NewComBoName = cmb_combiproducts.Text;
             lbl_comproductname.Content = cmb_combiproducts.Text;
-
-            DB.OpenDb();
+            try
+            {
+                 DB.OpenDb();
             combo.Id = DB.GetcomboId(combo);
             ShowProductsInCombi();
             DB.CloseDb();
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
+           
 
         }
         private void cmb_products_DropDownClosed(object sender, EventArgs e)    //Den metode finder produktetsId da det er det der skal sættes ind i databasen

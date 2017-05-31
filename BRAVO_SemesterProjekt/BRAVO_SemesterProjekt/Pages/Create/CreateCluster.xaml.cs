@@ -62,10 +62,12 @@ namespace BRAVO_SemesterProjekt
         }
         private void btn_saveClusterName(object sender, RoutedEventArgs e)
         {
-            try
+            if (!(cluster.Name == null || cluster.Name == "" || cluster.Description == null ||
+                  cluster.Description == ""))
             {
-                if (!(cluster.Name == null || cluster.Name == "" || cluster.Description == null || cluster.Description == ""))
+                try
                 {
+
                     DB.OpenDb();
                     DataTable checkDoubleCluster = DB.CheckForDoubleCluster(cluster);
 
@@ -84,20 +86,22 @@ namespace BRAVO_SemesterProjekt
                         txt_navn.Clear();
                     }
                 }
-                else
+
+
+                catch (SqlException)
                 {
-                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+
+                    MessageBox.Show("Ingen forbindelse til Databasen");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Ukendt fejl");
                 }
             }
-            catch (SqlException)
+            else
             {
-
-                MessageBox.Show("Ingen forbindelse til Databasen");
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Ukendt fejl");
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
             }
         }
 
@@ -136,11 +140,26 @@ namespace BRAVO_SemesterProjekt
         private void cmb_cluster_DropDownClosed(object sender, EventArgs e)
         {
             cluster.Name = cmb_cluster.Text;
-            DB.OpenDb();
-            DataGridShowSpecificCluster();
-            DB.CloseDb();
+            try
+            {
+                DB.OpenDb();
+                DataGridShowSpecificCluster();
+                DB.CloseDb();
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
+
             label1.Content = cmb_cluster.Text;
             txt_navn.Clear();
+
         }
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {

@@ -21,10 +21,24 @@ namespace BRAVO_SemesterProjekt
         {
             InitializeComponent();
             DataContext = product;
-            DB.OpenDb();
+           
+            try
+            {
+                DB.OpenDb();
             datagrid_ShowProducts.ItemsSource = DB.ShowProductsOverview().DefaultView;//i konstruktøren kaldes i DB en produktoversigt, der sendes til datagrid
             DB.CloseDb();
             SetSearchPropertiesToNull();
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Ingen forbindelse til databasen");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ukendt fejl");
+            }
 
         }
 
@@ -49,6 +63,7 @@ namespace BRAVO_SemesterProjekt
                     DB.OpenDb();
                     datagrid_ShowProducts.ItemsSource = DB.SearchProductOverview(product).DefaultView;//metoden kalder de søgte kolonner i DB og sender dem til datagriddet
                     DB.CloseDb();
+
                 }
                 else
                 {
@@ -56,13 +71,13 @@ namespace BRAVO_SemesterProjekt
                 }
               
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
 
                 MessageBox.Show("Ingen forbindelse til databasen");
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 MessageBox.Show("Ukendt fejl");

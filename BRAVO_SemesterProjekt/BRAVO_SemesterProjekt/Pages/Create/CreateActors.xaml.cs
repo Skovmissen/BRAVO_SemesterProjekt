@@ -22,10 +22,12 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_gem(object sender, RoutedEventArgs e)
         {
-            try
+            if (!(actor.Name == null || actor.Name == "" || actor.Email == null || actor.Email == "" ||
+                  actor.Tlf == null || actor.Tlf == ""))
             {
-                if (!(actor.Name == null || actor.Name == "" || actor.Email == null || actor.Email == "" || actor.Tlf == null || actor.Tlf == ""))
+                try
                 {
+
                     DB.OpenDb();
                     DataTable CheckDoubleActor = DB.CheckForDoubleActor(actor);
                     if (CheckDoubleActor.Rows.Count > 0)
@@ -40,25 +42,23 @@ namespace BRAVO_SemesterProjekt
                         ClearBoxes();
                     }
                 }
-
-                else
+                catch (SqlException)
                 {
-                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+
+                    MessageBox.Show("Der er ingen forbindelse til databasen");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Ukendt fejl");
                 }
 
+                DB.CloseDb();
             }
-            catch (SqlException)
+            else
             {
-
-                MessageBox.Show("Der er ingen forbindelse til databasen");
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
             }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Ukendt fejl");
-            }
-
-            DB.CloseDb();
         }
         private void ClearBoxes() // Denne metoder tømmer alle vores textboxes
         {

@@ -26,7 +26,6 @@ namespace BRAVO_SemesterProjekt
             }
             catch (SqlException)
             {
-
                 MessageBox.Show("Ingen forbindelse til databsen");
             }
             catch(Exception)
@@ -48,10 +47,12 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (!(cluster.OldName == null || cluster.OldName == "" || cluster.Name == null || cluster.Name == "" ||
+                  cluster.Description == null | cluster.Description == ""))
             {
-                if (!(cluster.OldName == null || cluster.OldName == "" || cluster.Name == null || cluster.Name == "" || cluster.Description == null | cluster.Description == ""))
+                try
                 {
+
                     DB.OpenDb();
                     DB.UpdateCluster(cluster);
                     edit_Cluster.ItemsSource = DB.SearchCluster(temp).DefaultView;
@@ -62,20 +63,22 @@ namespace BRAVO_SemesterProjekt
                     cluster.Activate = false;
                     MessageBox.Show("Redigering fuldført");
                 }
-                else
-                {
-                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
-                }
-                
-            }
-            catch (SqlException)
-            {
 
-                MessageBox.Show("ingen forbindelse til databasen");
+
+
+                catch (SqlException)
+                {
+
+                    MessageBox.Show("ingen forbindelse til databasen");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ukendt fejl");
+                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Ukendt fejl");
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
             }
         }
 

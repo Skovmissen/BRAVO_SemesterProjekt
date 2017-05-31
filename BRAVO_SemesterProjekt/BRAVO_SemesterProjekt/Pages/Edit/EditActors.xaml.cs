@@ -44,11 +44,13 @@ namespace BRAVO_SemesterProjekt
 
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (!(actor.OldName == null || actor.OldName == "" || actor.Name == null || actor.Name == "" ||
+                  actor.Email == null || actor.Email == "" || actor.Tlf == null || actor.Tlf == ""))
             {
-             
-                if (!(actor.OldName == null || actor.OldName == "" || actor.Name == null || actor.Name == "" || actor.Email == null || actor.Email == "" || actor.Tlf == null || actor.Tlf == ""))
+                try
                 {
+
+
                     DB.OpenDb();
                     DB.UpdateActor(actor);
                     edit_Actor.ItemsSource = DB.ShowAllActor().DefaultView;
@@ -59,24 +61,24 @@ namespace BRAVO_SemesterProjekt
                     actor.Tlf = null;
                     actor.Activate = false;
                     MessageBox.Show("Redigering fuldført");
+
+
                 }
-                else
+                catch (SqlException)
                 {
-                    MessageBox.Show("Et felt er ikke udfyldt korrekt");
+
+                    MessageBox.Show("Ingen forbindelse til databasen");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("ukendt fejl");
                 }
             }
-            catch (SqlException)
+            else
             {
-
-                MessageBox.Show("Ingen forbindelse til databasen");
+                MessageBox.Show("Et felt er ikke udfyldt korrekt");
             }
-            catch (Exception)
-            {
-
-                MessageBox.Show("ukendt fejl");
-            }
-
-
         }
 
         private void btn_Edit_Search_Click(object sender, RoutedEventArgs e)
